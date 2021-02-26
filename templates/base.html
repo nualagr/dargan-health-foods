@@ -18,7 +18,7 @@
         <!-- Google Fonts CSS -->
         <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
         <!-- Custom CSS -->
-        <link rel="stylesheet preload" as="style" type="text/css" href="{% static 'css/base.css' %}" />
+
     {% endblock %}
 
     {% block extra_css %}
@@ -52,7 +52,7 @@
                 </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'products' %}">
+                <form method="GET" action="">
                     <div class="input-group w-100">
                         <input class="form-control border border-black rounded-0" type="text" name="q"
                             placeholder="Search our site">
@@ -91,14 +91,14 @@
                     </li>
                     <li class="list-inline-item">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                            href="{% url 'view_bag' %}">
+                            href="">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                 <p class="my-0">
                                     {% if grand_total %}
-                                    ${{ grand_total|floatformat:2 }}
+                                        ${{ grand_total|floatformat:2 }}
                                     {% else %}
-                                    $0.00
+                                        $0.00
                                     {% endif %}
                                 </p>
                             </div>
