@@ -11,14 +11,26 @@ The site is aimed at health-conscious and environmentally-conscious consumers.
 These individuals are concerned with nutrition, fitness, and the environment and wish 
 to lead a 'wellness-oriented' lifestyle by purchasing health-related products. 
 
-This project was created to satisfy the final Milestone Project requirements of the Full Stack Web Development Program at the [Code Institute](https://codeinstitute.net/). 
-This full-stack website, with its fully-implemented authentication mechanism and payment system and control of a centrally-owned dataset, was constructed using 
-[HTML5](http://en.wikipedia.org/wiki/HTML5), [CSS3](http://en.wikipedia.org/wiki/CSS), [JavaScript](https://en.wikipedia.org/wiki/JavaScript), the JavaScript library 
-[jQuery](https://jquery.com/) , [Python](https://en.wikipedia.org/wiki/Python_(programming_language)), [Django](https://www.djangoproject.com/), 
-[PostgreSQL](https://www.heroku.com/postgres) database and the [Stripe](https://stripe.com/) payment platform.
+This project was created to satisfy the final Milestone Project requirements of the Full 
+Stack Web Development Program at the [Code Institute](https://codeinstitute.net/). 
+This full-stack website, with its fully-implemented authentication mechanism and 
+payment system and control of a centrally-owned dataset, was constructed using 
+[HTML5](http://en.wikipedia.org/wiki/HTML5), [CSS3](http://en.wikipedia.org/wiki/CSS),
+ [JavaScript](https://en.wikipedia.org/wiki/JavaScript), the JavaScript library 
+[jQuery](https://jquery.com/) , [Python](https://en.wikipedia.org/wiki/Python_(programming_language)),
+ [Django](https://www.djangoproject.com/), [Heroku Postgre](https://www.heroku.com/postgres) database 
+ and the [Stripe](https://stripe.com/) payment platform.
 
+To test the site's checkout process please use the test credit card number provided in 
+the [Stripe Documentation](https://stripe.com/docs/testing):
+Card Number: 4242 4242 4242 4242
+Expiration Date: Any date (e.g. 02/04)
+CVC: Any three digits 
+
+<br>
 
 Click <a href="">here</a> to visit the deployed site.
+
 <br>
 
 ## **Table of Contents**
@@ -577,26 +589,21 @@ initial commit in order to stop it being pushed to GitHub.
 The following Entity Relationship Diagram, created using [dbdiagram](https://dbdiagram.io/), 
 illustrates the relationships between the models.
 
-![alt text](documentation/readme-images/open-sans-font.png "Open Sans font example.")
+![alt text](documentation/readme-images/postgres-layout.png "Postgres Layout.")
 
 
 ### Data Storage Types
-The types of data stored in MongoDB for this project are:
+The types of data stored in Postgres for this project are:
 -	ObjectId
 -	String
 -	Float
 -   Integer
 
 ### Collections Data Structure
-Initially the data was broken up into five database collections: Users, Reviews, Books, Authors and Genres.
-However after reading about normalization on [StackOverflow](https://stackoverflow.com/questions/24839147/is-it-needed-to-normalize-your-database-when-you-are-using-mongodb#:~:text=1%20Answer&text=Normalizing%20your%20data%20like%20you,between%20tables%20are%20relatively%20cheap.)
-it was decided to combine the books, authors and genre collection into two collections. In that way 
-the most common queries can be satisfied by querying these two collections, Books and Reviews, even though this means that there will be some redundancy in the database.
-
-The Read n’ Reviewed website relies on three database collections overall:
+The Dargan Health Foods website relies on twelve database collections overall:
 
 
-#### Users Collection
+#### User Collection
 | Title	        |Key in db	    |form validation type	|Data type  |
 | :------------ |:--------------| :---------------------|:--------- |
 |User ID        |_id	        |None	                |ObjectId   |
