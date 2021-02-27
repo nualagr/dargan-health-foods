@@ -3,11 +3,9 @@ html {
 }
 
 body {
-    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
-    background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
-    font-family: 'Lato';
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* from Bulma */
@@ -19,17 +17,59 @@ body {
     width: 1.5rem;
 }
 
-.logo-font {
+.heading-font {
     text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .main-logo-link {
     width: fit-content;
 }
 
+.main-logo-link img {
+    width: 100%;
+    height: auto;
+}
+
+#desktop-top-nav {
+    background-color: #FFFFFF;
+}
+
+#desktop-top-nav ul {
+    padding: .625em 0;
+    text-align: right;
+    font-size: .75em;
+    list-style: none;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#desktop-top-nav ul li
+{
+    display: inline;
+    padding: 0 0 0 .625em;
+}
+
+#desktop-top-nav ul li a {
+    font-family: "Montserrat", sans-serif;
+    color: #29873C;
+}
+
+#main-nav {
+    background-color: #29873C;
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(0, 0, 0, 0);
+    border: 0px;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #29873C;
+}
 
 .shop-now-button {
-    background: black;
+    background: #29873C;
     color: white;
     min-width: 260px;
 }
@@ -70,8 +110,12 @@ body {
     border: 1px solid black !important;
 }
 
-.bg-black {
-    background: #000 !important;
+.bg-apple-green {
+    background: #97BE0D !important;
+}
+
+.bg-forest-green {
+    background: #29873c !important;
 }
 
 /* -------------------------------- Media Queries */
@@ -96,4 +140,10 @@ body {
     .header-container {
         padding-top: 164px;
     }
+}
+
+@media (max-width: 991px) {
+    #delivery-banner h4 {
+        font-size: .9rem;
+}
 }
