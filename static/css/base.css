@@ -57,11 +57,25 @@ body {
 
 #main-nav {
     background-color: #29873C;
+    color: #FFFFFF !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 255);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:active {
+    color: #97BE0D;
 }
 
 .navbar-dark .navbar-toggler {
-    color: rgba(0, 0, 0, 0);
+    color: rgba(255, 255, 255, 255);
     border: 0px;
+}
+
+.dropdown-menu {
+    border-radius: 0px;
 }
 
 .dropdown-menu .dropdown-item {
@@ -74,40 +88,56 @@ body {
     min-width: 260px;
 }
 
-.btn-black {
-    background: black;
+.btn-cream {
+    background-color: #E0D1B1 !important;
+    color: #FFFFFF;
+}
+
+.btn-yellow {
+    background: #F9A620;
+    color: white !important;
+}
+
+.btn-forest-green {
+    background: #29873C;
     color: white;
 }
 
-.btn-outline-black {
-    background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
-    border: 1px solid black;
+.btn-outline-forest-green {
+    background: #FFFFFF;
+    color: #29873C !important; /* use important to override link colors for <a> elements */
+    border: 1px solid #29873C;
 }
 
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    background: black;
-    color: white !important;
+.btn-outline-forest-green:hover,
+.btn-outline-forest-green:active,
+.btn-outline-forest-green:focus {
+    background: #29873C;
+    color: #FFFFFF !important;
 }
 
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
+.btn-forest-green:hover,
+.btn-forest-green:active,
+.btn-forest-green:focus {
+    background: rgb(9, 85, 24);
     color: white;
 }
 
 .text-black {
-    color: #000 !important;
+    color: #333333 !important;
 }
 
-.border-black {
-    border: 1px solid black !important;
+.text-grey {
+    color: #C8C8C8 !important;
+}
+
+
+
+.border-green {
+    border: 1px solid #29873c !important;
 }
 
 .bg-apple-green {
@@ -125,6 +155,29 @@ body {
   .container {
     max-width: 80%;
   }
+}
+
+@media screen and (min-width: 1025px) {
+#minicart {
+    float: right;
+    width: 80%;
+    font-family: "Montserrat", sans-serif;
+    display: block;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+}
+
+#minicart ul li {
+    display: inline-block;
+    margin: 0 0 0 .625em;
+}
 }
 
 /* fixed top navbar only on medium and up */

@@ -579,8 +579,6 @@ A relational database was used to store the collection of data for this project.
 Heroku [PostgreSQL](https://www.postgresql.org/) in production. 
 A relational database structure was suitable for this project as it allowed multiple 
 tables to be created, with data easily interconnected through the use of foreign keys. 
-All Models included are related to at least one other Model and implement common 
-database relationships: many-to-one, many-to-many and one-to-one.
 
 Note: The .sqlite3 development database file, was added to the .gitignore file before the 
 initial commit in order to stop it being pushed to GitHub.
@@ -589,61 +587,213 @@ initial commit in order to stop it being pushed to GitHub.
 The following Entity Relationship Diagram, created using [dbdiagram](https://dbdiagram.io/), 
 illustrates the relationships between the models.
 
-![alt text](documentation/readme-images/postgres-layout.png "Postgres Layout.")
+![alt text](documentation/readme-images/dargan-health-foods-er-diagram.png "Dargan Health Foods ER Diagram.")
 
 
-### Data Storage Types
-The types of data stored in Postgres for this project are:
--	ObjectId
--	String
--	Float
--   Integer
+### Data Models
 
-### Collections Data Structure
-The Dargan Health Foods website relies on twelve database collections overall:
+The Dargan Health Foods website relies on fifteen database models overall:
 
 
-#### User Collection
-| Title	        |Key in db	    |form validation type	|Data type  |
-| :------------ |:--------------| :---------------------|:--------- |
-|User ID        |_id	        |None	                |ObjectId   |
-|Username	    |username	    |text, maxlength="15"   |string     |
-|Password	    |password	    |text, maxlength="15"	|string     |
-|Email Address	|email	        |email                  |string     |
-|Wish List      |wishlist       |checked box            |Array of ObjectIds - Book ID     |
+#### User Model
+Django User model is a part of Django’s authentication system 
+Django.contrib.auth.models. 
+Information about its fields, attributes and methods are 
+located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
+
+* id PrimaryKey [pk] 
+* username CharField(150) [not null, unique]
+* first_name CharField(30) 
+* last_name CharField(30)
+* email CharField [not null]
+* password PasswordField
 
 <br>
 
-#### Books Collection
-| Title	            |Key in db	    |form validation type	|Data type  |
-| :------------     |:--------------| :---------------------|:--------- |
-|Book ID            |_id            |None                   |ObjectId   |
-|Thumbnail          |thumbnail      |None                   |string of the book cover url     |
-|Title	            |title	        |text, maxlength="100"  |string     |
-|Authors            |authors        |text, maxlength="50"   |array of strings     |
-|Category           |category       |None                   |string     |
-|Description        |description    |None                   |string     |
-|Publisher          |publisher      |None                   |string     |
-|Published Date     |published_date |None                   |string     |
-|Page Count         |page_count     |None                   |integer    |
-|ISBN	            |isbn           |None                   |string     |
-|Text Snippet       |text_snippet   |None                   |string     |
+#### UserProfile Model
+* id ForeignKey [ref: - User.id]
+* default_phone_number CharField(20) 
+* default_street_address1 CharField(80)
+* default_street_address2 CharField(80)
+* default_town_or_city CharField(40)
+* default_county CharField(80)
+* default_postcode CharField(20)
+* default_country CountryField
 
 <br>
 
-#### Reviews Collection			
-| Title	        |Key in db	    |form validation type	|Data type  |
-| :------------ |:--------------| :---------------------|:--------- |
-|Review ID      |_id            |None                   |ObjectId   |
-|Book ID        |book_id        |None                   |ObjectId   |
-|Rating	        |rating         |dropdown menu          |string     |
-|Review	        |review         |text                   |string     |
-|Reviewer       |created_by     |None                   |string     |
-|Date           |review_date    |None	                |double, float    |
-|Review Score   |review_score   |None                   |integer    |
-|Upvoters       |upvoters       |None                   |array of strings, usernames     |
+#### Department Model
+*  id PrimaryKey [pk] 
+*  name CharField(254)
+*  friendly_name CharField(254)
 
 <br>
+
+#### Category Model
+*  id PrimaryKey [pk] 
+*  name CharField(254)
+*  friendly_name CharField(254)
+*  category_department ForeignKey [ref: > Department.id]
+
+<br>
+
+#### Brand Model
+* id PrimaryKey [pk] 
+* name CharField(30)
+* friendly_name CharField(30)
+
+<br>
+
+#### Tag Model
+* id PrimaryKey [pk] 
+* name CharField(30)
+* friendly_name CharField(30)
+
+<br>
+
+// Enum for 'Product' table below
+
+Enum product_status {
+* out_of_stock
+* in_stock
+* running_low [note: 'less than 20'] // add column note
+
+}
+
+#### Product Model
+* id PrimaryKey [pk]
+* sku CharField(254)
+* name CharField(80)
+* abbreviated_name CharField(40)
+* brand_id ForeignKey [ref: > Brand.id]
+* size_value IntegerField(10)
+* size_unit CharField(10)
+* weight_g IntegerField(6)
+* price DecimalField(6) 
+* vat_code CharField(3)
+* product_information TextField
+* ingredients TextField
+* free_from BooleanField
+* allergens TextField
+* usage TextField
+* category_id ForeignKey [ref: > Category.id]
+* barcode CharField(13)
+* rating IntegerField(6)
+* status product_status
+* discontinued BooleanField
+* num_in_stock IntegerField(6)
+
+<br>
+
+#### ProductImage Model
+* id PrimaryKey [pk]
+* product_id ForeignKey [ref: > Product.id]
+* image ImageField
+* image_url URLField(1024)
+
+<br>
+
+#### ProductTags Model
+* product_id ForeignKey [ref: > Product.id]
+* tag_id ForeignKey [ref: > Tag.id]
+
+<br>
+
+#### ProductReview Model
+* id PrimaryKey [pk]
+* product_id ForeignKey [ref: > Product.id]
+* user_id ForeignKey [ref: > UserProfile.id]
+* product_rating IntegerField(1)
+* review_title CharField(80)
+* review_content TextField
+* created DateTimeField [default: `now()`]
+* updated DateTimeField [default: `now()`]
+
+<br>
+
+#### ProductDiscount Model
+* id PrimaryKey [pk]
+* product_id ForeignKey [ref: > Product.id]
+* discount_value DecimalField(6)
+* discount_unit CharField //Currency or Percentage
+* start_date DateTimeField
+* expiry_date DateTimeField
+* discount_code CharField(10)
+* minimum_order_value DecimalField(6)
+* maximum_discount_amount DecimalField(6)
+
+
+<br>
+
+#### OrderLineItem Model
+* order_id ForeignKey [ref: > Order.id] // inline relationship (many-to-one)
+* product_id ForeignKey [ref: > Product.id]
+* quantity IntegerField(6) [default: 1] // default value
+* lineitem_total DecimalField(6)
+
+
+<br>
+
+#### Order Model
+* id PrimaryKey [pk] // primary key
+* order_number CharField(32)
+* user_profile_id ForeignKey [ref: > UserProfile.id]
+* full_name CharField(50)
+* email CharField(254)
+* phone_number CharField(20)
+* billing_street_address1 CharField(80)
+* billing_street_address2 CharField(80)
+* billing_town_or_city CharField(40)
+* billing_county CharField(80)
+* billing_postcode CharField(20)
+* billing_country CountryField
+* shipping_street_address1 CharField(80)
+* shipping_street_address2 CharField(80)
+* shipping_town_or_city CharField(40)
+* shipping_county CharField(80)
+* shipping_postcode CharField(20)
+* shipping_country CountryField
+* order_date DateTimeField [note: 'When order created'] // add column note
+* delivery_cost DecimalField(6)
+* order_total DecimalField(10)
+* grand_total DecimalField(10)
+* original_cart TextField
+* stripe_pid CharField(254)
+
+
+<br>
+
+#### BlogPost Model
+* id PrimaryKey [pk]
+* title CharField(80)
+* slug SlugField(100)
+* subtitle CharField(80)
+* content TextField
+* created_on DateTimeField
+* author ForeignKey [ref: > UserProfile.id]
+* tags OneToMany [ref: < Tag.id]
+
+
+<br>
+
+#### BlogComment Model
+* id PrimaryKey [pk]
+* blog_id ForeignKey [ref: > BlogPost.id]
+* user_id ForeignKey [ref: > UserProfile.id]
+* blog_comment_title CharField(80)
+* blog_comment TextField
+* created_on DateTimeField
+}
+<br>
+
+Fixtures were made for 
+* Product, 
+* Brand, 
+* Category and 
+* Department 
+
+in [Microsoft Excel](https://www.microsoft.com/en-ie/microsoft-365/excel) and saved as .csv files.
+Then they were converted to JSON using [JSON-CSV](https://json-csv.com/reverse).
 
 ##### back to [top](#table-of-contents)
 ---
@@ -672,11 +822,11 @@ The Dargan Health Foods website relies on twelve database collections overall:
   * [Gitpod](https://www.gitpod.io/). An online IDE used to build and develop the website.
   * [Heroku](https://www.heroku.com/). The cloud platform used to host the deployed site.
   * [Infoheap](https://infoheap.com/python-lint-online/).  Used to validate the Python app.py code.
-  * [jQuery](https://jquery.com/). This JavaScript library was used to traverse the DOM and used for dynamic event handling. 
+  * [jQuery](https://jquery.com/). This JavaScript library was used to traverse the DOM and used for dynamic event handling.
+  * [JSON-CSV](https://json-csv.com/reverse).  Used to convert the .csv fixture files to JSON so that they could be uploaded to the database.
   * [Pep8online](http://pep8online.com/).  Used to check the app.py file for PEP8 compliance.
   * [RandomKeyGen](https://randomkeygen.com/). Used to generate the Secret Key.
   * [Slack](code-institute-room.slack.com). Used during development and testing to find the solutions to problems enountered.
-  
   * [Stack Overflow](https://stackoverflow.com/). Used to search for the answers to problems encountered during the development and testing of the website.
   * [TinyPNG](https://tinypng.com/). Used to compress the site logos and background-images to improve performance results.
   * [Vecteezy](https://www.vecteezy.com/vector-art/599621-book-reading-logo-and-symbols-template-icons). Used to source the site logo and the custom 404 and 500 page backgrounds.
@@ -692,12 +842,11 @@ The Dargan Health Foods website relies on twelve database collections overall:
   * [Heroku Postgres](https://www.heroku.com/postgres). Used during production to store the product information, user information, and other data.
 
 - APIs
-  * [Google Books API](https://developers.google.com/books). Used to source the book synopsis, author information and book covers.
 
 - Apps:
   * [Balsamiq](https://balsamiq.com/). Used to create the project wireframes.
   * [Inkscape](https://inkscape.org/). Used to edit the Vecteezy svgs.
-  * [Microsoft Excel](https://www.microsoft.com/en-ie/microsoft-365/excel). Used to create the testing spreadsheets.
+  * [Microsoft Excel](https://www.microsoft.com/en-ie/microsoft-365/excel). Used to create the fixture files and convert them to .csv files.  Also used to create the testing spreadsheets.
 
 ##### back to [top](#table-of-contents)
 ---
