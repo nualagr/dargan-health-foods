@@ -610,7 +610,7 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 | Username      |username       |CharField      |max_length=150, null=False, blank=False |
 | First Name    |first_name     |CharField      |max_length=30 | 
 | Last Name     |last_name      |CharField      |max_length=30 |
-| Email Address |email          |CharField      | 
+| Email Address |email          |CharField      | |
 | Password      |password       |PasswordField  |null=False, blank=False |
 
 <br>
@@ -621,7 +621,7 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 | UserProfile ID            |id                     |ForeignKey     |[ref: - User.id]   |
 | Default Phone Number      |default_phone_number   |CharField      |max_length=20, null=True, blank=True| 
 | Default Street Address1   |default_street_address1|CharField      |max_length=80, null=True, blank=True|
-| Defautl Street Address2   |default_street_address2|CharField      |max_length=80, null=True, blank=True|
+| Default Street Address2   |default_street_address2|CharField      |max_length=80, null=True, blank=True|
 | Default Town or City      |default_town_or_city   |CharField      |max_length=40, null=True, blank=True|
 | Default County            |default_county         |CharField      |max_length=80, null=True, blank=True|
 | Default Postcode          |default_postcode       |CharField      |max_length=20, null=True, blank=True|
@@ -721,90 +721,102 @@ Enum product_status {
 <br>
 
 #### ProductReview Model
-* id PrimaryKey [pk]
-* product_id ForeignKey [ref: > Product.id]
-* user_id ForeignKey [ref: > UserProfile.id]
-* product_rating IntegerField(1)
-* review_title CharField(80)
-* review_content TextField
-* created DateTimeField [default: `now()`]
-* updated DateTimeField [default: `now()`]
+| Title	            |Key in db	    |Data Type	    |Type Validation    |
+| :-----------------|:--------------| :-------------|:----------------- |
+| ProductReview ID  |id             |PrimaryKey     |[pk]|
+| Product ID        |product_id     |ForeignKey     |[ref: > Product.id]|
+| User ID           |user_id        |ForeignKey     |[ref: > UserProfile.id]|
+| Product Rating    |product_rating |IntegerField   ||
+| Review Title      |review_title   |CharField      |max_length=80|
+| Review Content    |review_content |TextField      ||
+| Review Date       |created        |DateTimeField  |auto_now_add=True|
+| Review Updated    |updated        |DateTimeField  |[default: `now()`]|
 
 <br>
 
 #### ProductDiscount Model
-* id PrimaryKey [pk]
-* product_id ForeignKey [ref: > Product.id]
-* discount_value DecimalField(6)
-* discount_unit CharField //Currency or Percentage
-* start_date DateTimeField
-* expiry_date DateTimeField
-* discount_code CharField(10)
-* minimum_order_value DecimalField(6)
-* maximum_discount_amount DecimalField(6)
+| Title	                    |Key in db	            |Data Type	    |Type Validation    |
+| :-----------------        |:--------------        | :-------------|:----------------- |
+| ProductDiscount ID        |id                     |PrimaryKey     |[pk]|
+| Product ID                |product_id             |ForeignKey     |[ref: > Product.id]|
+| Discount Value            |discount_value         |DecimalField   |max_digits=6|
+| Discount Unit             |discount_unit          |CharField      | //Currency or Percentage|
+| Start Date                |start_date             |DateTimeField  ||
+| Expiry Date               |expiry_date            |DateTimeField  ||
+| Discount Code             |discount_code          |CharField      |max_length=10|
+| Minimum Order Value       |minimum_order_value    |DecimalField   |max_digits=6|
+| Maximum Discount Amount   |maximum_discount_amount|DecimalField   |max_digits=6|
 
 
 <br>
 
 #### OrderLineItem Model
-* order_id ForeignKey [ref: > Order.id] // inline relationship (many-to-one)
-* product_id ForeignKey [ref: > Product.id]
-* quantity IntegerField(6) [default: 1] // default value
-* lineitem_total DecimalField(6)
+| Title	            |Key in db	    |Data Type	    |Type Validation    |
+| :-----------------|:--------------| :-------------|:----------------- |
+| Order ID          |order_id       |ForeignKey     |[ref: > Order.id] // inline relationship (many-to-one)|
+| Product ID        |product_id     |ForeignKey     |[ref: > Product.id]|
+| Quantity          |quantity       |IntegerField   |default=1|
+| Line Item Total   |lineitem_total |DecimalField   |max_digits=6|
 
 
 <br>
 
 #### Order Model
-* id PrimaryKey [pk] // primary key
-* order_number CharField(32)
-* user_profile_id ForeignKey [ref: > UserProfile.id]
-* full_name CharField(50)
-* email CharField(254)
-* phone_number CharField(20)
-* billing_street_address1 CharField(80)
-* billing_street_address2 CharField(80)
-* billing_town_or_city CharField(40)
-* billing_county CharField(80)
-* billing_postcode CharField(20)
-* billing_country CountryField
-* shipping_street_address1 CharField(80)
-* shipping_street_address2 CharField(80)
-* shipping_town_or_city CharField(40)
-* shipping_county CharField(80)
-* shipping_postcode CharField(20)
-* shipping_country CountryField
-* order_date DateTimeField [note: 'When order created'] // add column note
-* delivery_cost DecimalField(6)
-* order_total DecimalField(10)
-* grand_total DecimalField(10)
-* original_cart TextField
-* stripe_pid CharField(254)
+| Title	                    |Key in db	                |Data Type	    |Type Validation    |
+| :-----------------        |:--------------            | :-------------|:----------------- |
+| Order ID                  |id                         |PrimaryKey     |[pk]|
+| Order Number              |order_number               |CharField      |max_length=32, null=False, editable=False|
+| User Profile ID           |user_profile_id            |ForeignKey     |[ref: > UserProfile.id]|
+| Full Name                 |full_name                  |CharField      |max_length=50, null=False, blank=False|
+| Email Address             |email                      |CharField      |max_length=254, null=False, blank=False|
+| Phone Number              |phone_number               |CharField      |max_length=20, null=False, blank=False|
+| Billing Street Address1   |billing_street_address1    |CharField      |max_length=80, null=False, blank=False|
+| Billing Street Address2   |billing_street_address2    |CharField      |max_length=80, null=True, blank=True|
+| Billing Town or City      |billing_town_or_city       |CharField      |max_length=40, null=False, blank=False|
+| Billing County            |billing_county             |CharField      |max_length=80, null=True, blank=True|
+| Billing Postcode          |billing_postcode           |CharField      |max_length=20, null=True, blank=True|
+| Billing Country           |billing_country            |CountryField   |blank_label="Country *", null=False, blank=False|
+| Shipping Street Address1  |shipping_street_address1   |CharField      |max_length=80, null=False, blank=False|
+| Shipping Street Address2  |shipping_street_address2   |CharField      |max_length=80, null=True, blank=True|
+| Shipping Town or City     |shipping_town_or_city      |CharField      |max_length=40, null=False, blank=False|
+| Shipping County           |shipping_county            |CharField      |max_length=80, null=True, blank=True|
+| Shipping Postcode         |shipping_postcode          |CharField      |blank_label="Country *", null=False, blank=False|
+| Shipping Country          |shipping_country           |CountryField   ||
+| Order Date                |order_date                 |DateTimeField  |auto_now_add=True|
+| Delivery Cost             |delivery_cost              |DecimalField   |max_digits=6, decimal_places=2, null=False, default=0|
+| Order Total               |order_total                |DecimalField   |max_digits=10, decimal_places=2, null=False, default=0|
+| Grand Total               |grand_total                |DecimalField   |max_digits=10, decimal_places=2, null=False, default=0|
+| Original Cart             |original_cart              |TextField      |null=False, blank=False, default=""|
+| Stripe PID                |stripe_pid                 |CharField      |max_length=254, null=False, blank=False, default=""|
 
 
 <br>
 
 #### BlogPost Model
-* id PrimaryKey [pk]
-* title CharField(80)
-* slug SlugField(100)
-* subtitle CharField(80)
-* content TextField
-* created_on DateTimeField
-* author ForeignKey [ref: > UserProfile.id]
-* tags OneToMany [ref: < Tag.id]
+| Title	                |Key in db	    |Data Type	    |Type Validation    |
+| :-----------------    |:--------------| :-------------|:----------------- |
+|BlogPost ID            |id             |PrimaryKey     |[pk]|
+|BlogPost Title         |title          |CharField      |max_length=80|
+|BlogPost URL Fragment  |slug           |SlugField      |max_length=100|
+|BlogPost Subtitle      |subtitle       |CharField      |max_length=100|
+|BlogPost Content       |content        |TextField      ||
+|Created On             |created_on     |DateTimeField  |auto_now_add=True|
+|Author                 |author         |ForeignKey     |[ref: > UserProfile.id]|
+|Tags                   |tags           |OneToMany      |[ref: < Tag.id]|
 
 
 <br>
 
 #### BlogComment Model
-* id PrimaryKey [pk]
-* blog_id ForeignKey [ref: > BlogPost.id]
-* user_id ForeignKey [ref: > UserProfile.id]
-* blog_comment_title CharField(80)
-* blog_comment TextField
-* created_on DateTimeField
-}
+| Title	            |Key in db	        |Data Type	    |Type Validation    |
+| :-----------------|:--------------    | :-------------|:----------------- |
+| BlogComment ID    |id                 |PrimaryKey     |[pk]|
+| Blog ID           |blog_id            |ForeignKey     |[ref: > BlogPost.id]|
+| User ID           |user_id            |ForeignKey     |[ref: > UserProfile.id]|
+| Title             |blog_comment_title |CharField      |max_length=80|
+| Comment           |blog_comment       |TextField      ||
+| Created On        |created_on         |DateTimeField  |auto_now_add=True|
+
 <br>
 
 Fixtures were made for 

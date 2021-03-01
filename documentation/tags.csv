@@ -1,0 +1,48 @@
+pk,model,fields,
+,,name,friendly_name
+1,products.tag,amino_acids,Amino Acids
+2,products.tag,antioxidants,Antioxidants
+3,products.tag,b_complex,B Complex
+4,products.tag,b_vitamins,B Vitamins
+5,products.tag,biodegradable,Biodegradable
+6,products.tag,boxed_packs_collections,Boxed Packs & Collections
+7,products.tag,bpa_free,BPA Free
+8,products.tag,dairy_free,Dairy Free
+9,products.tag,digestive_aids_probiotics,Digestive Aids & Probiotics
+10,products.tag,egg_free,Egg Free
+11,products.tag,essential_fatty_acids,Essential Fatty Acids
+12,products.tag,fair_trade,Fair Trade
+13,products.tag,fragrance_free,Fragrance Free
+14,products.tag,gluten_free,Gluten Free
+15,products.tag,lactose_free,Lactose Free
+16,products.tag,low_carb,Low Carb
+17,products.tag,multivitamins,Multivitamins
+18,products.tag,no_artificial_colours,No Artificial Colours
+19,products.tag,no_artificial_flavours,No Artificial Flavours
+20,products.tag,non_gmo,Non GMO
+21,products.tag,non_toxic,Non Toxic
+22,products.tag,nut_free,Nut Free
+23,products.tag,organic,Organic
+24,products.tag,organic_balms_topical_oils,Organic Balms & Topical Oils
+25,products.tag,organic_botanicals,Organic Botanicals
+26,products.tag,organic_plant_tinctures,Organic Plant Tinctures
+27,products.tag,organic_superfoods,Organic Superfoods
+28,products.tag,paleo,Paleo
+29,products.tag,peanut_free,Peanut Free
+30,products.tag,raw,Raw
+31,products.tag,shellfish_free,Shellfish Free
+32,products.tag,soy_free,Soy Free
+33,products.tag,speciality_nutrients,Speciality Nutrients
+34,products.tag,standardised_plant_extracts,Standardised Plant Extracts
+35,products.tag,sugar_free,Sugar Free
+36,products.tag,sustainably_sourced,Sustainably Sourced
+37,products.tag,ultimate_beauty,Ultimate Beauty
+38,products.tag,vegan,Vegan
+39,products.tag,vegetarian,Vegetarian
+40,products.tag,vitamin_a,Vitamin A
+41,products.tag,vitamin_c,Vitamin C
+42,products.tag,vitamin_d,Vitamin D
+43,products.tag,vitamin_e,Vitamin E
+44,products.tag,vitamin_k,Vitamin K
+45,products.tag,wheat_free,Wheat Free
+46,products.tag,yeast_free,Yeast Free
