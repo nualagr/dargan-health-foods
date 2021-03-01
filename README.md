@@ -23,9 +23,9 @@ payment system and control of a centrally-owned dataset, was constructed using
 
 To test the site's checkout process please use the test credit card number provided in 
 the [Stripe Documentation](https://stripe.com/docs/testing):
-Card Number: 4242 4242 4242 4242
-Expiration Date: Any date (e.g. 02/04)
-CVC: Any three digits 
+* Card Number: 4242 4242 4242 4242
+* Expiration Date: Any date (e.g. 02/04)
+* CVC: Any three digits 
 
 <br>
 
@@ -54,8 +54,8 @@ Click <a href="">here</a> to visit the deployed site.
         - [Typography](#typography)
 3. [**Development**](#development)
     - [Information Architecture](#information-architecture)
-        - [Data Storage Types](#data-storage-types)
-        - [Collections Data Structure](#collections-data-structure)
+        - [Data Schema](#data-schema)
+        - [Data Models](#data-models)
 4. [**Technologies Used**](#technologies-used)
 5. [**Testing**](#testing)
     - [HTML](#html-files)
@@ -590,9 +590,12 @@ illustrates the relationships between the models.
 ![alt text](documentation/readme-images/dargan-health-foods-er-diagram.png "Dargan Health Foods ER Diagram.")
 
 
+##### back to [top](#table-of-contents)
+---
+
 ### Data Models
 
-The Dargan Health Foods website relies on fifteen database models overall:
+The Dargan Health Foods website relies on fifteen database models:
 
 
 #### User Model
@@ -601,53 +604,65 @@ Django.contrib.auth.models.
 Information about its fields, attributes and methods are 
 located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 
-* id PrimaryKey [pk] 
-* username CharField(150) [not null, unique]
-* first_name CharField(30) 
-* last_name CharField(30)
-* email CharField [not null]
-* password PasswordField
+| Title	        |Key in db	    |Data Type	    |Type Validation    |
+| :------------ |:--------------| :-------------|:----------------- |
+| User ID       |id             |PrimaryKey     |[pk]               |
+| Username      |username       |CharField      |max_length=150, null=False, blank=False |
+| First Name    |first_name     |CharField      |max_length=30 | 
+| Last Name     |last_name      |CharField      |max_length=30 |
+| Email Address |email          |CharField      | 
+| Password      |password       |PasswordField  |null=False, blank=False |
 
 <br>
 
 #### UserProfile Model
-* id ForeignKey [ref: - User.id]
-* default_phone_number CharField(20) 
-* default_street_address1 CharField(80)
-* default_street_address2 CharField(80)
-* default_town_or_city CharField(40)
-* default_county CharField(80)
-* default_postcode CharField(20)
-* default_country CountryField
+| Title	                    |Key in db	            |Data Type	    |Type Validation    |
+| :-------------------------|:----------------------| :-------------|:----------------- |
+| UserProfile ID            |id                     |ForeignKey     |[ref: - User.id]   |
+| Default Phone Number      |default_phone_number   |CharField      |max_length=20, null=True, blank=True| 
+| Default Street Address1   |default_street_address1|CharField      |max_length=80, null=True, blank=True|
+| Defautl Street Address2   |default_street_address2|CharField      |max_length=80, null=True, blank=True|
+| Default Town or City      |default_town_or_city   |CharField      |max_length=40, null=True, blank=True|
+| Default County            |default_county         |CharField      |max_length=80, null=True, blank=True|
+| Default Postcode          |default_postcode       |CharField      |max_length=20, null=True, blank=True|
+| Default Country           |default_country        |CountryField   |blank_label="Country", null=True, blank=True|
 
 <br>
 
 #### Department Model
-*  id PrimaryKey [pk] 
-*  name CharField(254)
-*  friendly_name CharField(254)
+| Title	        |Key in db	    |Data Type	    |Type Validation    |
+| :------------ |:--------------| :-------------|:----------------- |
+| Department ID |id             |PrimaryKey     | [pk]| 
+| Name          |name           | CharField     |max_lenght=254|
+| Friendly Name |friendly_name  | CharField     |max_lenght=254|
 
 <br>
 
 #### Category Model
-*  id PrimaryKey [pk] 
-*  name CharField(254)
-*  friendly_name CharField(254)
-*  category_department ForeignKey [ref: > Department.id]
+| Title	                |Key in db	        |Data Type	    |Type Validation    |
+| :---------------------|:------------------| :-------------|:----------------- |
+| Category ID           |id                 |PrimaryKey     |[pk]| 
+| Name                  |name               |CharField      |max_length=254|
+| Friendly Name         |friendly_name      |CharField      |max_length=254, null=True, blank=True|
+| Category Department   |category_department|ForeignKey     |[ref: > Department.id]|
 
 <br>
 
 #### Brand Model
-* id PrimaryKey [pk] 
-* name CharField(30)
-* friendly_name CharField(30)
+| Title	        |Key in db	    |Data Type	    |Type Validation    |
+| :------------ |:--------------| :-------------|:----------------- |
+| Brand ID      |id             |PrimaryKey     |[pk]|
+| Name          |name           |CharField      |max_length=30|
+| Friendly Name |friendly_name  |CharField      |max_length=30, null=True, blank=True|
 
 <br>
 
 #### Tag Model
-* id PrimaryKey [pk] 
-* name CharField(30)
-* friendly_name CharField(30)
+| Title	        |Key in db	    |Data Type	    |Type Validation    |
+| :------------ |:--------------| :-------------|:----------------- |
+|Tag ID         |id             |PrimaryKey     |[pk] |
+|Name           |name           |CharField      |max_length=30|
+|Friendly Name  |friendly_name  |CharField      |max_length=30, null=True, blank=True|
 
 <br>
 
@@ -661,41 +676,47 @@ Enum product_status {
 }
 
 #### Product Model
-* id PrimaryKey [pk]
-* sku CharField(254)
-* name CharField(80)
-* abbreviated_name CharField(40)
-* brand_id ForeignKey [ref: > Brand.id]
-* size_value IntegerField(10)
-* size_unit CharField(10)
-* weight_g IntegerField(6)
-* price DecimalField(6) 
-* vat_code CharField(3)
-* product_information TextField
-* ingredients TextField
-* free_from BooleanField
-* allergens TextField
-* usage TextField
-* category_id ForeignKey [ref: > Category.id]
-* barcode CharField(13)
-* rating IntegerField(6)
-* status product_status
-* discontinued BooleanField
-* num_in_stock IntegerField(6)
+| Title	                    |Key in db	        |Data Type	    |Type Validation    |
+| :-------------------------|:------------------| :-------------|:----------------- |
+|Product ID                 |id                 |PrimaryKey     |[pk]|
+|Stock Keeping Unit         |sku                |CharField      |max_length=254, null=True, blank=True|
+|Name                       |name               |CharField      |max_length=80|
+|Abbreviated Name           |abbreviated_name   |CharField      |max_length=40|
+|Brand ID                   |brand_id           |ForeignKey     |[ref: > Brand.id]|
+|Size Value                 |size_value         |IntegerField   |max_length=10, null=True, blank=True|
+|Size Unit of Measurement   |size_unit          |CharField      |max_length=10, null=True, blank=True|
+|Weight in Grams            |weight_g           |IntegerField   |null=True, blank=True|
+|Price                      |price              |DecimalField   |max_digits=6, decimal_places=2| 
+|Vat Code                   |vat_code           |CharField      |max_length=3|
+|Product Information        |product_information|TextField      |null=True, blank=True|
+|Ingredients                |ingredients        |TextField      |null=True, blank=True|
+|Free From                  |free_from          |BooleanField   |default=False|
+|Allegens                   |allergens          |TextField      |null=True, blank=True|
+|Usage Instructions         |usage              |TextField      |null=True, blank=True|
+|Category ID                |category_id        |ForeignKey     |[ref: > Category.id]|
+|Barcode                    |barcode            |CharField      |max_length=13, null=True, blank=True|
+|Rating                     |rating             |DecimalField   |max_digits=6, decimal_places=2, null=True, blank=True|
+|Product Status             |product_status     |CharField      |Enum|
+|Discontinued               |discontinued       |BooleanField   |null=False, default=False|
+|Number in Stock            |num_in_stock       |IntegerField   |null=False, default=0|
 
 <br>
 
 #### ProductImage Model
-* id PrimaryKey [pk]
-* product_id ForeignKey [ref: > Product.id]
-* image ImageField
-* image_url URLField(1024)
+| Title	                |Key in db	    |Data Type	    |Type Validation    |
+| :------------         |:--------------| :-------------|:----------------- |
+| Product Image ID      |id             |PrimaryKey     |[pk]|
+| Product ID            |product_id     |ForeignKey     |[ref: > Product.id]|
+| Product Image         |image          |ImageField     |null=True, blank=True|
+| Product Image URL     |image_url      |URLField       |max_length=1024, null=True, blank=True|
 
 <br>
 
 #### ProductTags Model
-* product_id ForeignKey [ref: > Product.id]
-* tag_id ForeignKey [ref: > Tag.id]
+| Title	        |Key in db	    |Data Type	    |Type Validation    |
+| :------------ |:--------------| :-------------|:----------------- |
+| Product ID    |product_id     |ForeignKey     |[ref: > Product.id]|
+| Tag ID        |tag_id         |ForeignKey     |[ref: > Tag.id]|
 
 <br>
 
