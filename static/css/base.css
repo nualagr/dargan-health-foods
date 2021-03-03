@@ -4,8 +4,9 @@ html {
 
 body {
     height: calc(100vh - 186px);
-    color: #333;
+    color: #333333;
     font-family: 'Open Sans', sans-serif;
+    background-color: #FFFFFF;
 }
 
 /* Colours ------------------------------------------------------------ */
@@ -42,10 +43,6 @@ body {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
-}
-
-.heading-font {
-    font-family: 'Montserrat', sans-serif;
 }
 
 .uppercase {
@@ -103,7 +100,7 @@ body {
 
 .btn-checkout {
     display: inline; 
-    padding: .5rem .75rem;
+    vertical-align: inherit;
 }
 
 /* Navbar ------------------------------------------------------------- */
@@ -154,7 +151,7 @@ body {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 255);
+    color: #FFFFFF;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
@@ -196,7 +193,6 @@ body {
     #minicart {
         float: right;
         width: 80%;
-        font-family: "Montserrat", sans-serif;
         display: block;
         height: calc(1.5em + .75rem + 2px);
         padding: .375rem 0rem .375rem 0rem;
