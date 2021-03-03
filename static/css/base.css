@@ -157,13 +157,15 @@ body {
 
 /* -------------------------------- Media Queries */
 
-/* Slightly larger container on xl screens */
+/* XL Desktop Screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    /* Slightly larger container */
+    .container {
+        max-width: 80%;
+    }
 }
 
+/* Desktop */
 @media screen and (min-width: 992px) {
     #minicart {
         float: right;
@@ -201,14 +203,30 @@ body {
     }
 }
 
+/* Small Laptop Screens */
 @media (min-width: 991px) and (max-width: 1100px) {
-    #minicart span.hide-for-small-desktop {
+    #minicart span.hide-for-small-laptop {
         display: none;
-}
+    }
 }
 
+/* Mobile and Tablet Screens */
 @media (max-width: 991px) {
     #delivery-banner h4 {
         font-size: .9rem;
-}
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    #main-nav .navbar-nav .nav-item.dropdown>a::after {
+        /* content: '\25BC'; */
+        content:"\f0d7";
+        font-family: FontAwesome;
+        position: absolute;
+        top:10px;
+        right:0;        
+    }
 }
