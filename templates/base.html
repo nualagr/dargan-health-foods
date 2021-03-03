@@ -98,9 +98,9 @@
                             <i class="fas fa-shopping-cart {% if grand_total %}text-black font-weight-bold{% else %}text-grey{% endif %}" aria-hidden="true"></i>
                             <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-grey{% endif %}" href="">
                                 {% if grand_total %}
-                                    {{ items }} items - €{{ grand_total|floatformat:2 }}
+                                    <span class="hide-for-small-desktop">{{ items }} items - </span>€{{ grand_total|floatformat:2 }}
                                 {% else %}
-                                    0 items - €0.00
+                                    <span class="hide-for-small-desktop">0 items - </span>€0.00
                                 {% endif %}
                             </a>
                         </li>

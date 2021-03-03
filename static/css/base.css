@@ -82,6 +82,10 @@ body {
     color: #29873C;
 }
 
+#delivery-banner h4 {
+    font-size: 1rem;
+}
+
 .shop-now-button {
     background: #29873C;
     color: white;
@@ -139,8 +143,6 @@ body {
     color: #C8C8C8 !important;
 }
 
-
-
 .border-green {
     border: 1px solid #29873c !important;
 }
@@ -162,32 +164,30 @@ body {
   }
 }
 
-@media screen and (min-width: 1025px) {
-#minicart {
-    float: right;
-    width: 80%;
-    font-family: "Montserrat", sans-serif;
-    display: block;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem 0rem .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-}
+@media screen and (min-width: 992px) {
+    #minicart {
+        float: right;
+        width: 80%;
+        font-family: "Montserrat", sans-serif;
+        display: block;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem 0rem .375rem 0rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+    }
 
-#minicart ul li {
-    display: inline-block;
-    margin: 0 0 0 .625em;
-    float: right;
-}
-}
+    #minicart ul li {
+        display: inline-block;
+        margin: 0 0 0 .625em;
+        float: right;
+    }
 
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
+    /* fixed top navbar only on medium and up */
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -199,6 +199,12 @@ body {
     .header-container {
         padding-top: 164px;
     }
+}
+
+@media (min-width: 991px) and (max-width: 1100px) {
+    #minicart span.hide-for-small-desktop {
+        display: none;
+}
 }
 
 @media (max-width: 991px) {
