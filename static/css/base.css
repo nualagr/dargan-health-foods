@@ -3,10 +3,37 @@ html {
 }
 
 body {
-    height: calc(100vh - 164px);
+    height: calc(100vh - 186px);
     color: #333;
     font-family: 'Open Sans', sans-serif;
 }
+
+/* Colours ------------------------------------------------------------ */
+.text-black {
+    color: #333333 !important;
+}
+
+.text-grey {
+    color: #C8C8C8 !important;
+}
+
+.border-green {
+    border: 1px solid #29873c !important;
+}
+
+.bg-white {
+    background-color: #FFFFFF !important;
+}
+
+.bg-apple-green {
+    background: #97BE0D !important;
+}
+
+.bg-forest-green {
+    background: #29873c !important;
+}
+
+/* Special Fonts and Text Styling ------------------------------------- */
 
 /* from Bulma */
 .icon {
@@ -18,74 +45,18 @@ body {
 }
 
 .heading-font {
-    text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
 }
 
-.main-logo-link {
-    width: fit-content;
+.uppercase {
+    text-transform: uppercase;
 }
 
-.main-logo-link img {
-    width: 100%;
-    height: auto;
+.logo-font {
+    font-family: 'Cookie', cursive;
 }
 
-#desktop-top-nav {
-    background-color: #FFFFFF;
-}
-
-#desktop-top-nav ul {
-    padding: .625em 0;
-    text-align: right;
-    font-size: .75em;
-    list-style: none;
-    margin: 0 auto;
-    width: 100%;
-}
-
-#desktop-top-nav ul li
-{
-    display: inline;
-    padding: 0 0 0 .625em;
-}
-
-#desktop-top-nav ul li a {
-    font-family: "Montserrat", sans-serif;
-    color: #29873C;
-}
-
-#main-nav {
-    background-color: #29873C;
-    color: #FFFFFF !important;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 255);
-}
-
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link:active {
-    color: #97BE0D;
-}
-
-.navbar-dark .navbar-toggler {
-    color: rgba(255, 255, 255, 255);
-    border: 0px;
-}
-
-.dropdown-menu {
-    border-radius: 0px;
-}
-
-.dropdown-menu .dropdown-item {
-    color: #29873C;
-}
-
-#delivery-banner h4 {
-    font-size: 1rem;
-}
-
+/* Buttons ------------------------------------------------------------ */
 .shop-now-button {
     background: #29873C;
     color: white;
@@ -135,27 +106,82 @@ body {
     padding: .5rem .75rem;
 }
 
-.text-black {
-    color: #333333 !important;
+/* Navbar ------------------------------------------------------------- */
+.main-logo-link {
+    width: fit-content;
 }
 
-.text-grey {
-    color: #C8C8C8 !important;
+.main-logo-link img {
+    width: 100%;
+    height: auto;
 }
 
-.border-green {
-    border: 1px solid #29873c !important;
+#desktop-top-nav {
+    background-color: #FFFFFF;
 }
 
-.bg-apple-green {
-    background: #97BE0D !important;
+#desktop-top-nav ul {
+    padding: .625em 0;
+    text-align: right;
+    font-size: .75em;
+    list-style: none;
+    margin: 0 auto;
+    width: 100%;
 }
 
-.bg-forest-green {
-    background: #29873c !important;
+#desktop-top-nav ul li
+{
+    display: inline;
+    padding: 0 0 0 .625em;
 }
 
-/* -------------------------------- Media Queries */
+#desktop-top-nav ul li a {
+    font-family: "Montserrat", sans-serif;
+    color: #29873C;
+}
+
+/* .brand-logo>img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: block;
+    background-color: #FFFFFF;
+} */
+
+#main-nav {
+    background-color: #29873C;
+    color: #FFFFFF !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 255);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:active,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color: #97BE0D;
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255, 255, 255, 255);
+    border: 0px;
+}
+
+.dropdown-menu {
+    border-radius: 0px;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #29873C;
+    padding: .25rem 1.5rem .25rem .5rem;
+}
+/* Delivery Banner ---------------------------------------------------- */
+#delivery-banner h4 {
+    font-size: 1rem;
+}
+
+/* Media Queries ------------------------------------------------------*/
 
 /* XL Desktop Screens */
 @media (min-width: 1200px) {
@@ -199,7 +225,7 @@ body {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 186px;
     }
 }
 
@@ -222,7 +248,6 @@ body {
     }
 
     #main-nav .navbar-nav .nav-item.dropdown>a::after {
-        /* content: '\25BC'; */
         content:"\f0d7";
         font-family: FontAwesome;
         position: absolute;
