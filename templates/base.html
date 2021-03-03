@@ -53,8 +53,15 @@
                     <li><a href="">Our Story</a></li>
                     <li><a href="">Blog</a></li>
                     <li><a href="">Contact Us</a></li>
-                    <li><a href="">Sign In</a></li>
-                    <li><a href="">Join</a></li>
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <li><a href="">Product Management</a></li>
+                        {% endif %}
+                        <li><a href="">My Account</a></li>
+                    {% else %}
+                        <li><a href="">Sign In</a></li>
+                        <li><a href="">Join</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -81,22 +88,20 @@
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <div id="minicart">
-                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                        <li class="basket-info list-inline-item">
-                            <p class="my-0">
-                                <i class="fas fa-shopping-cart {% if grand_total %}text-black font-weight-bold{% else %}text-grey{% endif %}" aria-hidden="true"></i>
-                                <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-grey{% endif %}" href="">
-                                    {% if grand_total %}
-                                        {{ items }} items - €{{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                        0 items - €0.00
-                                    {% endif %}
-                                </a>
-                            </p>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn rounded-0 text-white {% if grand_total %} btn-yellow {% else %} btn-cream {% endif %}" href="">
+                    <ul class="list-inline list-unstyled">
+                        <li class="checkout-button list-inline-item">
+                            <a class="btn btn-checkout rounded-0 text-white {% if grand_total %} btn-yellow {% else %} btn-cream {% endif %}" href="">
                                 Checkout
+                            </a>
+                        </li>
+                        <li class="cart-info list-inline-item">
+                            <i class="fas fa-shopping-cart {% if grand_total %}text-black font-weight-bold{% else %}text-grey{% endif %}" aria-hidden="true"></i>
+                            <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-grey{% endif %}" href="">
+                                {% if grand_total %}
+                                    {{ items }} items - €{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                    0 items - €0.00
+                                {% endif %}
                             </a>
                         </li>
                     </ul>
