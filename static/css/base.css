@@ -6,6 +6,7 @@ body {
     height: calc(100vh - 186px);
     color: #333333;
     font-family: 'Open Sans', sans-serif;
+    /* font-family: "Montserrat", sans-serif; */
     background-color: #FFFFFF;
 }
 
@@ -31,9 +32,16 @@ body {
 }
 
 .bg-forest-green {
-    background: #29873c !important;
+    background: #29873C !important;
 }
 
+.bg-color-footer-area-top {
+    background-color:  #FEFCF9;    
+}
+
+.bg-color-footer-area-bottom {
+    background-color: #29873C;
+}
 /* Special Fonts and Text Styling ------------------------------------- */
 
 /* from Bulma */
@@ -51,6 +59,18 @@ body {
 
 .logo-font {
     font-family: 'Cookie', cursive;
+}
+
+.general-sub {
+    color: #29873C;
+    padding: 20px 0;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    margin-top: 0px;
+    font-size: 22px;
+    letter-spacing: 1px;
+    line-height: 18px;
+    font-weight: 700;
 }
 
 /* Buttons ------------------------------------------------------------ */
@@ -161,7 +181,7 @@ body {
 }
 
 .navbar-dark .navbar-toggler {
-    color: rgba(255, 255, 255, 255);
+    color: #FFFFFF;
     border: 0px;
 }
 
@@ -176,6 +196,147 @@ body {
 /* Delivery Banner ---------------------------------------------------- */
 #delivery-banner h4 {
     font-size: 1rem;
+}
+/* Footer ------------------------------------------------------------- */
+footer {
+    color: #FAFAFA;
+    min-height: 120px;
+} 
+
+.footer-area {
+    margin: 0;
+    border: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+#footer-details {
+    color: #333333;
+}
+
+.footer-area-top {
+    margin: 0;
+}
+
+
+
+.footer-area-top ul,
+.footer-area-top li {
+    margin: 0;
+    padding: 0;
+    list-style: none none;
+}
+
+.footer-area-top .footer-link li a {
+    display: block;
+    padding: 10px 0;
+    -moz-transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    letter-spacing: 1px;
+    line-height: 20px;
+    color: #333333;
+    font-weight: 500;
+}
+
+.footer-area-top .opening-hours td {
+    display: inline block;
+    padding: 10px 10px 10px 0px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    color: #333333;
+    font-weight: 500;
+}
+
+.footer-area-top .footer-contact-details li {
+    padding-left: 35px;
+    margin-top: 30px;
+    letter-spacing: 1px;
+    line-height: 26px;
+    color: #333333;
+    position: relative;
+}
+
+.footer-area-top ul li a:link,  
+.footer-area-top ul li a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+
+.footer-area-top ul li a:hover {
+    color: #888888;
+    text-decoration: none;
+}
+
+.footer-area-top .footer-contact-details li::before {
+    font-family: FontAwesome;
+    position: absolute;
+    left: 0;
+    font-size: 24px;
+    top: 0;
+    line-height: 18px;
+    color: #29873C;
+    width: 27px;
+    height: 27px;
+    top: 5px;
+}
+
+.footer-area-top .footer-contact-details li.address::before {
+    content: "\F3C5";
+}
+
+.footer-area-top .footer-contact-details li.phone::before {
+    content: "\F095";
+}
+
+.footer-area-top .footer-contact-details li.email::before {
+    content: '\F0E0';
+}
+
+.footer-area-bottom {
+    padding: 20px 0px 5px 0px;
+    text-align: center;
+    margin: 0;
+    border-top: 1px solid #FAFAFA;
+}
+
+.social-links li a i {
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    margin: 0 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 7px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #97BE0D ;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+.social-links li a i:hover {
+    background-color: #FFFFFF;
+    color: #97BE0D ;
+}
+
+.footer-area-bottom a:link, 
+.footer-area-bottom a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    font-size: small;
 }
 
 /* Media Queries ------------------------------------------------------*/
@@ -223,6 +384,11 @@ body {
     .header-container {
         padding-top: 186px;
     }
+
+    .general-sub {
+        margin-bottom: 25px;
+        margin-top: 25px;
+    }
 }
 
 /* Small Laptop Screens */
@@ -249,5 +415,35 @@ body {
         position: absolute;
         top:10px;
         right:0;        
+    }
+
+    .footer-box {
+    clear: both;
+    padding-top: 20px;
+    }
+
+    .footer-area-top .footer-contact-details {
+    margin-bottom: 35px;
+    }
+
+    .general-sub:after {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f0d7";
+    font-size: 24px;
+    float: right;
+    margin-top: -3px;
+    -moz-transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     }
 }
