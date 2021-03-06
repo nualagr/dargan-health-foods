@@ -20,7 +20,7 @@ body {
 }
 
 .border-green {
-    border: 1px solid #29873c !important;
+    border: 1px solid #29873C !important;
 }
 
 .bg-white {
@@ -61,16 +61,17 @@ body {
     font-family: 'Cookie', cursive;
 }
 
-.general-sub {
+.footer-box-brand-header {
+    font-family: cookie;
+    font-size: x-large;
     color: #29873C;
-    padding: 20px 0;
-    margin-bottom: 0px;
-    text-transform: uppercase;
-    margin-top: 0px;
-    font-size: 22px;
-    letter-spacing: 1px;
-    line-height: 18px;
-    font-weight: 700;
+}
+
+h4 {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: bold;
+  color: #29873C;
 }
 
 /* Buttons ------------------------------------------------------------ */
@@ -155,15 +156,13 @@ body {
 #desktop-top-nav ul li a {
     font-family: "Montserrat", sans-serif;
     color: #29873C;
+    text-decoration: none;
 }
 
-/* .brand-logo>img {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    display: block;
-    background-color: #FFFFFF;
-} */
+#desktop-top-nav ul li a:hover,
+#desktop-top-nav ul li a:focus {
+    text-decoration: underline;
+}
 
 #main-nav {
     background-color: #29873C;
@@ -196,115 +195,90 @@ body {
 /* Delivery Banner ---------------------------------------------------- */
 #delivery-banner h4 {
     font-size: 1rem;
+    color: #FFFFFF;
+    font-weight: 500;
 }
 /* Footer ------------------------------------------------------------- */
 footer {
-    color: #FAFAFA;
     min-height: 120px;
 } 
-
-.footer-area {
-    margin: 0;
-    border: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-}
-
-#footer-details {
-    color: #333333;
-}
 
 .footer-area-top {
     margin: 0;
 }
 
-
-
-.footer-area-top ul,
-.footer-area-top li {
-    margin: 0;
-    padding: 0;
-    list-style: none none;
-}
-
-.footer-area-top .footer-link li a {
+.footer-box a {
+    width: 100%;
     display: block;
-    padding: 10px 0;
-    -moz-transition: all .5s ease;
-    -webkit-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
-    -moz-backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    letter-spacing: 1px;
-    line-height: 20px;
-    color: #333333;
-    font-weight: 500;
 }
 
-.footer-area-top .opening-hours td {
-    display: inline block;
-    padding: 10px 10px 10px 0px;
-    letter-spacing: 1px;
-    line-height: 20px;
-    color: #333333;
-    font-weight: 500;
-}
-
-.footer-area-top .footer-contact-details li {
-    padding-left: 35px;
-    margin-top: 30px;
-    letter-spacing: 1px;
-    line-height: 26px;
-    color: #333333;
-    position: relative;
-}
-
-.footer-area-top ul li a:link,  
-.footer-area-top ul li a:visited {
-    color: #333333;
-    text-decoration: none;
-}
-
-.footer-area-top ul li a:hover {
-    color: #888888;
-    text-decoration: none;
-}
-
-.footer-area-top .footer-contact-details li::before {
+/* .footer-box-list li::before {
     font-family: FontAwesome;
     position: absolute;
-    left: 0;
-    font-size: 24px;
-    top: 0;
-    line-height: 18px;
+    font-size: inherit;
     color: #29873C;
-    width: 27px;
-    height: 27px;
-    top: 5px;
 }
 
-.footer-area-top .footer-contact-details li.address::before {
+.footer-box-list li.address::before {
     content: "\F3C5";
 }
 
-.footer-area-top .footer-contact-details li.phone::before {
+.footer-box-list li.phone::before {
     content: "\F095";
 }
 
-.footer-area-top .footer-contact-details li.email::before {
+.footer-box-list li.email::before {
     content: '\F0E0';
+}  */
+
+.footer-box-quick-links-list li a,
+.footer-box-list li a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.footer-box-list li a:hover, 
+.footer-box-list li a:focus,
+.footer-box-quick-links-list li a:hover,
+.footer-box-quick-links-list li a:focus {
+    text-decoration: underline;
+    color: #29873C;
+}
+
+.accordion-list li a {
+    padding: .5rem .5rem;
+    color: #333333;
+    text-decoration: none;
+}
+
+.accordion-button {
+    color: #333333;
+}
+
+.accordion-button:focus {
+    border-color: #EBEBEB;
+    box-shadow: 0 0 0 0.25rem rgb(136 136 136 / 25%);
+}
+
+.accordion-button:not(.collapsed) {
+    color: #333333;
+    background-color: #FAFAFA;
+}
+
+/*Solution to changing the Bootstrap Accordion button icon colour found on Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-button-collapsed-icon-color-in-bootstrap-5*/
+.accordion-button.collapsed::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .footer-area-bottom {
     padding: 20px 0px 5px 0px;
     text-align: center;
     margin: 0;
-    border-top: 1px solid #FAFAFA;
+    color: #FFFFFF;
 }
 
 .social-links li a i {
@@ -326,7 +300,7 @@ footer {
 
 .social-links li a i:hover {
     background-color: #FFFFFF;
-    color: #97BE0D ;
+    color: #97BE0D;
 }
 
 .footer-area-bottom a:link, 
@@ -367,7 +341,6 @@ footer {
     }
 
     #minicart ul li {
-        display: inline-block;
         margin: 0 0 0 .625em;
         float: right;
     }
@@ -385,10 +358,6 @@ footer {
         padding-top: 186px;
     }
 
-    .general-sub {
-        margin-bottom: 25px;
-        margin-top: 25px;
-    }
 }
 
 /* Small Laptop Screens */
@@ -410,40 +379,11 @@ footer {
     }
 
     #main-nav .navbar-nav .nav-item.dropdown>a::after {
-        content:"\f0d7";
+        content:"\F0D7";
         font-family: FontAwesome;
         position: absolute;
         top:10px;
         right:0;        
     }
-
-    .footer-box {
-    clear: both;
-    padding-top: 20px;
-    }
-
-    .footer-area-top .footer-contact-details {
-    margin-bottom: 35px;
-    }
-
-    .general-sub:after {
-    display: inline-block;
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f0d7";
-    font-size: 24px;
-    float: right;
-    margin-top: -3px;
-    -moz-transition: all .5s ease;
-    -webkit-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
-    -moz-backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    }
 }
+
