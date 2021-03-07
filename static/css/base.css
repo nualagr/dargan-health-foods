@@ -3,11 +3,15 @@ html {
 }
 
 body {
-    height: calc(100vh - 186px);
+    /* height: calc(100vh - 186px); */
     color: #333333;
     font-family: 'Open Sans', sans-serif;
     /* font-family: "Montserrat", sans-serif; */
     background-color: #FFFFFF;
+    /* keep footer always at bottom */
+    height: 100vh;
+    display: flex; 
+    flex-direction: column; 
 }
 
 /* Colours ------------------------------------------------------------ */
@@ -53,26 +57,44 @@ body {
     width: 1.5rem;
 }
 
-.uppercase {
-    text-transform: uppercase;
-}
-
 .logo-font {
     font-family: 'Cookie', cursive;
 }
 
-.footer-box-brand-header {
-    font-family: cookie;
-    font-size: x-large;
+h4 {
     color: #29873C;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 22px;
+    letter-spacing: 1px;
+    line-height: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
 }
 
-h4 {
-  font-size: 1rem;
-  line-height: 1rem;
-  font-weight: bold;
-  color: #29873C;
+.footer-box-brand-header {
+    font-family: 'Cookie', cursive;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1rem;
+    color: #29873C;
+    margin-bottom: 0;
+    margin-top: 0;
+    letter-spacing: 1px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    padding-left: 10px;
 }
+
+.general-sub {
+    margin-bottom: 10px;
+}
+
+/* Solution to changing the Bootstrap blue glow around form input boxes found on Stack Overflow: https://stackoverflow.com/questions/14820952/change-bootstrap-input-focus-blue-glow*/
+.form-control:focus {
+    border-color: #29873C;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+} 
 
 /* Buttons ------------------------------------------------------------ */
 .shop-now-button {
@@ -122,6 +144,12 @@ h4 {
 .btn-checkout {
     display: inline; 
     vertical-align: inherit;
+}
+
+/* Containers --------------------------------------------------------- */
+.footer-container {
+    /* Keep footer at the bottom of the page */
+    margin-top:auto;
 }
 
 /* Navbar ------------------------------------------------------------- */
@@ -198,6 +226,7 @@ h4 {
     color: #FFFFFF;
     font-weight: 500;
 }
+
 /* Footer ------------------------------------------------------------- */
 footer {
     min-height: 120px;
@@ -212,33 +241,43 @@ footer {
     display: block;
 }
 
-/* .footer-box-list li::before {
+.footer-box-list-contact-details li {
+    padding-left: 35px;
+    font-size: 16px;
+    position: relative;
+}
+
+.footer-box-list-contact-details li::before {
     font-family: FontAwesome;
     position: absolute;
     font-size: inherit;
     color: #29873C;
+    width: 27px;
+    height: 27px;
+    top: 0px;
+    left: 15px;
 }
 
-.footer-box-list li.address::before {
+.footer-box-list-contact-details li.address::before {
     content: "\F3C5";
 }
 
-.footer-box-list li.phone::before {
+.footer-box-list-contact-details li.phone::before {
     content: "\F095";
 }
 
-.footer-box-list li.email::before {
+.footer-box-list-contact-details li.email::before {
     content: '\F0E0';
-}  */
+} 
 
 .footer-box-quick-links-list li a,
-.footer-box-list li a {
+.footer-box-list-contact-details li a {
     text-decoration: none;
     color: #333333;
 }
 
-.footer-box-list li a:hover, 
-.footer-box-list li a:focus,
+.footer-box-list-contact-details li a:hover, 
+.footer-box-list-contact-details li a:focus,
 .footer-box-quick-links-list li a:hover,
 .footer-box-quick-links-list li a:focus {
     text-decoration: underline;
@@ -252,7 +291,15 @@ footer {
 }
 
 .accordion-button {
-    color: #333333;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #29873C;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 22px;
+    letter-spacing: 1px;
+    line-height: 18px;
+    font-weight: 700;
 }
 
 .accordion-button:focus {
@@ -261,17 +308,17 @@ footer {
 }
 
 .accordion-button:not(.collapsed) {
-    color: #333333;
+    color: #29873C;
     background-color: #FAFAFA;
 }
 
 /*Solution to changing the Bootstrap Accordion button icon colour found on Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-button-collapsed-icon-color-in-bootstrap-5*/
 .accordion-button.collapsed::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .accordion-button:not(.collapsed)::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .footer-area-bottom {
@@ -358,6 +405,10 @@ footer {
         padding-top: 186px;
     }
 
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
 }
 
 /* Small Laptop Screens */

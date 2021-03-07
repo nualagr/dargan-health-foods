@@ -48,9 +48,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
         integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
         crossorigin="anonymous"></script>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
     {% endblock %}
 
 
@@ -86,7 +83,7 @@
         <div id="desktop-middle-nav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <!-- Main Logo -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link" title="Dargan Health Foods Home Link">
                     <img src="{{ MEDIA_URL }}seedling-logo-bigger-with-text.png" class="d-inline-block align-middle"
                         alt="Seedling Icon" loading="lazy" />
                 </a>
@@ -95,7 +92,7 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="">
                     <div class="input-group w-100">
-                        <input class="form-control border rounded-0" type="text" name="q" placeholder="Search our site">
+                        <input class="form-control border rounded-0" type="text" name="q" placeholder="Search by keyword(s)">
                         <div class="input-group-append">
                             <button class="form-control btn btn-forest-green border-green rounded-0" type="submit">
                                 <span class="icon">
@@ -166,17 +163,16 @@
     {% block content %}
     <!-- Main Content Block -->
     {% endblock %}
+
     <!-- Footer -->
-    <footer class="footer-area">
-        <div class="footer-area-top col-lg-9 mx-auto">
+    <footer class="container-fluid footer-container">
+        <div class="footer-area-top col-xl-9 mx-auto">
             <h2 class="sr-only">Dargan Health Foods</h2>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
                     <div class="footer-box d-none d-sm-block">
-                        <h4 class="text-uppercase text-bold">Dargan Health Foods</h4>
-                        <ul class="footer-box-list list-unstyled">
-                            <!-- <li><img src="{{ MEDIA_URL }}seedling-logo-bigger-with-text.png"
-                                    alt="Dargan Health Foods brand logo" width="100%" height="auto"></li> -->
+                        <h4 class="footer-box-brand-header">Dargan Health Foods</h4>
+                        <ul class="footer-box-list-contact-details list-unstyled">
                             <li class="address">Castletroy Town Centre, <br>Limerick</li>
                             <li class="phone"><a href="tel:061339506" aria-label="0 6 1. 3 3 9 5 0 6.">+353 (0)61
                                     339506</a></li>
@@ -208,7 +204,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="footer-box d-none d-sm-block">
-                        <h4 class="text-uppercase text-bold">Opening Hours</h4>
+                        <h4 class="general-sub">Opening Hours</h4>
                         <table>
                             <tbody>
                                 <tr>
@@ -265,7 +261,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="footer-box d-none d-sm-block">
-                        <h4 class="text-uppercase text-bold">Quick Links</h4>
+                        <h4 class="general-sub">Quick Links</h4>
                         <ul class="footer-box-quick-links-list list-unstyled">
                             <li>
                                 <a href="" aria-label="About Us link">
@@ -290,16 +286,17 @@
                         </ul>
                     </div>
                     <div class="footer-box d-block d-sm-none">
-                        <div class="accordion-item" id="accordion3" role="tablist"
-                        aria-multiselectable="true">
+                        <div class="accordion-item" id="accordion3" role="tablist" aria-multiselectable="true">
                             <h4 class="accordion-header border-0 text-uppercase text-bold" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" role="tab" aria-expanded="false" aria-controls="collapseThree">
+                                    data-bs-target="#collapseThree" role="tab" aria-expanded="false"
+                                    aria-controls="collapseThree">
                                     Quick Links
                                 </button>
                             </h4>
                         </div>
-                        <div class="accordion-body collapse" id="collapseThree" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="accordion-body collapse" id="collapseThree" role="tabpanel"
+                            aria-labelledby="headingThree">
                             <ul class="accordion-list list-unstyled">
                                 <li>
                                     <a href="" aria-label="About Us link">
