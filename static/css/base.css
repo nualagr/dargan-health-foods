@@ -87,16 +87,17 @@ h4 {
     font-weight: 500;
     line-height: 1rem;
     color: #29873C;
-    margin-bottom: 0;
     margin-top: 0;
     letter-spacing: 1px;
     line-height: 18px;
     margin-bottom: 10px;
     padding-left: 10px;
+    text-align: center;
 }
 
 .general-sub {
-    margin-bottom: 10px;
+    margin-bottom: 13px;
+    text-align: center;
 }
 
 /* Solution to changing the Bootstrap blue glow around form input boxes found on Stack Overflow: https://stackoverflow.com/questions/14820952/change-bootstrap-input-focus-blue-glow*/
@@ -162,8 +163,16 @@ h4 {
 }
 
 .header-container {
-        padding-top: 145px;
-    }
+    padding-top: 86px;
+}
+
+.banner-image-container {
+    padding: 0;
+}
+
+.banner-image-container a img:hover {
+  opacity: 0.8;
+}
 
 .footer-container {
     /* Keep footer at the bottom of the page */
@@ -387,6 +396,17 @@ footer {
     text-decoration: none;
 }
 
+.banner-image-container a img {
+    opacity: 1;
+    width: 100%;
+    border-radius: 0;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
 /* Media Queries ------------------------------------------------------*/
 
 /* XL Desktop Screens */
@@ -441,6 +461,10 @@ footer {
         padding-top: 186px;
     }
 
+    .banner-image-container {
+        width: 80%;
+    }
+
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 1rem;
         padding-left: 1rem;
@@ -469,11 +493,14 @@ footer {
         display: inline-block;
     }
 
+    #main-nav .navbar-nav .nav-item {
+        padding: .625em 5%;
+    }
+
     #main-nav .navbar-nav .nav-item.dropdown>a::after {
         content:"\F0D7";
         font-family: FontAwesome;
         position: absolute;
-        top:10px;
         right:0;        
     }
 }
