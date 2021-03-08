@@ -50,16 +50,14 @@
         crossorigin="anonymous"></script>
     {% endblock %}
 
-
     {% block extra_js %}
     {% endblock%}
-
 
     <title>Dargan Health Foods{% block extra_title%}{% endblock %}</title>
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
+    <header class="container-fluid nav-container fixed-top">
         <!-- Desktop Top Nav -->
         <div id="desktop-top-nav" class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-12">
@@ -165,11 +163,11 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="container-fluid footer-container">
+    <footer class="container-fluid py-2 footer-container">
         <div class="footer-area-top col-xl-9 mx-auto">
             <h2 class="sr-only">Dargan Health Foods</h2>
             <div class="row">
-                <div class="col-sm-6 col-md-4">
+                <div class="col-12 col-md-4">
                     <div class="footer-box d-none d-sm-block">
                         <h4 class="footer-box-brand-header">Dargan Health Foods</h4>
                         <ul class="footer-box-list-contact-details list-unstyled">
@@ -182,7 +180,7 @@
                     </div>
                     <div class="accordion accordion-flush footer-box d-block d-sm-none">
                         <div class="accordion-item" id="accordion1">
-                            <h4 class="accordion-header border-0 text-uppercase text-bold" id="headingOne">
+                            <h4 class="accordion-header" id="headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                     Find Us
@@ -202,7 +200,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4">
+                <div class="col-12 col-md-4">
                     <div class="footer-box d-none d-sm-block">
                         <h4 class="general-sub">Opening Hours</h4>
                         <table>
@@ -228,7 +226,7 @@
                     </div>
                     <div class="footer-box d-block d-sm-none">
                         <div class="accordion-item" id="accordion2">
-                            <h4 class="accordion-header border-0 text-uppercase text-bold" id="headingTwo">
+                            <h4 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     Opening Hours
@@ -259,7 +257,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4">
+                <div class="col-12 col-md-4">
                     <div class="footer-box d-none d-sm-block">
                         <h4 class="general-sub">Quick Links</h4>
                         <ul class="footer-box-quick-links-list list-unstyled">
@@ -287,7 +285,7 @@
                     </div>
                     <div class="footer-box d-block d-sm-none">
                         <div class="accordion-item" id="accordion3" role="tablist" aria-multiselectable="true">
-                            <h4 class="accordion-header border-0 text-uppercase text-bold" id="headingThree">
+                            <h4 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseThree" role="tab" aria-expanded="false"
                                     aria-controls="collapseThree">
@@ -324,10 +322,9 @@
                 </div>
             </div>
         </div>
-        <div class="footer-area-bottom bg-color-footer-area-bottom">
-            <div class="row">
+        <div class="row social-row bg-color-footer-area-bottom">
                 <div class="col-12">
-                    <ul class="list-inline social-links">
+                    <ul class="list-inline">
                         <li class="list-inline-item">
                             <a href="https://www.facebook.com/darganhealthfoods/" target="_blank" rel="noopener">
                                 <i class="fab fa-facebook-f" aria-hidden="true"></i>
@@ -343,15 +340,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="footer-bottom">
+            <div class="row copyright-row bg-color-footer-area-bottom">
+                <div class="col-12">
                         <p>© 2021 Copyright <a href="https://nualagr.github.io/dargan-health-foods/">Dargan Health Foods
                                 Ltd</a>. All Rights Reserved. </p>
                     </div>
                 </div>
-            </div>
-        </div>
     </footer>
 
     {% block postloadjs %}

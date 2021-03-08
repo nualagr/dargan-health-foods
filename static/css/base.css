@@ -1,3 +1,12 @@
+/* Clear browser defaults */
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 html {
     height: 100%;
 }
@@ -8,7 +17,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     /* font-family: "Montserrat", sans-serif; */
     background-color: #FFFFFF;
-    /* keep footer always at bottom */
+    /* Keep footer at the bottom of the screen */
     height: 100vh;
     display: flex; 
     flex-direction: column; 
@@ -40,7 +49,7 @@ body {
 }
 
 .bg-color-footer-area-top {
-    background-color:  #FEFCF9;    
+    background-color:  #FFFFFF;    
 }
 
 .bg-color-footer-area-bottom {
@@ -147,6 +156,15 @@ h4 {
 }
 
 /* Containers --------------------------------------------------------- */
+.nav-container {
+    background-color: #fffafa;
+    z-index: 1200;
+}
+
+.header-container {
+        padding-top: 145px;
+    }
+
 .footer-container {
     /* Keep footer at the bottom of the page */
     margin-top:auto;
@@ -210,6 +228,10 @@ h4 {
 .navbar-dark .navbar-toggler {
     color: #FFFFFF;
     border: 0px;
+}
+
+.navbar-dark .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.15rem;
 }
 
 .dropdown-menu {
@@ -284,6 +306,12 @@ footer {
     color: #29873C;
 }
 
+.accordion-item {
+    border-top: 1px solid #EEEEEE;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
 .accordion-list li a {
     padding: .5rem .5rem;
     color: #333333;
@@ -296,20 +324,20 @@ footer {
     color: #29873C;
     margin-bottom: 0;
     margin-top: 0;
-    font-size: 22px;
     letter-spacing: 1px;
     line-height: 18px;
     font-weight: 700;
+    border: none;
+    padding: 1rem;
 }
 
 .accordion-button:focus {
-    border-color: #EBEBEB;
-    box-shadow: 0 0 0 0.25rem rgb(136 136 136 / 25%);
+    box-shadow: none;
 }
 
 .accordion-button:not(.collapsed) {
     color: #29873C;
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
 }
 
 /*Solution to changing the Bootstrap Accordion button icon colour found on Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-button-collapsed-icon-color-in-bootstrap-5*/
@@ -321,14 +349,12 @@ footer {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
-.footer-area-bottom {
-    padding: 20px 0px 5px 0px;
+.social-row {
     text-align: center;
-    margin: 0;
-    color: #FFFFFF;
+    padding-top: 10px;
 }
 
-.social-links li a i {
+.social-row li a i {
     width: 32px;
     height: 32px;
     padding: 12px 0;
@@ -336,7 +362,6 @@ footer {
     border-radius: 50%;
     font-size: 18px;
     line-height: 7px;
-    text-align: center;
     color: #FFFFFF;
     background: #97BE0D ;
     transition: all 0.35s ease-in-out;
@@ -345,19 +370,21 @@ footer {
     -o-transition: all 0.35s ease-in-out;
 }
 
-.social-links li a i:hover {
+.social-row li a i:hover {
     background-color: #FFFFFF;
     color: #97BE0D;
 }
 
-.footer-area-bottom a:link, 
-.footer-area-bottom a:visited {
+.copyright-row {
+    font-size: small;
+    text-align: center;
     color: #FFFFFF;
-    text-decoration: none;
 }
 
-.footer-bottom {
-    font-size: small;
+.copyright-row a:link, 
+.copyright-row a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 /* Media Queries ------------------------------------------------------*/
@@ -392,6 +419,15 @@ footer {
         float: right;
     }
 
+    #minicart ul li a {
+        text-decoration: none;
+    }
+
+    #minicart ul li.cart-info a:focus,
+    #minicart ul li.cart-info a:hover {
+        text-decoration: underline;
+    }
+
     /* fixed top navbar only on medium and up */
     .fixed-top-desktop-only {
         position: fixed;
@@ -420,6 +456,10 @@ footer {
 
 /* Mobile and Tablet Screens */
 @media (max-width: 991px) {
+    .nav-link {
+        padding: 0.15rem;
+    }
+
     #delivery-banner h4 {
         font-size: .9rem;
     }
