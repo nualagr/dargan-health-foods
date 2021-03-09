@@ -301,16 +301,18 @@ footer {
     content: '\F0E0';
 } 
 
-.footer-box-quick-links-list li a,
-.footer-box-list-contact-details li a {
+.footer-box-quick-links-list li a:link,
+.footer-box-quick-links-list li a:visited, 
+.footer-box-list-contact-details li a:link,
+.footer-box-list-contact-details li a:visited {
     text-decoration: none;
     color: #333333;
 }
 
 .footer-box-list-contact-details li a:hover, 
-.footer-box-list-contact-details li a:focus,
+.footer-box-list-contact-details li a:active,
 .footer-box-quick-links-list li a:hover,
-.footer-box-quick-links-list li a:focus {
+.footer-box-quick-links-list li a:active {
     text-decoration: underline;
     color: #29873C;
 }
