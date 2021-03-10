@@ -48,14 +48,6 @@ body {
     background: #29873C !important;
 }
 
-.bg-color-footer-area-top {
-    background-color:  #FFFFFF;    
-}
-
-.bg-color-footer-area-bottom {
-    background-color: #29873C;
-}
-
 .bg-light-blue {
     background: #eff2f7;
 }
@@ -107,20 +99,19 @@ h4 {
 
 .page-link-with-arrow {
     text-decoration: none;
-    background: none;
     color: #29873C;
-    width: 100%;
-    border: 0;
     font-size: .9em;
-    padding: 0;
-    font-weight: 700;
+    padding: 1.5em;
     display: block;
     position: relative;
 }
 
+.page-link-with-arrow:hover {
+    color: #095518;
+}
+
 .link::after {
     content: ">";
-    font-weight: 700;
     transition: margin-left .25s ease-in-out;
     margin-left: .5em;
     position: absolute;
@@ -130,8 +121,26 @@ h4 {
     margin-left: 1em;
 }
 
-.page-link-with-arrow:hover {
-    color: #095518;
+.card {
+    margin-bottom: 16px;
+    border-radius: 0;
+}
+
+.card .card-img-top {
+    border-radius: 0;
+}
+
+a.blog-post-link img.card-img-top:hover {
+    opacity: 0.8;
+}
+
+a.blog-post-link {
+    text-decoration: none;
+    color: #333333;
+}
+
+a.blog-post-link h5:hover {
+    font-weight: 600;
 }
 
 .footer-box-brand-header {
@@ -224,16 +233,16 @@ h4 {
 }
 
 .banner-image-container a img:hover {
-  opacity: 0.8;
-}
-
-.section-title-container {
-    margin-bottom: 1.5em;
+    opacity: 0.8;
 }
 
 .section-container {
     padding-top: 3em;
     padding-bottom: 2em;
+}
+
+.section-title-container {
+    margin-bottom: 1.5em;
 }
 
 .footer-container {
@@ -470,17 +479,6 @@ footer {
     -ms-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-}
-
-/* About Us Section ---------------------------------------------------*/
-
-.move-right {
-  margin-left: .5em;
-  transition: margin-left .25s ease-out;
-}
-
-.move-right:hover {
-  margin-left: 1.5em;
 }
 
 /* Media Queries ------------------------------------------------------*/

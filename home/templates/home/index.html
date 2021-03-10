@@ -28,7 +28,7 @@
     </div> -->
 <div class="container-fluid banner-image-container">
     <a href="">
-        <img src="{{ MEDIA_URL }}free-spring-flower-wreath-background-vector.jpg" alt="Easter Offers Banner">
+        <img src="{{ MEDIA_URL }}free-spring-flower-wreath-background-vector.jpg" alt="Spring Offers Banner">
     </a>
 </div>
 <div class="container-fluid section-container bg-light-blue">
@@ -53,20 +53,56 @@
             <p>All our staff are highly trained and experienced and able to offer sound advice. We're here to serve your
                 journey into health!
             </p>
-            <!-- <a class="page-link-with-arrow" href="" title="Our Story">Our Story <span class="move-right">></span></a> -->
             <a class="page-link-with-arrow" href="" title="Our Story"><span class="link">Our Story</span></a>
         </div>
     </div>
 </div>
 <div class="container-fluid section-container">
     <div class="container section-title-container">
-        <h3 class="section-title section-title-center">
+        <h2 class="section-title section-title-center">
             <b></b>
             <span class="section-title-main">
-                Popular Products
+                Latest Posts
             </span>
             <b></b>
-        </h3>
+        </h2>
+    </div>
+    <div class="container section-content-container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+            <div class="card text-center">
+                <a href="#" class="blog-post-link">
+                    <img src="{{ MEDIA_URL }}easy-vegan-swaps.jpg" class="card-img-top" alt="Easy Vegan Swaps">
+                </a>
+                <div class="card-body">
+                    <p class="card-text">Recipes | March 18th 2021</p>
+                    <a href="#" class="blog-post-link">
+                        <h5 class="card-title">Easy Vegan Swaps</h5>
+                    </a>
+                </div>
+            </div>   
+        </div>
+        <div class="col-12 col-md-6">
+            <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+            <div class="card text-center">
+                <a href="#" class="blog-post-link">
+                    <img src="{{ MEDIA_URL }}heart-health.jpg" class="card-img-top" alt="Heart Health">
+                </a>
+                <div class="card-body">
+                    <p class="card-text">Health | February 14th 2021</p>
+                    <a href="#" class="blog-post-link">
+                        <h5 class="card-title">Heart Health</h5>
+                    </a>
+                </div>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a class="page-link-with-arrow" href="" title="View Our Blog"><span class="link">View Our Blog</span></a>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
 {% endblock %}
