@@ -55,6 +55,10 @@ body {
 .bg-color-footer-area-bottom {
     background-color: #29873C;
 }
+
+.bg-light-blue {
+    background: #eff2f7;
+}
 /* Special Fonts and Text Styling ------------------------------------- */
 
 /* from Bulma */
@@ -70,6 +74,26 @@ body {
     font-family: 'Cookie', cursive;
 }
 
+.section-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.section-title b {
+    flex: 1;
+    height: 2px;
+    opacity: .5;
+    background-color: #29873C;
+}
+
+.section-title-center span, 
+.section-title-bold-center span {
+    text-align: center;
+    margin: 0 15px;
+    color: #29873C;
+}
+
 h4 {
     color: #29873C;
     margin-bottom: 0;
@@ -79,6 +103,19 @@ h4 {
     line-height: 18px;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
+}
+
+.page-link-with-arrow {
+    text-decoration: none;
+    background: none;
+    color: #29873C;
+    width: 100%;
+    margin-bottom: 1em;
+    border: 0;
+    font-size: .9em;
+    padding: 0;
+    font-weight: 700;
+    display: block;
 }
 
 .footer-box-brand-header {
@@ -174,9 +211,19 @@ h4 {
   opacity: 0.8;
 }
 
+.section-title-container {
+    margin-bottom: 1.5em;
+}
+
+.section-container {
+    padding-top: 3em;
+    padding-bottom: 2em;
+}
+
 .footer-container {
     /* Keep footer at the bottom of the page */
     margin-top:auto;
+    padding-top: 2em;
 }
 
 /* Navbar ------------------------------------------------------------- */
@@ -407,6 +454,17 @@ footer {
     -ms-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
+}
+
+/* About Us Section ---------------------------------------------------*/
+
+.move-right {
+  margin-left: .5em;
+  transition: margin-left .25s ease-out;
+}
+
+.move-right:hover {
+  margin-left: 1.5em;
 }
 
 /* Media Queries ------------------------------------------------------*/
