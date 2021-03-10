@@ -101,7 +101,7 @@ h4 {
     text-decoration: none;
     color: #29873C;
     font-size: .9em;
-    padding: 1.5em;
+    padding-top: 1.5em;
     display: block;
     position: relative;
 }
@@ -130,17 +130,32 @@ h4 {
     border-radius: 0;
 }
 
+/* Solution to making card images the same height found on Stack Overflow: https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width*/
+.card .product-link .card-img-top {
+    width: 100%;
+    height: 30vh;
+    object-fit: contain;
+    padding: 5px;
+}
+
+a.product-link img.card-img-top:hover, 
 a.blog-post-link img.card-img-top:hover {
     opacity: 0.8;
 }
 
+a.product-link, 
 a.blog-post-link {
     text-decoration: none;
     color: #333333;
 }
 
+a.product-link h5:hover, 
 a.blog-post-link h5:hover {
     font-weight: 600;
+}
+
+.brand-name {
+    font-size: .75em;
 }
 
 .footer-box-brand-header {
@@ -169,10 +184,20 @@ a.blog-post-link h5:hover {
 } 
 
 /* Buttons ------------------------------------------------------------ */
-.shop-now-button {
-    background: #29873C;
-    color: white;
-    min-width: 260px;
+.quick-add-to-cart-btn {
+    background-color: #F9A620;
+    color: #FFFFFF;
+    border: none;
+    height: 35px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.quick-add-to-cart-btn:hover {
+    background-color: #EF9606;
 }
 
 .btn-cream {

@@ -9,28 +9,150 @@
 </div>
 {% endblock %}
 {% block content %}
-<!-- <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-12 my-auto">
-                <h1 class="display-4 text-black">
-                    March Offers
-                </h1>
-                <h2>Nutrition and Wellness Boost</h2>
-                <div class="my-5">
-                    <h4>
-                        <a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
-                            Shop Now
-                        </a>
-                    </h4>
-                </div>
-            </div>
-        </div>
-    </div> -->
+<!-- Banner Image -->
 <div class="container-fluid banner-image-container">
     <a href="">
         <img src="{{ MEDIA_URL }}free-spring-flower-wreath-background-vector.jpg" alt="Spring Offers Banner">
     </a>
 </div>
+<!-- New Products -->
+<div class="container-fluid section-container">
+    <div class="container section-title-container">
+        <h2 class="section-title section-title-center">
+            <b></b>
+            <span class="section-title-main">
+                New Arrivals
+            </span>
+            <b></b>
+        </h2>
+    </div>
+    <div class="container section-content-container">
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                <div class="card text-center">
+                    <a href="#" class="product-link">
+                        <img src="{{ MEDIA_URL }}0006.jpg" class="card-img-top" alt="Essential Female Multi 60 Caps">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text brand-name">Viridian</p>
+                        <a href="#" class="product-link">
+                            <h5 class="card-title" style="height:76px;">Essential Female Multi 60 Caps</h5>
+                        </a>
+                        <p class="card-text product-price">€46.40</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <div class="row">
+                            <div class="col">
+                                <form>
+                                    <input type="hidden" name="sku" value="003425">
+                                    <div class="button-wrapper">
+                                        <button class="quick-add-to-cart-btn" type="submit" data-test="quick-add" data-uievent="addtobasket" data-skuid="003425" data-productid="60003425" data-href="/shop/product/bootea-senna-less-teatox-60003425">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                <div class="card text-center">
+                    <a href="#" class="product-link">
+                        <img src="{{ MEDIA_URL }}0007.jpg" class="card-img-top" alt="Essential Male Multi 90 Caps">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text brand-name">Viridian</p>
+                        <a href="#" class="product-link">
+                            <h5 class="card-title" style="height:76px;">Essential Male Multi 90 Caps</h5>
+                        </a>
+                        <p class="card-text product-price">€34.60</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <div class="row">
+                            <div class="col">
+                                <form>
+                                    <input type="hidden" name="sku" value="003425">
+                                    <div class="button-wrapper">
+                                        <button class="quick-add-to-cart-btn" type="submit" data-test="quick-add" data-uievent="addtobasket" data-skuid="003425" data-productid="60003425" data-href="/shop/product/bootea-senna-less-teatox-60003425">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                <div class="card text-center">
+                    <a href="#" class="product-link">
+                        <img src="{{ MEDIA_URL }}0213.jpg" class="card-img-top" alt="Organic ViridiKid C Drops">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text brand-name">Viridian</p>
+                        <a href="#" class="product-link">
+                            <h5 class="card-title" style="height:76px;">Organic ViridiKid C Drops</h5>
+                        </a>
+                        <p class="card-text product-price">€21.05</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <div class="row">
+                            <div class="col">
+                                <form>
+                                    <input type="hidden" name="sku" value="003425">
+                                    <div class="button-wrapper">
+                                        <button class="quick-add-to-cart-btn" type="submit" data-test="quick-add" data-uievent="addtobasket" data-skuid="003425" data-productid="60003425" data-href="/shop/product/bootea-senna-less-teatox-60003425">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                <div class="card text-center">
+                    <a href="#" class="product-link">
+                        <img src="{{ MEDIA_URL }}0015.jpg" class="card-img-top" alt="L-Carnitine 500mg 30 Caps">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text brand-name">Viridian</p>
+                        <a href="#" class="product-link">
+                            <h5 class="card-title" style="height:76px;">L-Carnitine 500mg 30 Caps</h5>
+                        </a>
+                        <p class="card-text product-price">€33.45</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <div class="row">
+                            <div class="col">
+                                <form>
+                                    <input type="hidden" name="sku" value="003425">
+                                    <div class="button-wrapper">
+                                        <button class="quick-add-to-cart-btn" type="submit" data-test="quick-add" data-uievent="addtobasket" data-skuid="003425" data-productid="60003425" data-href="/shop/product/bootea-senna-less-teatox-60003425">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a class="page-link-with-arrow" href="" title="View All New In"><span class="link">View All New Products</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About Us -->
 <div class="container-fluid section-container bg-light-blue">
     <div class="container section-title-container">
         <h2 class="section-title section-title-center">
@@ -47,7 +169,8 @@
                 Dargan Health Foods is a bustling, Irish-owned health-food store in Castletroy, Limerick which proudly
                 offers a wide range of organic produce.
                 Our shelves are stocked with everything you’ll need to live a naturally healthy life:
-                wholegrain breads and cereals, gluten-free, dairy-free, nut-free, vegan and paleo products, bulk spices and seeds,
+                wholegrain breads and cereals, gluten-free, dairy-free, nut-free, vegan and paleo products, bulk spices
+                and seeds,
                 environmentally friendly cleaning products and baby goods.
             </p>
             <p>All our staff are highly trained and experienced and able to offer sound advice. We're here to serve your
@@ -57,6 +180,7 @@
         </div>
     </div>
 </div>
+<!-- Latest Blog Posts -->
 <div class="container-fluid section-container">
     <div class="container section-title-container">
         <h2 class="section-title section-title-center">
@@ -68,41 +192,42 @@
         </h2>
     </div>
     <div class="container section-content-container">
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-            <div class="card text-center">
-                <a href="#" class="blog-post-link">
-                    <img src="{{ MEDIA_URL }}easy-vegan-swaps.jpg" class="card-img-top" alt="Easy Vegan Swaps">
-                </a>
-                <div class="card-body">
-                    <p class="card-text">Recipes | March 18th 2021</p>
-                    <a href="#" class="blog-post-link">
-                        <h5 class="card-title">Easy Vegan Swaps</h5>
-                    </a>
-                </div>
-            </div>   
-        </div>
-        <div class="col-12 col-md-6">
-            <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-            <div class="card text-center">
-                <a href="#" class="blog-post-link">
-                    <img src="{{ MEDIA_URL }}heart-health.jpg" class="card-img-top" alt="Heart Health">
-                </a>
-                <div class="card-body">
-                    <p class="card-text">Health | February 14th 2021</p>
-                    <a href="#" class="blog-post-link">
-                        <h5 class="card-title">Heart Health</h5>
-                    </a>
-                </div>
-            </div>  
-        </div>
         <div class="row">
-            <div class="col-12 text-center">
-                <a class="page-link-with-arrow" href="" title="View Our Blog"><span class="link">View Our Blog</span></a>
+            <div class="col-12 col-md-6">
+                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                <div class="card text-center">
+                    <a href="#" class="blog-post-link">
+                        <img src="{{ MEDIA_URL }}easy-vegan-swaps.jpg" class="card-img-top" alt="Easy Vegan Swaps">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text">Recipes | March 18th 2021</p>
+                        <a href="#" class="blog-post-link">
+                            <h5 class="card-title">Easy Vegan Swaps</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                <div class="card text-center">
+                    <a href="#" class="blog-post-link">
+                        <img src="{{ MEDIA_URL }}heart-health.jpg" class="card-img-top" alt="Heart Health">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text">Health | February 14th 2021</p>
+                        <a href="#" class="blog-post-link">
+                            <h5 class="card-title">Heart Health</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a class="page-link-with-arrow" href="" title="View Our Blog"><span class="link">View Our
+                            Blog</span></a>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 {% endblock %}
