@@ -220,6 +220,7 @@ a.blog-post-link h5:hover {
 .btn-apple-green:focus {
     background-color: #89AC0C;
     color: #FFFFFF;
+    box-shadow: none;
 }
 
 .btn-orange {
@@ -528,8 +529,6 @@ footer {
     transition: all .3s ease-in-out;
 }
 
-/* Newsletter Subscription Form ----------------------------------------*/
-
 /* Media Queries ------------------------------------------------------*/
 
 /* XL Desktop Screens */
@@ -591,6 +590,11 @@ footer {
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 1rem;
         padding-left: 1rem;
+    }
+
+    form.subscribe .form-group .input-group {
+        width: 50%;
+        margin: auto;
     }
 }
 
