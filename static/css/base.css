@@ -69,7 +69,7 @@ body {
 }
 
 .logo-font {
-    font-family: 'Cookie', cursive;
+    font-family: "Cookie", cursive;
 }
 
 .section-title {
@@ -127,45 +127,8 @@ h4 {
     margin-left: 1em;
 }
 
-.card {
-    margin-bottom: 16px;
-    border-radius: 0;
-}
-
-.card .card-img-top {
-    border-radius: 0;
-}
-
-/* Solution to making card images the same height found on Stack Overflow: https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width*/
-.card .product-link .card-img-top {
-    width: 100%;
-    height: 30vh;
-    object-fit: contain;
-    padding: 5px;
-}
-
-a.product-link img.card-img-top:hover, 
-a.blog-post-link img.card-img-top:hover {
-    opacity: 0.8;
-}
-
-a.product-link, 
-a.blog-post-link {
-    text-decoration: none;
-    color: #333333;
-}
-
-a.product-link h5:hover, 
-a.blog-post-link h5:hover {
-    font-weight: 600;
-}
-
-.brand-name {
-    font-size: .75em;
-}
-
 .footer-box-brand-header {
-    font-family: 'Cookie', cursive;
+    font-family: "Cookie", cursive;
     font-size: 2rem;
     font-weight: 500;
     line-height: 1rem;
@@ -274,7 +237,7 @@ a.blog-post-link h5:hover {
 }
 
 .header-container {
-    padding-top: 86px;
+    padding-top: 100px;
 }
 
 .banner-image-container {
@@ -371,11 +334,56 @@ a.blog-post-link h5:hover {
     color: #29873C;
     padding: .25rem 1.5rem .25rem .5rem;
 }
+
 /* Delivery Banner ---------------------------------------------------- */
 #delivery-banner h4 {
     font-size: 1rem;
     color: #FFFFFF;
     font-weight: 500;
+}
+
+/* Product and Blog Post Cards ---------------------------------------- */
+
+.card {
+    margin-bottom: 16px;
+    border-radius: 0;
+}
+
+.card .card-img-top {
+    border-radius: 0;
+}
+
+/* Solution to making card images the same height found on Stack Overflow: https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width*/
+.card .product-link .card-img-top {
+    width: 100%;
+    height: 30vh;
+    object-fit: contain;
+    padding: 5px;
+}
+
+a.product-link img.card-img-top:hover, 
+a.blog-post-link img.card-img-top:hover {
+    opacity: 0.8;
+}
+
+a.product-link, 
+a.blog-post-link {
+    text-decoration: none;
+    color: #333333;
+}
+
+h5.card-title {
+    height: 76px;
+    font-size: 1rem;
+}
+
+a.product-link h5:hover, 
+a.blog-post-link h5:hover {
+    font-weight: 600;
+}
+
+p.card-text.brand-name {
+    font-size: .75em;
 }
 
 /* Footer ------------------------------------------------------------- */
@@ -399,7 +407,7 @@ footer {
 }
 
 .footer-box-list-contact-details li::before {
-    font-family: FontAwesome;
+    font-family: "FontAwesome";
     position: absolute;
     font-size: inherit;
     color: #29873C;
@@ -529,6 +537,43 @@ footer {
     transition: all .3s ease-in-out;
 }
 
+/* Breadcrumbs Navigation --------------------------------------------*/
+.breadcrumbs .items {
+    color: #707070;
+    margin: 0;
+    padding: 0;
+    list-style: none none;
+}
+
+.breadcrumbs .items>li {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.breadcrumbs .item:not(:last-child) {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.breadcrumbs .item:not(:last-child):after {
+    content: ">";
+    margin: 0 10px;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    text-align: center;
+}
+
+.breadcrumbs a {
+    color: #006bb4;
+    text-decoration: none;
+}
+
+.breadcrumbs strong {
+    font-weight: 400;
+}
+
 /* Media Queries ------------------------------------------------------*/
 
 /* XL Desktop Screens */
@@ -580,7 +625,8 @@ footer {
     }
 
     .header-container {
-        padding-top: 186px;
+        /* padding-top: 186px; */
+        padding-top: 250px;
     }
 
     .banner-image-container {
@@ -590,6 +636,10 @@ footer {
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 1rem;
         padding-left: 1rem;
+    }
+
+    h5.card-title {
+        font-size: 1.25rem;
     }
 
     form.subscribe .form-group .input-group {
@@ -626,7 +676,7 @@ footer {
 
     #main-nav .navbar-nav .nav-item.dropdown>a::after {
         content:"\F0D7";
-        font-family: FontAwesome;
+        font-family: "FontAwesome";
         position: absolute;
         right:0;        
     }
