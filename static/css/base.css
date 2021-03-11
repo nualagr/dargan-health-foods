@@ -36,21 +36,27 @@ body {
     border: 1px solid #29873C !important;
 }
 
+.border-apple-green {
+    border: 1px solid #97BE0D;
+}
+
 .bg-white {
     background-color: #FFFFFF !important;
 }
 
 .bg-apple-green {
-    background: #97BE0D !important;
+    background-color: #97BE0D !important;
 }
 
 .bg-forest-green {
-    background: #29873C !important;
+    background-color: #29873C !important;
 }
 
-.bg-light-blue {
-    background: #eff2f7;
+.bg-light-green {
+    /* background: #eff2f7; */
+    background-color: #E4F1E7;
 }
+
 /* Special Fonts and Text Styling ------------------------------------- */
 
 /* from Bulma */
@@ -179,14 +185,17 @@ a.blog-post-link h5:hover {
 
 /* Solution to changing the Bootstrap blue glow around form input boxes found on Stack Overflow: https://stackoverflow.com/questions/14820952/change-bootstrap-input-focus-blue-glow*/
 .form-control:focus {
-    border-color: #29873C;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    /* box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); */
+    border-color: #E0E0E0;
+    box-shadow: 0 0 0 0.1rem rgba(224, 224, 224, 0.1);
 } 
 
 /* Buttons ------------------------------------------------------------ */
+.btn {
+    border-radius: 0;
+}
+
 .quick-add-to-cart-btn {
-    background-color: #F9A620;
-    color: #FFFFFF;
     border: none;
     height: 35px;
     width: 80%;
@@ -196,27 +205,41 @@ a.blog-post-link h5:hover {
     margin: 10px auto;
 }
 
-.quick-add-to-cart-btn:hover {
-    background-color: #EF9606;
-}
-
 .btn-cream {
     background-color: #E0D1B1 !important;
     color: #FFFFFF;
 }
 
-.btn-yellow {
-    background: #F9A620;
-    color: white !important;
+.btn-apple-green {
+    background-color: #97BE0D;
+    color: #FFFFFF;
+}
+
+.btn-apple-green:hover,
+.btn-apple-green:active,
+.btn-apple-green:focus {
+    background-color: #89AC0C;
+    color: #FFFFFF;
+}
+
+.btn-orange {
+    background-color: #F9A620;
+    color: #FFFFFF;
+}
+
+.btn-orange:hover,
+.btn-orange:active,
+.btn-orange:focus {
+    background-color: #EF9606;
 }
 
 .btn-forest-green {
-    background: #29873C;
+    background-color: #29873C;
     color: white;
 }
 
 .btn-outline-forest-green {
-    background: #FFFFFF;
+    background-color: #FFFFFF;
     color: #29873C !important; /* use important to override link colors for <a> elements */
     border: 1px solid #29873C;
 }
@@ -224,7 +247,7 @@ a.blog-post-link h5:hover {
 .btn-outline-forest-green:hover,
 .btn-outline-forest-green:active,
 .btn-outline-forest-green:focus {
-    background: #29873C;
+    background-color: #29873C;
     color: #FFFFFF !important;
 }
 
@@ -273,7 +296,6 @@ a.blog-post-link h5:hover {
 .footer-container {
     /* Keep footer at the bottom of the page */
     margin-top:auto;
-    padding-top: 2em;
 }
 
 /* Navbar ------------------------------------------------------------- */
@@ -505,6 +527,8 @@ footer {
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
+
+/* Newsletter Subscription Form ----------------------------------------*/
 
 /* Media Queries ------------------------------------------------------*/
 
