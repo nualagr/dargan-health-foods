@@ -862,7 +862,8 @@ Then they were converted to JSON using [JSON-CSV](https://json-csv.com/reverse).
   * [Slack](code-institute-room.slack.com). Used during development and testing to find the solutions to problems enountered.
   * [Stack Overflow](https://stackoverflow.com/). Used to search for the answers to problems encountered during the development and testing of the website.
   * [TinyPNG](https://tinypng.com/). Used to compress the site logos and background-images to improve performance results.
-  * [Vecteezy](https://www.vecteezy.com/vector-art/599621-book-reading-logo-and-symbols-template-icons). Used to source the site logo and the custom 404 and 500 page backgrounds.
+  * [Unsplash](https://www.unsplash.com). Used to source the non-product site images.
+  * [Vecteezy](https://www.vecteezy.com). Used to source the site logo, banner offer image and the custom 404 and 500 page backgrounds.
   * [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator). Used to validate the CSS file.
   * [W3C HTML Validation Service](https://validator.w3.org/). Used to validate the HTML files.
 
@@ -1171,6 +1172,10 @@ The following [Bootstrap](https://getbootstrap.com/) components were used and mo
 
 #### Images
 - Ecology Nature Element from [Vecteezy](https://www.vecteezy.com/vector-art/632493-ecology-logo-nature-element-vector) was used for the site logo.
+- Fresh Spring Background with Illustrated Flowers from [Vecteezy](https://www.vecteezy.com/vector-art/143782-free-spring-flower-wreath-background) was used for the offer banner image.
+- Come In We're Open Sign from Tim Mossholder on [Unsplash](https://unsplash.com/photos/jEOAOVq39Z4) was used for the Our Story page.
+- Sliced Kiwi Fruit Photo from Lesly Juarez on [Unsplash](lesly-juarez-1rafrfyrsZw-unsplash) was used for the Heart Health Blog Post image.
+- Vegan Salad Bowl by Anna Pelzer on [Unsplash](https://unsplash.com/photos/IGfIGP5ONV0) was used for the Easy Vegan Swaps Blog Post image.
 - Product images were provided by [Viridian Nutrition](https://www.viridian-nutrition.com/).
 <br>
 
