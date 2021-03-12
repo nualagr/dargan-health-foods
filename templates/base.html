@@ -62,7 +62,7 @@
         <div id="desktop-top-nav" class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-12">
                 <ul>
-                    <li><a href="">Our Story</a></li>
+                    <li><a href="{% url 'our_story' %}">Our Story</a></li>
                     <li><a href="">Blog</a></li>
                     <li><a href="">Contact Us</a></li>
                     {% if request.user.is_authenticated %}
