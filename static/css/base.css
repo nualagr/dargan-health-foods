@@ -92,6 +92,13 @@ body {
     color: #29873C;
 }
 
+.logo-font-sub-heading {
+    font-family: "Cookie", cursive;
+    font-size: 2.5rem;
+    color: #29873C;
+    margin: 2rem;
+}
+
 h4 {
     color: #29873C;
     margin-bottom: 0;
@@ -99,7 +106,6 @@ h4 {
     font-size: 22px;
     letter-spacing: 1px;
     line-height: 18px;
-    font-family: "Montserrat", sans-serif;
     font-weight: 700;
 }
 
@@ -144,6 +150,10 @@ h4 {
 .general-sub {
     margin-bottom: 13px;
     text-align: center;
+}
+
+hr.divider {
+    margin: 2.5rem 0;
 }
 
 /* Solution to changing the Bootstrap blue glow around form input boxes found on Stack Overflow: https://stackoverflow.com/questions/14820952/change-bootstrap-input-focus-blue-glow*/
@@ -215,9 +225,6 @@ h4 {
     color: #FFFFFF !important;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
 .btn-forest-green:hover,
 .btn-forest-green:active,
 .btn-forest-green:focus {
@@ -237,7 +244,7 @@ h4 {
 }
 
 .header-container {
-    padding-top: 100px;
+    padding-top: 120px;
 }
 
 .banner-image-container {
@@ -249,8 +256,8 @@ h4 {
 }
 
 .section-container {
-    padding-top: 3em;
-    padding-bottom: 2em;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .section-title-container {
@@ -575,14 +582,6 @@ footer {
 }
 
 /* Media Queries ------------------------------------------------------*/
-
-/* XL Desktop Screens */
-@media (min-width: 1200px) {
-    /* Slightly larger container */
-    .container {
-        max-width: 80%;
-    }
-}
 
 /* Desktop */
 @media screen and (min-width: 992px) {
