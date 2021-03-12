@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_tags %}
 
 <!doctype html>
 <html lang="en">
@@ -265,7 +266,7 @@
                         <h4 class="general-sub">Quick Links</h4>
                         <ul class="footer-box-quick-links-list list-unstyled">
                             <li>
-                                <a href="" aria-label="About Us link">
+                                <a href="{% anchor 'home' 'about' %}" aria-label="About Us link">
                                     About Us
                                 </a>
                             </li>
@@ -300,7 +301,7 @@
                             aria-labelledby="headingThree">
                             <ul class="accordion-list list-unstyled">
                                 <li>
-                                    <a href="" aria-label="About Us link">
+                                    <a href="{% anchor 'home' 'about' %}" aria-label="About Us link">
                                         About Us
                                     </a>
                                 </li>

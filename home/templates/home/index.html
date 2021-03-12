@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_tags %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -162,7 +163,7 @@
     </div>
 </div>
 <!-- About Us -->
-<div class="container-fluid section-container bg-light-green">
+<div class="container-fluid section-container bg-light-green" id="about">
     <div class="container section-title-container">
         <h2 class="section-title section-title-center">
             <b></b>
@@ -172,8 +173,9 @@
             <b></b>
         </h2>
     </div>
+    <div class="container section-content-container">
     <div class="row">
-        <div class="col-12 col-lg-9 mx-auto text-center">
+        <div class="col-12 text-center">
             <p>
                 Dargan Health Foods is a bustling, Irish-owned health-food store in Castletroy, Limerick which proudly
                 offers a wide range of organic produce.
@@ -187,6 +189,7 @@
             </p>
             <a class="page-link-with-arrow" href="{% url 'our_story' %}" title="Our Story"><span class="link">Our Story</span></a>
         </div>
+    </div>
     </div>
 </div>
 <!-- Latest Blog Posts -->

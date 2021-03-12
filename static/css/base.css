@@ -256,8 +256,8 @@ hr.divider {
 }
 
 .section-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 .section-title-container {
@@ -379,7 +379,7 @@ a.blog-post-link {
     color: #333333;
 }
 
-h5.card-title {
+a.product-link h5.card-title {
     height: 76px;
     font-size: 1rem;
 }
