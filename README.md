@@ -606,12 +606,13 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 
 | Title	        |Key in db	    |Data Type	    |Type Validation    |
 | :------------ |:--------------| :-------------|:----------------- |
-| User ID       |id             |PrimaryKey     |[pk]               |
+| User ID       |id             |AutoField      |primary_key=True   |
 | Username      |username       |CharField      |max_length=150, null=False, blank=False |
 | First Name    |first_name     |CharField      |max_length=30 | 
 | Last Name     |last_name      |CharField      |max_length=30 |
 | Email Address |email          |CharField      | |
 | Password      |password       |PasswordField  |null=False, blank=False |
+
 
 <br>
 
@@ -632,7 +633,7 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 #### Department Model
 | Title	        |Key in db	    |Data Type	    |Type Validation    |
 | :------------ |:--------------| :-------------|:----------------- |
-| Department ID |id             |PrimaryKey     | [pk]| 
+| Department ID |id             |AutoField      |primary_key=True   |
 | Name          |name           | CharField     |max_lenght=254|
 | Friendly Name |friendly_name  | CharField     |max_lenght=254|
 
@@ -641,7 +642,7 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 #### Category Model
 | Title	                |Key in db	        |Data Type	    |Type Validation    |
 | :---------------------|:------------------| :-------------|:----------------- |
-| Category ID           |id                 |PrimaryKey     |[pk]| 
+| Category ID           |id                 |AutoField      |primary_key=True   |
 | Name                  |name               |CharField      |max_length=254|
 | Friendly Name         |friendly_name      |CharField      |max_length=254, null=True, blank=True|
 | Category Department   |category_department|ForeignKey     |[ref: > Department.id]|
@@ -651,7 +652,7 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 #### Brand Model
 | Title	        |Key in db	    |Data Type	    |Type Validation    |
 | :------------ |:--------------| :-------------|:----------------- |
-| Brand ID      |id             |PrimaryKey     |[pk]|
+| Brand ID      |id             |AutoField      |primary_key=True   |
 | Name          |name           |CharField      |max_length=30|
 | Friendly Name |friendly_name  |CharField      |max_length=30, null=True, blank=True|
 
@@ -660,7 +661,7 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 #### Tag Model
 | Title	        |Key in db	    |Data Type	    |Type Validation    |
 | :------------ |:--------------| :-------------|:----------------- |
-|Tag ID         |id             |PrimaryKey     |[pk] |
+|Tag ID         |id             |AutoField      |primary_key=True   |
 |Name           |name           |CharField      |max_length=30|
 |Friendly Name  |friendly_name  |CharField      |max_length=30, null=True, blank=True|
 
@@ -676,36 +677,37 @@ Enum product_status {
 }
 
 #### Product Model
-| Title	                    |Key in db	        |Data Type	    |Type Validation    |
-| :-------------------------|:------------------| :-------------|:----------------- |
-|Product ID                 |id                 |PrimaryKey     |[pk]|
-|Stock Keeping Unit         |sku                |CharField      |max_length=254, null=True, blank=True|
-|Name                       |name               |CharField      |max_length=80|
-|Abbreviated Name           |abbreviated_name   |CharField      |max_length=40|
-|Brand ID                   |brand_id           |ForeignKey     |[ref: > Brand.id]|
-|Size Value                 |size_value         |IntegerField   |max_length=10, null=True, blank=True|
-|Size Unit of Measurement   |size_unit          |CharField      |max_length=10, null=True, blank=True|
-|Weight in Grams            |weight_g           |IntegerField   |null=True, blank=True|
-|Price                      |price              |DecimalField   |max_digits=6, decimal_places=2| 
-|Vat Code                   |vat_code           |CharField      |max_length=3|
-|Product Information        |product_information|TextField      |null=True, blank=True|
-|Ingredients                |ingredients        |TextField      |null=True, blank=True|
-|Free From                  |free_from          |BooleanField   |default=False|
-|Allegens                   |allergens          |TextField      |null=True, blank=True|
-|Usage Instructions         |usage              |TextField      |null=True, blank=True|
-|Category ID                |category_id        |ForeignKey     |[ref: > Category.id]|
-|Barcode                    |barcode            |CharField      |max_length=13, null=True, blank=True|
-|Rating                     |rating             |DecimalField   |max_digits=6, decimal_places=2, null=True, blank=True|
-|Product Status             |product_status     |CharField      |Enum|
-|Discontinued               |discontinued       |BooleanField   |null=False, default=False|
-|Number in Stock            |num_in_stock       |IntegerField   |null=False, default=0|
+| Title	                    |Key in db	                |Data Type	    |Type Validation    |
+| :-------------------------|:------------------        | :-------------|:----------------- |
+|Product ID                 |id                         |AutoField      |primary_key=True   |
+|Stock Keeping Unit         |sku                        |CharField      |max_length=254, null=True, blank=True|
+|Name                       |name                       |CharField      |max_length=254|
+|Friendly Name              |friendly_name              |CharField      |max_length=254|
+|Abbreviated Friendly Name  |abbreviated_friendly_name  |CharField      |max_length=40|
+|Brand ID                   |brand_id                   |ForeignKey     |[ref: > Brand.id]|
+|Size Value                 |size_value                 |IntegerField   |max_length=10, null=True, blank=True|
+|Size Unit of Measurement   |size_unit                  |CharField      |max_length=10, null=True, blank=True|
+|Weight in Grams            |weight_g                   |IntegerField   |null=True, blank=True|
+|Price                      |price                      |DecimalField   |max_digits=6, decimal_places=2| 
+|Vat Code                   |vat_code                   |CharField      |max_length=3|
+|Product Information        |product_information        |TextField      |null=True, blank=True|
+|Ingredients                |ingredients                |TextField      |null=True, blank=True|
+|Free From                  |free_from                  |BooleanField   |default=False|
+|Allegens                   |allergens                  |TextField      |null=True, blank=True|
+|Usage Instructions         |usage                      |TextField      |null=True, blank=True|
+|Category ID                |category_id                |ForeignKey     |[ref: > Category.id]|
+|Barcode                    |barcode                    |CharField      |max_length=13, null=True, blank=True|
+|Average Rating             |avg_rating                 |DecimalField   |max_digits=2, decimal_places=1, default=0, null=True, blank=True|
+|Date added                 |date_added                 |DateTimeField  |auto_now_add=True|
+|Number in Stock            |num_in_stock               |IntegerField   |null=False, default=0|
+|Discontinued               |discontinued               |BooleanField   |null=False, default=False|
 
 <br>
 
 #### ProductImage Model
 | Title	                |Key in db	    |Data Type	    |Type Validation    |
 | :------------         |:--------------| :-------------|:----------------- |
-| Product Image ID      |id             |PrimaryKey     |[pk]|
+| Product Image ID      |id             |AutoField      |primary_key=True   |
 | Product ID            |product_id     |ForeignKey     |[ref: > Product.id]|
 | Product Image         |image          |ImageField     |null=True, blank=True|
 | Product Image URL     |image_url      |URLField       |max_length=1024, null=True, blank=True|
@@ -715,18 +717,19 @@ Enum product_status {
 #### ProductTags Model
 | Title	        |Key in db	    |Data Type	    |Type Validation    |
 | :------------ |:--------------| :-------------|:----------------- |
+| ProductTags ID|id             |AutoField      |primary_key=True   |
 | Product ID    |product_id     |ForeignKey     |[ref: > Product.id]|
-| Tag ID        |tag_id         |ForeignKey     |[ref: > Tag.id]|
+| Tags          |tags           |OneToMany      |[ref: < Tag.id] |
 
 <br>
 
 #### ProductReview Model
 | Title	            |Key in db	    |Data Type	    |Type Validation    |
 | :-----------------|:--------------| :-------------|:----------------- |
-| ProductReview ID  |id             |PrimaryKey     |[pk]|
-| Product ID        |product_id     |ForeignKey     |[ref: > Product.id]|
+| ProductReview ID  |id             |AutoField      |primary_key=True   |
+| Product ID        |product_id     |ForeignKey     |[ref: > Product.id] // inline relationship (many-to-one)|
 | User ID           |user_id        |ForeignKey     |[ref: > UserProfile.id]|
-| Product Rating    |product_rating |IntegerField   ||
+| Rating score      |rating_score   |IntegerField   |choices=RATING_CHOICES, default=0|
 | Review Title      |review_title   |CharField      |max_length=80|
 | Review Content    |review_content |TextField      ||
 | Review Date       |created        |DateTimeField  |auto_now_add=True|
@@ -737,7 +740,7 @@ Enum product_status {
 #### ProductDiscount Model
 | Title	                    |Key in db	            |Data Type	    |Type Validation    |
 | :-----------------        |:--------------        | :-------------|:----------------- |
-| ProductDiscount ID        |id                     |PrimaryKey     |[pk]|
+| ProductDiscount ID        |id                     |AutoField      |primary_key=True   |
 | Product ID                |product_id             |ForeignKey     |[ref: > Product.id]|
 | Discount Value            |discount_value         |DecimalField   |max_digits=6|
 | Discount Unit             |discount_unit          |CharField      | //Currency or Percentage|
@@ -764,7 +767,7 @@ Enum product_status {
 #### Order Model
 | Title	                    |Key in db	                |Data Type	    |Type Validation    |
 | :-----------------        |:--------------            | :-------------|:----------------- |
-| Order ID                  |id                         |PrimaryKey     |[pk]|
+| Order ID                  |id                         |AutoField      |primary_key=True   |
 | Order Number              |order_number               |CharField      |max_length=32, null=False, editable=False|
 | User Profile ID           |user_profile_id            |ForeignKey     |[ref: > UserProfile.id]|
 | Full Name                 |full_name                  |CharField      |max_length=50, null=False, blank=False|
@@ -795,14 +798,14 @@ Enum product_status {
 #### BlogPost Model
 | Title	                |Key in db	    |Data Type	    |Type Validation    |
 | :-----------------    |:--------------| :-------------|:----------------- |
-|BlogPost ID            |id             |PrimaryKey     |[pk]|
+|BlogPost ID            |id             |AutoField      |primary_key=True   |
 |BlogPost Title         |title          |CharField      |max_length=80|
 |BlogPost URL Fragment  |slug           |SlugField      |max_length=100|
 |BlogPost Subtitle      |subtitle       |CharField      |max_length=100|
 |BlogPost Content       |content        |TextField      ||
 |Created On             |created_on     |DateTimeField  |auto_now_add=True|
 |Author                 |author         |ForeignKey     |[ref: > UserProfile.id]|
-|Tags                   |tags           |OneToMany      |[ref: < Tag.id]|
+|Tags                   |tags           |OneToMany      |[ref: < Tag.id] |
 
 
 <br>
@@ -810,8 +813,8 @@ Enum product_status {
 #### BlogComment Model
 | Title	            |Key in db	        |Data Type	    |Type Validation    |
 | :-----------------|:--------------    | :-------------|:----------------- |
-| BlogComment ID    |id                 |PrimaryKey     |[pk]|
-| Blog ID           |blog_id            |ForeignKey     |[ref: > BlogPost.id]|
+| BlogComment ID    |id                 |AutoField      |primary_key=True   |
+| Blog ID           |blog_id            |ForeignKey     |[ref: > BlogPost.id] // inline relationship (many-to-one)|
 | User ID           |user_id            |ForeignKey     |[ref: > UserProfile.id]|
 | Title             |blog_comment_title |CharField      |max_length=80|
 | Comment           |blog_comment       |TextField      ||
