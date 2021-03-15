@@ -10,8 +10,8 @@ def all_products(request):
 
     products = Product.objects.all()
 
-    if request.GET:
-        context = {
+    context = {
             "products": products,
         }
+
     return render(request, "products/products.html", context)
