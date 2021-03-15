@@ -29,9 +29,55 @@
 </div>
 <!-- Products -->
 <div class="container-fluid section-container">
+    <div class="container page-title-wrapper">
+        <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
+            <span class="base" data-ui-id="page-title-wrapper">
+                All Products
+            </span>    
+        </h1>
+    </div>
+    <div class="container section-content-container">
+        <div class="row">
+            {% for product in products %}
+            <div class="col-6 col-md-3">
+                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                <div class="card text-center">
+                    <a href="#" class="product-link">
+                        <img src="{{ MEDIA_URL }}/product_images/{{ product.sku }}.jpg" class="card-img-top"
+                            alt="{{ product.abbreviated_friendly_name }}">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text brand-name text-capitalize">{{ product.brand }}</p>
+                        <a href="#" class="product-link">
+                            <h5 class="card-title">{{ product.abbreviated_friendly_name}}</h5>
+                        </a>
+                        <p class="card-text product-price">€{{ product.price }}</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <div class="row">
+                            <div class="col">
+                                <form>
+                                    <input type="hidden" name="sku" value="{{ product.sku }}">
+                                    <div class="button-wrapper">
+                                        <button class="btn-orange quick-add-to-cart-btn" type="submit"
+                                            data-test="quick-add" data-uievent="addtobasket"
+                                            data-skuid="{{ product.sku }}" data-productid="{{ product.id }}"
+                                            data-href="/shop/product/{{ product.name }}">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
     <div class="row">
-        <div class="col-12 col-lg-9 mx-auto text-center">
-            {{ products }}
+        <div class="col-12 text-center">
+            <a class="page-link-with-arrow" href="" title="View All New In"><span class="link">View All New Products</span></a>
         </div>
     </div>
 </div>
@@ -43,12 +89,15 @@
             <p>Join our mailing list to get the latest updates and offers straight to your inbox.</p>
         </div>
         <div class="col-12 col-lg-9 mx-auto text-center newsletter">
-            <form class="form subscribe" novalidate="novalidate" action="" method="post" id="newsletter-validate-detail">
+            <form class="form subscribe" novalidate="novalidate" action="" method="post"
+                id="newsletter-validate-detail">
                 <div class="form-group">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control border-apple-green rounded-0" id="newsletter-email" placeholder="Enter your email address" aria-label="Enter your email address" aria-describedby="newsletter-submit-button">
+                        <input type="email" class="form-control border-apple-green rounded-0" id="newsletter-email"
+                            placeholder="Enter your email address" aria-label="Enter your email address"
+                            aria-describedby="newsletter-submit-button">
                         <div class="input-group-append" id="newsletter-submit-button">
-                            <button class="btn btn-apple-green" type="button">   
+                            <button class="btn btn-apple-green" type="button">
                                 <i class="far fa-paper-plane"></i>
                             </button>
                         </div>

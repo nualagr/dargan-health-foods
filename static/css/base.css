@@ -163,6 +163,10 @@ hr.divider {
     box-shadow: 0 0 0 0.1rem rgba(224, 224, 224, 0.1);
 } 
 
+.page-title {
+    margin-bottom: 20px;
+}
+
 /* Buttons ------------------------------------------------------------ */
 .btn {
     border-radius: 0;
@@ -657,6 +661,10 @@ a.anchor {
         width: 50%;
         margin: auto;
     }
+
+    .page-title-wrapper .page-title {
+        display: inline-block;
+    }
 }
 
 /* Small Laptop Screens */
@@ -692,4 +700,3 @@ a.anchor {
         right:0;        
     }
 }
-
