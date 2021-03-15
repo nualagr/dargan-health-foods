@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs Navigation -->
+<div class="container breadcrumbs-container">
+    <div class="breadcrumbs">
+        <ul class="items">
+            <li class="item home">
+                <a href="{% url 'home' %}" title="Go to Home Page">
+                    Home
+                </a>
+            </li>
+            <li class="item products">
+                <strong>Products</strong>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Products -->
+<div class="container-fluid section-container">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto text-center">
+            <img src="{{ MEDIA_URL }}come-in-were-open.jpg" alt="Come In We're Open sign" width ="100%" height="auto">
+        </div>
+        <div class="col-12 col-lg-9 mx-auto text-center">
+            <h2 class="logo-font-sub-heading">
+                Our Story
+            </h2>
+            <p>
+                Dargan Health Foods has been serving wholesome food and nutritional advice to the Castletroy and wider Limerick community since it was opened by Julie Dargan, a Limerick native, in 1996.
+            </p>
+            <p> 
+                Here at Dargan’s we love good food and care about what we eat and where it comes from.  Our mission is to provide our customers with a wide range of high-quality natural health foods and products.  Stocking over 4,000 products, 250 top brands and with 25 years of experience, we are the natural health food store you can trust.
+            </p>
+            <hr class="divider">
+            <h2 class="logo-font-sub-heading">
+                Our Store
+            </h2>
+            <p>    
+                Walk into the shop today and you’ll find a highly knowledgeable team and the best ingredients to live a healthy life. Bursting with knowledge, experience and expertise, we are proud to share what we know about food, health and wellbeing with our customers.
+            </p>
+            <p>
+                Our shelves are filled with delicious organic food, wholesome panty essentials, nutritional supplements, herbal remedies, natural skincare and environmentally friendly household products.
+            </p>
+            <hr class="divider">
+            <h2 class="logo-font-sub-heading">
+                Our Website
+            </h2>
+            <p>
+                Our website is a hub for natural health and lifestyle information.  We regularly update our blog so you can get information about new natural health developments and new products.  Sign up to our email newsletter to be the first to learn about our new ranges.
+            </p>
+            <p>    
+                Our aim is to provide the best selection of health foods, premium vitamins and supplements, natural body care and everything else you need for a healthier and happier lifestyle.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Newsletter -->
+<div class="container-fluid section-container bg-light-green">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto text-center">
+            <h2>Sign Up For Our Newsletter</h2>
+            <p>Join our mailing list to get the latest updates and offers straight to your inbox.</p>
+        </div>
+        <div class="col-12 col-lg-9 mx-auto text-center newsletter">
+            <form class="form subscribe" novalidate="novalidate" action="" method="post" id="newsletter-validate-detail">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control border-apple-green rounded-0" id="newsletter-email" placeholder="Enter your email address" aria-label="Enter your email address" aria-describedby="newsletter-submit-button">
+                        <div class="input-group-append" id="newsletter-submit-button">
+                            <button class="btn btn-apple-green" type="button">   
+                                <i class="far fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
