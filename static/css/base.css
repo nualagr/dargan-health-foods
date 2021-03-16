@@ -243,7 +243,7 @@ hr.divider {
 
 /* Containers --------------------------------------------------------- */
 .nav-container {
-    background-color: #fffafa;
+    background-color: #FFFAFA;
     z-index: 1200;
 }
 
@@ -579,8 +579,14 @@ footer {
 }
 
 .breadcrumbs a {
-    color: #006bb4;
+    color: #707070;
     text-decoration: none;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:active,
+.breadcrumbs a:focus {
+    text-decoration: underline;
 }
 
 .breadcrumbs strong {
@@ -593,6 +599,29 @@ a.anchor {
     position: relative;
     top: -110px;
     visibility: hidden;
+}
+
+/* Pagination Buttons ------------------------------------------------*/
+.page-item.active .page-link {
+    background-color: #29873C;
+    border-color: #29873C;
+}
+
+.page-link {
+    color: #29873C;
+    border: none;
+}
+
+.page-link:hover,
+.page-link:active,
+.page-link:focus {
+    color: #29873C;
+    box-shadow: none;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    border-radius: 0;
 }
 
 /* Media Queries ------------------------------------------------------*/
