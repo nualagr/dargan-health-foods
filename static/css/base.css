@@ -356,8 +356,10 @@ hr.divider {
 /* Product and Blog Post Cards ---------------------------------------- */
 
 .card {
-    margin-bottom: 16px;
+    margin-bottom: 26px;
     border-radius: 0;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    border: 0;
 }
 
 .card .card-img-top {
