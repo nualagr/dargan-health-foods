@@ -59,6 +59,18 @@ body {
 
 /* Special Fonts and Text Styling ------------------------------------- */
 
+.product-details-container h1 {
+    font-size: 30px;
+    color: #29873C;
+    font-weight: 600;
+    margin: 0 0 30px;
+    text-transform: none;
+}
+
+.product-details-container p.small a.text-muted {
+    text-decoration: none;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -403,6 +415,15 @@ a.blog-post-link h5:hover {
 p.card-text.brand-name {
     font-size: .75em;
     text-transform: capitalize;
+}
+
+/* Product Details Page ----------------------------------------------- */
+
+.product-detail-image {
+    width: 100%;
+    height: 50vh;
+    object-fit: contain;
+    padding: 5px;
 }
 
 /* Footer ------------------------------------------------------------- */

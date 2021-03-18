@@ -44,19 +44,19 @@
                 <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
                 <div class="card text-center">
                     {% if product.main_image %}
-                                <a href="#" class="product-link">
+                                <a href="{% url 'product_detail' product.id %}" class="product-link">
                                     <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
                                     alt="{{ product.abbreviated_friendly_name }}">
                                 </a>
                         {% else %}
-                                <a href="#" class="product-link">
+                                <a href="{% url 'product_detail' product.id %}" class="product-link">
                                     <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
                                     alt="{{ product.abbreviated_friendly_name }}">
                                 </a>
                     {% endif %}
                     <div class="card-body">
                         <p class="card-text brand-name">{{ product.brand }}</p>
-                        <a href="#" class="product-link">
+                        <a href="{% url 'product_detail' product.id %}" class="product-link">
                             <h5 class="card-title">{{ product.abbreviated_friendly_name}}</h5>
                         </a>
                         <p class="card-text product-price">€{{ product.price }}</p>

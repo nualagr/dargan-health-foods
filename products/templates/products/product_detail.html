@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Product Details{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs Navigation -->
+<div class="container breadcrumbs-container">
+    <div class="breadcrumbs">
+        <ul class="items">
+            <li class="item home">
+                <a href="{% url 'home' %}" title="Go to Home Page">
+                    Home
+                </a>
+            </li>
+            <li class="item products text-capitalize">
+                <a href="{% url 'products' %}" title="Go to Products Category Page">
+                    {{ product.category }}
+                </a>
+            </li>
+            <li class="item product">
+                <strong>{{ product.friendly_name }}</strong>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Individual Product Information -->
+<div class="container-fluid">
+    <div class="container section-content-container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                <div class="image-container my-5">
+                    {% if product.main_image %}
+                    <a href="{{ product.image.url }}" target="_blank">
+                        <img class="product-detail-image" src="{{ MEDIA_URL }}{{ product.main_image }}"
+                            alt="{{ product.abbreviated_friendly_name }}">
+                    </a>
+                    {% else %}
+                    <a href="">
+                        <img class="product-detail-image" src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg"
+                            alt="{{ product.abbreviated_friendly_name }}">
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="product-details-container mb-5 mt-md-5">
+                    <h1 class="mb-0">{{ product.friendly_name }}</h1>
+                    <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
+                    {% if tags %}
+                    <p class="small mt-1 mb-0">
+                        <i class="fas fa-tag mr-1"></i>
+                        {% for tag in tags %}
+                        <a class="text-muted" href="{% url 'products' %}?tag={{ product.tag.name }}">
+                            {{ tag.tag.friendly_name }}&nbsp;
+                        </a>
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                    {% if request.user.is_superuser %}
+                    <small class="ml-3">
+                        <a href="">Edit</a> |
+                        <a class="text-danger" href="">Delete</a>
+                    </small>
+                    {% endif %}
+                    <p class="mt-3">{{ product.product_information }}</p>
+                    <!-- Quantity Form and Add to Cart Button -->
+                    <form class="form" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty btn" data-item_id="{{ product.id }}"
+                                            id="decrement-qty_{{ product.id }}">
+                                            <span class="icon">
+                                                <i class="fas fa-minus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input class="form-control qty_input" type="number" name="quantity" value="1"
+                                        min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    <div class="input-group-append">
+                                        <button class="increment-qty btn" data-item_id="{{ product.id }}"
+                                            id="increment-qty_{{ product.id }}">
+                                            <span class="icon">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <input type="submit" class="btn-orange quick-add-to-cart-btn" value="Add to Bag">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product Info Detailed -->
+    <div class="container-fluid product-info-container">
+        <div class="col-xl-9 mx-auto">
+            <div class="row">
+                <div class="col-12">
+                    <div class="accordion accordion-flush">
+                        <div class="accordion-item" id="accordionDetails">
+                            <h4 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Details
+                                </button>
+                            </h4>
+                        </div>
+                        <div class="accordion-body collapse" id="collapseOne" aria-labelledby="headingOne">
+                            <!-- Ingredients -->
+                            {% if product.ingredients %}
+                            <p>
+                                <strong>
+                                    Ingredients:
+                                </strong>
+                            </p>
+                            <p>
+                            {{ product.ingredients }}
+                            </p>
+                            <br>
+                            {% endif %}
+                            <!-- Directions for Usage -->
+                            {% if product.usage %}
+                            <p>
+                                <strong>
+                                    Directions:
+                                </strong>
+                            </p>
+                            <p>
+                            {{ product.usage }}
+                            </p>
+                            <br>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="accordion-item" id="accordionMoreDetails">
+                            <h4 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    More Information
+                                </button>
+                            </h4>
+                        </div>
+                        <div class="accordion-body collapse" id="collapseTwo" aria-labelledby="headingTwo">
+                            {% if product.weight_g %}
+                            <p>
+                                <strong>
+                                    Weight: 
+                                </strong>
+                                {{ product.weight_g }}g
+                            </p>
+                            <br>
+                            {% endif %}
+                            {% if product.free_from %}
+                            <p>
+                                <strong>
+                                    Free From: 
+                                </strong>
+                                {{ product.free_from }}
+                            </p>
+                            <br>
+                            {% endif %}
+                            {% if product.allergens %}
+                            <p>
+                                <strong>
+                                    Allergens: 
+                                </strong>
+                                {{ product.allergens }}
+                            </p>
+                            <br>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                        <div class="accordion-item" id="accordionDisclaimer" role="tablist" aria-multiselectable="true">
+                            <h4 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" role="tab" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    Disclaimer
+                                </button>
+                            </h4>
+                        </div>
+                        <div class="accordion-body collapse" id="collapseThree" role="tabpanel"
+                            aria-labelledby="headingThree">
+                            <p>
+                                Please note that while we take every care to make sure the product information displayed on our website is correct, product recipes are regularly changed. This may affect nutrition and allergen information therefore you should always check product labels and not rely solely on the information presented here.
+                            </p>
+                        </div>
+                </div>
+                <div class="col-12">
+                    <div class="accordion-item" id="accordionReviews">
+                            <h4 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Reviews
+                                </button>
+                            </h4>
+                        </div>
+                        <div class="accordion-body collapse" id="collapseFour" aria-labelledby="headingFour">
+                            {% if product.avg_rating %}
+                            <p>
+                                <strong>
+                                    Average Rating: 
+                                </strong>
+                                {{ product.avg_rating }}
+                            </p>
+                            <br>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <!-- Newsletter -->
+    <div class="container-fluid section-container bg-light-green">
+        <div class="row">
+            <div class="col-12 col-lg-9 mx-auto text-center">
+                <h2>Sign Up For Our Newsletter</h2>
+                <p>Join our mailing list to get the latest updates and offers straight to your inbox.</p>
+            </div>
+            <div class="col-12 col-lg-9 mx-auto text-center newsletter">
+                <form class="form subscribe" novalidate="novalidate" action="" method="post"
+                    id="newsletter-validate-detail">
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control border-apple-green rounded-0" id="newsletter-email"
+                                placeholder="Enter your email address" aria-label="Enter your email address"
+                                aria-describedby="newsletter-submit-button">
+                            <div class="input-group-append" id="newsletter-submit-button">
+                                <button class="btn btn-apple-green" type="button">
+                                    <i class="far fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

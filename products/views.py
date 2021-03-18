@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render
-from .models import Product
+from django.shortcuts import render, get_object_or_404
+from .models import Product, ProductTag
 
 
 def all_products(request):
@@ -25,3 +25,21 @@ def all_products(request):
         }
 
     return render(request, "products/products.html", context)
+
+
+def product_detail(request, product_id):
+    """
+    A view to show individual product details
+    """
+    # Get the product from the database
+    product = get_object_or_404(Product, pk=product_id)
+
+    # Get the related product tags
+    tags = ProductTag.objects.filter(product=product_id)
+    print("Tags:", tags)
+    context = {
+        "product": product,
+        "tags": tags,
+    }
+
+    return render(request, "products/product_detail.html", context)
