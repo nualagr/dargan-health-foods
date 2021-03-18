@@ -48,7 +48,7 @@ class TagAdmin(admin.ModelAdmin):
         "name",
     )
 
-    ordering = ('friendly_name',)
+    ordering = ("friendly_name",)
 
 
 class ProductTagInline(admin.TabularInline):
@@ -61,8 +61,8 @@ class ProductImageInline(admin.TabularInline):
 
 class ProductAdmin(admin.ModelAdmin):
     inlines = (
-        ProductImageInline,
         ProductTagInline,
+        ProductImageInline,
     )
 
     list_display = (

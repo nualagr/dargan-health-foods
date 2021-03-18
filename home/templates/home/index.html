@@ -31,28 +31,29 @@
     </div>
     <div class="container section-content-container">
         <div class="row">
+            {% for product in latest_products %}
             <div class="col-6 col-md-3">
                 <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
                 <div class="card text-center">
                     <a href="#" class="product-link">
-                        <img src="{{ MEDIA_URL }}0006.jpg" class="card-img-top" alt="Essential Female Multi 60 Caps">
+                        <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top" alt="{{ product.abbreviated_friendly_name }}">
                     </a>
                     <div class="card-body">
-                        <p class="card-text brand-name">Viridian</p>
+                        <p class="card-text brand-name">{{ product.brand }}</p>
                         <a href="#" class="product-link">
-                            <h5 class="card-title">Essential Female Multi 60 Caps</h5>
+                            <h5 class="card-title">{{ product.abbreviated_friendly_name }}</h5>
                         </a>
-                        <p class="card-text product-price">€46.40</p>
+                        <p class="card-text product-price">€{{ product.price }}</p>
                     </div>
                     <div class="card-footer bg-white border-0">
                         <div class="row">
                             <div class="col">
                                 <form>
-                                    <input type="hidden" name="sku" value="003425">
+                                    <input type="hidden" name="sku" value="{{ product.sku }}">
                                     <div class="button-wrapper">
                                         <button class="btn-orange quick-add-to-cart-btn" type="submit" data-test="quick-add"
-                                            data-uievent="addtobasket" data-skuid="003425" data-productid="60003425"
-                                            data-href="/shop/product/viridian-essential-female-multi">
+                                            data-uievent="addtobasket" data-skuid="{{ product.sku }}" data-productid="{{ product.id }}"
+                                            data-href="/shop/product/{{ product.name }}">
                                             Add to Cart
                                         </button>
                                     </div>
@@ -62,103 +63,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6 col-md-3">
-                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                <div class="card text-center">
-                    <a href="#" class="product-link">
-                        <img src="{{ MEDIA_URL }}0007.jpg" class="card-img-top" alt="Essential Male Multi 90 Caps">
-                    </a>
-                    <div class="card-body">
-                        <p class="card-text brand-name">Viridian</p>
-                        <a href="#" class="product-link">
-                            <h5 class="card-title">Essential Male Multi 90 Caps</h5>
-                        </a>
-                        <p class="card-text product-price">€34.60</p>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                        <div class="row">
-                            <div class="col">
-                                <form>
-                                    <input type="hidden" name="sku" value="003425">
-                                    <div class="button-wrapper">
-                                        <button class="btn-orange quick-add-to-cart-btn" type="submit" data-test="quick-add"
-                                            data-uievent="addtobasket" data-skuid="003425" data-productid="60003425"
-                                            data-href="/shop/product/viridian-essential-male-multi-60003425">
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                <div class="card text-center">
-                    <a href="#" class="product-link">
-                        <img src="{{ MEDIA_URL }}0213.jpg" class="card-img-top" alt="Organic ViridiKid C Drops">
-                    </a>
-                    <div class="card-body">
-                        <p class="card-text brand-name">Viridian</p>
-                        <a href="#" class="product-link">
-                            <h5 class="card-title">Organic ViridiKid C Drops</h5>
-                        </a>
-                        <p class="card-text product-price">€21.05</p>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                        <div class="row">
-                            <div class="col">
-                                <form>
-                                    <input type="hidden" name="sku" value="003425">
-                                    <div class="button-wrapper">
-                                        <button class="btn-orange quick-add-to-cart-btn" type="submit" data-test="quick-add"
-                                            data-uievent="addtobasket" data-skuid="003425" data-productid="60003425"
-                                            data-href="/shop/product/viridian-organic-viridikid-c-drops-60003425">
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                <div class="card text-center">
-                    <a href="#" class="product-link">
-                        <img src="{{ MEDIA_URL }}0015.jpg" class="card-img-top" alt="L-Carnitine 500mg 30 Caps">
-                    </a>
-                    <div class="card-body">
-                        <p class="card-text brand-name">Viridian</p>
-                        <a href="#" class="product-link">
-                            <h5 class="card-title">L-Carnitine 500mg 30 Caps</h5>
-                        </a>
-                        <p class="card-text product-price">€33.45</p>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                        <div class="row">
-                            <div class="col">
-                                <form>
-                                    <input type="hidden" name="sku" value="003425">
-                                    <div class="button-wrapper">
-                                        <button class="btn-orange quick-add-to-cart-btn" type="submit" data-test="quick-add"
-                                            data-uievent="addtobasket" data-skuid="003425" data-productid="60003425"
-                                            data-href="/shop/product/viridian-l-carnitine-500mg-60003425">
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
             <div class="row">
                 <div class="col-12 text-center">
-                    <a class="page-link-with-arrow" href="{% url 'products' %}" title="View All New In"><span class="link">View All New
-                            Products</span></a>
+                    <a class="page-link-with-arrow" href="{% url 'products' %}" title="View All New In">
+                        <span class="link">View All New Products</span>
+                    </a>
                 </div>
             </div>
         </div>

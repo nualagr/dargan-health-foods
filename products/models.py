@@ -31,7 +31,8 @@ class Category(models.Model):
         ordering = ['department_id']
 
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    friendly_name = models.CharField(
+        max_length=254, null=True, blank=True)
     department = models.ForeignKey(
         Department,
         null=True,
@@ -57,7 +58,8 @@ class Brand(models.Model):
         ordering = ['name']
 
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    friendly_name = models.CharField(
+        max_length=254, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -132,6 +134,10 @@ class Product(models.Model):
         default=0, null=True, blank=True
     )
     discontinued = models.BooleanField(default=False, null=True, blank=True)
+    main_image = models.ImageField(
+        upload_to="product_images", null=True, blank=True
+    )
+    main_image_url = models.URLField(max_length=1024, null=True, blank=True)
 
     def __str__(self):
         return self.name

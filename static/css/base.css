@@ -346,6 +346,11 @@ hr.divider {
     padding: .25rem 1.5rem .25rem .5rem;
 }
 
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item:focus {
+    background-color: #FFFFFF;
+}
+
 /* Delivery Banner ---------------------------------------------------- */
 #delivery-banner h4 {
     font-size: 1rem;
@@ -353,7 +358,7 @@ hr.divider {
     font-weight: 500;
 }
 
-/* Product and Blog Post Cards ---------------------------------------- */
+/* Product and Blog-Post Cards ---------------------------------------- */
 
 .card {
     margin-bottom: 26px;
@@ -397,6 +402,7 @@ a.blog-post-link h5:hover {
 
 p.card-text.brand-name {
     font-size: .75em;
+    text-transform: capitalize;
 }
 
 /* Footer ------------------------------------------------------------- */
