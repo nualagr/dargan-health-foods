@@ -29,7 +29,7 @@ body {
 }
 
 .text-grey {
-    color: #C8C8C8 !important;
+    color: #CCCCCC !important;
 }
 
 .border-green {
@@ -62,13 +62,13 @@ body {
 .product-details-container h1 {
     font-size: 30px;
     color: #29873C;
-    font-weight: 600;
     margin: 0 0 30px;
     text-transform: none;
 }
 
-.product-details-container p.small a.text-muted {
+.product-details-container p.small a.tag {
     text-decoration: none;
+    color: #707070;
 }
 
 /* from Bulma */
@@ -112,13 +112,16 @@ body {
 }
 
 h4 {
-    color: #29873C;
     margin-bottom: 0;
     margin-top: 0;
     font-size: 22px;
     letter-spacing: 1px;
     line-height: 18px;
     font-weight: 700;
+}
+
+h4.accordion-header {
+    color: #29873C;
 }
 
 .page-link-with-arrow {
@@ -162,6 +165,7 @@ h4 {
 .general-sub {
     margin-bottom: 13px;
     text-align: center;
+    color: #29873C;
 }
 
 hr.divider {
@@ -184,14 +188,28 @@ hr.divider {
     border-radius: 0;
 }
 
+.add-to-cart-btn,
 .quick-add-to-cart-btn {
     border: none;
     height: 35px;
-    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.quick-add-to-cart-btn {
+    width: 80%;
     margin: 10px auto;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    margin: 0;
+}
+
+.btn.decrement-qty,
+.btn.increment-qty {
+    color: #707070;
 }
 
 .btn-cream {
@@ -417,6 +435,62 @@ p.card-text.brand-name {
     text-transform: capitalize;
 }
 
+/* Accordions in Footer and on Product Details Page ------------------- */
+.accordion-item {
+    border-top: 1px solid #EEEEEE;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.accordion-list li a {
+    padding: .5rem .5rem;
+    color: #333333;
+    text-decoration: none;
+}
+
+.accordion-button {
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    letter-spacing: 1px;
+    line-height: 18px;
+    font-weight: 600;
+    border: none;
+    padding: 1rem;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+/*Solution to changing the Bootstrap Accordion button icon colour found on Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-button-collapsed-icon-color-in-bootstrap-5*/
+.accordion-button.collapsed::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.individual-product-container .accordion-button.collapsed::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23707070'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.individual-product-container .accordion-button:not(.collapsed),
+.footer-container .accordion-button:not(.collapsed) {
+    color: #29873C;
+    background-color: #FFFFFF;
+}
+
+.individual-product-container .accordion-button {
+    color: #707070;
+}
+
+.footer-container .accordion-button {
+    color: #29873C;
+}
+
 /* Product Details Page ----------------------------------------------- */
 
 .product-detail-image {
@@ -483,49 +557,6 @@ footer {
 .footer-box-quick-links-list li a:active {
     text-decoration: underline;
     color: #29873C;
-}
-
-.accordion-item {
-    border-top: 1px solid #EEEEEE;
-    margin-left: -10px;
-    margin-right: -10px;
-}
-
-.accordion-list li a {
-    padding: .5rem .5rem;
-    color: #333333;
-    text-decoration: none;
-}
-
-.accordion-button {
-    font-size: 1rem;
-    line-height: 1rem;
-    color: #29873C;
-    margin-bottom: 0;
-    margin-top: 0;
-    letter-spacing: 1px;
-    line-height: 18px;
-    font-weight: 700;
-    border: none;
-    padding: 1rem;
-}
-
-.accordion-button:focus {
-    box-shadow: none;
-}
-
-.accordion-button:not(.collapsed) {
-    color: #29873C;
-    background-color: #FFFFFF;
-}
-
-/*Solution to changing the Bootstrap Accordion button icon colour found on Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-button-collapsed-icon-color-in-bootstrap-5*/
-.accordion-button.collapsed::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-}
-
-.accordion-button:not(.collapsed)::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .social-row {
@@ -664,7 +695,7 @@ a.anchor {
         font-size: 1rem;
         font-weight: 400;
         line-height: 1.5;
-        color: #495057;
+        color: #C8C8C8;
         background-color: #fff;
         background-clip: padding-box;
         border: 1px solid #ced4da;

@@ -13,18 +13,22 @@
 
 {% block content %}
 <!-- Breadcrumbs Navigation -->
-<div class="container breadcrumbs-container">
-    <div class="breadcrumbs">
-        <ul class="items">
-            <li class="item home">
-                <a href="{% url 'home' %}" title="Go to Home Page">
-                    Home
-                </a>
-            </li>
-            <li class="item our_story">
-                <strong>Our Story</strong>
-            </li>
-        </ul>
+<div class="container-fluid breadcrumbs-container">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <div class="breadcrumbs">
+                <ul class="items">
+                    <li class="item home">
+                        <a href="{% url 'home' %}" title="Go to Home Page">
+                            Home
+                        </a>
+                    </li>
+                    <li class="item our_story">
+                        <strong>Our Story</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 <!-- Our Story -->

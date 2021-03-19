@@ -13,74 +13,84 @@
 
 {% block content %}
 <!-- Breadcrumbs Navigation -->
-<div class="container breadcrumbs-container">
-    <div class="breadcrumbs">
-        <ul class="items">
-            <li class="item home">
-                <a href="{% url 'home' %}" title="Go to Home Page">
-                    Home
-                </a>
-            </li>
-            <li class="item products">
-                <strong>Products</strong>
-            </li>
-        </ul>
+<div class="container-fluid breadcrumbs-container">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <div class="breadcrumbs">
+                <ul class="items">
+                    <li class="item home">
+                        <a href="{% url 'home' %}" title="Go to Home Page">
+                            Home
+                        </a>
+                    </li>
+                    <li class="item products">
+                        <strong>Products</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 <!-- Products -->
 <div class="container-fluid section-container">
-    <div class="container page-title-wrapper">
-        <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
-            <span class="base" data-ui-id="page-title-wrapper">
-                All Products
-            </span>
-        </h1>
+    <div class="row page-title-wapper">
+        <div class="col-12 col-lg-9 mx-auto">
+            <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
+                <span class="base" data-ui-id="page-title-wrapper">
+                    All Products
+                </span>
+            </h1>
+        </div>
     </div>
-    <div class="container section-content-container">
-        <!-- Display Products Row -->
+    <div class="products-container">
         <div class="row">
-            {% for product in products %}
-            <div class="col-6 col-md-3">
-                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                <div class="card text-center">
-                    {% if product.main_image %}
-                                <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                    <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
+            <div class="col-12 col-lg-9 mx-auto">
+                <!-- Display Products Row -->
+                <div class="row">
+                    {% for product in products %}
+                    <div class="col-6 col-md-3">
+                        <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                        <div class="card text-center">
+                            {% if product.main_image %}
+                            <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
                                     alt="{{ product.abbreviated_friendly_name }}">
-                                </a>
-                        {% else %}
-                                <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                    <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
+                            </a>
+                            {% else %}
+                            <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
                                     alt="{{ product.abbreviated_friendly_name }}">
+                            </a>
+                            {% endif %}
+                            <div class="card-body">
+                                <p class="card-text brand-name">{{ product.brand }}</p>
+                                <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                    <h5 class="card-title">{{ product.abbreviated_friendly_name}}</h5>
                                 </a>
-                    {% endif %}
-                    <div class="card-body">
-                        <p class="card-text brand-name">{{ product.brand }}</p>
-                        <a href="{% url 'product_detail' product.id %}" class="product-link">
-                            <h5 class="card-title">{{ product.abbreviated_friendly_name}}</h5>
-                        </a>
-                        <p class="card-text product-price">€{{ product.price }}</p>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                        <div class="row">
-                            <div class="col">
-                                <form>
-                                    <input type="hidden" name="sku" value="{{ product.sku }}">
-                                    <div class="button-wrapper">
-                                        <button class="btn-orange quick-add-to-cart-btn" type="submit"
-                                            data-test="quick-add" data-uievent="addtobasket"
-                                            data-skuid="{{ product.sku }}" data-productid="{{ product.id }}"
-                                            data-href="/shop/product/{{ product.name }}">
-                                            Add to Cart
-                                        </button>
+                                <p class="card-text product-price">€{{ product.price }}</p>
+                            </div>
+                            <div class="card-footer bg-white border-0">
+                                <div class="row">
+                                    <div class="col">
+                                        <form>
+                                            <input type="hidden" name="sku" value="{{ product.sku }}">
+                                            <div class="button-wrapper">
+                                                <button class="btn-orange quick-add-to-cart-btn" type="submit"
+                                                    data-test="quick-add" data-uievent="addtobasket"
+                                                    data-skuid="{{ product.sku }}" data-productid="{{ product.id }}"
+                                                    data-href="/shop/product/{{ product.name }}">
+                                                    Add to Cart
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
         </div>
         <div class="row">
             <div class="col-12 text-center">
@@ -88,47 +98,49 @@
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
                         {% if page_obj.has_previous %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Link to Previous Page">
-                                    <span aria-hidden="true">&#x3C;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+                                aria-label="Link to Previous Page">
+                                <span aria-hidden="true">&#x3C;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
                         {% else %}
-                            <li class="page-item disabled">
-                                <a class="page-link" href="" aria-label="Link to Previous Page">
-                                    <span aria-hidden="true">&#x3C;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="" aria-label="Link to Previous Page">
+                                <span aria-hidden="true">&#x3C;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
                         {% endif %}
                         {% for i in page_range %}
-                            {% if page_obj.number == i %}
-                                <li class="page-item active">
-                                    <span class="page-link">{{ i }} 
-                                        <span class="sr-only">(current)</span>
-                                    </span>
-                                </li>
-                            {% else %}
-                                <li class="page-item">
-                                    <a class="page-link" href="?page={{ i }}" aria-label="Link to Page {{ i }}">{{ i }}</a>
-                                </li>
-                            {% endif %}
+                        {% if page_obj.number == i %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ i }}
+                                <span class="sr-only">(current)</span>
+                            </span>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ i }}" aria-label="Link to Page {{ i }}">{{ i }}</a>
+                        </li>
+                        {% endif %}
                         {% endfor %}
                         {% if page_obj.has_next %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Link to Next Page">
-                                    <span aria-hidden="true">&#x3E;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}"
+                                aria-label="Link to Next Page">
+                                <span aria-hidden="true">&#x3E;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
                         {% else %}
-                            <li class="page-item disabled">
-                               <a class="page-link" href="" aria-label="Next">
-                                    <span aria-hidden="true">&#x3E;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="" aria-label="Next">
+                                <span aria-hidden="true">&#x3E;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
                         {% endif %}
                     </ul>
                 </nav>
