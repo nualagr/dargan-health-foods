@@ -492,12 +492,15 @@ p.card-text.brand-name {
 }
 
 /* Product Details Page ----------------------------------------------- */
-
-.product-detail-image {
+.product-details-image {
     width: 100%;
     height: 50vh;
     object-fit: contain;
     padding: 5px;
+}
+
+.product-details-container form input.qty-input {
+    text-align: center;
 }
 
 /* Footer ------------------------------------------------------------- */

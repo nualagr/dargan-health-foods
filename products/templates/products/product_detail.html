@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load products_tags %}
 
 {% block title %}Product Details{% endblock %}
 
@@ -41,15 +42,15 @@
     <div class="individual-product-container">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-1 col-xl-4">
-                <div class="image-container my-5">
+                <div class="product-image-container my-5">
                     {% if product.main_image %}
                     <a href="{{ product.image.url }}" target="_blank">
-                        <img class="product-detail-image" src="{{ MEDIA_URL }}{{ product.main_image }}"
+                        <img class="product-details-image" src="{{ MEDIA_URL }}{{ product.main_image }}"
                             alt="{{ product.abbreviated_friendly_name }}">
                     </a>
                     {% else %}
                     <a href="">
-                        <img class="product-detail-image" src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg"
+                        <img class="product-details-image" src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg"
                             alt="{{ product.abbreviated_friendly_name }}">
                     </a>
                     {% endif %}
@@ -75,7 +76,9 @@
                         <a class="text-danger" href="">Delete</a>
                     </small>
                     {% endif %}
-                    <p class="mt-3">{{ product.product_information }}</p>
+                    <p class="mt-3">
+                        {{ product.information }}
+                    </p>
                     <!-- Quantity Form and Add to Cart Button -->
                     <form class="row" action="" method="POST">
                         {% csrf_token %}
@@ -88,7 +91,7 @@
                                         </span>
                                     </button>
                                 </div>
-                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
+                                <input class="form-control qty-input" type="number" name="quantity" value="1" min="1"
                                     max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                 <div class="input-group-append">
                                     <button class="increment-qty btn" data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
@@ -126,7 +129,13 @@
                             </strong>
                         </p>
                         <p>
-                            {{ product.ingredients }}
+                            <ul>
+                                {% for ingredient in product.ingredients|split:"," %}
+                                <li>
+                                    {{ ingredient }}
+                                </li>
+                                {% endfor %}
+                            </ul>                         
                         </p>
                         <br>
                         {% endif %}
@@ -134,7 +143,7 @@
                         {% if product.usage %}
                         <p>
                             <strong>
-                                Directions:
+                                Usage:
                             </strong>
                         </p>
                         <p>

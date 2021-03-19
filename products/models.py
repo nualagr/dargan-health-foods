@@ -113,7 +113,7 @@ class Product(models.Model):
     )
     price = models.DecimalField(max_digits=6, decimal_places=2)
     vat_code = models.CharField(max_length=3, null=True, blank=True)
-    product_information = models.TextField(null=True, blank=True)
+    information = models.TextField(null=True, blank=True)
     ingredients = models.TextField(null=True, blank=True)
     free_from = models.BooleanField(default=False, null=True, blank=True)
     allergens = models.TextField(blank=True)
