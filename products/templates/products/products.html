@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load products_tags %}
 
 {% block title %}Products{% endblock %}
 
@@ -37,7 +38,18 @@
         <div class="col-12 col-lg-9 mx-auto">
             <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
                 <span class="base" data-ui-id="page-title-wrapper">
-                    All Products
+                    {% if search_term %}
+                        Search Results For: "{{ search_term }}"
+                    {% elif current_categories %}
+                        {% for category in current_categories %}
+                            {% if forloop.last %}
+                                {{ category|title|to_ampersand }}
+                            {% else %}
+                                {{ category|title|to_ampersand }}, 
+                            {% endif %} 
+                        {% endfor %}
+                    {% else %}
+                    {% endif %}
                 </span>
             </h1>
         </div>
@@ -47,6 +59,7 @@
             <div class="col-12 col-lg-9 mx-auto">
                 <!-- Display Products Row -->
                 <div class="row">
+                {% if products%}
                     {% for product in products %}
                     <div class="col-6 col-md-3">
                         <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
@@ -89,6 +102,11 @@
                         </div>
                     </div>
                     {% endfor %}
+                {% else %}
+                    <div class="col-12">
+                        Sorry, no results found...
+                    </div>
+                {% endif %}
                 </div>
             </div>
         </div>

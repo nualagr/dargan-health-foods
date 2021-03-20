@@ -8,3 +8,8 @@ register = template.Library()
 @register.filter(name='split')
 def split(str, delimiter):
     return str.split(delimiter)
+
+
+@register.filter
+def to_ampersand(value):
+    return value.replace("_N_", " & ").replace("_", " ")
