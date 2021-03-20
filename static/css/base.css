@@ -281,10 +281,6 @@ hr.divider {
     padding-top: 120px;
 }
 
-.banner-image-container {
-    padding: 0;
-}
-
 .banner-image-container a img:hover {
     opacity: 0.8;
 }
@@ -503,6 +499,30 @@ p.card-text.brand-name {
     text-align: center;
 }
 
+.stars-outer {
+    display: inline-block;
+    position: relative;
+    font-family: "Font Awesome 5 Free";
+}
+
+.stars-outer::before {
+    content: "\F005 \F005 \F005 \F005 \F005";
+    font-weight: 100;
+}
+
+.stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 800;
+}
+
+.stars-inner::before {
+    content: "\F005 \F005 \F005 \F005 \F005";
+    color: #FFCC00;
+}
 /* Footer ------------------------------------------------------------- */
 footer {
     min-height: 120px;

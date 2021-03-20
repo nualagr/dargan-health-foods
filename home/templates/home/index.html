@@ -15,7 +15,7 @@
 <!-- Banner Image -->
 <div class="container-fluid banner-image-container">
     <div class="row">
-        <div class="col-12 col-lg-9 mx-auto col-xl-10 mx-auto">
+        <div class="col-12 col-lg-9 mx-auto">
             <a href="">
                 <img src="{{ MEDIA_URL }}free-spring-flower-wreath-background-vector.jpg" alt="Spring Offers Banner">
             </a>
@@ -24,20 +24,22 @@
 </div>
 <!-- New Products -->
 <div class="container-fluid section-container">
-    <div class="row section-title-container">
-        <div class="col-12 col-lg-9 mx-auto col-xl-10 mx-auto">
-            <h2 class="section-title section-title-center">
-                <b></b>
-                <span class="section-title-main">
-                    New Arrivals
-                </span>
-                <b></b>
-            </h2>
+    <div class="section-title-container">
+        <div class="row">
+            <div class="col-12 col-lg-9 mx-auto">
+                <h2 class="section-title section-title-center">
+                    <b></b>
+                    <span class="section-title-main">
+                        New Arrivals
+                    </span>
+                    <b></b>
+                </h2>
+            </div>
         </div>
     </div>
     <div class="section-content-container">
         <div class="row">
-            <div class="col-12 col-lg-9 mx-auto col-xl-10 mx-auto">
+            <div class="col-12 col-lg-9 mx-auto">
                 <div class="row">
                     {% for product in latest_products %}
                     <div class="col-6 col-md-3">
@@ -74,12 +76,12 @@
                         </div>
                     </div>
                     {% endfor %}
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <a class="page-link-with-arrow" href="{% url 'products' %}" title="View All New In">
-                                <span class="link">View All New Products</span>
-                            </a>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a class="page-link-with-arrow" href="{% url 'products' %}" title="View All New In">
+                            <span class="link">View All New Products</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -88,90 +90,102 @@
 </div>
 <!-- About Us -->
 <div class="container-fluid section-container bg-light-green">
-    <a class="anchor" id="about"></a>
-    <div class="row section-title-container">
-        <div class="col-12 col-lg-9 mx-auto col-xl-10 mx-auto">
-            <h2 class="section-title section-title-center">
-                <b></b>
-                <span class="section-title-main">
-                    About Us
-                </span>
-                <b></b>
-            </h2>
+    <div class="section-title-container">
+        <div class="row">
+            <div class="col-12 col-lg-9 mx-auto">
+                <a class="anchor" id="about"></a>
+                <h2 class="section-title section-title-center">
+                    <b></b>
+                    <span class="section-title-main">
+                        About Us
+                    </span>
+                    <b></b>
+                </h2>
+            </div>
         </div>
     </div>
-    <div class="row section-content-container">
-        <div class="col-12 col-lg-9 mx-auto col-xl-10 mx-auto text-center">
-            <p>
-                Dargan Health Foods is a bustling, Irish-owned health-food store in Castletroy, Limerick which
-                proudly
-                offers a wide range of organic produce.
-                Our shelves are stocked with everything you’ll need to live a naturally healthy life:
-                wholegrain breads and cereals, gluten-free, dairy-free, nut-free, vegan and paleo products, bulk
-                spices
-                and seeds,
-                environmentally friendly cleaning products and baby goods.
-            </p>
-            <p>All our staff are highly trained and experienced and able to offer sound advice. We're here to serve
-                your
-                journey into health!
-            </p>
-            <a class="page-link-with-arrow" href="{% url 'our_story' %}" title="Our Story">
-                <span class="link">
-                    Our Story
-                </span>
-            </a>
+    <div class="section-content-container">
+        <div class="row">
+            <div class="col-12 col-lg-9 mx-auto text-center">
+                <p>
+                    Dargan Health Foods is a bustling, Irish-owned health-food store in Castletroy, Limerick which
+                    proudly
+                    offers a wide range of organic produce.
+                    Our shelves are stocked with everything you’ll need to live a naturally healthy life:
+                    wholegrain breads and cereals, gluten-free, dairy-free, nut-free, vegan and paleo products, bulk
+                    spices
+                    and seeds,
+                    environmentally friendly cleaning products and baby goods.
+                </p>
+                <p>All our staff are highly trained and experienced and able to offer sound advice. We're here to serve
+                    your
+                    journey into health!
+                </p>
+                <a class="page-link-with-arrow" href="{% url 'our_story' %}" title="Our Story">
+                    <span class="link">
+                        Our Story
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
 <!-- Latest Blog Posts -->
 <div class="container-fluid section-container">
-    <div class="row section-title-container">
-        <div class="col-12 col-lg-9 mx-auto col-xl-10 mx-auto">
-            <h2 class="section-title section-title-center">
-                <b></b>
-                <span class="section-title-main">
-                    Latest Posts
-                </span>
-                <b></b>
-            </h2>
+    <div class="section-title-container">
+        <div class="row">
+            <div class="col-12 col-lg-9 mx-auto">
+                <h2 class="section-title section-title-center">
+                    <b></b>
+                    <span class="section-title-main">
+                        Latest Posts
+                    </span>
+                    <b></b>
+                </h2>
+            </div>
         </div>
     </div>
-    <div class="row section-content-container">
-        <div class="col-12 col-lg-9 mx-auto col-xl-10 mx-auto">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                    <div class="card text-center">
-                        <a href="#" class="blog-post-link">
-                            <img src="{{ MEDIA_URL }}easy-vegan-swaps.jpg" class="card-img-top" alt="Easy Vegan Swaps">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Recipes | March 18th 2021</p>
+    <div class="section-content-container">
+        <div class="row">
+            <div class="col-12 col-lg-9 mx-auto">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                        <div class="card text-center">
                             <a href="#" class="blog-post-link">
-                                <h5 class="card-title">Easy Vegan Swaps</h5>
+                                <img src="{{ MEDIA_URL }}easy-vegan-swaps.jpg" class="card-img-top"
+                                    alt="Easy Vegan Swaps">
                             </a>
+                            <div class="card-body">
+                                <p class="card-text">Recipes | March 18th 2021</p>
+                                <a href="#" class="blog-post-link">
+                                    <h5 class="card-title">Easy Vegan Swaps</h5>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                    <div class="card text-center">
-                        <a href="#" class="blog-post-link">
-                            <img src="{{ MEDIA_URL }}heart-health.jpg" class="card-img-top" alt="Heart Health">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Health | February 14th 2021</p>
+                    <div class="col-12 col-md-6">
+                        <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                        <div class="card text-center">
                             <a href="#" class="blog-post-link">
-                                <h5 class="card-title">Heart Health</h5>
+                                <img src="{{ MEDIA_URL }}heart-health.jpg" class="card-img-top" alt="Heart Health">
                             </a>
+                            <div class="card-body">
+                                <p class="card-text">Health | February 14th 2021</p>
+                                <a href="#" class="blog-post-link">
+                                    <h5 class="card-title">Heart Health</h5>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
-                        <a class="page-link-with-arrow" href="" title="View Our Blog"><span class="link">View Our
-                                Blog</span></a>
+                        <a class="page-link-with-arrow" href="" title="View Our Blog">
+                            <span class="link">
+                                View Our Blog
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
