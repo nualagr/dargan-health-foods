@@ -40,6 +40,10 @@
                 <span class="base" data-ui-id="page-title-wrapper">
                     {% if search_term %}
                         Search Results For: "{{ search_term }}"
+                    {% elif current_department %}
+                        {% for department in current_department %}
+                            All {{ department|title|to_ampersand }}
+                        {% endfor %}
                     {% elif current_categories %}
                         {% for category in current_categories %}
                             {% if forloop.last %}

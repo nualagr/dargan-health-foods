@@ -2,7 +2,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, ProductTag, Category
+from .models import Product, ProductTag, Category, Department
 
 
 def all_products(request):
@@ -16,19 +16,33 @@ def all_products(request):
     # the products page without a search term.
     query = None
     categories = None
+    department = None
 
     if request.GET:
+        if "department" in request.GET:
+            department = request.GET["department"].split(",")
+            all_categories = Category.objects.all()
+            # Find a list of the names of the categories
+            # associated with the department chosen
+            department_categories = all_categories.filter(
+                department__name__in=department).values_list(
+                    'name', flat=True)
+            products = products.filter(
+                category__name__in=department_categories)
+
         if "category" in request.GET:
             categories = request.GET["category"].split(",")
             products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+            categories = Category.objects.filter(
+                name__in=categories).values_list(
+                'name', flat=True)
 
         if "q" in request.GET:
             query = request.GET["q"]
             # If the search was left blank
             if not query:
                 messages.error(
-                    request, "You did not enter any search criteria!")
+                    request, "You did not enter any search criteria. Please try again.")
                 return redirect(reverse("products"))
 
             queries = Q(
@@ -44,6 +58,7 @@ def all_products(request):
     context = {
             "products": products,
             "search_term": query,
+            "current_department": department,
             "current_categories": categories,
             "page_obj": page_obj,
             "page_range": page_range,

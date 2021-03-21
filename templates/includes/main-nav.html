@@ -33,7 +33,7 @@
                 <a href="{% url 'products' %}?category=supplements" class="dropdown-item">Supplements</a>
                 <a href="{% url 'products' %}?category=vitamins" class="dropdown-item">Vitamins</a>
                 <a href="{% url 'products' %}?category=weight_management" class="dropdown-item">Weight Management</a>
-                <a href="{% url 'products' %}?category=digestive_health,herbal_n_homeopathic_remedies,immune_health,minerals,supplements,vitamins,weight_management" class="dropdown-item">All Vitamins &amp; Supplements</a>
+                <a href="{% url 'products' %}?department=vitamins_n_supplements" class="dropdown-item">All Vitamins &amp; Supplements</a>
             </div>
         </li>
 
@@ -54,7 +54,7 @@
                 <a href="{% url 'products' %}?category=pasta_rice_n_noodles" class="dropdown-item">Pasta, Rice &amp; Noodles</a>
                 <a href="{% url 'products' %}?category=spreads_sweetners_n_syrups" class="dropdown-item">Spreads, Sweetners &amp; Syrups</a>
                 <a href="{% url 'products' %}?category=superfoods_n_powders" class="dropdown-item">Superfoods &amp; Powders</a>
-                <a href="{% url 'products' %}?category=baking_n_cooking,bread_cereal_n_snacks,chilled_n_frozen,coffee_n_hot_chocolate,grains_n_pulses,herbal_teas,juices_n_milks,nuts_seeds_n_dried_fruit,oils_n_vinegars,pasta_rice_n_noodles,spreads_sweetners_n_syrups,superfoods_n_powders" class="dropdown-item">All Food &amp; Drink</a>
+                <a href="{% url 'products' %}?department=food_n_drink" class="dropdown-item">All Food &amp; Drink</a>
             </div>
         </li>
 
@@ -69,7 +69,7 @@
                 <a href="{% url 'products' %}?category=hair_n_beauty_supplements" class="dropdown-item">Hair &amp; Beauty Supplements</a>
                 <a href="{% url 'products' %}?category=hair_care" class="dropdown-item">Hair Care</a>
                 <a href="{% url 'products' %}?category=skincare" class="dropdown-item">Skincare</a>
-                <a href="{% url 'products' %}?category=bath_n_shower,body_care,cosmetics,hair_n_beauty_supplements,hair_care,skincare" class="dropdown-item">All Hair &amp; Beauty</a>
+                <a href="{% url 'products' %}?department=hair_n_beauty" class="dropdown-item">All Hair &amp; Beauty</a>
             </div>
         </li>
 
@@ -82,7 +82,7 @@
                 <a href="{% url 'products' %}?category=childrens_health" class="dropdown-item">Children's Health</a>
                 <a href="{% url 'products' %}?category=pregnancy_support" class="dropdown-item">Pregnancy Support</a>
                 <a href="{% url 'products' %}?category=skincare_for_mum_n_baby" class="dropdown-item">Skincare for Mum &amp; Baby</a>
-                <a href="{% url 'products' %}?category=baby_food,childrens_health,pregnancy_support,skincare_for_mum_n_baby" class="dropdown-item">All Mother &amp; Baby</a>
+                <a href="{% url 'products' %}?department=mother_n_baby" class="dropdown-item">All Mother &amp; Baby</a>
             </div>
         </li>
 
@@ -95,7 +95,7 @@
                 <a href="{% url 'products' %}?category=candles_n_incense" class="dropdown-item">Candles &amp; Incense</a>
                 <a href="{% url 'products' %}?category=cleaning_products" class="dropdown-item">Cleaning Products</a>
                 <a href="{% url 'products' %}?category=eco_household_products" class="dropdown-item">Eco Household Products</a>
-                <a href="{% url 'products' %}?category=aromatherapy_n_accessories,candles_n_incense,cleaning_products,eco_household_products" class="dropdown-item">All House &amp; Home</a>
+                <a href="{% url 'products' %}?department=house_n_home" class="dropdown-item">All House &amp; Home</a>
             </div>
         </li>
 
@@ -105,7 +105,7 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="special-offers-link">
                 <a href="" class="dropdown-item">New In</a>
-                <a href="" class="dropdown-item">Vitamins &amp; Supplements</a>
+                <a href="{% url 'products' %}?department=vitamins_n_supplements" class="dropdown-item">Vitamins &amp; Supplements</a>
                 <a href="" class="dropdown-item">Food &amp; Drink</a>
                 <a href="" class="dropdown-item">Hair &amp; Beauty</a>
                 <a href="" class="dropdown-item">Mother &amp; Baby</a>
