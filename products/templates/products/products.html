@@ -17,27 +17,7 @@
 <div class="container-fluid breadcrumbs-container">
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
-            <div class="breadcrumbs">
-                <ul class="items">
-                    <li class="item home">
-                        <a href="{% url 'home' %}" title="Go to Home Page">
-                            Home
-                        </a>
-                    </li>
-                    {% if search_term or current_categories or current_sorting != 'None_None' %}
-                        <li class="item home">
-                            <a href="{% url 'products' %}" title="Go to Products Page">
-                                Products
-                            </a>
-                        </li>
-                    {% endif %}
-                    {% if search_term %}
-                    <li class="item products">
-                        <strong>Search Results For: "{{ search_term }}"</strong>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
+            {% include 'products/includes/breadcrumbs.html' %}
         </div>
     </div>
 </div>

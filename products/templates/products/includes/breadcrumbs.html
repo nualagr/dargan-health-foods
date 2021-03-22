@@ -1,0 +1,44 @@
+{% load products_tags %}
+
+<div class="breadcrumbs">
+    <ul class="items">
+        <!-- Home Breadcrumb -->
+        <li class="item home">
+            <a href="{% url 'home' %}" title="Go to Home Page">
+                Home
+            </a>
+        </li>
+        <!-- All Products Breadcrumb -->
+        <li class="item products">
+            <a href="{% url 'products' %}" title="Go to Products Page">
+                Products
+            </a>
+        </li>
+        <!-- Department Breadcrumb -->
+        {% if current_department %}
+            {% for department in current_department %}
+            <li class="item department">
+                <strong>All {{ department|title|to_ampersand }} </strong>
+            </li>
+            {% endfor %}
+        <!-- Category Breadcrumb-->
+        {% elif current_categories %}
+            {% for category in current_categories %}
+            <li class="item category">
+                <strong>{{ category|title|to_ampersand }}</strong>
+            </li>
+            {% endfor %}
+        <!-- Search Term Breadcrumb -->
+        {% elif search_term %}
+            <li class="item search_term">
+                <strong>Search Results For: "{{ search_term|truncatechars:25 }}"</strong>
+            </li>
+        <!-- Product Tag Breadcrumb -->
+        {% elif product_tag %}
+            <li class="item product_tag">
+                <strong>{{ product_tag }}</strong>
+            </li>
+        {% else %}
+        {% endif %}
+    </ul>
+</div>
