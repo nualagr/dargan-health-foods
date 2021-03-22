@@ -20,6 +20,7 @@ def all_products(request):
     department = None
     sort = None
     direction = None
+    tag = None
 
     if request.GET:
         if "sort" in request.GET:
@@ -84,6 +85,7 @@ def all_products(request):
             "search_term": query,
             "current_department": department,
             "current_categories": categories,
+            "current_tag": tag,
             "current_sorting": current_sorting,
             "page_obj": page_obj,
             "page_range": page_range,

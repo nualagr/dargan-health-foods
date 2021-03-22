@@ -31,18 +31,13 @@
                     {% if search_term %}
                         Search Results For: "{{ search_term }}"
                     {% elif current_department %}
-                        {% for department in current_department %}
-                            All {{ department|title|to_ampersand }}
-                        {% endfor %}
+                        All {{ current_department|first|title|to_ampersand }}
                     {% elif current_categories %}
-                        {% for category in current_categories %}
-                            {% if forloop.last %}
-                                {{ category|title|to_ampersand }}
-                            {% else %}
-                                {{ category|title|to_ampersand }},
-                            {% endif %}
-                        {% endfor %}
+                        {{ current_categories|first|title|to_ampersand }} 
+                    {% elif current_tag %}
+                        {{ current_tag|first|title|to_ampersand }}
                     {% else %}
+                        All Products
                     {% endif %}
                 </span>
             </h1>
