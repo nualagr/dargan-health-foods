@@ -2,23 +2,41 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, ProductTag, Category, Department
+from django.db.models.functions import Lower
+from .models import Product, ProductTag, Category
 
 
 def all_products(request):
     """
     A view to show all products,
-    including sorting and search queries
+    including sorting and search queriespytho
     """
     # Get all products from the database
     products = Product.objects.all()
     # So that we don't get an error when loading
-    # the products page without a search term.
+    # the products page without the following terms.
     query = None
     categories = None
     department = None
+    sort = None
+    direction = None
 
     if request.GET:
+        if "sort" in request.GET:
+            sortkey = request.GET["sort"]
+            sort = sortkey
+            if sortkey == "name":
+                sortkey = "lower_name"
+                products = products.annotate(
+                    lower_name=Lower("name"))
+            if sortkey == "category":
+                sortkey = "category__name"
+            if "direction" in request.GET:
+                direction = request.GET["direction"]
+                if direction == "desc":
+                    sortkey = f"-{sortkey}"
+            products = products.order_by(sortkey)
+
         if "department" in request.GET:
             department = request.GET["department"].split(",")
             all_categories = Category.objects.all()
@@ -35,7 +53,7 @@ def all_products(request):
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(
                 name__in=categories).values_list(
-                'name', flat=True)
+                "name", flat=True)
 
         if "q" in request.GET:
             query = request.GET["q"]
@@ -49,6 +67,8 @@ def all_products(request):
                 name__icontains=query) | Q(information__icontains=query)
             products = products.filter(queries)
 
+    current_sorting = f"{sort}_{direction}"
+
     # Pagination
     paginator = Paginator(products, 12)
     page_number = request.GET.get('page')
@@ -60,6 +80,7 @@ def all_products(request):
             "search_term": query,
             "current_department": department,
             "current_categories": categories,
+            "current_sorting": current_sorting,
             "page_obj": page_obj,
             "page_range": page_range,
     }

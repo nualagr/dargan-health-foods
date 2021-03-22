@@ -126,7 +126,7 @@ class Product(models.Model):
         related_name="products_category",
     )
     barcode = models.CharField(max_length=13, null=True, blank=True)
-    avg_rating = models.DecimalField(
+    rating = models.DecimalField(
         max_digits=2, decimal_places=1, default=0, null=True, blank=True
     )
     date_added = models.DateTimeField(auto_now_add=True)
