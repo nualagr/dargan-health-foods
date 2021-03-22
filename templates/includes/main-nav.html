@@ -109,7 +109,7 @@
                 <a href="{% url 'products' %}?department=hair_n_beauty" class="dropdown-item">Hair &amp; Beauty</a>
                 <a href="{% url 'products' %}?department=mother_n_baby" class="dropdown-item">Mother &amp; Baby</a>
                 <a href="{% url 'products' %}?department=house_n_home" class="dropdown-item">House &amp; Home</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Special Offers</a>
+                <a href="{% url 'products' %}{% url 'products' %}?tag=special_offers" class="dropdown-item">All Special Offers</a>
             </div>
         </li>
         <li class="nav-item d-block d-lg-none">

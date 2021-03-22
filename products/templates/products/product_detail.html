@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-<!-- Breadcrumbs Navigation -->
+<!-- Product Details Breadcrumbs Navigation -->
 <div class="container-fluid breadcrumbs-container">
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto col-xl-9 offset-xl-1">
@@ -24,9 +24,14 @@
                             Home
                         </a>
                     </li>
-                    <li class="item products text-capitalize">
-                        <a href="{% url 'products' %}" title="Go to Products Category Page">
-                            {{ product.category }}
+                    <li class="item products">
+                        <a href="{% url 'products' %}" title="Go to Products Page">
+                            Products
+                        </a>
+                    </li>
+                    <li class="item category">
+                        <a href="{% url 'products' %}?category={{ product.category }}" title="Go to related Category Page">
+                            {{ product.category|title|to_ampersand }}
                         </a>
                     </li>
                     <li class="item product">
