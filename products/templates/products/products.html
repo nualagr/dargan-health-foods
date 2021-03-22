@@ -24,9 +24,18 @@
                             Home
                         </a>
                     </li>
+                    {% if search_term or current_categories or current_sorting != 'None_None' %}
+                        <li class="item home">
+                            <a href="{% url 'products' %}" title="Go to Products Page">
+                                Products
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if search_term %}
                     <li class="item products">
-                        <strong>Products</strong>
+                        <strong>Search Results For: "{{ search_term }}"</strong>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -49,8 +58,8 @@
                             {% if forloop.last %}
                                 {{ category|title|to_ampersand }}
                             {% else %}
-                                {{ category|title|to_ampersand }}, 
-                            {% endif %} 
+                                {{ category|title|to_ampersand }},
+                            {% endif %}
                         {% endfor %}
                     {% else %}
                     {% endif %}
@@ -58,12 +67,47 @@
             </h1>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <div class="row">
+                <!-- Result Count -->
+                <div class="col-6">
+                    <p class="text-muted">
+                        {% with products|length as l %}
+                        {% if l == 0 %}
+                            0 Items Found
+                        {% elif l < 12 %}
+                            Items 1-{{ products|length }} of {{ products|length }}
+                        {% else %}
+                            Items 1-12 of {{ products|length }}
+                        {% endif %}
+                        {% endwith %}
+                    </p>
+                </div>
+                <!-- Sort Options -->
+                <div class="col-6">
+                    <div class="dropdown-sort-products">
+                        <select id="sort-selector"
+                            class="rounded-0">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="products-container">
         <div class="row">
             <div class="col-12 col-lg-9 mx-auto">
                 <!-- Display Products Row -->
                 <div class="row">
-                {% if products%}
+                    {% if products%}
                     {% for product in products %}
                     <div class="col-6 col-md-3">
                         <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
@@ -106,11 +150,11 @@
                         </div>
                     </div>
                     {% endfor %}
-                {% else %}
+                    {% else %}
                     <div class="col-12">
                         Sorry, no results found...
                     </div>
-                {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>

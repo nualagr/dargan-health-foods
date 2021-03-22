@@ -239,6 +239,7 @@ hr.divider {
 .btn-orange:active,
 .btn-orange:focus {
     background-color: #EF9606;
+    outline: none;
 }
 
 .btn-forest-green {
@@ -269,6 +270,16 @@ hr.divider {
 .btn-checkout {
     display: inline; 
     vertical-align: inherit;
+}
+
+#sort-selector {
+    float: right;
+    color: #333333;
+}
+
+#sort-selector:active,
+#sort-selector:focus {
+    outline: transparent;
 }
 
 /* Containers --------------------------------------------------------- */
@@ -523,6 +534,7 @@ p.card-text.brand-name {
     content: "\F005 \F005 \F005 \F005 \F005";
     color: #FFCC00;
 }
+
 /* Footer ------------------------------------------------------------- */
 footer {
     min-height: 120px;
