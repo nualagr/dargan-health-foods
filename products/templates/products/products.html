@@ -53,15 +53,7 @@
                 <!-- Result Count -->
                 <div class="col-6">
                     <p class="text-muted">
-                        {% with products|length as l %}
-                        {% if l == 0 %}
-                            0 Items Found
-                        {% elif l < 12 %}
-                            Items 1-{{ products|length }} of {{ products|length }}
-                        {% else %}
-                            Items 1-12 of {{ products|length }}
-                        {% endif %}
-                        {% endwith %}
+                        Items {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ products|length }}
                     </p>
                 </div>
                 <!-- Sort Options -->
