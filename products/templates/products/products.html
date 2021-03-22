@@ -25,6 +25,7 @@
 <div class="container-fluid section-container">
     <div class="row page-title-wapper">
         <div class="col-12 col-lg-9 mx-auto">
+            <!-- Page Title -->
             <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
                 <span class="base" data-ui-id="page-title-wrapper">
                     {% if search_term %}
@@ -50,13 +51,13 @@
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
             <div class="row">
-                <!-- Result Count -->
+                <!-- Result Counter -->
                 <div class="col-6">
                     <p class="text-muted">
                         Items {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ products|length }}
                     </p>
                 </div>
-                <!-- Sort Options -->
+                <!-- Sort Options Dropdown -->
                 <div class="col-6">
                     <div class="dropdown-sort-products">
                         <select id="sort-selector"
@@ -78,7 +79,7 @@
             <div class="col-12 col-lg-9 mx-auto">
                 <!-- Display Products Row -->
                 <div class="row">
-                    {% if products%}
+                    {% if products %}
                     {% for product in products %}
                     <div class="col-6 col-md-3">
                         <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
@@ -132,55 +133,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <!-- Pagination Navigation taken from Bootstrap: https://getbootstrap.com/docs/4.0/components/pagination/ and then modified -->
-                <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-center">
-                        {% if page_obj.has_previous %}
-                        <li class="page-item">
-                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
-                                aria-label="Link to Previous Page">
-                                <span aria-hidden="true">&#x3C;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-                        {% else %}
-                        <li class="page-item disabled">
-                            <a class="page-link" href="" aria-label="Link to Previous Page">
-                                <span aria-hidden="true">&#x3C;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-                        {% endif %}
-                        {% for i in page_range %}
-                        {% if page_obj.number == i %}
-                        <li class="page-item active">
-                            <span class="page-link">{{ i }}
-                                <span class="sr-only">(current)</span>
-                            </span>
-                        </li>
-                        {% else %}
-                        <li class="page-item">
-                            <a class="page-link" href="?page={{ i }}" aria-label="Link to Page {{ i }}">{{ i }}</a>
-                        </li>
-                        {% endif %}
-                        {% endfor %}
-                        {% if page_obj.has_next %}
-                        <li class="page-item">
-                            <a class="page-link" href="?page={{ page_obj.next_page_number }}"
-                                aria-label="Link to Next Page">
-                                <span aria-hidden="true">&#x3E;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                        {% else %}
-                        <li class="page-item disabled">
-                            <a class="page-link" href="" aria-label="Next">
-                                <span aria-hidden="true">&#x3E;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </nav>
+                {% include 'products/includes/pagination.html' %}
             </div>
         </div>
     </div>
