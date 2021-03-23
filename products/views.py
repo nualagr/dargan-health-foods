@@ -16,7 +16,7 @@ def all_products(request):
     # So that we don't get an error when loading
     # the products page without the following terms.
     query = None
-    categories = None
+    category = None
     department = None
     sort = None
     direction = None
@@ -38,21 +38,24 @@ def all_products(request):
 
         if "department" in request.GET:
             department = request.GET["department"].split(",")
+            print("This is the department:", department)
             all_categories = Category.objects.all()
+            print("These are all the categories:", all_categories)
             # Find a list of the names of the categories
             # associated with the department chosen
             department_categories = all_categories.filter(
                 department__name__in=department).values_list(
                     'name', flat=True)
+            print("This are the related categories to the chosen department:", department_categories)
             products = products.filter(
                 category__name__in=department_categories)
 
         if "category" in request.GET:
-            categories = request.GET["category"].split(",")
-            products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(
-                name__in=categories).values_list(
-                "name", flat=True)
+            category = request.GET["category"].split(",")
+            print("This is the chosen category:", category)
+            products = products.filter(category__name__in=category)
+            print("These are the related products in that category:", products)
+            category = Category.objects.filter(name__in=category).values_list("name", flat=True)
 
         if "tag" in request.GET:
             tag = request.GET["tag"].split(",")
@@ -84,7 +87,7 @@ def all_products(request):
             "products": products,
             "search_term": query,
             "current_department": department,
-            "current_categories": categories,
+            "current_category": category,
             "current_tag": tag,
             "current_sorting": current_sorting,
             "page_obj": page_obj,

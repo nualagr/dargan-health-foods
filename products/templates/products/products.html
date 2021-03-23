@@ -29,15 +29,15 @@
             <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
                 <span class="base" data-ui-id="page-title-wrapper">
                     {% if search_term %}
-                        Search Results For: "{{ search_term }}"
+                    Search Results For: "{{ search_term }}"
                     {% elif current_department %}
-                        All {{ current_department|first|title|to_ampersand }}
-                    {% elif current_categories %}
-                        {{ current_categories|first|title|to_ampersand }} 
+                    All {{ current_department|first|title|to_ampersand }}
+                    {% elif current_category %}
+                    {{ current_category|first|title|to_ampersand }}
                     {% elif current_tag %}
-                        {{ current_tag|first|title|to_ampersand }}
+                    {{ current_tag|first|title|to_ampersand }}
                     {% else %}
-                        All Products
+                    All Products
                     {% endif %}
                 </span>
             </h1>
@@ -55,14 +55,19 @@
                 <!-- Sort Options Dropdown -->
                 <div class="col-6">
                     <div class="dropdown-sort-products">
-                        <select id="sort-selector"
-                            class="rounded-0">
-                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating</option>
-                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Title A-Z</option>
-                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Title Z-A</option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price High to Low</option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price Low to High</option>
+                        <select id="sort-selector" class="rounded-0">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                            </option>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
+                                Rating</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Title A-Z
+                            </option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Title
+                                Z-A</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+                                High to Low</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+                                Low to High</option>
                         </select>
                     </div>
                 </div>
@@ -75,7 +80,7 @@
                 <!-- Display Products Row -->
                 <div class="row">
                     {% if products %}
-                    {% for product in products %}
+                    {% for product in page_obj %}
                     <div class="col-6 col-md-3">
                         <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
                         <div class="card text-center">
@@ -131,6 +136,16 @@
                 {% include 'products/includes/pagination.html' %}
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <div class="btt-btn">
+                    <a class="btt-link d-flex h-100">
+                        <i class="fas fa-chevron-up mx-auto my-auto"></i>
+                        <!-- <i class="fas fa-arrow-up mx-auto my-auto"></i> -->
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Newsletter -->
     <div class="container-fluid section-container bg-light-green">
@@ -161,38 +176,37 @@
 </div>
 {% endblock %}
 
-
 {% block postloadjs %}
-    <!-- Append to block, don't overwrite -->
-    {{ block.super }}
-    <!-- Scroll-To-Top Button functionality -->
-    <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-    </script>
-    <!-- Sort-By Dropdown Selector Functionality -->
-    <script type="text/javascript">
-        $('#sort-selector').change(function(){
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
+<!-- Append to block, don't overwrite -->
+{{ block.super }}
+<!-- Scroll-To-Top Button Functionality copied from Code Institute Boutique Ado walkthrough project: https://github.com/nualagr/boutique-ado-v1 -->
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
+<!-- Sort-By Dropdown Selector Functionality copied from Code Institute Boutique Ado walkthrough project: https://github.com/nualagr/boutique-ado-v1 -->
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
 
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
 
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
 
-                window.location.replace(currentUrl);
-            }
-            else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
+            window.location.replace(currentUrl);
+        }
+        else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
 
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
 {% endblock %}
