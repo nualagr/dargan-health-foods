@@ -973,6 +973,51 @@ Each website feature, including buttons, modals, external links, hover effects e
 
 ### Bugs
 
+### [Pagination Issue](https://github.com/nualagr/dargan-health-foods/commit/7b8b1e0fc9afd4d0f8b39b69611bc38c8679ff28):
+Pagination was applied to the products.html page and initially worked correctly.  However, once filtering of products 
+by search criteria was implemented, the pagination 'previous' and 'next' buttons
+brought the user to page one or three of the products.html page, rather than the page associated with the chosen queryset. 
+This problem was put to one side. Filtering of products by category and department was implemented. Then sorting of 
+results was developed. Once filtering by tag had been put in place the issue of pagination was again approached.
+At first 
+```
+{{ request.get_full_path }}
+```
+was used to get the url and feed it to the 'next' and 'previous' pagination buttons, however this was unsuccessful since this 
+url contains not only the search criteria etc., but also '?page=1'. Therefore, when navigating from 'page=2' to 'page=1', 
+the former remained within the url, invalidating it. 
+
+The application of a [custom template tag](https://github.com/nualagr/dargan-health-foods/commit/dd1d2fddb32e018da0371fd252210762fe3eb062)
+succeeded in rectifying the issue.  In the template the custom template tag 'current_query_url' 
+is called and it is passed three arguments, the 'page' keyword, the current page number and the current url.
+```
+href="{% current_query_url 'page' page_obj.previous_page_number request.GET.urlencode %}" aria-label="Link to Previous Page">
+```
+Within the template tag the new page-number element of the url is reconstructed from the 'page' 
+keyword and the new page_number value. Then the encoded url is split into its constituent parts at the '&'.
+The page-number element is filtered out and the remaining query element(s) are reattached using an ampersand.
+Finally the query elements of the url are connected with the new page number element and returned to the template.
+
+```
+@register.simple_tag
+def current_query_url(key, value, urlencode=None):
+    # Isolate the page number in the format ?page=1
+    url = "?{}={}".format(key, value)
+    if urlencode:
+        queries = urlencode.split("&")
+        # Isolate queries from page number
+        filtered_queries = filter(lambda q: q.split("=")[0] != key, queries)
+        # Join queries using the ampersand
+        encoded_queries = "&".join(filtered_queries)
+        # Reattach the queries to the page number
+        url = "{}&{}".format(url, encoded_queries)
+    return url
+
+```
+
+This succeeded in bringing the user to the next/previous page of the product results page and kept their 
+category, department, tag or search term and sorting choice.
+
 ##### back to [top](#table-of-contents)
 ---
 
