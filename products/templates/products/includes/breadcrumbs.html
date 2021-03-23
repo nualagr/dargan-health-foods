@@ -8,33 +8,39 @@
                 Home
             </a>
         </li>
-        <!-- All Products Breadcrumb -->
-        <li class="item products">
-            <a href="{% url 'products' %}" title="Go to Products Page">
-                Products
-            </a>
-        </li>
-        <!-- Department Breadcrumb -->
-        {% if current_department %}
-            <li class="item department">
-                <strong>All {{ current_department|first|title|to_ampersand }} </strong>
+        {% if current_department or current_category or search_term or current_tag %}
+            <!-- All Products Breadcrumb -->
+            <li class="item products">
+                <a href="{% url 'products' %}" title="Go to Products Page">
+                    Products
+                </a>
             </li>
-        <!-- Category Breadcrumb-->
-        {% elif current_category %}
-            <li class="item category">
-                <strong>{{ current_category|first|title|to_ampersand }}</strong>
-            </li>
-        <!-- Search Term Breadcrumb -->
-        {% elif search_term %}
-            <li class="item search_term">
-                <strong>Search Results For: "{{ search_term|truncatechars:25 }}"</strong>
-            </li>
-        <!-- Product Tag Breadcrumb -->
-        {% elif current_tag %}
-            <li class="item tag">
-                <strong>{{ current_tag|first|title|to_ampersand }}</strong>
-            </li>
+            <!-- Department Breadcrumb -->
+            {% if current_department %}
+                <li class="item department">
+                    <strong>All {{ current_department|first|title|to_ampersand }} </strong>
+                </li>
+            <!-- Category Breadcrumb-->
+            {% elif current_category %}
+                <li class="item category">
+                    <strong>{{ current_category|first|title|to_ampersand }}</strong>
+                </li>
+            <!-- Search Term Breadcrumb -->
+            {% elif search_term %}
+                <li class="item search_term">
+                    <strong>Search Results For: "{{ search_term|truncatechars:25 }}"</strong>
+                </li>
+            <!-- Product Tag Breadcrumb -->
+            {% elif current_tag %}
+                <li class="item tag">
+                    <strong>{{ current_tag|first|title|to_ampersand }}</strong>
+                </li>
+            {% else %}
+            {% endif %}
         {% else %}
+            <li class="item products">
+                <strong>Products</strong>
+            </li>
         {% endif %}
     </ul>
 </div>
