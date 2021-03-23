@@ -13,3 +13,18 @@ def split(str, delimiter):
 @register.filter
 def to_ampersand(value):
     return value.replace("_N_", " & ").replace("_", " ")
+
+
+@register.simple_tag
+def current_query_url(key, value, urlencode=None):
+    # Isolate the page number in the format ?page=1
+    url = "?{}={}".format(key, value)
+    if urlencode:
+        queries = urlencode.split("&")
+        # Isolate queries from page number
+        filtered_queries = filter(lambda q: q.split("=")[0] != key, queries)
+        # Join queries using the ampersand
+        encoded_queries = "&".join(filtered_queries)
+        # Reattach the queries to the page number
+        url = "{}&{}".format(url, encoded_queries)
+    return url
