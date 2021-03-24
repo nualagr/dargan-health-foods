@@ -12,12 +12,12 @@
                 New In
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-new-in-link">
-                <a href="{% url 'products' %}?department=vitamins_n_supplements" class="dropdown-item">Vitamins &amp; Supplements</a>
-                <a href="{% url 'products' %}?department=food_n_drink" class="dropdown-item">Food &amp; Drink</a>
-                <a href="{% url 'products' %}?department=hair_n_beauty" class="dropdown-item">Hair &amp; Beauty</a>
-                <a href="{% url 'products' %}?department=mother_n_baby" class="dropdown-item">Mother &amp; Baby</a>
-                <a href="{% url 'products' %}?department=house_n_home" class="dropdown-item">House &amp; Home</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All New In</a>
+                <a href="{% url 'products' %}?department=vitamins_n_supplements&sort=-date_added" class="dropdown-item">Vitamins &amp; Supplements</a>
+                <a href="{% url 'products' %}?department=food_n_drink&sort=-date_added" class="dropdown-item">Food &amp; Drink</a>
+                <a href="{% url 'products' %}?department=hair_n_beauty&sort=-date_added" class="dropdown-item">Hair &amp; Beauty</a>
+                <a href="{% url 'products' %}?department=mother_n_baby&sort=-date_added" class="dropdown-item">Mother &amp; Baby</a>
+                <a href="{% url 'products' %}?department=house_n_home&sort=-date_added" class="dropdown-item">House &amp; Home</a>
+                <a href="{% url 'products' %}?sort=-date_added" class="dropdown-item">All New In</a>
             </div>
         </li>
 

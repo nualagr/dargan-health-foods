@@ -31,7 +31,11 @@
                     {% if search_term %}
                     Search Results For: "{{ search_term }}"
                     {% elif current_department %}
-                    All {{ current_department|first|title|to_ampersand }}
+                        {% if current_sorting == "-date_added_None" %}
+                            New In {{ current_department|first|title|to_ampersand }}
+                        {% else %}
+                            All {{ current_department|first|title|to_ampersand }}
+                        {% endif %}
                     {% elif current_category %}
                     {{ current_category|first|title|to_ampersand }}
                     {% elif current_tag %}

@@ -18,7 +18,14 @@
             <!-- Department Breadcrumb -->
             {% if current_department %}
                 <li class="item department">
-                    <strong>All {{ current_department|first|title|to_ampersand }} </strong>
+                    <strong>
+                        {% if current_sorting == "-date_added_None" %}
+                            New In 
+                        {% else %}
+                            All 
+                        {% endif %}
+                        {{ current_department|first|title|to_ampersand }}
+                    </strong>
                 </li>
             <!-- Category Breadcrumb-->
             {% elif current_category %}
