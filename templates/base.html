@@ -150,14 +150,32 @@
             </div>
         </div>
     </header>
-    {% if messages %}
-    <!-- Message Container -->
-    <div class="message-container"></div>
-    {% endif %}
+
+
 
     {% block page_header %}
     <!-- Page Header -->
     {% endblock %}
+
+    {% if messages %}
+    <!-- Message Container -->
+    <div class="container-fluid messages-container">
+        <div class="row">
+            <div class="col-12 col-lg-9 mx-auto">
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                            Important: 
+                        {% endif %}
+                        {{ message }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
     {% block content %}
     <!-- Main Content Block -->

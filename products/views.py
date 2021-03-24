@@ -69,29 +69,28 @@ def all_products(request):
             if not query:
                 messages.error(
                     request,
-                    "You did not enter any search criteria. Please try again.",
+                    "You did not enter any search criteria. Please try again."
                 )
                 return redirect(reverse("products"))
 
-            if query:
-                all_tags = Tag.objects.all().values_list("name", flat=True)
-                # Check to see if the search term is a Tag
-                if all_tags.filter(friendly_name__iexact=query):
-                    tagged_products = product_tag_objects.filter(
-                        tag__friendly_name__iexact=query
-                    ).values_list("product", flat=True)
-                    products = products.filter(id__in=tagged_products)
-                # If not a recognized tag, search the following
-                # product table fields for the search term
-                else:
-                    queries = (
-                        Q(name__icontains=query)
-                        | Q(information__icontains=query)
-                        | Q(ingredients__icontains=query)
-                        | Q(category__name__icontains=query)
-                        | Q(brand__name__icontains=query)
-                    )
-                    products = products.filter(queries)
+            all_tags = Tag.objects.all().values_list("name", flat=True)
+            # Check to see if the search term is a Tag
+            if all_tags.filter(friendly_name__iexact=query):
+                tagged_products = product_tag_objects.filter(
+                    tag__friendly_name__iexact=query
+                ).values_list("product", flat=True)
+                products = products.filter(id__in=tagged_products)
+            # If not a recognized tag, search the following
+            # product table fields for the search term
+            else:
+                queries = (
+                    Q(name__icontains=query)
+                    | Q(information__icontains=query)
+                    | Q(ingredients__icontains=query)
+                    | Q(category__name__icontains=query)
+                    | Q(brand__name__icontains=query)
+                )
+                products = products.filter(queries)
 
     current_sorting = f"{sort}_{direction}"
 
