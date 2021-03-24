@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, ProductTag, Category
+from .models import Product, ProductTag, Category, Tag
 
 
 def all_products(request):
@@ -13,6 +13,8 @@ def all_products(request):
     """
     # Get all products from the database
     products = Product.objects.all()
+    # Get all product tag objects from the database
+    product_tag_objects = ProductTag.objects.all()
     # So that we don't get an error when loading
     # the products page without the following terms.
     query = None
@@ -37,34 +39,25 @@ def all_products(request):
 
         if "department" in request.GET:
             department = request.GET["department"].split(",")
-            print("This is the department:", department)
             all_categories = Category.objects.all()
-            print("These are all the categories:", all_categories)
             # Find a list of the names of the categories
             # associated with the department chosen
             department_categories = all_categories.filter(
                 department__name__in=department
             ).values_list("name", flat=True)
-            print(
-                "This are the related categories to the chosen department:",
-                department_categories,
-            )
             products = products.filter(
                 category__name__in=department_categories
             )
 
         if "category" in request.GET:
             category = request.GET["category"].split(",")
-            print("This is the chosen category:", category)
             products = products.filter(category__name__in=category)
-            print("These are the related products in that category:", products)
             category = Category.objects.filter(name__in=category).values_list(
                 "name", flat=True
             )
 
         if "tag" in request.GET:
             tag = request.GET["tag"].split(",")
-            product_tag_objects = ProductTag.objects.all()
             tagged_products = product_tag_objects.filter(
                 tag__name__in=tag
             ).values_list("product", flat=True)
@@ -80,13 +73,25 @@ def all_products(request):
                 )
                 return redirect(reverse("products"))
 
-            queries = Q(
-                name__icontains=query) | Q(
-                information__icontains=query) | Q(
-                    ingredients__icontains=query) | Q(
-                    category__name__icontains=query) | Q(
-                        brand__name__icontains=query)
-            products = products.filter(queries)
+            if query:
+                all_tags = Tag.objects.all().values_list("name", flat=True)
+                # Check to see if the search term is a Tag
+                if all_tags.filter(friendly_name__iexact=query):
+                    tagged_products = product_tag_objects.filter(
+                        tag__friendly_name__iexact=query
+                    ).values_list("product", flat=True)
+                    products = products.filter(id__in=tagged_products)
+                # If not a recognized tag, search the following
+                # product table fields for the search term
+                else:
+                    queries = (
+                        Q(name__icontains=query)
+                        | Q(information__icontains=query)
+                        | Q(ingredients__icontains=query)
+                        | Q(category__name__icontains=query)
+                        | Q(brand__name__icontains=query)
+                    )
+                    products = products.filter(queries)
 
     current_sorting = f"{sort}_{direction}"
 
