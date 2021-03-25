@@ -1,4 +1,4 @@
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
@@ -96,12 +96,19 @@ def all_products(request):
 
     # Pagination
     paginator = Paginator(products, 4)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
+    page = request.GET.get("page")
+    page_obj = paginator.get_page(page)
     page_range = paginator.page_range
 
+    try:
+        products_list = paginator.page(page)
+    except PageNotAnInteger:
+        products_list = paginator.page(1)
+    except EmptyPage:
+        products_list = paginator.page(paginator.num_pages)
+
     context = {
-        "products": products,
+        "products": products_list,
         "search_term": query,
         "current_department": department,
         "current_category": category,
