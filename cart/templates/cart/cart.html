@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block title %}Home{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Shopping Cart -->
+<div class="container-fluid section-container">
+    <div class="row page-title-wapper">
+        <div class="col-12 col-lg-9 mx-auto">
+            <!-- Page Title -->
+            <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading">
+                <span class="base" data-ui-id="page-title-wrapper">
+                    Shopping Cart
+                </span>
+            </h1>
+        </div>
+    </div>
+    {% if bag_items %}
+
+    {% else %}
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <h3 class="my-4">
+                Your shopping cart is currently empty.
+            </h3>
+            <a href="{% url 'products' %}" class="btn continue-shopping-button my-4">
+                Continue Shopping
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

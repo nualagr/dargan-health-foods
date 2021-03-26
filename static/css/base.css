@@ -287,6 +287,18 @@ hr.divider {
     vertical-align: inherit;
 }
 
+.btn-proceed-to-checkout {
+    display: inline; 
+    vertical-align: inherit;
+    display: inline-block;
+    border: none;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 25px;
+    transition: all .1s ease;
+    letter-spacing: 1px;
+}
+
 .btt-btn {
     position: fixed;
     z-index: 1000;
@@ -756,6 +768,29 @@ a.anchor {
     border-radius: 0;
 }
 
+/* Shopping Cart ------------------------------------------------------*/
+
+.continue-shopping-button {
+    border-radius: 0;
+    background: #EEEEEE;
+    border: none;
+    color: #333333;
+    margin: 0;
+    padding: 7px 15px;
+}
+
+.continue-shopping-button::before {
+    color: inherit;
+    content: '<';
+}
+
+.continue-shopping-button:hover,
+.continue-shopping-button:active,
+.continue-shopping-button:focus {
+    background-color: #707070;
+    color: #FFFFFF;
+    box-shadow: none;
+}
 /* Media Queries ------------------------------------------------------*/
 
 /* Desktop */
