@@ -201,6 +201,7 @@ hr.divider {
     display: flex;
     align-items: center;
     justify-content: center;
+    letter-spacing: 1px;
 }
 
 .quick-add-to-cart-btn {
@@ -777,6 +778,7 @@ a.anchor {
     color: #333333;
     margin: 0;
     padding: 7px 15px;
+    letter-spacing: 1px;
 }
 
 .continue-shopping-button::before {
