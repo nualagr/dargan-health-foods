@@ -215,20 +215,6 @@ hr.divider {
     margin: 0;
 }
 
-.btn.decrement-qty,
-.btn.increment-qty {
-    color: #707070;
-}
-
-.btn.decrement-qty:hover,
-.btn.decrement-qty:active,
-.btn.decrement-qty:focus,
-.btn.increment-qty:hover,
-.btn.increment-qty:active,
-.btn.increment-qty:focus {
-    color: #333333;
-}
-
 .btn-cream {
     background-color: #E0D1B1 !important;
     color: #FFFFFF;
@@ -256,6 +242,7 @@ hr.divider {
 .btn-orange:active,
 .btn-orange:focus {
     background-color: #EF9606;
+    color: #FFFFFF;
     outline: none;
 }
 
@@ -771,8 +758,8 @@ a.anchor {
 }
 
 /* Shopping Cart ------------------------------------------------------*/
-
-.continue-shopping-button {
+.update-cart-btn,
+.continue-shopping-btn {
     border-radius: 0;
     background: #EEEEEE;
     border: none;
@@ -782,17 +769,86 @@ a.anchor {
     letter-spacing: 1px;
 }
 
-.continue-shopping-button::before {
+.continue-shopping-btn::before {
     color: inherit;
     content: '<';
 }
 
-.continue-shopping-button:hover,
-.continue-shopping-button:active,
-.continue-shopping-button:focus {
+.update-cart-btn::before {
+    content: "\F021";
+    font-family: "FontAwesome";
+}
+
+.update-cart-btn:hover,
+.update-cart-btn:active,
+.update-cart-btn:focus,
+.continue-shopping-btn:hover,
+.continue-shopping-btn:active,
+.continue-shopping-btn:focus {
     background-color: #707070;
     color: #FFFFFF;
     box-shadow: none;
+}
+
+.cart-wrapper table.cart-items tbody tr {
+   border-bottom: 1px solid rgba(204,191,183,0.75);
+}
+
+.item-info>a.product-link:hover {
+    text-decoration: underline;
+}
+
+.item-img {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    height: auto;
+}
+
+.product-image-photo {
+    display: block;
+    height: auto;
+    margin: auto;
+    max-width: 50px;
+    position: static;
+}
+
+.item-qty>input.qty-input {
+    width: auto;
+}
+
+.item-remove>a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.item-remove>a>i:hover,
+.item-remove>a>i:focus,
+.item-remove>a>i:active {
+    font-weight: 700 !important;
+}
+
+.cart-summary {
+    background-color: #FFF0C5;
+    padding: 20px 20px;
+}
+
+.cart-summary .lighter-heading {
+    font-weight: 300;
+}
+
+.cart-totals,
+.grand {
+    border-top: 1px solid #CCCCCC;
+    padding-top: 10px;
+}
+
+.amount {
+    font-weight: 400;
+    padding: 6px 0 6px 14px;
+    text-align: right;
+    white-space: nowrap;
 }
 /* Media Queries ------------------------------------------------------*/
 

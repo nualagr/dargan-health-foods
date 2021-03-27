@@ -2,7 +2,7 @@
 {% load static %}
 {% load custom_tags %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Shopping Cart{% endblock %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -16,7 +16,7 @@
 <!-- Shopping Cart -->
 <div class="container-fluid section-container">
     <div class="row page-title-wapper">
-        <div class="col-12 col-lg-9 mx-auto">
+        <div class="col-12 col-lg-9 offset-lg-2">
             <!-- Page Title -->
             <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading">
                 <span class="base" data-ui-id="page-title-wrapper">
@@ -25,15 +25,152 @@
             </h1>
         </div>
     </div>
-    {% if bag_items %}
-
+    {% if cart_items %}
+    <div class="row cart-wrapper">
+        <div class="col-12 col-lg-6 offset-lg-2">
+            <!-- Quantity Form and Update Cart Button -->
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="table-responsive">
+                    <table class="table table-sm table-borderless cart-items">
+                        <thead class="text-black">
+                            <tr>
+                                <th class="col item" scope="col"><span>Item</span></th>
+                                <th class="col" scope="col"></th>
+                                <th class="col price" scope="col"><span>Price</span></th>
+                                <th class="col qty" scope="col"><span>Qty</span></th>
+                                <th class="col subtotal" scope="col"><span>Subtotal</span></th>
+                                <th class="col remove" scope="col"><span><i class="fas fa-trash-alt"></i></span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart_items %}
+                            <tr>
+                                <td class="item-img py-4">
+                                    <img src="{{ MEDIA_URL }}{{ item.product.main_image }}"
+                                        alt="{{ item.product.friendly_name }}" class="product-image-photo">
+                                </td>
+                                <td class="item-info py-4">
+                                    <a href="{% url 'product_detail' item.product.id %}" class="product-link">
+                                        <p class="my-0">
+                                            {{ item.product.friendly_name }}
+                                        </p>
+                                    </a>
+                                    <p class="my-1 small text-muted">
+                                        SKU: {{ item.product.sku|upper }}
+                                    </p>
+                                </td>
+                                <td class="item-price py-4">
+                                    <p class="my-0">
+                                        €{{ item.product.price }}
+                                    </p>
+                                </td>
+                                <td class="item-qty py-3">
+                                    <input class="form-control qty-input rounded-0" type="number" name="quantity"
+                                        value="{{ item.quantity }}" min="1" max="99"
+                                        data-item_id="{{ item.product.id }}" id="id_qty_{{ item.quantity }}">
+                                </td>
+                                <td class="item-subtotal py-4">
+                                    <p class="my-9">
+                                        €{{ item.product.price }}
+                                    </p>
+                                </td>
+                                <td class="item-remove py-4">
+                                    <a href="#" title="Remove item" class="action action-delete"
+                                        data-post="{{ item.product.id }}">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="py-4 text-start" colspan="3">
+                                    <a href="{% url 'products' %}" class="btn continue-shopping-btn">
+                                        Continue Shopping
+                                    </a>
+                                </td>
+                                <td class="py-4 text-end" colspan="3">
+                                    <button type="submit" name="update_cart_action" value="update_qty"
+                                        title="Update Shopping Cart" class="btn update-cart-btn">
+                                        <span>Update Cart</span>
+                                    </button>
+                                    <!-- Submit the current url with the form so that we can redirect the user back to the same page once the cart has been updated -->
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-lg-3">
+            <div class="cart-summary">
+                <table class="table table-borderless table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">
+                                <h3>Summary</h3>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cart-totals">
+                            <th scope="row" class="lighter-heading">
+                                Cart Total:
+                            </th>
+                            <td class="amount">
+                                €{{ total|floatformat:2 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="lighter-heading">
+                                Shipping:
+                            </th>
+                            <td class="amount">
+                                €{{ delivery|floatformat:2 }}
+                            </td>
+                        </tr>
+                        <tr class="grand">
+                            <th scope="row">
+                                Order Total:
+                            </th>
+                            <td class="amount">
+                                <strong>€ {{ grand_total|floatformat:2 }}</strong>
+                            </td>
+                        </tr>
+                        {% if free_delivery_delta > 0 %}
+                        <tr class="text-danger">
+                            <td colspan="2">
+                                <p class="small">You could get free delivery by spending just
+                                    <strong>€{{ free_delivery_delta }}</strong>
+                                    more!</p>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" class="text-center">
+                                <button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout"
+                                    class="btn btn-proceed-to-checkout btn-orange">
+                                    <span>Proceed to Checkout</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
     {% else %}
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
             <h3 class="my-4">
                 Your shopping cart is currently empty.
             </h3>
-            <a href="{% url 'products' %}" class="btn continue-shopping-button my-4">
+            <a href="{% url 'products' %}" class="btn continue-shopping-btn my-4">
                 Continue Shopping
             </a>
         </div>
