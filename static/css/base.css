@@ -814,8 +814,8 @@ a.anchor {
     position: static;
 }
 
-.item-qty input.qty-input {
-    width: auto;
+.item-qty button>i:hover {
+    color: #333333;
 }
 
 .item-remove button {
