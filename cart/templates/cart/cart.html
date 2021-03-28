@@ -29,7 +29,7 @@
     <div class="row cart-wrapper">
         <div class="col-12 col-lg-6 offset-lg-2">
             <!-- Quantity Form and Update Cart Button -->
-            <form action="" method="POST">
+            <form class="form update-form" action="" method="POST">
                 {% csrf_token %}
                 <div class="table-responsive">
                     <table class="table table-sm table-borderless cart-items">
@@ -61,25 +61,31 @@
                                     </p>
                                 </td>
                                 <td class="item-price py-4">
-                                    <p class="my-0">
+                                    <p>
                                         €{{ item.product.price }}
                                     </p>
                                 </td>
                                 <td class="item-qty py-3">
-                                    <input class="form-control qty-input rounded-0" type="number" name="quantity"
-                                        value="{{ item.quantity }}" min="1" max="99"
-                                        data-item_id="{{ item.product.id }}" id="id_qty_{{ item.quantity }}">
+                                        <input class="form-control qty-input rounded-0" type="number" name="quantity"
+                                            value="{{ item.quantity }}" min="1" max="99"
+                                            data-item_id="{{ item.product.id }}" id="id_qty_{{ item.quantity }}">
                                 </td>
                                 <td class="item-subtotal py-4">
-                                    <p class="my-9">
+                                    <p>
                                         €{{ item.product.price }}
                                     </p>
                                 </td>
                                 <td class="item-remove py-4">
-                                    <a href="#" title="Remove item" class="action action-delete"
+                                    <form method="POST" action="">
+                                        {% csrf_token %}
+					                    <button type="submit" class="btn">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
+				                    </form>
+                                    <!-- <a href="#" title="Remove item" class="action action-delete"
                                         data-post="{{ item.product.id }}">
                                         <i class="far fa-trash-alt"></i>
-                                    </a>
+                                    </a> -->
                                 </td>
                             </tr>
                             {% endfor %}

@@ -814,18 +814,19 @@ a.anchor {
     position: static;
 }
 
-.item-qty>input.qty-input {
+.item-qty input.qty-input {
     width: auto;
 }
 
-.item-remove>a {
+.item-remove button {
     text-decoration: none;
     color: inherit;
+    padding: 0;
 }
 
-.item-remove>a>i:hover,
-.item-remove>a>i:focus,
-.item-remove>a>i:active {
+.item-remove button i:hover,
+.item-remove button i:focus,
+.item-remove button i:active {
     font-weight: 700 !important;
 }
 

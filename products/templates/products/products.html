@@ -109,16 +109,17 @@
                             <div class="card-footer bg-white border-0">
                                 <div class="row">
                                     <div class="col">
-                                        <form>
-                                            <input type="hidden" name="sku" value="{{ product.sku }}">
-                                            <div class="button-wrapper">
-                                                <button class="btn-orange quick-add-to-cart-btn" type="submit"
-                                                    data-test="quick-add" data-uievent="addtobasket"
-                                                    data-skuid="{{ product.sku }}" data-productid="{{ product.id }}"
-                                                    data-href="/shop/product/{{ product.name }}">
-                                                    Add to Cart
-                                                </button>
+                                        <!-- Form with Quick-Add-to-Cart button and hidden Quantity Input -->
+                                        <form class="row" action="{% url 'add_to_cart' product.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <div class="col">
+                                                <div class="input-group">
+                                                    <input class="form-control qty-input rounded-0" type="hidden" name="quantity" value="1">
+                                                </div>
+                                                <input type="submit" class="btn-orange quick-add-to-cart-btn" value="Add to Cart">
                                             </div>
+                                            <!-- Submit the current url with the form so that we can redirect the user back to the same page once the item has been added to the Cart -->
+                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                         </form>
                                     </div>
                                 </div>
