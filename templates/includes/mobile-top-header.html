@@ -32,7 +32,7 @@
             <div class="input-group w-100">
                 <input class="form-control rounded-0" type="text" name="q" placeholder="Search by keyword(s)">
                 <div class="input-group-append">
-                    <button class="form-control form-control btn btn-forest-green border-green rounded-0" type="submit">
+                    <button class="form-control common-button btn-forest-green border-green" type="submit">
                         <span class="icon">
                             <i class="fas fa-search"></i>
                         </span>
@@ -44,7 +44,7 @@
 </li>
 <!-- Button to access the Shopping Bag -->
 <li class="list-inline-item">
-    <a class="{% if grand_total %}font-weight-bold text-white{% else %}font-weight-normal{% endif %} nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
+    <a class="text-white {% if grand_total %}font-weight-bold{% else %}font-weight-normal{% endif %} nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-cart fa-lg"></i></div>
             <p class="my-0">

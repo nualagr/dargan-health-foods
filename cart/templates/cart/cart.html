@@ -100,18 +100,10 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td class="py-4 text-start" colspan="3">
-                                <a href="{% url 'products' %}" class="btn continue-shopping-btn">
+                            <td class="py-4 text-start" colspan="6">
+                                <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping">
                                     Continue Shopping
                                 </a>
-                            </td>
-                            <td class="py-4 text-end" colspan="3">
-                                <button type="submit" name="update_cart_action" value="update_qty"
-                                    title="Update Shopping Cart" class="btn update-cart-btn">
-                                    <span>Update Cart</span>
-                                </button>
-                                <!-- Submit the current url with the form so that we can redirect the user back to the same page once the cart has been updated -->
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </td>
                         </tr>
                     </tfoot>
@@ -167,7 +159,7 @@
                         <tr>
                             <td colspan="2" class="text-center">
                                 <button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout"
-                                    class="btn btn-proceed-to-checkout btn-orange">
+                                    class="common-button btn-proceed-to-checkout btn-orange">
                                     <span>Proceed to Checkout</span>
                                 </button>
                             </td>

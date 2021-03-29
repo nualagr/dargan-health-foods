@@ -99,7 +99,7 @@
                             </div>
                         </div>
                         <div class="col-10 m-0 ps-0">
-                            <input type="submit" class="btn-orange add-to-cart-btn" value="Add to Cart">
+                            <input type="submit" class="common-button btn-orange add-to-cart-btn" value="Add to Cart">
                         </div>
                         <!-- Submit the current url with the form so that we can redirect the user back to the same page once the item has been added to the Cart -->
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -229,30 +229,5 @@
         </div>
     </div>
 </div>
-<!-- Newsletter -->
-<div class="container-fluid section-container bg-light-green">
-    <div class="row">
-        <div class="col-12 col-lg-9 mx-auto text-center">
-            <h2>Sign Up For Our Newsletter</h2>
-            <p>Join our mailing list to get the latest updates and offers straight to your inbox.</p>
-        </div>
-        <div class="col-12 col-lg-9 mx-auto text-center newsletter">
-            <form class="form subscribe" novalidate="novalidate" action="" method="post"
-                id="newsletter-validate-detail">
-                <div class="form-group">
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control rounded-0" id="newsletter-email"
-                            placeholder="Enter your email address" aria-label="Enter your email address"
-                            aria-describedby="newsletter-submit-button">
-                        <div class="input-group-append" id="newsletter-submit-button">
-                            <button class="btn btn-apple-green" type="button">
-                                <i class="far fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+{% include 'includes/newsletter-subscription-box.html' %}
 {% endblock %}

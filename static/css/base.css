@@ -190,29 +190,50 @@ hr.divider {
 }
 
 /* Buttons ------------------------------------------------------------ */
-.btn {
+.common-button {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    font-size: .97em;
+    letter-spacing: .03em;
+    cursor: pointer;
+    text-align: center;
+    color: currentColor;
+    text-decoration: none;
+    border: 1px solid transparent;
+    vertical-align: middle;
     border-radius: 0;
+    margin-top: 0;
+    line-height: 2.4em;
+    min-height: 2.5em;
+    padding: 0 1.2em;
+    max-width: 100%;
 }
 
-.add-to-cart-btn,
-.quick-add-to-cart-btn {
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: 1px;
+.btn-green-outline {
+    border: 2px solid #29873C;
+    background-color: transparent;
+    color: #29873C;
+}
+
+.btn-green-outline:hover,
+.btn-green-outline:active,
+.btn-green-outline:focus {
+    background-color: #29873C;
+    color: #FFFFFF;
+}
+
+.btn-green-outline::before {
+    color: inherit;
+    content: '<';
 }
 
 .quick-add-to-cart-btn {
-    width: 80%;
-    height: 35px;
     margin: 10px auto;
 }
 
 .add-to-cart-btn {
     width: 100%;
-    height: 100%;
-    margin: 0;
 }
 
 .btn-cream {
@@ -251,19 +272,6 @@ hr.divider {
     color: white;
 }
 
-.btn-outline-forest-green {
-    background-color: #FFFFFF;
-    color: #29873C !important; /* use important to override link colors for <a> elements */
-    border: 1px solid #29873C;
-}
-
-.btn-outline-forest-green:hover,
-.btn-outline-forest-green:active,
-.btn-outline-forest-green:focus {
-    background-color: #29873C;
-    color: #FFFFFF !important;
-}
-
 .btn-forest-green:hover,
 .btn-forest-green:active,
 .btn-forest-green:focus {
@@ -277,15 +285,7 @@ hr.divider {
 }
 
 .btn-proceed-to-checkout {
-    display: inline; 
-    vertical-align: inherit;
-    display: inline-block;
-    border: none;
-    height: 45px;
-    line-height: 45px;
-    padding: 0 25px;
-    transition: all .1s ease;
-    letter-spacing: 1px;
+    border: 2px solid #F9A620;
 }
 
 .btt-btn {
@@ -758,37 +758,6 @@ a.anchor {
 }
 
 /* Shopping Cart ------------------------------------------------------*/
-.update-cart-btn,
-.continue-shopping-btn {
-    border-radius: 0;
-    background: #EEEEEE;
-    border: none;
-    color: #333333;
-    margin: 0;
-    padding: 7px 15px;
-    letter-spacing: 1px;
-}
-
-.continue-shopping-btn::before {
-    color: inherit;
-    content: '<';
-}
-
-.update-cart-btn::before {
-    content: "\F021";
-    font-family: "FontAwesome";
-}
-
-.update-cart-btn:hover,
-.update-cart-btn:active,
-.update-cart-btn:focus,
-.continue-shopping-btn:hover,
-.continue-shopping-btn:active,
-.continue-shopping-btn:focus {
-    background-color: #707070;
-    color: #FFFFFF;
-    box-shadow: none;
-}
 
 .cart-wrapper table.cart-items tbody tr {
    border-bottom: 1px solid rgba(204,191,183,0.75);
