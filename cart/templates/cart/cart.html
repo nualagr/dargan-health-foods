@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tags %}
 
 {% block title %}Shopping Cart{% endblock %}
 
@@ -83,7 +84,7 @@
                             </td>
                             <td class="item-subtotal py-4">
                                 <p>
-                                    €{{ item.product.price }}
+                                    €{{ item.product.price | calc_subtotal:item.quantity }}
                                 </p>
                             </td>
                             <td class="item-remove py-4">
