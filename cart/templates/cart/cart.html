@@ -12,9 +12,42 @@
 </div>
 {% endblock %}
 
+{% block messages %}
+{% if messages %}
+    <!-- Message Container -->
+    <div class="container-fluid messages-container">
+        <div class="row">
+            <div class="col-12 col-lg-9 offset-lg-2">
+                {% for message in messages %}
+                {% with message.level as level %}
+                {% if level == 40 %}
+                    <p class="text-danger">
+                        <i class="fas fa-times"></i> {{ message }}
+                    </p>
+                {% elif level == 30 %}
+                    <p class="text-warning">
+                        <i class="fas fa-exclamation-circle"></i> {{ message }}
+                    </p>
+                {% elif level == 25 %}
+                    <p class="text-success">
+                        <i class="fas fa-check"></i> {{ message }}
+                    </p>
+                {% else %}
+                    <p class="text-info">
+                        <i class="fas fa-info-circle"></i> {{ message }}
+                    </p>
+                {% endif %}
+                {% endwith %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <!-- Shopping Cart -->
-<div class="container-fluid section-container">
+<div class="container-fluid section-container pt-0">
     <div class="row page-title-wapper">
         <div class="col-12 col-lg-9 offset-lg-2">
             <!-- Page Title -->
@@ -101,7 +134,7 @@
                     <tfoot>
                         <tr>
                             <td class="py-4 text-start" colspan="6">
-                                <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping">
+                                <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping-btn">
                                     Continue Shopping
                                 </a>
                             </td>
@@ -175,7 +208,7 @@
             <h3 class="my-4">
                 Your shopping cart is currently empty.
             </h3>
-            <a href="{% url 'products' %}" class="btn continue-shopping-btn my-4">
+            <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping-btn">
                 Continue Shopping
             </a>
         </div>

@@ -69,7 +69,7 @@ def all_products(request):
             if not query:
                 messages.error(
                     request,
-                    "You did not enter any search criteria. Please try again."
+                    "No search criteria entered. Please try again."
                 )
                 return redirect(reverse("products"))
 

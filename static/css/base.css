@@ -58,7 +58,6 @@ body {
 }
 
 /* Special Fonts and Text Styling ------------------------------------- */
-
 .product-details-container h1 {
     font-size: 30px;
     color: #29873C;
@@ -214,6 +213,7 @@ hr.divider {
     border: 2px solid #29873C;
     background-color: transparent;
     color: #29873C;
+    font-weight: 600;
 }
 
 .btn-green-outline:hover,
@@ -221,6 +221,7 @@ hr.divider {
 .btn-green-outline:focus {
     background-color: #29873C;
     color: #FFFFFF;
+    font-weight: 500;
 }
 
 .btn-green-outline::before {
@@ -285,7 +286,7 @@ hr.divider {
 }
 
 .btn-proceed-to-checkout {
-    border: 2px solid #F9A620;
+    padding: 0 2em;
 }
 
 .btt-btn {
@@ -428,153 +429,6 @@ hr.divider {
     background-color: #FFFFFF;
 }
 
-/* Delivery Banner ---------------------------------------------------- */
-#delivery-banner h4 {
-    font-size: 1rem;
-    color: #FFFFFF;
-    font-weight: 500;
-}
-
-/* Product and Blog-Post Cards ---------------------------------------- */
-
-.card {
-    margin-bottom: 26px;
-    border-radius: 0;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-    border: 0;
-}
-
-.card .card-img-top {
-    border-radius: 0;
-}
-
-/* Solution to making card images the same height found on Stack Overflow: https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width*/
-.card .product-link .card-img-top {
-    width: 100%;
-    height: 30vh;
-    object-fit: contain;
-    padding: 5px;
-}
-
-a.product-link img.card-img-top:hover, 
-a.blog-post-link img.card-img-top:hover {
-    opacity: 0.8;
-}
-
-a.product-link, 
-a.blog-post-link {
-    text-decoration: none;
-    color: #333333;
-}
-
-a.product-link h5.card-title {
-    height: 76px;
-    font-size: 1rem;
-}
-
-a.product-link h5:hover, 
-a.blog-post-link h5:hover {
-    font-weight: 600;
-}
-
-p.card-text.brand-name {
-    font-size: .75em;
-    text-transform: capitalize;
-}
-
-/* Accordions in Footer and on Product Details Page ------------------- */
-.accordion-item {
-    border-top: 1px solid #EEEEEE;
-    margin-left: -10px;
-    margin-right: -10px;
-}
-
-.accordion-list li a {
-    padding: .5rem .5rem;
-    color: #333333;
-    text-decoration: none;
-}
-
-.accordion-button {
-    font-size: 1rem;
-    line-height: 1rem;
-    margin-bottom: 0;
-    margin-top: 0;
-    letter-spacing: 1px;
-    line-height: 18px;
-    font-weight: 600;
-    border: none;
-    padding: 1rem;
-}
-
-.accordion-button:focus {
-    box-shadow: none;
-}
-
-/*Solution to changing the Bootstrap Accordion button icon colour found on Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-button-collapsed-icon-color-in-bootstrap-5*/
-.accordion-button.collapsed::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-}
-
-.individual-product-container .accordion-button.collapsed::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23707070'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-}
-
-.accordion-button:not(.collapsed)::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-}
-
-.individual-product-container .accordion-button:not(.collapsed),
-.footer-container .accordion-button:not(.collapsed) {
-    color: #29873C;
-    background-color: #FFFFFF;
-}
-
-.individual-product-container .accordion-button {
-    color: #707070;
-}
-
-.footer-container .accordion-button {
-    color: #29873C;
-}
-
-/* Product Details Page ----------------------------------------------- */
-.product-details-image {
-    width: 100%;
-    height: 50vh;
-    object-fit: contain;
-    padding: 5px;
-}
-
-.product-details-container form input.qty-input {
-    text-align: center;
-}
-
-.stars-outer {
-    display: inline-block;
-    position: relative;
-    font-family: "Font Awesome 5 Free";
-}
-
-.stars-outer::before {
-    content: "\F005 \F005 \F005 \F005 \F005";
-    font-weight: 100;
-}
-
-.stars-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    font-weight: 800;
-}
-
-.stars-inner::before {
-    content: "\F005 \F005 \F005 \F005 \F005";
-    color: #FFCC00;
-}
-
 /* Footer ------------------------------------------------------------- */
 footer {
     min-height: 120px;
@@ -672,15 +526,72 @@ footer {
     text-decoration: none;
 }
 
-.banner-image-container a img {
-    opacity: 1;
-    width: 100%;
-    border-radius: 0;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+/* Accordions in Footer and on Product Details Page ------------------- */
+.accordion-item {
+    border-top: 1px solid #EEEEEE;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.accordion-list li a {
+    padding: .5rem .5rem;
+    color: #333333;
+    text-decoration: none;
+}
+
+.accordion-button {
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    letter-spacing: 1px;
+    line-height: 18px;
+    font-weight: 600;
+    border: none;
+    padding: 1rem;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+/*Solution to changing the Bootstrap Accordion button icon colour found on Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-button-collapsed-icon-color-in-bootstrap-5*/
+.accordion-button.collapsed::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.individual-product-container .accordion-button.collapsed::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23707070'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.individual-product-container .accordion-button:not(.collapsed),
+.footer-container .accordion-button:not(.collapsed) {
+    color: #29873C;
+    background-color: #FFFFFF;
+}
+
+.individual-product-container .accordion-button {
+    color: #707070;
+}
+
+.footer-container .accordion-button {
+    color: #29873C;
+}
+
+/* Message Toasts ----------------------------------------------------*/
+.custom-toast {
+    overflow: visible;
+    position: absolute;
+    right: 0;
+    z-index: 5;
+}
+
+.toast-capper {
+    height: 2px;
 }
 
 /* Breadcrumbs Navigation --------------------------------------------*/
@@ -757,10 +668,111 @@ a.anchor {
     border-radius: 0;
 }
 
-/* Shopping Cart ------------------------------------------------------*/
+/* Product and Blog-Post Cards ---------------------------------------- */
+.card {
+    margin-bottom: 26px;
+    border-radius: 0;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    border: 0;
+}
 
+.card .card-img-top {
+    border-radius: 0;
+}
+
+/* Solution to making card images the same height found on Stack Overflow: https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width*/
+.card .product-link .card-img-top {
+    width: 100%;
+    height: 30vh;
+    object-fit: contain;
+    padding: 5px;
+}
+
+a.product-link img.card-img-top:hover, 
+a.blog-post-link img.card-img-top:hover {
+    opacity: 0.8;
+}
+
+a.product-link, 
+a.blog-post-link {
+    text-decoration: none;
+    color: #333333;
+}
+
+a.product-link h5.card-title {
+    height: 76px;
+    font-size: 1rem;
+}
+
+a.product-link h5:hover, 
+a.blog-post-link h5:hover {
+    font-weight: 600;
+}
+
+p.card-text.brand-name {
+    font-size: .75em;
+    text-transform: capitalize;
+}
+
+/* Delivery Banner ---------------------------------------------------- */
+#delivery-banner h4 {
+    font-size: 1rem;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+/* Banner Image ------------------------------------------------------- */
+.banner-image-container a img {
+    opacity: 1;
+    width: 100%;
+    border-radius: 0;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+/* Product Details Page ----------------------------------------------- */
+.product-details-image {
+    width: 100%;
+    height: 50vh;
+    object-fit: contain;
+    padding: 5px;
+}
+
+.product-details-container form input.qty-input {
+    text-align: center;
+}
+
+.stars-outer {
+    display: inline-block;
+    position: relative;
+    font-family: "Font Awesome 5 Free";
+}
+
+.stars-outer::before {
+    content: "\F005 \F005 \F005 \F005 \F005";
+    font-weight: 100;
+}
+
+.stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 800;
+}
+
+.stars-inner::before {
+    content: "\F005 \F005 \F005 \F005 \F005";
+    color: #FFCC00;
+}
+
+/* Shopping Cart ------------------------------------------------------*/
 .cart-wrapper table.cart-items tbody tr {
-   border-bottom: 1px solid rgba(204,191,183,0.75);
+   border-bottom: 1px solid rgba(108, 117, 125,0.75);
 }
 
 .item-info>a.product-link:hover {
@@ -810,7 +822,7 @@ a.anchor {
 
 .cart-totals,
 .grand {
-    border-top: 1px solid #CCCCCC;
+    border-top: 1px solid #6C757D;
     padding-top: 10px;
 }
 
