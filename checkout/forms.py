@@ -11,13 +11,13 @@ class OrderForm(forms.ModelForm):
         fields = (
             "full_name",
             "email",
-            "phone_number",
             "billing_street_address1",
             "billing_street_address2",
             "billing_town_or_city",
             "billing_county",
             "billing_postcode",
             "billing_country",
+            "phone_number",
         )
 
     # Override the init method of the form to enable customization
@@ -33,17 +33,17 @@ class OrderForm(forms.ModelForm):
         placeholders = {
             "full_name": "Full Name",
             "email": "Email Address",
-            "phone_number": "Phone Number",
             "billing_street_address1": "Street Address 1",
             "billing_street_address2": "Street Address 2",
             "billing_town_or_city": "Town or City",
             "billing_county": "County, State or Locality",
             "billing_postcode": "Postal Code",
+            "phone_number": "Phone Number",
         }
         # Set the cursor to the 'full_name' field when the page loads
         self.fields["full_name"].widget.attrs["autofocus"] = True
         for field in self.fields:
-            if field != "country":
+            if field != "billing_country":
                 # Add an asterisk to the fields that are required
                 if self.fields[field].required:
                     placeholder = f"{placeholders[field]} *"

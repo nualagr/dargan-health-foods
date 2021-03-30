@@ -109,6 +109,15 @@ body {
     color: #29873C;
 }
 
+.logo-font-heading {
+    font-family: "Cookie", cursive;
+    font-size: 4rem;
+    color: #29873C;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
 .logo-font-sub-heading {
     font-family: "Cookie", cursive;
     font-size: 2.5rem;
@@ -138,6 +147,13 @@ h4.accordion-header {
     position: relative;
 }
 
+.within-text-link {
+    text-decoration: none;
+    color: #29873C;
+    font-weight: bold;
+}
+
+.within-text-link:hover,
 .page-link-with-arrow:hover {
     color: #095518;
 }
@@ -256,6 +272,7 @@ hr.divider {
 }
 
 .btn-orange {
+    border: 2px solid #F9A620;
     background-color: #F9A620;
     color: #FFFFFF;
 }
@@ -263,6 +280,7 @@ hr.divider {
 .btn-orange:hover,
 .btn-orange:active,
 .btn-orange:focus {
+    border: 2px solid #EF9606;
     background-color: #EF9606;
     color: #FFFFFF;
     outline: none;
@@ -330,7 +348,7 @@ hr.divider {
 }
 
 .header-container {
-    padding-top: 120px;
+    padding-top: 110px;
 }
 
 .banner-image-container a img:hover {
@@ -743,6 +761,7 @@ p.card-text.brand-name {
 
 .product-details-container form input.qty-input {
     text-align: center;
+    min-height: 2.5em;
 }
 
 .stars-outer {

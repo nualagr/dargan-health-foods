@@ -17,7 +17,7 @@
     <!-- Message Container -->
     <div class="container-fluid messages-container">
         <div class="row">
-            <div class="col-12 col-lg-9 offset-lg-2">
+            <div class="col-12 col-lg-10 offset-lg-1">
                 {% for message in messages %}
                 {% with message.level as level %}
                 {% if level == 40 %}
@@ -47,10 +47,10 @@
 
 {% block content %}
 <!-- Shopping Cart -->
-<div class="container-fluid section-container pt-0">
+<div class="container-fluid section-container py-0">
+    <!-- Page Title Row -->
     <div class="row page-title-wapper">
-        <div class="col-12 col-lg-9 offset-lg-2">
-            <!-- Page Title -->
+        <div class="col-12 col-lg-10 offset-lg-1">
             <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading">
                 <span class="base" data-ui-id="page-title-wrapper">
                     Shopping Cart
@@ -58,10 +58,10 @@
             </h1>
         </div>
     </div>
+    <!-- Shopping Cart Table of Items -->
     {% if cart_items %}
     <div class="row cart-wrapper">
-        <div class="col-12 col-lg-6 offset-lg-2">
-
+        <div class="col-12 col-lg-6 offset-lg-1">
             <div class="table-responsive">
                 <table class="table table-sm table-borderless cart-items">
                     <thead class="text-black">
@@ -134,7 +134,7 @@
                     <tfoot>
                         <tr>
                             <td class="py-4 text-start" colspan="6">
-                                <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping-btn">
+                                <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping-btn" title="Continue Shopping">
                                     Continue Shopping
                                 </a>
                             </td>
@@ -143,7 +143,8 @@
                 </table>
             </div>
         </div>
-        <div class="col-12 col-lg-3">
+        <!-- Shopping Cart Summary Table -->
+        <div class="col-12 col-lg-4">
             <div class="cart-summary">
                 <table class="table table-borderless table-responsive">
                     <thead>
@@ -191,10 +192,9 @@
                     <tfoot>
                         <tr>
                             <td colspan="2" class="text-center">
-                                <button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout"
-                                    class="common-button btn-proceed-to-checkout btn-orange">
-                                    <span>Proceed to Checkout</span>
-                                </button>
+                                <a href="{% url 'checkout' %}" class="common-button btn-proceed-to-checkout btn-orange" title="Proceed to Checkout">
+                                    <span class="text-uppercase"><i class="fas fa-lock"></i>&nbsp;Secure Checkout</span>
+                                </a>
                             </td>
                         </tr>
                     </tfoot>
