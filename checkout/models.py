@@ -9,7 +9,7 @@ from django_countries.fields import CountryField
 from products.models import Product
 
 
-# Models taken from Code Institute Boutique Ado walkthrough project:
+# Models taken from the Code Institute Boutique Ado walkthrough project:
 # https://github.com/nualagr/boutique-ado-v1 - and then modified
 
 
