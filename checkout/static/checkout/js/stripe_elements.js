@@ -1,38 +1,30 @@
 /*
-    This code was copied from the Code Institute Boutique Ado
-    Walkthrough Project: 
     Core logic/payment flow for this comes from here:
     https://stripe.com/docs/payments/accept-a-payment
     CSS from here: 
     https://stripe.com/docs/stripe-js
 */
 
-// Remove the quotation marks 
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-// Set up a variable using the Stripe Public Key
-// Possible due to the stripe.js in the base template 
 var stripe = Stripe(stripePublicKey);
-// Use the variable to create an instance of Stripe Elements
 var elements = stripe.elements();
 var style = {
     base: {
-        color: '#333333',
-        fontFamily: '"Open Sans", sans-serif',
+        color: '#000',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSmoothing: 'antialiased',
         fontSize: '16px',
         '::placeholder': {
-            color: '#AAB7C4'
+            color: '#aab7c4'
         }
     },
     invalid: {
-        color: '#DC3545',
-        iconColor: '#DC3545'
+        color: '#dc3545',
+        iconColor: '#dc3545'
     }
 };
-// Use the Stripe instance to create a Stripe Card Element
 var card = elements.create('card', {style: style});
-// Mount the card element into the div in the Checkout Form
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
@@ -80,11 +72,11 @@ form.addEventListener('submit', function(ev) {
                     phone: $.trim(form.phone_number.value),
                     email: $.trim(form.email.value),
                     address:{
-                        line1: $.trim(form.billing_street_address1.value),
-                        line2: $.trim(form.billing_street_address2.value),
-                        city: $.trim(form.billing_town_or_city.value),
-                        state: $.trim(form.billing_county.value),
-                        country: $.trim(form.billing_country.value),
+                        line1: $.trim(form.street_address1.value),
+                        line2: $.trim(form.street_address2.value),
+                        city: $.trim(form.town_or_city.value),
+                        country: $.trim(form.country.value),
+                        state: $.trim(form.county.value),
                     }
                 }
             },
@@ -92,12 +84,12 @@ form.addEventListener('submit', function(ev) {
                 name: $.trim(form.full_name.value),
                 phone: $.trim(form.phone_number.value),
                 address: {
-                    line1: $.trim(form.billing_street_address1.value),
-                    line2: $.trim(form.billing_street_address2.value),
-                    city: $.trim(form.billing_town_or_city.value),
-                    state: $.trim(form.billing_county.value),
-                    country: $.trim(form.billing_country.value),
-                    postal_code: $.trim(form.billing_postcode.value),
+                    line1: $.trim(form.street_address1.value),
+                    line2: $.trim(form.street_address2.value),
+                    city: $.trim(form.town_or_city.value),
+                    country: $.trim(form.country.value),
+                    postal_code: $.trim(form.postcode.value),
+                    state: $.trim(form.county.value),
                 }
             },
         }).then(function(result) {
@@ -120,7 +112,7 @@ form.addEventListener('submit', function(ev) {
             }
         });
     }).fail(function () {
-        // Just reload the page, the error will be in django messages
+        // just reload the page, the error will be in django messages
         location.reload();
     })
 });
