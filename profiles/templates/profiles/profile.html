@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs Navigation -->
+<div class="container-fluid breadcrumbs-container">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <div class="breadcrumbs">
+                <ul class="items">
+                    <li class="item home">
+                        <a href="{% url 'home' %}" title="Go to Home Page">
+                            Home
+                        </a>
+                    </li>
+                    <li class="my_account">
+                        <strong>My Account</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- My Account Information -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <hr>
+            <h2 class="logo-font-sub-heading mb-4">My Account</h2>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}
