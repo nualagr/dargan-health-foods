@@ -38,8 +38,21 @@
 
 select,
 select option {
-    color: #6C757D;
+    color: #333333 !important;
 }
+
+select:valid {
+    background-color: rgb(232, 240, 254) !important;
+    color: #000000 !important;
+}
+
+/* input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-color: rgb(232, 240, 254) !important;
+    background-image: none !important;
+    color: -internal-light-dark(black, white) !important;
+} */
+
 
 select:invalid,
 select option[value=""] {
