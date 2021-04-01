@@ -69,3 +69,21 @@ select option[value=""] {
     border: 2px solid #29873C;
     padding: 15px 30px 30px;
 }
+
+.subtitle {
+    color: #29873C;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin: 1em 0;
+}
+
+.heading {
+    color: #6C757D;
+    margin: 0;
+}
+
+.info {
+    font-weight: 600;
+    margin: 0;
+}

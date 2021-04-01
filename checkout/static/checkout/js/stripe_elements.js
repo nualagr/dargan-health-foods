@@ -1,4 +1,3 @@
-stripe_elements.js
 /*
     This code was copied from the Code Institute Boutique Ado
     Walkthrough Project: 
@@ -84,11 +83,11 @@ form.addEventListener('submit', function(ev) {
                     phone: $.trim(form.phone_number.value),
                     email: $.trim(form.email.value),
                     address:{
-                        line1: $.trim(form.billing_street_address1.value),
-                        line2: $.trim(form.billing_street_address2.value),
-                        city: $.trim(form.billing_town_or_city.value),
-                        state: $.trim(form.billing_county.value),
-                        country: $.trim(form.billing_country.value),
+                        line1: $.trim(form.street_address1.value),
+                        line2: $.trim(form.street_address2.value),
+                        city: $.trim(form.town_or_city.value),
+                        state: $.trim(form.county.value),
+                        country: $.trim(form.country.value),
                         // Don't add the postal code as this will come from the card element.
                     }
                 }
@@ -97,12 +96,12 @@ form.addEventListener('submit', function(ev) {
                 name: $.trim(form.full_name.value),
                 phone: $.trim(form.phone_number.value),
                 address: {
-                    line1: $.trim(form.billing_street_address1.value),
-                    line2: $.trim(form.billing_street_address2.value),
-                    city: $.trim(form.billing_town_or_city.value),
-                    state: $.trim(form.billing_county.value),
-                    country: $.trim(form.billing_country.value),
-                    postal_code: $.trim(form.billing_postcode.value),
+                    line1: $.trim(form.street_address1.value),
+                    line2: $.trim(form.street_address2.value),
+                    city: $.trim(form.town_or_city.value),
+                    state: $.trim(form.county.value),
+                    country: $.trim(form.country.value),
+                    postal_code: $.trim(form.postcode.value),
                 }
             },
         }).then(function(result) {
