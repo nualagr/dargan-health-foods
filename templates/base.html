@@ -108,15 +108,15 @@
                 <div id="minicart">
                     <ul class="list-inline list-unstyled">
                         <li class="checkout-button list-inline-item">
-                            <a class="btn btn-checkout rounded-0 {% if grand_total %} btn-orange {% else %} btn-cream {% endif %}"
+                            <a class="btn btn-checkout rounded-0 {% if grand_total %} btn-orange {% else %} btn-cream disabled{% endif %}"
                                 href="{% url 'checkout' %}">
                                 Checkout
                             </a>
                         </li>
                         <li class="cart-info list-inline-item">
-                            <i class="fas fa-shopping-cart {% if grand_total %}text-black font-weight-bold{% else %}text-grey{% endif %}"
+                            <i class="fas fa-shopping-cart {% if grand_total %}text-black font-weight-bold{% else %}text-grey disabled{% endif %}"
                                 aria-hidden="true"></i>
-                            <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-grey{% endif %}"
+                            <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-grey disabled{% endif %}"
                                 href="{% url 'view_cart' %}">
                                 {% if grand_total %}
                                 <span class="hide-for-small-laptop">{{ product_count }} items -

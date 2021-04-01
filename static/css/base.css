@@ -203,6 +203,11 @@ hr.divider {
     margin-bottom: 20px;
 }
 
+a.disabled{
+    pointer-events: none;
+    cursor: default;
+}
+
 /* Buttons ------------------------------------------------------------ */
 .common-button {
     position: relative;
