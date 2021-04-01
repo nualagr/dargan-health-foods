@@ -77,10 +77,12 @@ def checkout(request):
         # Create an instance of the form from the form data
         order_form = OrderForm(form_data)
         if order_form.is_valid():
+            # Create the Order but don't save to the database just yet
             order = order_form.save(commit=False)
             pid = request.POST.get("client_secret").split("_secret")[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
+            # Now save the Order to the database
             order.save()
             # Iterate through the cart to create each OrderLineItem
             for item_id, quantity in cart.items():
