@@ -4,8 +4,11 @@
 
 {% block head_title %}{% trans "Account Inactive" %}{% endblock %}
 
-{% block content %}
-<h1>{% trans "Account Inactive" %}</h1>
-
-<p>{% trans "This account is inactive." %}</p>
+{% block inner_content %}
+    <!-- Page Title -->
+    <h1 class="logo-font-heading" id="page-title-heading" aria-labelledby="page-title-heading">
+        {% trans "Account Inactive" %}
+    </h1>
+    <!-- Account Inactive Message -->
+    <p>{% trans "This account is inactive." %}</p>
 {% endblock %}

@@ -34,6 +34,7 @@
 #card-element {
     color: #6C757D;
     border: 1px solid #6C757D;
+    margin: 1em 0 1em;
 }
 
 select,
@@ -78,11 +79,6 @@ select option[value=""] {
     height: 100%;
 }
 
-.has-border {
-    border: 2px solid #29873C;
-    padding: 15px 30px 30px;
-}
-
 .subtitle {
     color: #29873C;
     text-transform: uppercase;
@@ -93,10 +89,10 @@ select option[value=""] {
 
 .heading {
     color: #6C757D;
+    font-weight: 600;
     margin: 0;
 }
 
 .info {
-    font-weight: 600;
     margin: 0;
 }

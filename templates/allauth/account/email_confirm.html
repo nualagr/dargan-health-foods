@@ -6,19 +6,24 @@
 {% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
 
 
-{% block content %}
-<h1>{% trans "Confirm E-mail Address" %}</h1>
+{% block inner_content %}
+    <!-- Page Title -->
+    <h1 class="logo-font-heading" id="page-title-heading" aria-labelledby="page-title-heading">
+        {% trans "Confirm E-mail Address" %}
+    </h1>
+    <!-- Email Confirmation Content -->
+    {% if confirmation %}
 
-{% if confirmation %}
+    {% user_display confirmation.email_address.user as user_display %}
 
-{% user_display confirmation.email_address.user as user_display %}
+    <p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}" class-"blue-text-link">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
 
-<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
-
-<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-{% csrf_token %}
-    <button type="submit">{% trans 'Confirm' %}</button>
-</form>
+    <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+    {% csrf_token %}
+        <div class="button-row">
+            <button type="submit">{% trans 'Confirm' %}</button>
+        </div>
+    </form>
 
 {% else %}
 

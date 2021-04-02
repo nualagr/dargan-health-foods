@@ -29,7 +29,7 @@ Checkout.html
     </div>
     <!-- Order Summary -->
     <div class="row checkout-wrapper">
-        <div class="col-12 col-lg-4 order-lg-last mb-5 bg-light-green pt-4">
+        <div class="col-12 mb-5 col-lg-4 mb-lg-0 order-lg-last bg-light-green pt-4">
             <h3 class="text-muted">Your Order Summary ({{ product_count }})</h3>
             <div class="row">
                 <div class="col-7 offset-2">
@@ -83,10 +83,10 @@ Checkout.html
                     <legend class="fieldset-label px-2 w-auto">Contact Information</legend>
                     {% if user.is_authenticated %}
                     {% else %}
-                    <div class="text-muted form-subtitle pb-2">
+                    <div class="text-muted form-subtitle pb-3">
                         <small>Already have an account? 
-                            <a href="{% url 'account_login' %}" class="within-text-link">Log in</a> or 
-                            <a href="{% url 'account_signup' %}" class="within-text-link">Sign up</a> for future checkout convenience!
+                            <a href="{% url 'account_login' %}" class="blue-text-link">Log in</a> or 
+                            <a href="{% url 'account_signup' %}" class="blue-text-link">Sign up</a> for future checkout convenience!
                         </small>
                     </div>
                     {% endif %}
@@ -110,8 +110,10 @@ Checkout.html
                         <input class="form-check-input me-0" type="checkbox" id="id-save-info" name="save-info" checked>
                         {% else %}
                         <label class="form-check-label" for="id-save-info">
-                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                            <a class="text-info" href="{% url 'account_login' %}">Login</a> to save this information
+                            <small>
+                                <a class="blue-text-link" href="{% url 'account_signup' %}">Create an account</a> or
+                                <a class="blue-text-link" href="{% url 'account_login' %}">Login</a> to save this information
+                            </small>
                         </label>
                         {% endif %}
                     </div>
@@ -133,7 +135,7 @@ Checkout.html
                     <button id="submit-button" class="common-button btn-orange">
                         <span class="font-weight-bold"><i class="fas fa-lock"></i>&nbsp;Confirm and Pay Now</span>
                     </button>
-                    <p class="small text-primary my-0 pt-2 text-end">
+                    <p class="small text-blue my-0 pt-2 text-end">
                         <i class="fas fa-exclamation-circle"></i>
                         <span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
                     </p>

@@ -32,6 +32,10 @@ body {
     color: #CCCCCC !important;
 }
 
+.text-blue {
+    color: #3486ff;
+}
+
 .border-green {
     border: 1px solid #29873C !important;
 }
@@ -150,12 +154,12 @@ h4.accordion-header {
 .within-text-link {
     text-decoration: none;
     color: #29873C;
-    font-weight: bold;
 }
 
 .within-text-link:hover,
 .page-link-with-arrow:hover {
     color: #095518;
+    text-decoration: underline;
 }
 
 .link::after {
@@ -208,6 +212,10 @@ a.disabled{
     cursor: default;
 }
 
+input[name="q"]::placeholder {
+    color: #AAB7C4;
+}
+
 /* Buttons ------------------------------------------------------------ */
 .common-button {
     position: relative;
@@ -227,10 +235,16 @@ a.disabled{
     min-height: 2.5em;
     padding: 0 1.2em;
     max-width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .btn-green-outline {
-    border: 2px solid #29873C;
+    border: 1px solid #29873C;
     background-color: transparent;
     color: #29873C;
     font-weight: 600;
@@ -247,6 +261,7 @@ a.disabled{
 .btn-green-outline::before {
     color: inherit;
     content: '<';
+    padding-right: 0.3em;
 }
 
 .quick-add-to-cart-btn {
@@ -264,6 +279,7 @@ a.disabled{
 
 .btn-apple-green {
     background-color: #97BE0D;
+    border: 1px solid #97BE0D !important;
     color: #FFFFFF;
 }
 
@@ -271,12 +287,14 @@ a.disabled{
 .btn-apple-green:active,
 .btn-apple-green:focus {
     background-color: #89AC0C;
+    border: 1px solid #89AC0C;
     color: #FFFFFF;
     box-shadow: none;
+    outline: none;
 }
 
 .btn-orange {
-    border: 2px solid #F9A620;
+    border: 1px solid #F9A620;
     background-color: #F9A620;
     color: #FFFFFF;
 }
@@ -284,7 +302,7 @@ a.disabled{
 .btn-orange:hover,
 .btn-orange:active,
 .btn-orange:focus {
-    border: 2px solid #EF9606;
+    border: 1px solid #EF9606;
     background-color: #EF9606;
     color: #FFFFFF;
     outline: none;
@@ -292,14 +310,26 @@ a.disabled{
 
 .btn-forest-green {
     background-color: #29873C;
-    color: white;
+    color: #FFFFFF;
 }
 
 .btn-forest-green:hover,
 .btn-forest-green:active,
 .btn-forest-green:focus {
     background: #095518;
-    color: white;
+    color: #FFFFFF;
+}
+
+.btn-grey {
+    color: #FFFFFF;
+    background-color: #6C757D;
+    border: 1px solid #6C757D;
+}
+
+.btn-grey:hover {	
+	color: #FFFFFF;
+    background-color: #333333;
+    border-color: #333333;
 }
 
 .btn-checkout {
@@ -733,6 +763,90 @@ a.blog-post-link h5:hover {
 p.card-text.brand-name {
     font-size: .75em;
     text-transform: capitalize;
+}
+
+/* Allauth Form Formatting -------------------------------------------- */
+.allauth-form-inner-content p {
+    margin: 1.5rem 0 2.5rem 0; /* mt-4 */
+    color: #6C757D; /* text-secondary */
+    text-align: center;
+}
+
+.allauth-form-inner-content input {
+    border-color: #6C757D;
+    border-radius: 0;
+    margin: 1em 0;
+}
+
+/* Hide labels on everything except for the Remember Me checkbox
+on the login page since all the other inputs have placeholders. */
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+/* Style the placeholders to match the rest of the site */
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+/* .allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+    color: #FFFFFF;
+    background-color: #6C757D;
+    border: 1px solid #6C757D;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: #FFFFFF;
+    background-color: #333333;
+    border-color: #333333;
+} */
+
+.allauth-form-inner-content a {
+    color: #29873C;
+}
+
+.alert {
+    padding: 0;
+}
+
+.alert-danger {
+    color: #dc3545;
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+.alert-danger>ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+a.blue-text-link {
+    color: #3A86FF;
+    text-decoration: none;
+}
+
+a.blue-text-link:hover,
+a.blue-text-link:active,
+a.blue-text-link:focus {
+    color: #3A86FF;
+    text-decoration: underline;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 0;
+    margin-top: 0.25em;
+}
+
+.form-check-input:checked {
+    background-color: #F9A620;
+    border-color: #F9A620;
+}
+
+.button-row {
+    text-align: center;
+    margin: 1rem;
 }
 
 /* Delivery Banner ---------------------------------------------------- */

@@ -4,8 +4,11 @@
 
 {% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
 
-{% block content %}
-<h1>{% trans "Sign Up Closed" %}</h1>
-
-<p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+{% block inner_content %}
+    <!-- Page Title -->
+    <h1 class="logo-font-heading" id="page-title-heading" aria-labelledby="page-title-heading">
+        {% trans "Sign Up Closed" %}
+    </h1>
+    <!-- Sign Up Closed message -->
+    <p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
 {% endblock %}

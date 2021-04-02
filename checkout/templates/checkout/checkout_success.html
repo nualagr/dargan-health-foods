@@ -18,7 +18,7 @@
     <!-- Page Title Row -->
     <div class="row">
         <div class="col-12 col-lg-8 mx-auto">
-            <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading">
+            <h1 class="logo-font-heading" id="page-title-heading" aria-labelledby="page-title-heading">
                 Thank You
             </h1>
             <p>Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.
@@ -197,7 +197,7 @@
                 <span class="text-uppercase"><i class="fas fa-angle-left"></i>&nbsp;Back to Profile</span>
             </a>
             {% else %}
-            <a href="{% url 'products' %}?sort=-date_added" class="common-button btn-forest-green my-2">
+            <a href="{% url 'products' %}?sort=-date_added" class="common-button btn-apple-green my-2">
                 <span class="text-uppercase"><i class="fas fa-gifts"></i>&nbsp;Now check out the latest products!</span>
             </a>
             {% endif %}
