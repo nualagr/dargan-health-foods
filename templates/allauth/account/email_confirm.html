@@ -21,7 +21,7 @@
     <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
     {% csrf_token %}
         <div class="button-row">
-            <button type="submit">{% trans 'Confirm' %}</button>
+            <button class="common-button btn-apple-green" type="submit">{% trans 'Confirm' %}</button>
         </div>
     </form>
 
