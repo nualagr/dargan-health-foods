@@ -68,13 +68,14 @@
                     <li><a href="">Blog</a></li>
                     <li><a href="">Contact Us</a></li>
                     {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                    <li><a href="">Product Management</a></li>
-                    {% endif %}
-                    <li><a href="">My Account</a></li>
+                        {% if request.user.is_superuser %}
+                        <li><a href="">Product Management</a></li>
+                        {% endif %}
+                    <li><a href="{% url 'profile' %}">My Account</a></li>
+                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
                     {% else %}
-                    <li><a href="">Sign In</a></li>
-                    <li><a href="">Join</a></li>
+                    <li><a href="{% url 'account_login' %}">Sign In</a></li>
+                    <li><a href="{% url 'account_signup' %}">Join</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -94,7 +95,7 @@
                     <div class="input-group w-100">
                         <input class="form-control rounded-0" type="text" name="q" placeholder="Search by keyword(s)">
                         <div class="input-group-append">
-                            <button class="form-control btn btn-forest-green border-green rounded-0" type="submit">
+                            <button class="form-control common-button btn-forest-green border-green rounded-0" type="submit">
                                 <span class="icon">
                                     <i class="fas fa-search"></i>
                                 </span>
