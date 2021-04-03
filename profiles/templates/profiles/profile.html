@@ -37,10 +37,35 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
-            <hr>
-            <h2 class="logo-font-sub-heading mb-4">My Account</h2>
-            <hr>
+            <h1 class="logo-font-heading mb-4">My Account</h1>
         </div>
     </div>
 </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <p class="subtitle">Default Delivery Information</p>
+            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="button-row">
+                    <button class="common-button btn-apple-green float-end" type="submit">
+                        <i class="fas fa-edit"></i>&nbsp;Update Information
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-lg-9 mx-auto">
+            <p class="subtitle">
+                Order History
+            </p>
+            {{ orders }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

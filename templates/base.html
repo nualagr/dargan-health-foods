@@ -115,9 +115,9 @@
                             </a>
                         </li>
                         <li class="cart-info list-inline-item">
-                            <i class="fas fa-shopping-cart {% if grand_total %}text-black font-weight-bold{% else %}text-grey disabled{% endif %}"
+                            <i class="fas fa-shopping-cart {% if grand_total %}text-black{% else %}text-grey disabled{% endif %}"
                                 aria-hidden="true"></i>
-                            <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-grey disabled{% endif %}"
+                            <a class="{% if grand_total %}text-black{% else %}text-grey disabled{% endif %}"
                                 href="{% url 'view_cart' %}">
                                 {% if grand_total %}
                                 <span class="hide-for-small-laptop">{{ product_count }} items -

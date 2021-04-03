@@ -29,7 +29,7 @@ Checkout.html
     </div>
     <!-- Order Summary -->
     <div class="row checkout-wrapper">
-        <div class="col-12 mb-5 col-lg-4 mb-lg-0 order-lg-last bg-light-green pt-4">
+        <div class="col-12 pb-5 col-lg-4 pb-lg-0 pt-4 order-lg-last bg-light-green">
             <h3 class="text-muted">Your Order Summary ({{ product_count }})</h3>
             <div class="row">
                 <div class="col-7 offset-2">
@@ -76,14 +76,14 @@ Checkout.html
         </div>
         <!-- Billing Details Form -->
         <div class="col-12 col-lg-6 offset-lg-1">
-            <p class="text-muted ps-3">Please fill out the form below to complete your order</p>
+            <p class="text-muted px-3 py-3">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label px-2 w-auto">Contact Information</legend>
                     {% if user.is_authenticated %}
                     {% else %}
-                    <div class="text-muted form-subtitle pb-3">
+                    <div class="text-muted form-subtitle">
                         <small>Already have an account? 
                             <a href="{% url 'account_login' %}" class="blue-text-link">Log in</a> or 
                             <a href="{% url 'account_signup' %}" class="blue-text-link">Sign up</a> for future checkout convenience!

@@ -1,3 +1,4 @@
+/* Stripe Form Formatting ----------------------------------------------------- */
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -6,7 +7,7 @@
   border: 1px solid transparent;
   border-radius: 0px;
   background-color: #FFFFFF;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
+  box-shadow: 0 1px 3px 0 #E6EBF1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
 }
@@ -22,7 +23,7 @@
 }
 
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+    color: #AAB7C4;
 }
 
 .fieldset-label {
@@ -77,22 +78,4 @@ select option[value=""] {
     justify-content: center;
     margin: 0;
     height: 100%;
-}
-
-.subtitle {
-    color: #29873C;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-    margin: 1em 0;
-}
-
-.heading {
-    color: #6C757D;
-    font-weight: 600;
-    margin: 0;
-}
-
-.info {
-    margin: 0;
 }
