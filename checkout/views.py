@@ -146,7 +146,29 @@ def checkout(request):
         )
         print(intent)
 
-        order_form = OrderForm()
+        # Attempt to prefill the Order Form with any info
+        # the user maintains in their Profile
+        if request.user.is_authenticated:
+            print("I recognize this user", request.user.is_authenticated)
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,  # From the User Account
+                    'phone_number': profile.default_phone_number,  # Profile
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'town_or_city': profile.default_town_or_city,
+                    'county': profile.default_county,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                })
+            # If the User does not have saved info in their account
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+
+        else:
+            order_form = OrderForm()
 
         if not stripe_public_key:
             messages.warning(
