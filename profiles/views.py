@@ -13,6 +13,7 @@ def profile(request):
     shipping information and order history.
     """
     profile = get_object_or_404(UserProfile, user=request.user)
+    print(profile)
 
     if request.method == "POST":
         form = UserProfileForm(request.POST, instance=profile)

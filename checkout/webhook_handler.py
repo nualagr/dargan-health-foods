@@ -2,6 +2,7 @@ from django.http import HttpResponse
 
 from .models import Order, OrderLineItem
 from products.models import Product
+from profiles.models import UserProfile
 
 import json
 import time
@@ -31,6 +32,7 @@ class StripeWH_Handler:
         """
         intent = event.data.object
         pid = intent.id
+        # Get the cart info added in checkout/views.py cache_checkout_data
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info
 
@@ -43,6 +45,24 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
+
+        # Update profile info if save_info box was checked
+        # Set profile to none so that anonymous users can checkout
+        profile = None
+        # Get username added in checkout/views.py cache_checkout_data
+        username = intent.metadata.username
+        # If the user is logged in
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone_number
+                profile.default_street_address1 = shipping_details.street_address1
+                profile.default_street_address2 = shipping_details.street_address2
+                profile.default_town_or_city = shipping_details.town_or_city
+                profile.default_county = shipping_details.county
+                profile.default_country = shipping_details.country
+                profile.default_postcode = shipping_details.postcode
+                profile.save()
 
         # Assume the order does not exist
         order_exists = False
@@ -85,6 +105,9 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
+                    # Attach the profile which will be full if they were
+                    # logged in or set to None if they are an anonymous user.
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     street_address1=shipping_details.address.line1,

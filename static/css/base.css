@@ -888,6 +888,19 @@ a.blue-text-link:focus {
     color: #AAB7C4;
 }
 
+
+/* My Account Pills Formatting ---------------------------------------- */
+.nav-pills .nav-link {
+    border-radius: 0;
+    padding: 0 1em;
+}
+
+.nav-pills .nav-link.active, 
+.nav-pills .show>.nav-link {
+    color: #FFFFFF;
+    background-color: #29873C;
+}
+
 /* Delivery Banner ---------------------------------------------------- */
 #delivery-banner h4 {
     font-size: 1rem;
