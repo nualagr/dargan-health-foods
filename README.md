@@ -443,40 +443,40 @@ then expanding its features to create a tablet and desktop version.
 - [Home Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/index-all-devices.png)
 ![alt text](documentation/wireframes/index-all-devices.png "Home Page.")
 
-- [Login Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/login-all-devices.pn)
+- [Login Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/login-all-devices.png)
 ![alt text](documentation/wireframes/login-all-devices.png "Login Page.")
 
-- [Registration Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/register-all-devices.pn)
+- [Registration Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/register-all-devices.png)
 ![alt text](documentation/wireframes/register-all-devices.png "Registration Page.")
 
-- [Contact Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/contact-all-devices.pn)
+- [Contact Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/contact-all-devices.png)
 ![alt text](documentation/wireframes/contact-all-devices.png "Contact Page.")
 
-- [User Account](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/account-all-devices.pn)
+- [User Account](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/account-all-devices.png)
 ![alt text](documentation/wireframes/account-all-devices.png "User Account.")
 
-- [Search Results Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/search-all-devices.pn)
+- [Search Results Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/search-all-devices.png)
 ![alt text](documentation/wireframes/search-all-devices.png "Search Results Page.")
 
-- [All Products](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/products-all-devices.pn)
+- [All Products](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/products-all-devices.png)
 ![alt text](documentation/wireframes/products-all-devices.png "All Products Page.")
 
-- [Individual Product Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/product-all-devices.pn)
+- [Individual Product Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/product-all-devices.png)
 ![alt text](documentation/wireframes/product-all-devices.png "Individual Product Page.")
 
-- [Shopping Cart](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/cart-all-devices.pn)
+- [Shopping Cart](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/cart-all-devices.png)
 ![alt text](documentation/wireframes/cart-all-devices.png "Shopping Cart Page.")
 
-- [Checkout Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/checkout-all-devices.pn)
+- [Checkout Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/checkout-all-devices.png)
 ![alt text](documentation/wireframes/checkout-all-devices.png "Checkout Page.")
 
-- [Our Story Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/our-story-all-devices.pn)
+- [Our Story Page](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/our-story-all-devices.png)
 ![alt text](documentation/wireframes/our-story-all-devices.png "Our Story Page.")
 
-- [Blog](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/blog-all-devices.pn)
+- [Blog](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/blog-all-devices.png)
 ![alt text](documentation/wireframes/blog-all-devices.png "Blog Page.")
 
-- [Blog Post](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/blog-post-all-devices.pn)
+- [Blog Post](https://github.com/nualagr/dargan-health-foods/blob/master/documentation/wireframes/blog-post-all-devices.png)
 ![alt text](documentation/wireframes/blog-post-all-devices.png "Blog Post.")
 
 
