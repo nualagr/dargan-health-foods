@@ -219,21 +219,21 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-            messages.success(
-                request,
-                f"Order successfully processed! \
-                Your order number is {order_number}. A confirmation \
-                email will be sent to {order.email}.",
-            )
+    messages.success(
+        request,
+        f"Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.",
+    )
 
-            # Empty the Shopping Cart
-            if "cart" in request.session:
-                del request.session["cart"]
+    # Empty the Shopping Cart
+    if "cart" in request.session:
+        del request.session["cart"]
 
-            template = "checkout/checkout_success.html"
-            context = {
-                # Send the order back to the template
-                "order": order,
-            }
+    template = "checkout/checkout_success.html"
+    context = {
+        # Send the order back to the template
+        "order": order,
+    }
 
-            return render(request, template, context)
+    return render(request, template, context)
