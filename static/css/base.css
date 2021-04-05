@@ -33,7 +33,7 @@ body {
 }
 
 .text-blue {
-    color: #3486ff;
+    color: #3486FF;
 }
 
 .border-green {
@@ -49,7 +49,7 @@ body {
 }
 
 .bg-blue {
-    background-color: #3486ff;
+    background-color: #3486FF;
 }
 
 .bg-apple-green {
@@ -355,6 +355,19 @@ input[name="q"]::placeholder {
 	color: #FFFFFF;
     background-color: #333333;
     border-color: #333333;
+}
+
+.btn-blue {
+    color: #FFFFFF;
+    background-color: #3486FF;
+    border-color: #3486FF;
+}
+
+.btn-blue:hover,
+.btn-blue:active,
+.btn-blue:focus {
+    background: #0A6CFF;
+    color: #FFFFFF;
 }
 
 .btn-checkout,
@@ -893,6 +906,32 @@ a.blue-text-link:focus {
     color: #AAB7C4;
 }
 
+/* Product Form Formatting -------------------------------------------- */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"]{
+    position: absolute;
+    top: 0; /* Top right corner of span element */
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0; /* Make the input transparent so that it does not cover the button */
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+    border-color: #DC3545; /* Bootstrap danger colour */
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #DC3545;
+    border-color: #DC3545;
+    border-radius: 0;
+}
 
 /* My Account Pills Formatting ---------------------------------------- */
 .nav-pills .nav-link {

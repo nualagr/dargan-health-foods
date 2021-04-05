@@ -1,0 +1,22 @@
+{% if widget.is_initial %}
+    <p>{{ widget.initial_text }}:</p>
+    <a href="{{ widget.value.url }}">
+        <!-- Replace the filename value with a small preview image -->
+        <img width="96" height="96" class="rounded shadow-sm" src="{{ widget.value.url }}">
+    </a>
+    {% if not widget.required %}
+        <!-- Wrap the checkbox in a div with Bootstrap classes -->
+        <div class="custom-control custom-checkbox mt-2">
+            <input class="custom-control-input" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
+            <label class="custom-control-label text-danger" for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
+        </div>
+    {% endif %}<br>
+    {{ widget.input_text }}
+{% endif %}
+<!-- Wrap the actual file input in a span which looks like a button -->
+<span class="btn btn-apple-green rounded-0 btn-file">
+    Select Main Product Image 
+    <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+</span>
+<!-- Add a paragraph below to hold the file name once one is selected -->
+<strong><p class="text-danger" id="filename"></p></strong>

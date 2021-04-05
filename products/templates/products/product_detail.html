@@ -49,15 +49,11 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-1 col-xl-4">
                 <div class="product-image-container my-5">
                     {% if product.main_image %}
-                    <a href="{{ product.image.url }}" target="_blank">
-                        <img class="product-details-image" src="{{ MEDIA_URL }}{{ product.main_image }}"
-                            alt="{{ product.abbreviated_friendly_name }}">
-                    </a>
+                    <img class="product-details-image" src="{{ MEDIA_URL }}{{ product.main_image }}"
+                        alt="{{ product.abbreviated_friendly_name }}">
                     {% else %}
-                    <a href="">
-                        <img class="product-details-image" src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg"
-                            alt="{{ product.abbreviated_friendly_name }}">
-                    </a>
+                    <img class="product-details-image" src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg"
+                        alt="{{ product.abbreviated_friendly_name }}">
                     {% endif %}
                 </div>
             </div>
