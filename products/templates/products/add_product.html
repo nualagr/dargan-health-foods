@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Add Product Container -->
+<div class="container-fluid section-container pt-0">
+    <!-- Page Title Row -->
+    <div class="row page-title-wapper">
+        <div class="col-12 col-lg-9 mx-auto">
+            <h1 class="page-title text-center" id="page-title-heading" aria-labelledby="page-title-heading">
+                Product Management
+            </h1>
+            <h3>Add a Product</h3>
+        </div>
+    </div>
+    <!-- Add Product Form Row -->
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <!-- Encoding type attribute included since the form will potentially be submitting an image field -->
+            <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    {% if field.name != 'main_image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
+                <div class="button-row">
+                    <a class="common-button btn-grey" href="{% url 'products' %}"><i class="fas fa-times"></i>&nbsp;Cancel</a>
+                    <button class="common-button btn-apple-green" type="submit"><i class="fas fa-cloud-upload-alt"></i>&nbsp;Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('#new-image').change(function () {
+        var file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to: ${file.name}`);
+    });
+</script>
+{% endblock %}
