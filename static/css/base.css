@@ -663,6 +663,11 @@ Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-bu
     color: #29873C;
 }
 
+.footer-box .accordion-body {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
 /* Message Toasts ----------------------------------------------------*/
 .custom-toast {
     overflow: visible;
