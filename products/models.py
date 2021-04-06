@@ -74,6 +74,8 @@ class Tag(models.Model):
     commonly used to identify subcategories of
     products or blog posts.
     """
+    class Meta:
+        ordering = ['name']
 
     name = models.CharField(max_length=80)
     friendly_name = models.CharField(max_length=80, null=True, blank=True)

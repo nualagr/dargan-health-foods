@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, ProductTag, Category, Tag
-from .forms import ProductForm
+from .forms import ProductForm, ProductTagForm
 
 
 def all_products(request):
@@ -71,8 +71,7 @@ def all_products(request):
             # If the search was left blank
             if not query:
                 messages.error(
-                    request,
-                    "No search criteria entered. Please try again."
+                    request, "No search criteria entered. Please try again."
                 )
                 return redirect(reverse("products"))
 
@@ -155,21 +154,38 @@ def add_product(request):
         # Instantiate a new instance of the ProductForm
         # Include request.FILES in order to make sure to
         # capture the image of the product if one was submitted
-        form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            product = form.save()
+        pform = ProductForm(request.POST, request.FILES)
+        ptforms = [
+            ProductTagForm(request.POST, prefix=str(x), instance=ProductTag())
+            for x in range(0, 3)
+        ]
+        print("These are the ptforms:", ptforms)
+        if pform.is_valid() and all([pt.is_valid() for pt in ptforms]):
+            product = pform.save()
+            product_id = product.id
+            print("This is the product_id variable:", product_id)
+            for pt in ptforms:
+                producttag = pt.save(commit=False)
+                producttag.product = product
+                producttag.save()
             messages.success(request, "Successfully added product!")
             return redirect(reverse("product_detail", args=[product.id]))
         else:
             messages.error(
                 request,
-                "Failed to add product. Please ensure the form is valid.")
+                "Failed to add product. Please ensure the form is valid.",
+            )
     else:
-        form = ProductForm()
+        pform = ProductForm()
+        ptforms = [
+            ProductTagForm(prefix=str(x), instance=ProductTag())
+            for x in range(0, 3)
+        ]
 
     template = "products/add_product.html"
     context = {
-        "form": form,
+        "pform": pform,
+        "ptforms": ptforms,
     }
 
     return render(request, template, context)
@@ -192,7 +208,10 @@ def edit_product(request, product_id):
             messages.success(request, "Successfully updated product!")
             return redirect(reverse("product_detail", args=[product.id]))
         else:
-            messages.error(request, "Failed to update product. Please ensure that the form is valid.", )
+            messages.error(
+                request,
+                "Failed to update product. Please ensure that the form is valid.",
+            )
     else:
         form = ProductForm(instance=product)
         messages.info(request, f"You are editing {product.friendly_name}")

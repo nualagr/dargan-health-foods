@@ -933,6 +933,20 @@ a.blue-text-link:focus {
     border-radius: 0;
 }
 
+.product-tag-field {
+    width: 100%;
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333333;
+    background-color: #FFFFFF;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: none;
+}
+
 /* My Account Pills Formatting ---------------------------------------- */
 .nav-pills .nav-link {
     border-radius: 0;

@@ -1,6 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Product, Category
+from .models import Product, Category, ProductTag, Tag
 
 
 class ProductForm(forms.ModelForm):
@@ -25,3 +25,26 @@ class ProductForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             # Add styling so it matches the Dargan Health Foods theme
             field.widget.attrs["class"] = "rounded-0"
+
+
+class ProductTagForm(forms.ModelForm):
+    class Meta:
+        model = ProductTag
+        fields = "__all__"
+
+    # Override the init method to change the tag field
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        tags = Tag.objects.all()
+        # Create a list of tuples
+        friendly_names = [(t.id, t.get_friendly_name()) for t in tags]
+
+        # Update the tag field on the form to use the friendly names
+        # for tags instead of the id.
+        self.fields["tag"].choices = friendly_names
+        for field_name, field in self.fields.items():
+            if field_name != "tag":
+                field.widget.attrs["class"] = "d-none"
+            else:
+                # Add styling so it matches the Dargan Health Foods theme
+                field.widget.attrs["class"] = "product-tag-field"
