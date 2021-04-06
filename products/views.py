@@ -159,11 +159,8 @@ def add_product(request):
             ProductTagForm(request.POST, prefix=str(x), instance=ProductTag())
             for x in range(0, 3)
         ]
-        print("These are the ptforms:", ptforms)
         if pform.is_valid() and all([pt.is_valid() for pt in ptforms]):
             product = pform.save()
-            product_id = product.id
-            print("This is the product_id variable:", product_id)
             for pt in ptforms:
                 producttag = pt.save(commit=False)
                 producttag.product = product

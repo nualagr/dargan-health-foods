@@ -35,7 +35,12 @@
                     {% endif %}
                 {% endfor %}
                 {% for form in ptforms %}
-                   <p>{{ form }}</p>
+                    {% for field in form %}
+                    {% if field.name != 'product' %}
+                    <p>{{ field.name|title }}</p>
+                    <p>{{ field }}</p>
+                    {% endif %}
+                    {% endfor %}
                 {% endfor %}
                 <div class="button-row">
                     <a class="common-button btn-grey" href="{% url 'products' %}"><i class="fas fa-times"></i>&nbsp;Cancel</a>

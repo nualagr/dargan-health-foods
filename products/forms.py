@@ -38,12 +38,15 @@ class ProductTagForm(forms.ModelForm):
         tags = Tag.objects.all()
         # Create a list of tuples
         friendly_names = [(t.id, t.get_friendly_name()) for t in tags]
+        # Add a blank option at the start of the list
+        friendly_names.insert(0, ('', '---------'))
+        full_choice_list = friendly_names
 
         # Update the tag field on the form to use the friendly names
         # for tags instead of the id.
-        self.fields["tag"].choices = friendly_names
+        self.fields["tag"].choices = full_choice_list
         for field_name, field in self.fields.items():
-            if field_name != "tag":
+            if field_name == "product":
                 field.widget.attrs["class"] = "d-none"
             else:
                 # Add styling so it matches the Dargan Health Foods theme
