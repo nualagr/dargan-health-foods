@@ -45,10 +45,17 @@
                     <div class="col-6 col-md-3">
                         <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
                         <div class="card text-center">
-                            <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
-                                    alt="{{ product.abbreviated_friendly_name }}">
-                            </a>
+                            {% if product.main_image %}
+                                <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                    <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
+                                        alt="{{ product.abbreviated_friendly_name }}">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                    <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
+                                        alt="{{ product.abbreviated_friendly_name }}">
+                                </a>
+                                {% endif %}
                             <div class="card-body">
                                 <p class="card-text brand-name">{{ product.brand }}</p>
                                 <a href="{% url 'product_detail' product.id %}" class="product-link">

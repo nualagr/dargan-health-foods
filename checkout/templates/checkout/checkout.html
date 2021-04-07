@@ -42,14 +42,17 @@ Checkout.html
             {% for item in cart_items %}
             <div class="row">
                 <div class="col-2 mb-2">
-                    <a href="{% url 'product_detail' item.product.id %}">
-                        {% if item.product.main_image %}
-                        <img class="w-100" src="{{ MEDIA_URL }}{{ item.product.main_image }}"
-                            alt="{{ product.friendly_name }}">
+                    {% if item.product.main_image %}
+                        <a href="{% url 'product_detail' item.product.id %}" class="product-link">
+                            <img src="{{ MEDIA_URL }}{{ item.product.main_image }}" class="w-100"
+                                alt="{{ item.product.abbreviated_friendly_name }}">
+                        </a>
                         {% else %}
-                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.friendly_name }}">
-                        {% endif %}
-                    </a>
+                        <a href="{% url 'product_detail' item.product.id %}" class="product-link">
+                            <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="w-100"
+                                alt="{{ item.product.abbreviated_friendly_name }}">
+                        </a>
+                    {% endif %}
                 </div>
                 <div class="col-7">
                     <p class="my-0"><strong>{{ item.product.abbreviated_friendly_name }}</strong></p>

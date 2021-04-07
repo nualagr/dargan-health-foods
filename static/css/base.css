@@ -65,7 +65,8 @@ body {
 }
 
 .bg-light-orange {
-    background-color: #FFF0C5;
+    /* background-color: #FFF0C5; */
+    background-color: #FFEBCD;
 }
 
 /* Special Fonts and Text Styling ------------------------------------- */
@@ -355,6 +356,22 @@ input[name="q"]::placeholder {
 	color: #FFFFFF;
     background-color: #333333;
     border-color: #333333;
+}
+
+.btn-grey-outline {
+    background-color: transparent;
+    border: 1px solid #ced4da;
+    color: #333333;
+    font-weight: 600;
+}
+
+.btn-grey-outline:hover,
+.btn-grey-outline:active,
+.btn-grey-outline:focus {
+    background-color: #6C757D;
+    border: 1px solid #6C757D;
+    color: #FFFFFF;
+    font-weight: 500;
 }
 
 .btn-blue {

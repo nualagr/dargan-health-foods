@@ -18,13 +18,13 @@
                 {% for item in cart_items %}
                     <div class="row">
                         <div class="col-3 my-1">
-                            {% if item.product.main_image %}
-                            <img src="{{ MEDIA_URL }}{{ item.product.main_image }}"
-                                    alt="{{ item.product.friendly_name }}" class="product-image-photo">
-                            <!-- <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}"> -->
+                        {% if item.product.main_image %}
+                            <img src="{{ MEDIA_URL }}{{ item.product.main_image }}" class="product-image-photo"
+                                alt="{{ item.product.abbreviated_friendly_name }}">
                             {% else %}
-                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.friendly_name }}">
-                            {% endif %}
+                                <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="product-image-photo"
+                                    alt="{{ item.product.abbreviated_friendly_name }}">
+                        {% endif %}
                         </div>
                         <div class="col-9">
                             <p class="my-0">{{ item.product.abbreviated_friendly_name }}</p>
