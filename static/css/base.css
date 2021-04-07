@@ -359,10 +359,10 @@ input[name="q"]::placeholder {
 }
 
 .btn-grey-outline {
-    background-color: transparent;
+    background-color: #ced4da;
     border: 1px solid #ced4da;
     color: #333333;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .btn-grey-outline:hover,
