@@ -28,24 +28,24 @@
             <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in pform %}
-                    {% if field.name != 'main_image' %}
-                        <p>{{ field | as_crispy_field }}</p>
-                    {% else %}
-                        <p>{{ field }}</p>
-                    {% endif %}
+                {% if field.name != 'main_image' %}
+                <p>{{ field | as_crispy_field }}</p>
+                {% else %}
+                <p>{{ field }}</p>
+                {% endif %}
                 {% endfor %}
-                {% for form in ptforms %}
-                    {% for field in form %}
-                    {% if field.name != 'product' %}
-                    <p>{{ field.name|title }}</p>
-                    <p>{{ field }}</p>
-                    {% endif %}
+                {% if ptformset %}
+                {{ ptformset.management_form }}
+                    {% for form in ptformset %}
+                        {{ form | crispy }}
                     {% endfor %}
-                {% endfor %}
-                <div class="button-row">
-                    <a class="common-button btn-grey" href="{% url 'products' %}"><i class="fas fa-times"></i>&nbsp;Cancel</a>
-                    <button class="common-button btn-forest-green" type="submit"><i class="fas fa-cloud-upload-alt"></i>&nbsp;Add Product</button>
-                </div>
+                {% endif %}
+                    <div class="button-row">
+                        <a class="common-button btn-grey" href="{% url 'products' %}"><i
+                                class="fas fa-times"></i>&nbsp;Cancel</a>
+                        <button class="common-button btn-forest-green" type="submit"><i
+                                class="fas fa-cloud-upload-alt"></i>&nbsp;Add Product</button>
+                    </div>
             </form>
         </div>
     </div>

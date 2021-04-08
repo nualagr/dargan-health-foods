@@ -14,7 +14,7 @@
     {{ widget.input_text }}
 {% endif %}
 <!-- Wrap the actual file input in a span which looks like a button -->
-<span class="btn btn-grey-outline rounded-0 btn-file mt-2">
+<span class="btn btn-grey-outline rounded-0 btn-file">
     <i class="fas fa-image"></i>&nbsp;Select Main Product Image 
     <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
 </span>

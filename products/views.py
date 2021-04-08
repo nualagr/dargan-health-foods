@@ -5,8 +5,10 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
+# from django.forms import inlineformset_factory
+
 from .models import Product, ProductTag, Category, Tag
-from .forms import ProductForm, ProductTagForm
+from .forms import ProductForm, ProductAndTagsInlineFormSet
 
 
 def all_products(request):
@@ -155,18 +157,22 @@ def add_product(request):
         # Include request.FILES in order to make sure to
         # capture the image of the product if one was submitted
         pform = ProductForm(request.POST, request.FILES)
-        ptforms = [
-            ProductTagForm(request.POST, prefix=str(x), instance=ProductTag())
-            for x in range(0, 3)
-        ]
-        if pform.is_valid() and all([pt.is_valid() for pt in ptforms]):
-            product = pform.save()
-            for pt in ptforms:
-                producttag = pt.save(commit=False)
-                producttag.product = product
-                producttag.save()
-            messages.success(request, "Successfully added product!")
-            return redirect(reverse("product_detail", args=[product.id]))
+
+        if pform.is_valid():
+            new_product = pform.save()
+            # Find the new product id to add it to the product tags
+            product_id = new_product.id
+            product = get_object_or_404(Product, pk=product_id)
+            ptformset = ProductAndTagsInlineFormSet(
+                request.POST, request.FILES, instance=product)
+            if ptformset.is_valid():
+                for ptform in ptformset:
+                    if ptform.is_valid():
+                        if ptform.cleaned_data != {}:
+                            ptform.save()
+                messages.success(request, "Successfully added product!")
+                return redirect(
+                    reverse("product_detail", args=[new_product.id]))
         else:
             messages.error(
                 request,
@@ -174,15 +180,13 @@ def add_product(request):
             )
     else:
         pform = ProductForm()
-        ptforms = [
-            ProductTagForm(prefix=str(x), instance=ProductTag())
-            for x in range(0, 3)
-        ]
+        # Create an instance of the producttags inline formset
+        ptformset = ProductAndTagsInlineFormSet()
 
     template = "products/add_product.html"
     context = {
         "pform": pform,
-        "ptforms": ptforms,
+        "ptformset": ptformset,
     }
 
     return render(request, template, context)
@@ -190,19 +194,27 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    """
-    A view to Edit an existing product.
-    """
     if not request.user.is_superuser:
         messages.error(request, "Sorry, only store owners can do that.")
         return redirect(reverse("home"))
 
+    # Get the Product Object using the given id
     product = get_object_or_404(Product, pk=product_id)
+
     if request.method == "POST":
-        form = ProductForm(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
+        # Create an instance of the product form using
+        # that product's information
+        pform = ProductForm(request.POST, request.FILES, instance=product)
+        # Create an instance of the producttags inline formset
+        ptformset = ProductAndTagsInlineFormSet(
+            request.POST, request.FILES, instance=product
+        )
+
+        if pform.is_valid() and ptformset.is_valid():
+            product = pform.save()
+            ptformset.save()
             messages.success(request, "Successfully updated product!")
+            # Redirect to the Product's Details Page
             return redirect(reverse("product_detail", args=[product.id]))
         else:
             messages.error(
@@ -210,12 +222,17 @@ def edit_product(request, product_id):
                 "Failed to update product. Please ensure that the form is valid.",
             )
     else:
-        form = ProductForm(instance=product)
+        # If the request is a GET request
+        # Create an instance of the product form using the given product id
+        pform = ProductForm(instance=product)
+        # Create an instance of the producttags inline formset
+        ptformset = ProductAndTagsInlineFormSet(instance=product)
         messages.info(request, f"You are editing {product.friendly_name}")
 
     template = "products/edit_product.html"
     context = {
-        "form": form,
+        "pform": pform,
+        "ptformset": ptformset,
         "product": product,
     }
 
