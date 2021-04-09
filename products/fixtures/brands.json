@@ -1,0 +1,642 @@
+[
+    {
+        "fields": {
+            "name": "a_vogel",
+            "friendly_name": "A. Vogel"
+        },
+        "pk": "1",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "antipodes",
+            "friendly_name": "Antipodes"
+        },
+        "pk": "2",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "bach_flower",
+            "friendly_name": "Bach Flower"
+        },
+        "pk": "3",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "bee_activ",
+            "friendly_name": "Bee Activ"
+        },
+        "pk": "4",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "bee_health",
+            "friendly_name": "Bee Health"
+        },
+        "pk": "5",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "better_you",
+            "friendly_name": "Better You"
+        },
+        "pk": "6",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "bio_health",
+            "friendly_name": "Bio-Health"
+        },
+        "pk": "7",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "bio_kult",
+            "friendly_name": "Bio-Kult"
+        },
+        "pk": "8",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "biona",
+            "friendly_name": "Biona"
+        },
+        "pk": "9",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "botanicals_4_life",
+            "friendly_name": "Botanicals 4 Life"
+        },
+        "pk": "10",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "burts_bees",
+            "friendly_name": "Burt's Bees"
+        },
+        "pk": "11",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "chia_bia",
+            "friendly_name": "Chia Bia"
+        },
+        "pk": "12",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "cleanmarine",
+            "friendly_name": "Cleanmarine"
+        },
+        "pk": "13",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "clipper",
+            "friendly_name": "Clipper"
+        },
+        "pk": "14",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "comvita",
+            "friendly_name": "Comvita"
+        },
+        "pk": "15",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "dr_bronners",
+            "friendly_name": "Dr. Bronners"
+        },
+        "pk": "16",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "dr_hauschka",
+            "friendly_name": "Dr. Hauschka"
+        },
+        "pk": "17",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "ecostraws",
+            "friendly_name": "Ecostraws"
+        },
+        "pk": "18",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "ecover",
+            "friendly_name": "Ecover"
+        },
+        "pk": "19",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "faith_in_nature",
+            "friendly_name": "Faith in Nature"
+        },
+        "pk": "20",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "floradix",
+            "friendly_name": "Floradix"
+        },
+        "pk": "21",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "garden_of_life",
+            "friendly_name": "Garden Of Life"
+        },
+        "pk": "22",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "green_blacks",
+            "friendly_name": "Green & Blacks"
+        },
+        "pk": "23",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "grumpy_mule",
+            "friendly_name": "Grumpy Mule"
+        },
+        "pk": "24",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "health_aid",
+            "friendly_name": "Health Aid"
+        },
+        "pk": "25",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "irish_botanica",
+            "friendly_name": "Irish Botanica"
+        },
+        "pk": "26",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "iswari",
+            "friendly_name": "Iswari"
+        },
+        "pk": "27",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "kingfisher",
+            "friendly_name": "Kingfisher"
+        },
+        "pk": "28",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "kinvara",
+            "friendly_name": "Kinvara"
+        },
+        "pk": "29",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "koko",
+            "friendly_name": "Koko"
+        },
+        "pk": "30",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "laird_superfood",
+            "friendly_name": "Laird Superfood"
+        },
+        "pk": "31",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "linwoods",
+            "friendly_name": "Linwoods"
+        },
+        "pk": "32",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "living_nutrition",
+            "friendly_name": "Living Nutrition"
+        },
+        "pk": "33",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "love_raw",
+            "friendly_name": "Love Raw"
+        },
+        "pk": "34",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "mag365",
+            "friendly_name": "Mag365"
+        },
+        "pk": "35",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "meridian",
+            "friendly_name": "Meridian"
+        },
+        "pk": "36",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "nairns",
+            "friendly_name": "Nairns"
+        },
+        "pk": "37",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "nakd",
+            "friendly_name": "Nakd"
+        },
+        "pk": "38",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "natures_aid",
+            "friendly_name": "Natures Aid"
+        },
+        "pk": "39",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "natures_answer",
+            "friendly_name": "Nature's Answer"
+        },
+        "pk": "40",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "natures_plus",
+            "friendly_name": "Nature's Plus"
+        },
+        "pk": "41",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "naturtint",
+            "friendly_name": "Naturtint"
+        },
+        "pk": "42",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "naturya",
+            "friendly_name": "Naturya"
+        },
+        "pk": "43",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "natures_plus",
+            "friendly_name": "Natures Plus"
+        },
+        "pk": "44",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "nelsons",
+            "friendly_name": "Nelsons"
+        },
+        "pk": "45",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "nomo",
+            "friendly_name": "NOMO"
+        },
+        "pk": "46",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "nua_naturals",
+            "friendly_name": "Nua Naturals"
+        },
+        "pk": "47",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "nuzest",
+            "friendly_name": "Nuzest"
+        },
+        "pk": "48",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "olbas",
+            "friendly_name": "Olbas"
+        },
+        "pk": "49",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "oliva",
+            "friendly_name": "Oliva"
+        },
+        "pk": "50",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "om_mushrooms",
+            "friendly_name": "Om Mushrooms"
+        },
+        "pk": "51",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "one_nutrition",
+            "friendly_name": "One Nutrition"
+        },
+        "pk": "52",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "optibac",
+            "friendly_name": "Optibac"
+        },
+        "pk": "53",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "optima",
+            "friendly_name": "Optima"
+        },
+        "pk": "54",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "pai_skincare",
+            "friendly_name": "Pai Skincare"
+        },
+        "pk": "55",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "palm_free",
+            "friendly_name": "Palm Free"
+        },
+        "pk": "56",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "panda",
+            "friendly_name": "Panda"
+        },
+        "pk": "57",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "pip_nut",
+            "friendly_name": "Pip & Nut"
+        },
+        "pk": "58",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "planet_paleo",
+            "friendly_name": "Planet Paleo"
+        },
+        "pk": "59",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "plantforce",
+            "friendly_name": "Plantforce"
+        },
+        "pk": "60",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "precision_biotics",
+            "friendly_name": "Precision Biotics"
+        },
+        "pk": "61",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "pukka",
+            "friendly_name": "Pukka"
+        },
+        "pk": "62",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "pulsin",
+            "friendly_name": "Pulsin"
+        },
+        "pk": "63",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "qi_tea",
+            "friendly_name": "Qi Tea"
+        },
+        "pk": "64",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "quest",
+            "friendly_name": "Quest"
+        },
+        "pk": "65",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "raw_health",
+            "friendly_name": "Raw Health"
+        },
+        "pk": "66",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "rawganic",
+            "friendly_name": "Rawganic"
+        },
+        "pk": "67",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "solgar",
+            "friendly_name": "Solgar"
+        },
+        "pk": "68",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "spatone",
+            "friendly_name": "Spatone"
+        },
+        "pk": "69",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "sukin",
+            "friendly_name": "Sukin"
+        },
+        "pk": "70",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "suma",
+            "friendly_name": "Suma"
+        },
+        "pk": "71",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "sylk",
+            "friendly_name": "Sylk"
+        },
+        "pk": "72",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "synergy",
+            "friendly_name": "Synergy"
+        },
+        "pk": "73",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "terra_nova",
+            "friendly_name": "Terra Nova"
+        },
+        "pk": "74",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "tints_of_nature",
+            "friendly_name": "Tints of Nature"
+        },
+        "pk": "75",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "trilogy",
+            "friendly_name": "Trilogy"
+        },
+        "pk": "76",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "vego",
+            "friendly_name": "Vego"
+        },
+        "pk": "77",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "viridian",
+            "friendly_name": "Viridian"
+        },
+        "pk": "78",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "wild_nutrition",
+            "friendly_name": "Wild Nutrition"
+        },
+        "pk": "79",
+        "model": "products.brand"
+    },
+    {
+        "fields": {
+            "name": "yogi_tea",
+            "friendly_name": "Yogi Tea"
+        },
+        "pk": "80",
+        "model": "products.brand"
+    }
+]

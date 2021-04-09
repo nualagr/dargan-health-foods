@@ -1,5 +1,4 @@
-pk,model,fields,
-,,name,friendly_name
+pk,model,name,friendly_name
 1,products.brand,a_vogel,A. Vogel
 2,products.brand,antipodes,Antipodes
 3,products.brand,bach_flower,Bach Flower

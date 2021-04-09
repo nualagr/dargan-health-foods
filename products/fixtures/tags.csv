@@ -1,14 +1,13 @@
-pk,model,fields,
-,,name,friendly_name
+pk,model,name,friendly_name
 1,products.tag,amino_acids,Amino Acids
 2,products.tag,antioxidants,Antioxidants
 3,products.tag,b_complex,B Complex
 4,products.tag,b_vitamins,B Vitamins
 5,products.tag,biodegradable,Biodegradable
-6,products.tag,boxed_packs_collections,Boxed Packs & Collections
+6,products.tag,boxed_packs_n_collections,Boxed Packs & Collections
 7,products.tag,bpa_free,BPA Free
 8,products.tag,dairy_free,Dairy Free
-9,products.tag,digestive_aids_probiotics,Digestive Aids & Probiotics
+9,products.tag,digestive_aids_n_probiotics,Digestive Aids & Probiotics
 10,products.tag,egg_free,Egg Free
 11,products.tag,essential_fatty_acids,Essential Fatty Acids
 12,products.tag,fair_trade,Fair Trade
@@ -23,7 +22,7 @@ pk,model,fields,
 21,products.tag,non_toxic,Non Toxic
 22,products.tag,nut_free,Nut Free
 23,products.tag,organic,Organic
-24,products.tag,organic_balms_topical_oils,Organic Balms & Topical Oils
+24,products.tag,organic_balms_n_topical_oils,Organic Balms & Topical Oils
 25,products.tag,organic_botanicals,Organic Botanicals
 26,products.tag,organic_plant_tinctures,Organic Plant Tinctures
 27,products.tag,organic_superfoods,Organic Superfoods
@@ -46,3 +45,5 @@ pk,model,fields,
 44,products.tag,vitamin_k,Vitamin K
 45,products.tag,wheat_free,Wheat Free
 46,products.tag,yeast_free,Yeast Free
+47,products.tag,zinc,Zinc
+48,products.tag,kosher,Kosher

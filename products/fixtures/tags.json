@@ -1,0 +1,386 @@
+[
+    {
+        "fields": {
+            "name": "amino_acids",
+            "friendly_name": "Amino Acids"
+        },
+        "pk": "1",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "antioxidants",
+            "friendly_name": "Antioxidants"
+        },
+        "pk": "2",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "b_complex",
+            "friendly_name": "B Complex"
+        },
+        "pk": "3",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "b_vitamins",
+            "friendly_name": "B Vitamins"
+        },
+        "pk": "4",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "biodegradable",
+            "friendly_name": "Biodegradable"
+        },
+        "pk": "5",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "boxed_packs_n_collections",
+            "friendly_name": "Boxed Packs & Collections"
+        },
+        "pk": "6",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "bpa_free",
+            "friendly_name": "BPA Free"
+        },
+        "pk": "7",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "dairy_free",
+            "friendly_name": "Dairy Free"
+        },
+        "pk": "8",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "digestive_aids_n_probiotics",
+            "friendly_name": "Digestive Aids & Probiotics"
+        },
+        "pk": "9",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "egg_free",
+            "friendly_name": "Egg Free"
+        },
+        "pk": "10",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "essential_fatty_acids",
+            "friendly_name": "Essential Fatty Acids"
+        },
+        "pk": "11",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "fair_trade",
+            "friendly_name": "Fair Trade"
+        },
+        "pk": "12",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "fragrance_free",
+            "friendly_name": "Fragrance Free"
+        },
+        "pk": "13",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "gluten_free",
+            "friendly_name": "Gluten Free"
+        },
+        "pk": "14",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "lactose_free",
+            "friendly_name": "Lactose Free"
+        },
+        "pk": "15",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "low_carb",
+            "friendly_name": "Low Carb"
+        },
+        "pk": "16",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "multivitamins",
+            "friendly_name": "Multivitamins"
+        },
+        "pk": "17",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "no_artificial_colours",
+            "friendly_name": "No Artificial Colours"
+        },
+        "pk": "18",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "no_artificial_flavours",
+            "friendly_name": "No Artificial Flavours"
+        },
+        "pk": "19",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "non_gmo",
+            "friendly_name": "Non GMO"
+        },
+        "pk": "20",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "non_toxic",
+            "friendly_name": "Non Toxic"
+        },
+        "pk": "21",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "nut_free",
+            "friendly_name": "Nut Free"
+        },
+        "pk": "22",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "organic",
+            "friendly_name": "Organic"
+        },
+        "pk": "23",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "organic_balms_n_topical_oils",
+            "friendly_name": "Organic Balms & Topical Oils"
+        },
+        "pk": "24",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "organic_botanicals",
+            "friendly_name": "Organic Botanicals"
+        },
+        "pk": "25",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "organic_plant_tinctures",
+            "friendly_name": "Organic Plant Tinctures"
+        },
+        "pk": "26",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "organic_superfoods",
+            "friendly_name": "Organic Superfoods"
+        },
+        "pk": "27",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "paleo",
+            "friendly_name": "Paleo"
+        },
+        "pk": "28",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "peanut_free",
+            "friendly_name": "Peanut Free"
+        },
+        "pk": "29",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "raw",
+            "friendly_name": "Raw"
+        },
+        "pk": "30",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "shellfish_free",
+            "friendly_name": "Shellfish Free"
+        },
+        "pk": "31",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "soy_free",
+            "friendly_name": "Soy Free"
+        },
+        "pk": "32",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "speciality_nutrients",
+            "friendly_name": "Speciality Nutrients"
+        },
+        "pk": "33",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "standardised_plant_extracts",
+            "friendly_name": "Standardised Plant Extracts"
+        },
+        "pk": "34",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "sugar_free",
+            "friendly_name": "Sugar Free"
+        },
+        "pk": "35",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "sustainably_sourced",
+            "friendly_name": "Sustainably Sourced"
+        },
+        "pk": "36",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "ultimate_beauty",
+            "friendly_name": "Ultimate Beauty"
+        },
+        "pk": "37",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "vegan",
+            "friendly_name": "Vegan"
+        },
+        "pk": "38",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "vegetarian",
+            "friendly_name": "Vegetarian"
+        },
+        "pk": "39",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "vitamin_a",
+            "friendly_name": "Vitamin A"
+        },
+        "pk": "40",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "vitamin_c",
+            "friendly_name": "Vitamin C"
+        },
+        "pk": "41",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "vitamin_d",
+            "friendly_name": "Vitamin D"
+        },
+        "pk": "42",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "vitamin_e",
+            "friendly_name": "Vitamin E"
+        },
+        "pk": "43",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "vitamin_k",
+            "friendly_name": "Vitamin K"
+        },
+        "pk": "44",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "wheat_free",
+            "friendly_name": "Wheat Free"
+        },
+        "pk": "45",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "yeast_free",
+            "friendly_name": "Yeast Free"
+        },
+        "pk": "46",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "zinc",
+            "friendly_name": "Zinc"
+        },
+        "pk": "47",
+        "model": "products.tag"
+    },
+    {
+        "fields": {
+            "name": "kosher",
+            "friendly_name": "Kosher"
+        },
+        "pk": "48",
+        "model": "products.tag"
+    }
+]

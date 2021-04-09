@@ -1,0 +1,58 @@
+[
+    {
+        "fields": {
+            "name": "new_in",
+            "friendly_name": "New In"
+        },
+        "pk": "1",
+        "model": "products.department"
+    },
+    {
+        "fields": {
+            "name": "food_n_drink",
+            "friendly_name": "Food & Drink"
+        },
+        "pk": "2",
+        "model": "products.department"
+    },
+    {
+        "fields": {
+            "name": "hair_n_beauty",
+            "friendly_name": "Hair & Beauty"
+        },
+        "pk": "3",
+        "model": "products.department"
+    },
+    {
+        "fields": {
+            "name": "house_n_home",
+            "friendly_name": "House & Home"
+        },
+        "pk": "4",
+        "model": "products.department"
+    },
+    {
+        "fields": {
+            "name": "mother_n_baby",
+            "friendly_name": "Mother & Baby"
+        },
+        "pk": "5",
+        "model": "products.department"
+    },
+    {
+        "fields": {
+            "name": "vitamins_n_supplements",
+            "friendly_name": "Vitamins & Supplements"
+        },
+        "pk": "6",
+        "model": "products.department"
+    },
+    {
+        "fields": {
+            "name": "special_offers",
+            "friendly_name": "Special Offers"
+        },
+        "pk": "7",
+        "model": "products.department"
+    }
+]

@@ -1,0 +1,8 @@
+pk,model,name,friendly_name
+1,products.department,new_in,New In
+2,products.department,food_n_drink,Food & Drink
+3,products.department,hair_n_beauty,Hair & Beauty
+4,products.department,house_n_home,House & Home
+5,products.department,mother_n_baby,Mother & Baby
+6,products.department,vitamins_n_supplements,Vitamins & Supplements
+7,products.department,special_offers,Special Offers
