@@ -1211,6 +1211,8 @@ The following [Bootstrap](https://getbootstrap.com/) components were used and mo
 
 - [Pagination](https://getbootstrap.com/docs/5.0/components/pagination/)
 
+- [Modal](https://getbootstrap.com/docs/5.0/components/modal/)
+
 #### Product Information
 - Product information, where available, including the product descriptions and ingredients were provided by the following companies:
     - [Viridian Nutrition](https://www.viridian-nutrition.com/).
