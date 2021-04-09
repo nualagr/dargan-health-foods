@@ -411,6 +411,19 @@ input[name="q"]::placeholder {
     color: #FFFFFF;
 }
 
+.btn-red {
+    color: #FFFFFF;
+    background-color: #DC3545;
+    border-color: #DC3545;
+}
+
+.btn-red:hover,
+.btn-red:active,
+.btn-red:focus {
+    background: #BF2231;
+    color: #FFFFFF;
+}
+
 .btn-checkout,
 .btn-checkout:active,
 .btn-checkout:focus {
@@ -880,9 +893,9 @@ on the login page since all the other inputs have placeholders. */
     color: #AAB7C4;
 }
 
-.allauth-form-inner-content a {
+/* .allauth-form-inner-content a {
     color: #29873C;
-}
+} */
 
 .alert {
     padding: 0;
