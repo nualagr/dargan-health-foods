@@ -36,6 +36,30 @@ body {
     color: #3486FF;
 }
 
+a.blue-text-link {
+    color: #3A86FF;
+    text-decoration: none;
+}
+
+a.blue-text-link:hover,
+a.blue-text-link:active,
+a.blue-text-link:focus {
+    color: #3A86FF;
+    text-decoration: underline;
+}
+
+a.red-text-link {
+    color: #DC3545;
+    text-decoration: none;
+}
+
+a.red-text-link:hover,
+a.red-text-link:active,
+a.red-text-link:focus {
+    color: #DC3545;
+    text-decoration: underline;
+}
+
 .border-green {
     border: 1px solid #29873C !important;
 }
@@ -873,18 +897,6 @@ on the login page since all the other inputs have placeholders. */
 .alert-danger>ul {
     list-style-type: none;
     padding-left: 0;
-}
-
-a.blue-text-link {
-    color: #3A86FF;
-    text-decoration: none;
-}
-
-a.blue-text-link:hover,
-a.blue-text-link:active,
-a.blue-text-link:focus {
-    color: #3A86FF;
-    text-decoration: underline;
 }
 
 .form-check-input[type=checkbox] {
