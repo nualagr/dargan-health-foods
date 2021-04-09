@@ -58,6 +58,7 @@ a.red-text-link:active,
 a.red-text-link:focus {
     color: #DC3545;
     text-decoration: underline;
+    cursor:pointer;
 }
 
 .border-green {
