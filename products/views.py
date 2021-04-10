@@ -96,6 +96,14 @@ def all_products(request):
                 )
                 products = products.filter(queries)
 
+    if "limit" in request.GET:
+        # This request comes from the New In Dropdown
+        limit = request.GET["limit"].split(",")
+        cap = limit[0]
+        end_index = int(cap)
+        # Slice the products list at the capped amount
+        products = products[0:end_index]
+
     current_sorting = f"{sort}_{direction}"
 
     # Pagination
