@@ -870,13 +870,16 @@ p.card-text.brand-name {
     text-transform: capitalize;
 }
 
-/* Allauth Form Formatting -------------------------------------------- */
+/* Allauth and Contact Us Form Formatting -------------------------------------------- */
+.contact-form p:not(.invalid-feedback),
 .allauth-form-inner-content p {
     margin: 1.5rem 0 2.5rem 0; /* mt-4 */
     color: #6C757D; /* text-secondary */
     text-align: center;
 }
 
+.contact-form input,
+.contact-form textarea,
 .allauth-form-inner-content input {
     /* border-color: #6C757D; */
     border-radius: 0;
@@ -885,11 +888,14 @@ p.card-text.brand-name {
 
 /* Hide labels on everything except for the Remember Me checkbox
 on the login page since all the other inputs have placeholders. */
+.contact-form label,
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
 }
 
 /* Style the placeholders to match the rest of the site */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder,
 .allauth-form-inner-content input::placeholder {
     color: #AAB7C4;
 }

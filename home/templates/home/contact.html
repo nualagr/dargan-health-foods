@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Our Story{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs Navigation -->
+<div class="container-fluid breadcrumbs-container">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <div class="breadcrumbs">
+                <ul class="items">
+                    <li class="item home">
+                        <a href="{% url 'home' %}" title="Go to Home Page">
+                            Home
+                        </a>
+                    </li>
+                    <li class="item contact">
+                        <strong>Contact Us</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Message Container -->
+<div class="container-fluid messages-container" id="messages">
+</div>
+<!-- Contact Us Page -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto contact-form">
+            <!-- Contact Us Page Title and subheading -->
+            <h1 class="logo-font-heading" id="page-title-heading" aria-labelledby="page-title-heading">
+                Contact Us
+            </h1>
+            <p class="text-center text-muted">Jot us a note and we'll get back to you as soon as possible</p>
+            <!-- Contact Us Form -->
+            <div class="contact-form-wrapper mx-auto my-3">
+                <form id="contact-form" method="POST" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ cform | crispy }}
+                    </fieldset>
+                    <div class="button-row">
+                        <button class="common-button btn-apple-green" type="submit"><i class="far fa-paper-plane"></i>&nbsp;Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -66,7 +66,7 @@
                 <ul>
                     <li><a href="{% url 'our_story' %}">Our Story</a></li>
                     <li><a href="">Blog</a></li>
-                    <li><a href="">Contact Us</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                         <li><a href="{% url 'add_product' %}">Product Management</a></li>
@@ -162,7 +162,7 @@
     {% block messages %}
     {% if messages %}
     <!-- Message Container -->
-    <div class="container-fluid messages-container">
+    <div class="container-fluid messages-container" id="messages">
         <div class="row">
             <div class="col-12 col-lg-9 mx-auto">
                 {% for message in messages %}
@@ -387,8 +387,6 @@
         }); 
     </script>
     {% endblock %}
-
-
 </body>
 
 </html>

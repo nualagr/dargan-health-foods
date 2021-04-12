@@ -98,6 +98,7 @@ def all_products(request):
 
     if "limit" in request.GET:
         # This request comes from the New In Dropdown
+        # Find the limit submitted
         limit = request.GET["limit"].split(",")
         cap = limit[0]
         end_index = int(cap)
