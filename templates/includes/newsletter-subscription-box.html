@@ -1,12 +1,12 @@
 <!-- Newsletter -->
-<div class="container-fluid section-container bg-light-green">
+<div class="container-fluid section-container newsletter-container">
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto text-center">
             <h2>Sign Up For Our Newsletter</h2>
             <p>Join our mailing list to get the latest updates and offers straight to your inbox.</p>
         </div>
         <div class="col-12 col-lg-9 mx-auto text-center newsletter">
-            <form id="newsletter_subscription_form" action="{% url 'subscribe' %}" method="POST">
+            <form id="newsletter-subscription-form" action="{% url 'subscribe' %}" method="POST">
                 <div class="form-group">
                     {% csrf_token %}
                     {{ newsletter_subscription_form | crispy }}

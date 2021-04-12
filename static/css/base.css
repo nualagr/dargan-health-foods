@@ -494,6 +494,10 @@ input[name="q"]::placeholder {
     margin-bottom: 1.5em;
 }
 
+.newsletter-container {
+    background-color: #F5F5F5;
+}
+
 .footer-container {
     /* Keep footer at the bottom of the page */
     margin-top:auto;
@@ -870,7 +874,7 @@ p.card-text.brand-name {
     text-transform: capitalize;
 }
 
-/* Allauth and Contact Us Form Formatting -------------------------------------------- */
+/* Allauth, Newsletter and Contact Us Form Formatting -------------------------------------------- */
 .contact-form p:not(.invalid-feedback),
 .allauth-form-inner-content p {
     margin: 1.5rem 0 2.5rem 0; /* mt-4 */
@@ -878,6 +882,7 @@ p.card-text.brand-name {
     text-align: center;
 }
 
+#newsletter-subscription-form input[type=email].emailinput,
 .contact-form input,
 .contact-form textarea,
 .allauth-form-inner-content input {
