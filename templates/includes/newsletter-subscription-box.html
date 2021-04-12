@@ -6,19 +6,14 @@
             <p>Join our mailing list to get the latest updates and offers straight to your inbox.</p>
         </div>
         <div class="col-12 col-lg-9 mx-auto text-center newsletter">
-            <form class="form subscribe" novalidate="novalidate" action="" method="post"
-                id="newsletter-validate-detail">
+            <form id="newsletter_subscription_form" action="{% url 'subscribe' %}" method="POST">
                 <div class="form-group">
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control rounded-0" id="newsletter-email"
-                            placeholder="Enter your email address" aria-label="Enter your email address"
-                            aria-describedby="newsletter-submit-button">
-                        <div class="input-group-append" id="newsletter-submit-button">
-                            <button class="common-button btn-apple-green" type="button">
-                                <i class="far fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
+                    {% csrf_token %}
+                    {{ newsletter_subscription_form | crispy }}
+                </div>
+                <div class="button-row">
+                    <button type="submit" class="common-button btn-apple-green"><i class="far fa-paper-plane"></i>&nbsp;Subscribe</button>
+                    <input type="hidden" name="subscribe_redirect" value="{{ request.path }}">
                 </div>
             </form>
         </div>

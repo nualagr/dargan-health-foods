@@ -81,6 +81,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.media",
                 "cart.contexts.cart_contents",
+                "home.contexts.newsletter_subscription_form",
             ],
             "builtins": [
                 "crispy_forms.templatetags.crispy_forms_tags",
@@ -103,6 +104,7 @@ SITE_ID = 1
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+# Use Dargan's Custom Signup Form
 ACCOUNT_FORMS = {'signup': 'profiles.forms.DargansCustomSignupForm'}
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True

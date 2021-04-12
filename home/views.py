@@ -6,8 +6,8 @@ from django.contrib import messages
 
 from products.models import Product
 from profiles.models import UserProfile
-
-from .forms import ContactForm
+from .models import NewsletterSubscription
+from .forms import NewsletterSubscriptionForm, ContactForm
 
 
 def index(request):
@@ -82,3 +82,30 @@ def contact(request):
     }
 
     return render(request, "home/contact.html", context)
+
+
+def subscribe(request):
+    """
+    A view to get the email address from the Newsletter
+    Subscription Form when submitted.
+    Check whether the address already exists in the database.
+    If so, send message and redirect to the same page.
+    If not, add the email to the database and send a success
+    message to the User.
+    """
+    newsletter_subscription_form = NewsletterSubscriptionForm()
+    subscribe_redirect = request.POST.get('subscribe_redirect')
+    if request.method == 'POST':
+        newsletter_subscription_form = NewsletterSubscriptionForm(request.POST)
+        if NewsletterSubscription.objects.filter(
+            email_address=request.POST.get('email_address')
+        ).exists():
+            messages.info(
+                request, 'You are already subscribed to our newsletter.')
+            return redirect(subscribe_redirect)
+        else:
+            if newsletter_subscription_form.is_valid():
+                newsletter_subscription_form.save()
+                messages.success(
+                    request, 'You are now subscribed to our newsletter.')
+    return redirect(subscribe_redirect)

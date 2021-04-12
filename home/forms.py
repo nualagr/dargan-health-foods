@@ -1,4 +1,22 @@
 from django import forms
+from .models import NewsletterSubscription
+
+
+class NewsletterSubscriptionForm(forms.ModelForm):
+    class Meta:
+        model = NewsletterSubscription
+        fields = ['email_address']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            'email_address': 'Enter your email address',
+        }
+
+        for field in self.fields:
+            placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = False
 
 
 class ContactForm(forms.Form):
