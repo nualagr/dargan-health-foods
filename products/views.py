@@ -2,7 +2,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.db.models import Q, Sum
 from django.db.models.functions import Lower
 
 from .models import Product, ProductTag, Category, Tag, ProductReview
@@ -145,8 +145,9 @@ def product_detail(request, product_id):
     tags = ProductTag.objects.filter(product=product_id)
 
     # Get the related product reviews and order by latest added
-    reviews = ProductReview.objects.filter(product=product_id)
-    ordered_reviews = reviews.order_by("created")[::-1]
+    reviews = ProductReview.objects.filter(product=product_id).order_by(
+        "-created"
+    )
 
     if request.method == "POST":
         # Get the current user
@@ -163,8 +164,23 @@ def product_detail(request, product_id):
             new_review.user = user
             # Save the review to the database
             new_review.save()
+            # Get the New Review Rating
+            new_review_rating = new_review.review_rating
+            # Work out the overall product rating
+            if reviews:
+                total_score = reviews.all().aggregate(
+                    Sum('review_rating'))["review_rating__sum"]
+                number_of_reviews = len(reviews) + 1
+                avg_rating = (
+                    total_score + new_review_rating) / number_of_reviews
+            else:
+                avg_rating = new_review_rating
+
+            product.rating = avg_rating
+            product.save(update_fields=["rating"])
+
             prform = ProductReviewForm()
-            messages.success(request, 'Successfully posted your review.')
+            messages.success(request, "Successfully posted your review.")
 
     else:
         prform = ProductReviewForm()
@@ -172,7 +188,7 @@ def product_detail(request, product_id):
     context = {
         "product": product,
         "tags": tags,
-        "reviews": ordered_reviews,
+        "reviews": reviews,
         "prform": prform,
     }
 
@@ -200,7 +216,8 @@ def add_product(request):
             product_id = new_product.id
             product = get_object_or_404(Product, pk=product_id)
             ptformset = ProductAndTagsInlineFormSet(
-                request.POST, request.FILES, instance=product)
+                request.POST, request.FILES, instance=product
+            )
             if ptformset.is_valid():
                 for ptform in ptformset:
                     if ptform.is_valid():
@@ -208,7 +225,8 @@ def add_product(request):
                             ptform.save()
                 messages.success(request, "Successfully added product!")
                 return redirect(
-                    reverse("product_detail", args=[new_product.id]))
+                    reverse("product_detail", args=[new_product.id])
+                )
         else:
             messages.error(
                 request,

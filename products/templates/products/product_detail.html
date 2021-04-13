@@ -63,8 +63,10 @@
                     <h1>{{ product.friendly_name }}</h1>
                     <p>
                         <span class="stars-outer">
-                            <span class="stars-inner" style="width:{{ product.avg_rating_percentage }}%;"></span>
+                            <!-- <span class="stars-inner" style="width:{{ product.avg_rating_percentage }}%;"></span> -->
+                            <span class="stars-inner" style="width:{% widthratio product.rating 5 100 %}%;"></span>
                         </span>
+                        {{ product.rating|floatformat:1 }}
                     </p>
                     <p class="lead text-left font-weight-bold">€{{ product.price }}</p>
                     {% if tags %}
