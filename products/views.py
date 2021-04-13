@@ -144,8 +144,9 @@ def product_detail(request, product_id):
     # Get the related product tags
     tags = ProductTag.objects.filter(product=product_id)
 
-    # Get the related product reviews
+    # Get the related product reviews and order by latest added
     reviews = ProductReview.objects.filter(product=product_id)
+    ordered_reviews = reviews.order_by("created")[::-1]
 
     if request.method == "POST":
         # Get the current user
@@ -171,7 +172,7 @@ def product_detail(request, product_id):
     context = {
         "product": product,
         "tags": tags,
-        "reviews": reviews,
+        "reviews": ordered_reviews,
         "prform": prform,
     }
 
