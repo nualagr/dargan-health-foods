@@ -30,7 +30,8 @@
                         </a>
                     </li>
                     <li class="item category">
-                        <a href="{% url 'products' %}?category={{ product.category }}" title="Go to related Category Page">
+                        <a href="{% url 'products' %}?category={{ product.category }}"
+                            title="Go to related Category Page">
                             {{ product.category|title|to_ampersand }}
                         </a>
                     </li>
@@ -91,8 +92,8 @@
                         {% csrf_token %}
                         <div class="col-2 m-0 pe-0">
                             <div class="input-group">
-                                <input class="form-control qty-input rounded-0" type="number" name="quantity" value="1" min="1"
-                                    max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                <input class="form-control qty-input rounded-0" type="number" name="quantity" value="1"
+                                    min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                             </div>
                         </div>
                         <div class="col-10 m-0 ps-0">
@@ -109,7 +110,8 @@
                 <div class="accordion accordion-flush">
                     <div class="accordion-item" id="accordionDetails">
                         <h4 class="accordion-product-info-header" id="headingDetails">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="false" aria-controls="collapseDetails">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseDetails" aria-expanded="false" aria-controls="collapseDetails">
                                 Details
                             </button>
                         </h4>
@@ -123,13 +125,13 @@
                             </strong>
                         </p>
                         <p>
-                            <ul>
-                                {% for ingredient in product.ingredients|split:"," %}
-                                <li>
-                                    {{ ingredient }}
-                                </li>
-                                {% endfor %}
-                            </ul>                         
+                        <ul>
+                            {% for ingredient in product.ingredients|split:"," %}
+                            <li>
+                                {{ ingredient }}
+                            </li>
+                            {% endfor %}
+                        </ul>
                         </p>
                         <br>
                         {% endif %}
@@ -149,12 +151,15 @@
                 </div>
                 <div class="accordion-item" id="accordionMoreInformation">
                     <h4 class="accordion-product-info-header" id="headingMoreInformation">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMoreInformation" aria-expanded="false" aria-controls="collapseMoreInformation">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseMoreInformation" aria-expanded="false"
+                            aria-controls="collapseMoreInformation">
                             More Information
                         </button>
                     </h4>
                 </div>
-                <div class="accordion-body collapse" id="collapseMoreInformation" aria-labelledby="headingMoreInformation">
+                <div class="accordion-body collapse" id="collapseMoreInformation"
+                    aria-labelledby="headingMoreInformation">
                     {% if product.weight_g %}
                     <p>
                         <strong>
@@ -205,44 +210,85 @@
                     <h4 class="accordion-product-info-header" id="headingReviews">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseReviews" aria-expanded="false" aria-controls="collapseReviews">
-                            Reviews
+                            Customer Reviews
                         </button>
                     </h4>
                 </div>
                 <div class="accordion-body collapse" id="collapseReviews" aria-labelledby="headingReviews">
-                    {% if product.avg_rating %}
-                    <p>
-                        <strong>
-                            Average Rating:
-                        </strong>
-                        {{ product.avg_rating }}
-                    </p>
-                    <br>
-                    {% else %}
-                    <p>No reviews currently exist for this product.</p>
+                {% if reviews %}
+                    {% for review in reviews %}
+                    <div>
+                        <span class="stars-outer">
+                            <span class="stars-inner" style="width:{% widthratio review.review_rating 5 100 %}%;"></span>
+                        </span>
+                        <span><strong>&nbsp;{{ review.review_title }}</strong></span>
+                    </div>
+                    <div class="my-1 text-muted">
+                        <small>Reviewed by {{ review.user }} on {{ review.created }}</small>
+                    </div>
+                    {% if request.user.is_authenticated %}
+                        <div>
+                            {% if user.name == review.user_id %}
+                            <a href="{% url 'delete_review' review.pk %}" class="product_delete">Delete Review</a>
+                            {% endif %}
+                        </div>
                     {% endif %}
+                    <div>
+                        {{ review.review_content }}
+                    </div>
+                    <hr>
+                    {% endfor %}
+                {% else %}
+                    <div>
+                        <p>No customer reviews currently exist for this product.</p>
+                    </div>
+                {% endif %}
                 </div>
+                {% if request.user.is_authenticated %}
+                <div class="accordion-item" id="accordionReviewForm" role="tablist" aria-multiselectable="true">
+                    <h4 class="accordion-product-info-header" id="headingReviewForm">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseReviewForm" role="tab" aria-expanded="false"
+                            aria-controls="collapseReviewForm">
+                            Leave a Review
+                        </button>
+                    </h4>
+                </div>
+                <div class="accordion-body collapse" id="collapseReviewForm" role="tabpanel"
+                    aria-labelledby="headingReviewForm">
+                    <form class="form" action="{% url 'product_detail' product.pk %}" method="POST">
+                        {% csrf_token %}
+                        {{ prform|crispy }}
+                        <div class="button-row">
+                            <button class="common-button btn-orange" action="submit" aria-label="Product Review Submit Button"><i class="fas fa-cloud-upload-alt"></i> Post Review</button>
+                        </div>
+                    </form>
+                </div>
+                {% else %}
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-0">
-      <div class="modal-header">
-        <h5 class="modal-title text-red" id="deleteModalLabel">{{ product.friendly_name }}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        Are you sure that you want to delete this product?
-      </div>
-      <div class="modal-footer justify-content-center">
-        <a class="common-button btn-forest-green" data-bs-dismiss="modal"><i class="far fa-save"></i>&nbsp;Retain</a>
-        <a class="common-button btn-grey" href="{% url 'delete_product' product.id %}" %}><i class="far fa-trash-alt"></i>&nbsp;Delete</a>
-      </div>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title text-red" id="deleteModalLabel">{{ product.friendly_name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                Are you sure that you want to delete this product?
+            </div>
+            <div class="modal-footer justify-content-center">
+                <a class="common-button btn-forest-green" data-bs-dismiss="modal"><i
+                        class="far fa-save"></i>&nbsp;Retain</a>
+                <a class="common-button btn-grey" href="{% url 'delete_product' product.id %}" %}><i
+                        class="far fa-trash-alt"></i>&nbsp;Delete</a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 {% include 'includes/newsletter-subscription-box.html' %}
 {% endblock %}

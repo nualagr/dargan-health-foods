@@ -5,10 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-# from django.forms import inlineformset_factory
-
-from .models import Product, ProductTag, Category, Tag
-from .forms import ProductForm, ProductAndTagsInlineFormSet
+from .models import Product, ProductTag, Category, Tag, ProductReview
+from .forms import ProductForm, ProductAndTagsInlineFormSet, ProductReviewForm
+from profiles.models import UserProfile
 
 
 def all_products(request):
@@ -138,15 +137,42 @@ def product_detail(request, product_id):
     """
     A view to show individual product details
     """
+
     # Get the product from the database
     product = get_object_or_404(Product, pk=product_id)
 
     # Get the related product tags
     tags = ProductTag.objects.filter(product=product_id)
 
+    # Get the related product reviews
+    reviews = ProductReview.objects.filter(product=product_id)
+
+    if request.method == "POST":
+        # Get the current user
+        user = UserProfile.objects.get(user=request.user)
+        # Instantiate a new instance of the ProductReviewForm
+        prform = ProductReviewForm(request.POST)
+
+        if prform.is_valid():
+            # Create Review object but don't save to database yet
+            new_review = prform.save(commit=False)
+            # Link the review to the product
+            new_review.product = product
+            # Link the logged-in user to the review
+            new_review.user = user
+            # Save the review to the database
+            new_review.save()
+            prform = ProductReviewForm()
+            messages.success(request, 'Successfully posted your review.')
+
+    else:
+        prform = ProductReviewForm()
+
     context = {
         "product": product,
         "tags": tags,
+        "reviews": reviews,
+        "prform": prform,
     }
 
     return render(request, "products/product_detail.html", context)
@@ -188,8 +214,10 @@ def add_product(request):
                 "Failed to add product. Please ensure the form is valid.",
             )
     else:
+        # If it was a GET request
+        # Create a blank product form
         pform = ProductForm()
-        # Create an instance of the producttags inline formset
+        # Create a blank instance of the producttags inline formset
         ptformset = ProductAndTagsInlineFormSet()
 
     template = "products/add_product.html"

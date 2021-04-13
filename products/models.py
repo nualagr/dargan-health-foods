@@ -1,4 +1,5 @@
 from django.db import models
+from profiles.models import UserProfile
 
 
 class Department(models.Model):
@@ -188,3 +189,33 @@ class ProductTag(models.Model):
 
     def __str__(self):
         return "{}, {}".format(self.product, self.tag)
+
+
+class ProductReview(models.Model):
+    STAR_RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+    product = models.ForeignKey(
+        Product,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="productreviews",
+    )
+    user = models.ForeignKey(
+        UserProfile,
+        on_delete=models.CASCADE,
+        related_name='usersreviews',
+    )
+    review_rating = models.IntegerField(choices=STAR_RATING_CHOICES)
+    review_title = models.CharField(max_length=255)
+    review_content = models.TextField()
+    created = models.DateField(auto_now_add=True, editable=False)
+    updated = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return "{} stars, {}".format(self.review_rating, self.review_title)

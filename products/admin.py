@@ -7,6 +7,7 @@ from .models import (
     Product,
     ProductImage,
     ProductTag,
+    ProductReview,
 )
 
 
@@ -83,9 +84,20 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ("sku",)
 
 
+class ProductReviewAdmin(admin.ModelAdmin):
+    list_display = (
+        "product",
+        "review_rating",
+        "user",
+    )
+
+    ordering = ("product",)
+
+
 # Register your models here.
 admin.site.register(Department, DepartmentAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Brand, BrandAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(ProductReview, ProductReviewAdmin)

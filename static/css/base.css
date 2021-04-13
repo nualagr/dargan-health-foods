@@ -1054,6 +1054,7 @@ on the login page since all the other inputs have placeholders. */
 .stars-outer::before {
     content: "\F005 \F005 \F005 \F005 \F005";
     font-weight: 100;
+    color: #E0D1B1;
 }
 
 .stars-inner {
