@@ -240,15 +240,15 @@
                         <span><strong>&nbsp;{{ review.review_title }}</strong></span>
                     </div>
                     <div class="my-1 text-muted">
-                        <small>Reviewed by {{ review.user }} on {{ review.created }}</small>
-                    </div>
-                    {% if request.user.is_authenticated %}
-                        <div>
-                            {% if user.name == review.user_id %}
-                            <a href="{% url 'delete_review' review.pk %}" class="product_delete">Delete Review</a>
+                        <small>Reviewed by {{ review.user }} on {{ review.created }}
+                        {% if request.user.is_authenticated %}
+                            {% if user.id == review.user.id %}
+                                <a href="" class="red-text-link">Delete Review</a>
+                            {% else %}
                             {% endif %}
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                        </small>
+                    </div>
                     <div>
                         {{ review.review_content }}
                     </div>
