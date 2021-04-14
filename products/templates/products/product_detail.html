@@ -43,10 +43,12 @@
         </div>
     </div>
 </div>
-<!-- Individual Product Information -->
+<!-- Individual Product Details Container -->
 <div class="container-fluid">
     <div class="individual-product-container">
+        <!-- Individual Product Details Row -->
         <div class="row">
+            <!-- Product Image Column -->
             <div class="col-12 col-md-6 col-lg-4 offset-lg-1 col-xl-4">
                 <div class="product-image-container my-5">
                     {% if product.main_image %}
@@ -58,12 +60,12 @@
                     {% endif %}
                 </div>
             </div>
+            <!-- Product Details Column -->
             <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-xl-1">
                 <div class="product-details-container mb-5 mt-md-5">
                     <h1>{{ product.friendly_name }}</h1>
                     <p>
                         <span class="stars-outer">
-                            <!-- <span class="stars-inner" style="width:{{ product.avg_rating_percentage }}%;"></span> -->
                             <span class="stars-inner" style="width:{% widthratio product.rating 5 100 %}%;"></span>
                         </span>
                         <span class="text-muted">
@@ -114,9 +116,11 @@
                 </div>
             </div>
         </div>
+        <!-- Product Detail Accordion Row -->
         <div class="row">
             <div class="col-12 col-lg-9 mx-auto">
                 <div class="accordion accordion-flush">
+                    <!-- Product Details Accordion -->
                     <div class="accordion-item" id="accordionDetails">
                         <h4 class="accordion-product-info-header" id="headingDetails">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -158,6 +162,7 @@
                         {% endif %}
                     </div>
                 </div>
+                <!-- More Information Accordion -->
                 <div class="accordion-item" id="accordionMoreInformation">
                     <h4 class="accordion-product-info-header" id="headingMoreInformation">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -197,6 +202,7 @@
                     <br>
                     {% endif %}
                 </div>
+                <!-- Disclaimer Accordion -->
                 <div class="accordion-item" id="accordionDisclaimer" role="tablist" aria-multiselectable="true">
                     <h4 class="accordion-product-info-header" id="headingDisclaimer">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -215,6 +221,7 @@
                         information presented here.
                     </p>
                 </div>
+                <!-- Customer Reviews Accordion -->
                 <div class="accordion-item" id="accordionReviews">
                     <h4 class="accordion-product-info-header" id="headingReviews">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -253,6 +260,7 @@
                     </div>
                 {% endif %}
                 </div>
+                <!-- Product Review Form Accordion -->
                 {% if request.user.is_authenticated %}
                 <div class="accordion-item" id="accordionReviewForm" role="tablist" aria-multiselectable="true">
                     <h4 class="accordion-product-info-header" id="headingReviewForm">
@@ -302,9 +310,8 @@
 {% include 'includes/newsletter-subscription-box.html' %}
 {% endblock %}
 
-    {% block postloadjs %}
-    <!-- PostLoad JS -->
-{{ super }}
+{% block postloadjs %}
+{{ block.super }}
 <script>
 // Reveal Customer Reviews Accordion when Total Review Count clicked
 $(document).ready(function() {
