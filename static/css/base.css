@@ -100,6 +100,7 @@ a.red-text-link:focus {
     color: #29873C;
     margin: 0 0 30px;
     text-transform: none;
+    font-weight: bold;
 }
 
 .product-details-container p.small a.tag {
@@ -874,7 +875,7 @@ p.card-text.brand-name {
     text-transform: capitalize;
 }
 
-/* Allauth, Newsletter and Contact Us Form Formatting -------------------------------------------- */
+/* Allauth, Newsletter, ProductReview and Contact Us Form Formatting -------------------------------------------- */
 .contact-form p:not(.invalid-feedback),
 .allauth-form-inner-content p {
     margin: 1.5rem 0 2.5rem 0; /* mt-4 */
@@ -882,6 +883,13 @@ p.card-text.brand-name {
     text-align: center;
 }
 
+.product-review-form label {
+    color: #6C757D;
+}
+
+.product-review-form input,
+.product-review-form textarea,
+.product-review-form select,
 #newsletter-subscription-form input[type=email].emailinput,
 .contact-form input,
 .contact-form textarea,
