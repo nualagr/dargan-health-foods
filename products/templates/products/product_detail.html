@@ -67,7 +67,12 @@
                             <span class="stars-inner" style="width:{% widthratio product.rating 5 100 %}%;"></span>
                         </span>
                         <span class="text-muted">
-                        {{ product.rating|floatformat:1 }}&nbsp;&nbsp;{% if reviews %}({{ reviews|length }}){% endif %}
+                        {{ product.rating|floatformat:1 }}&nbsp;&nbsp;
+                        {% if reviews %}
+                            <a href="{% url 'product_detail' product.id %}#collapseReviews" class="green-text-link" id="open-product-reviews">
+                                ({{ reviews|length }})
+                            </a>
+                        {% endif %}
                         </span>
                     </p>
                     <p class="lead text-left font-weight-bold">€{{ product.price }}</p>
@@ -295,4 +300,27 @@
     </div>
 </div>
 {% include 'includes/newsletter-subscription-box.html' %}
+{% endblock %}
+
+    {% block postloadjs %}
+    <!-- PostLoad JS -->
+{{ super }}
+<script>
+// Reveal Customer Reviews Accordion when Total Review Count clicked
+$(document).ready(function() {
+    $('#open-product-reviews').click(function() {
+        let accordion_body = $("#collapseReviews")
+        let accordion_button = $("#headingReviews").children("button")
+        // Check that the accordion body has not already been opened
+        if ( (accordion_body.hasClass("collapse")) && (accordion_body.is(":not(.show)")) ){
+            // Toggle the 'collapse' class to reveal the Reviews Accordion Body Content
+            accordion_body.toggleClass( "collapse" );
+            // Toggle the 'collapsed' class so that the accordion button styling mimics that of a clicked accordion button
+            accordion_button.toggleClass("collapsed");
+            // Programmatically simulate clicking the button so that the accordion now closes when the user clicks on it to close it
+            accordion_button.click();
+        } 
+    });
+});
+ </script>
 {% endblock %}

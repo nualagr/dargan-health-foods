@@ -29,11 +29,23 @@ body {
 }
 
 .text-grey {
-    color: #AAB7C4; !important;
+    color: #AAB7C4 !important;
 }
 
 .text-blue {
     color: #3486FF;
+}
+
+a.green-text-link {
+    color: #29873C;
+    text-decoration: none;
+}
+
+a.green-text-link:hover,
+a.green-text-link:active,
+a.green-text-link:focus {
+    color: #29873C;
+    text-decoration: underline;
 }
 
 a.blue-text-link {
