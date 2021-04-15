@@ -66,13 +66,13 @@
                     <h1>{{ product.friendly_name }}</h1>
                     <p>
                         <span class="stars-outer">
-                            <span class="stars-inner" style="width:{% widthratio product.rating 5 100 %}%;"></span>
+                            <span class="stars-inner" style="width:{% widthratio product.avg_rating 5 100 %}%;"></span>
                         </span>
                         <span class="text-muted">
-                        {{ product.rating|floatformat:1 }}&nbsp;&nbsp;
+                        {{ product.avg_rating|floatformat:1 }}&nbsp;&nbsp;
                         {% if reviews %}
                             <a href="{% url 'product_detail' product.id %}#collapseReviews" class="green-text-link" id="open-product-reviews">
-                                ({{ reviews|length }})
+                                ({{ reviews|length }} reviews)
                             </a>
                         {% endif %}
                         </span>
@@ -243,7 +243,7 @@
                         <small>Reviewed by {{ review.user }} on {{ review.created }}
                         {% if request.user.is_authenticated %}
                             {% if user.id == review.user.id %}
-                                <a href="" class="red-text-link">Delete Review</a>
+                                <a href="{% url 'delete_review' review.id %}" class="red-text-link">Delete Review</a>
                             {% else %}
                             {% endif %}
                         {% endif %}

@@ -129,7 +129,7 @@ class Product(models.Model):
         related_name="products_category",
     )
     barcode = models.CharField(max_length=13, null=True, blank=True)
-    rating = models.DecimalField(
+    avg_rating = models.DecimalField(
         max_digits=2, decimal_places=1, default=0, null=True, blank=True
     )
     date_added = models.DateTimeField(auto_now_add=True)
@@ -201,12 +201,16 @@ class ProductReview(models.Model):
     )
     product = models.ForeignKey(
         Product,
-        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
         related_name="productreviews",
     )
     user = models.ForeignKey(
         UserProfile,
-        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
         related_name='usersreviews',
     )
     review_rating = models.IntegerField(choices=STAR_RATING_CHOICES)

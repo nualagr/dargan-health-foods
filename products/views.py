@@ -2,7 +2,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q, Sum
+from django.db.models import Q, Sum, Avg
 from django.db.models.functions import Lower
 
 from .models import Product, ProductTag, Category, Tag, ProductReview
@@ -176,8 +176,8 @@ def product_detail(request, product_id):
             else:
                 avg_rating = new_review_rating
 
-            product.rating = avg_rating
-            product.save(update_fields=["rating"])
+            product.avg_rating = avg_rating
+            product.save(update_fields=["avg_rating"])
 
             prform = ProductReviewForm()
             messages.success(request, "Successfully posted your review.")
@@ -250,6 +250,10 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
+    """
+    View to enable the Super User to edit existing products
+    in the database.
+    """
     if not request.user.is_superuser:
         messages.error(request, "Sorry, only store owners can do that.")
         return redirect(reverse("home"))
@@ -308,3 +312,38 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, "Product deleted!")
     return redirect(reverse("products"))
+
+
+def delete_review(request, review_id):
+    """
+    View to enable logged-in users to delete their own product reviews.
+    """
+    # Get the ProductReview and the Product
+    review = get_object_or_404(ProductReview, pk=review_id)
+    product = get_object_or_404(Product, pk=review.product_id)
+
+    # Delete the review and return a success message
+    try:
+        review.delete()
+
+        # Update average rating for the product
+        reviews = ProductReview.objects.filter(product=product)
+        avg_rating = reviews.aggregate(
+            Avg('review_rating'))['review_rating__avg']
+        if avg_rating:
+            product.avg_rating = int(avg_rating)
+        # If all reviews for this product have been deleted
+        # set the average to zero
+        else:
+            product.avg_rating = 0
+
+        product.save()
+
+        messages.success(request, 'Your review was deleted')
+
+    # If the review was not deleted return an error message
+    except Exception as e:
+        messages.error(request, "We couldn't delete your review because "
+                                f" error:{e} occured. Try again later.")
+
+    return redirect(reverse('product_detail', args=(product.id,)))
