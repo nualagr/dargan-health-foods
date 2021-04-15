@@ -149,47 +149,10 @@ def product_detail(request, product_id):
         "-created"
     )
 
-    if request.method == "POST":
-        # Get the current user
-        user = UserProfile.objects.get(user=request.user)
-        # Instantiate a new instance of the ProductReviewForm
-        prform = ProductReviewForm(request.POST)
-
-        if prform.is_valid():
-            # Create Review object but don't save to database yet
-            new_review = prform.save(commit=False)
-            # Link the review to the product
-            new_review.product = product
-            # Link the logged-in user to the review
-            new_review.user = user
-            # Save the review to the database
-            new_review.save()
-            # Get the New Review Rating
-            new_review_rating = new_review.review_rating
-            # Work out the overall product rating
-            if reviews:
-                total_score = reviews.all().aggregate(
-                    Sum('review_rating'))["review_rating__sum"]
-                number_of_reviews = len(reviews) + 1
-                avg_rating = (
-                    total_score + new_review_rating) / number_of_reviews
-            else:
-                avg_rating = new_review_rating
-
-            product.avg_rating = avg_rating
-            product.save(update_fields=["avg_rating"])
-
-            prform = ProductReviewForm()
-            messages.success(request, "Successfully posted your review.")
-
-    else:
-        prform = ProductReviewForm()
-
     context = {
         "product": product,
         "tags": tags,
         "reviews": reviews,
-        "prform": prform,
     }
 
     return render(request, "products/product_detail.html", context)
