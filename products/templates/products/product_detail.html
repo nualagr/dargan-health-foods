@@ -69,12 +69,13 @@
                             <span class="stars-inner" style="width:{% widthratio product.avg_rating 5 100 %}%;"></span>
                         </span>
                         <span class="text-muted">
-                        {{ product.avg_rating|floatformat:1 }}&nbsp;&nbsp;
-                        {% if reviews %}
-                            <a href="{% url 'product_detail' product.id %}#collapseReviews" class="green-text-link" id="open-product-reviews">
+                            {{ product.avg_rating|floatformat:1 }}&nbsp;&nbsp;
+                            {% if reviews %}
+                            <a href="{% url 'product_detail' product.id %}#collapseReviews" class="green-text-link"
+                                id="open-product-reviews">
                                 ({{ reviews|length }} reviews)
                             </a>
-                        {% endif %}
+                            {% endif %}
                         </span>
                     </p>
                     <p class="lead text-left font-weight-bold">€{{ product.price }}</p>
@@ -91,7 +92,7 @@
                     {% if request.user.is_superuser %}
                     <small class="ml-3">
                         <a class="blue-text-link" href="{% url 'edit_product' product.id %}">Edit</a> |
-                        <!-- Delete Modal Trigger -->
+                        <!-- Delete Product Modal Trigger -->
                         <a class="red-text-link" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
                     </small>
                     {% endif %}
@@ -231,22 +232,49 @@
                     </h4>
                 </div>
                 <div class="accordion-body collapse" id="collapseReviews" aria-labelledby="headingReviews">
-                {% if reviews %}
+                    {% if reviews %}
                     {% for review in reviews %}
                     <div>
                         <span class="stars-outer">
-                            <span class="stars-inner" style="width:{% widthratio review.review_rating 5 100 %}%;"></span>
+                            <span class="stars-inner"
+                                style="width:{% widthratio review.review_rating 5 100 %}%;"></span>
                         </span>
                         <span><strong>&nbsp;{{ review.review_title }}</strong></span>
                     </div>
                     <div class="my-1 text-muted">
                         <small>Reviewed by {{ review.user }} on {{ review.created }}
-                        {% if request.user.is_authenticated %}
-                            {% if user.id == review.user.id %}
-                                <a href="{% url 'delete_review' review.id %}" class="red-text-link">Delete Review</a>
-                            {% else %}
+                            {% if request.user.is_authenticated %}
+                                {% if user.id == review.user.id %}
+                                <!-- Delete Review Modal Trigger -->
+                                <a class="red-text-link" data-bs-toggle="modal"
+                                    data-bs-target="#deleteReviewModal">Delete Review</a>
+                                <!-- Delete Review Modal -->
+                                <div class="modal fade" id="deleteReviewModal" tabindex="-1"
+                                    aria-labelledby="deleteReviewModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content rounded-0">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-danger text-center" id="deleteReviewModalLabel">
+                                                    Are you sure that you want to delete this review?</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                Your product review really helps other shoppers get a clearer idea of the product before purchasing it.
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <a class="common-button btn-forest-green"
+                                                    data-bs-dismiss="modal"><i
+                                                        class="far fa-save"></i>&nbsp;Retain</a>
+                                                <a class="common-button btn-grey" href="{% url 'delete_review' review.id %}"
+                                                    %}><i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% else %}
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
                         </small>
                     </div>
                     <div>
@@ -254,11 +282,11 @@
                     </div>
                     <hr>
                     {% endfor %}
-                {% else %}
+                    {% else %}
                     <div>
                         <p>No customer reviews currently exist for this product.</p>
                     </div>
-                {% endif %}
+                    {% endif %}
                 </div>
                 <!-- Product Review Form Accordion -->
                 {% if request.user.is_authenticated %}
@@ -277,7 +305,9 @@
                         {% csrf_token %}
                         {{ prform|crispy }}
                         <div class="button-row">
-                            <button class="common-button btn-orange" action="submit" aria-label="Product Review Submit Button"><i class="fas fa-cloud-upload-alt"></i> Post Review</button>
+                            <button class="common-button btn-orange" action="submit"
+                                aria-label="Product Review Submit Button"><i class="fas fa-cloud-upload-alt"></i> Post
+                                Review</button>
                         </div>
                     </form>
                 </div>
@@ -287,7 +317,7 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+<!-- Delete Product Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-0">
@@ -307,27 +337,28 @@
         </div>
     </div>
 </div>
+
 {% include 'includes/newsletter-subscription-box.html' %}
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 <script>
-// Reveal Customer Reviews Accordion when Total Review Count clicked
-$(document).ready(function() {
-    $('#open-product-reviews').click(function() {
-        let accordion_body = $("#collapseReviews")
-        let accordion_button = $("#headingReviews").children("button")
-        // Check that the accordion body has not already been opened
-        if ( (accordion_body.hasClass("collapse")) && (accordion_body.is(":not(.show)")) ){
-            // Toggle the 'collapse' class to reveal the Reviews Accordion Body Content
-            accordion_body.toggleClass( "collapse" );
-            // Toggle the 'collapsed' class so that the accordion button styling mimics that of a clicked accordion button
-            accordion_button.toggleClass("collapsed");
-            // Programmatically simulate clicking the button so that the accordion now closes when the user clicks on it to close it
-            accordion_button.click();
-        } 
+    // Reveal Customer Reviews Accordion when Total Review Count clicked
+    $(document).ready(function () {
+        $('#open-product-reviews').click(function () {
+            let accordion_body = $("#collapseReviews")
+            let accordion_button = $("#headingReviews").children("button")
+            // Check that the accordion body has not already been opened
+            if ((accordion_body.hasClass("collapse")) && (accordion_body.is(":not(.show)"))) {
+                // Toggle the 'collapse' class to reveal the Reviews Accordion Body Content
+                accordion_body.toggleClass("collapse");
+                // Toggle the 'collapsed' class so that the accordion button styling mimics that of a clicked accordion button
+                accordion_button.toggleClass("collapsed");
+                // Programmatically simulate clicking the button so that the accordion now closes when the user clicks on it to close it
+                accordion_button.click();
+            }
+        });
     });
-});
- </script>
+</script>
 {% endblock %}
