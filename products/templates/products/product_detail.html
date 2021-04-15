@@ -245,9 +245,10 @@
                         <small>Reviewed by {{ review.user }} on {{ review.created }}
                             {% if request.user.is_authenticated %}
                                 {% if user.id == review.user.id %}
+                                <a class="blue-text-link" href="{% url 'edit_review' review.id %}">Edit</a> |
                                 <!-- Delete Review Modal Trigger -->
                                 <a class="red-text-link" data-bs-toggle="modal"
-                                    data-bs-target="#deleteReviewModal">Delete Review</a>
+                                    data-bs-target="#deleteReviewModal">Delete</a>
                                 <!-- Delete Review Modal -->
                                 <div class="modal fade" id="deleteReviewModal" tabindex="-1"
                                     aria-labelledby="deleteReviewModalLabel" aria-hidden="true">
@@ -266,8 +267,8 @@
                                                 <a class="common-button btn-forest-green"
                                                     data-bs-dismiss="modal"><i
                                                         class="far fa-save"></i>&nbsp;Retain</a>
-                                                <a class="common-button btn-grey" href="{% url 'delete_review' review.id %}"
-                                                    %}><i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+                                                <a class="common-button btn-grey" href="{% url 'delete_review' review.id %}">
+                                                    <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
                                             </div>
                                         </div>
                                     </div>

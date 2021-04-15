@@ -323,7 +323,7 @@ def add_review(request, product_id):
 
             prform = ProductReviewForm()
             messages.success(request, "Successfully posted your review.")
-            return redirect(reverse('product_detail', args=(product.id,)))
+            return redirect(reverse('product_detail', args=[product.id, ]))
         else:
             # If the form is invalid send an error message
             messages.error(
@@ -342,6 +342,67 @@ def add_review(request, product_id):
     }
 
     return render(request, "products/add_review.html", context)
+
+
+@login_required
+def edit_review(request, review_id):
+    """
+    View to enable the logged-in User to edit
+    their existing product review.
+    """
+    # Get the existing ProductReview object
+    review = get_object_or_404(ProductReview, pk=review_id)
+    # Get the product being reviewed
+    product = get_object_or_404(Product, pk=review.product_id)
+
+    if request.method == "POST":
+        # Create an instance of the ProductReview form using
+        # the posted data
+        prform = ProductReviewForm(
+            request.POST, instance=review)
+
+        if prform.is_valid():
+
+            prform.save()
+            rating = prform.cleaned_data['review_rating']
+            # Update average rating for the product
+            reviews = ProductReview.objects.filter(product=product)
+            avg_rating = reviews.aggregate(
+                Avg('review_rating'))['review_rating__avg']
+            if avg_rating:
+                product.avg_rating = int(avg_rating)
+            # If all reviews for this product have been deleted
+            # set the average to zero
+            else:
+                product.avg_rating = 0
+
+            product.save(update_fields=["avg_rating"])
+
+            messages.success(request, "Successfully updated your review!")
+            # Redirect to the Product's Details Page
+            return redirect(reverse("product_detail", args=[product.id]))
+        else:
+            messages.error(
+                request,
+                "Failed to update your review. Please ensure that the form is valid.",
+            )
+
+    else:
+        # Populate the ProductReview form
+        # with the existing review from the database
+        prform = ProductReviewForm(instance=review)
+        # If the request is a GET request
+        messages.info(
+            request,
+            f"You are editing your review of { product.friendly_name }")
+
+    template = "products/edit_review.html"
+    context = {
+        "prform": prform,
+        "product": product,
+        "review": review,
+    }
+    return render(request, template, context)
 
 
 @login_required

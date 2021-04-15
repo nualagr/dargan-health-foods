@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Edit Product Review Container -->
+<div class="container-fluid section-container pt-0">
+    <!-- Edit Product Review Page Title Row -->
+    <div class="row page-title-wapper">
+        <div class="col-12 col-lg-9 mx-auto">
+            <h3 class="page-title text-muted" id="page-title-heading" aria-labelledby="page-title-heading">
+                You are editing your review of: 
+                <p class="my-1 text-green text-center">{{ product.brand.friendly_name }}'s <strong>{{ product.friendly_name }}</strong></p>
+            </h3>
+        </div>
+    </div>
+    <!-- Edit Product Review Form Row -->
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            {% if request.user.is_authenticated %}
+                <form class="form product-review-form" action="{% url 'edit_review' review.id %}" method="POST">
+                    {% csrf_token %}
+                    {{ prform|crispy }}
+                    <div class="button-row">
+                        <a class="common-button btn-green-outline" href="{% url 'product_detail' product.id %}" aria-label="Return to Product Details Page link">
+                            Return to Product Page
+                        </a>
+                        <button class="common-button btn-orange" action="submit" aria-label="Product Review Update Button">
+                            <i class="fas fa-cloud-upload-alt"></i> Update Review
+                        </button>
+                    </div>
+                </form>
+            {% else %}
+                <p class="text=center">Only Dargan Health Food members can review products.  <a class="green-text-link" href="{% url 'account_signup' %}">Register here.</a></p>
+                <p class="text=center">Already a member? Please <a class="green-text-link" href="{% url 'account_login' %}">sign in</a> in order to edit your review.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
