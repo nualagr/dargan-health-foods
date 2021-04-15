@@ -285,34 +285,12 @@
                     {% else %}
                     <div>
                         <p>No customer reviews currently exist for this product.</p>
+                         {% if request.user.is_authenticated %}
+                         <a class="common-button btn-forest-green" href="{% url 'add_review' product.id %}">Leave a Review</a>
+                         {% endif %}
                     </div>
                     {% endif %}
                 </div>
-                <!-- Product Review Form Accordion -->
-                {% if request.user.is_authenticated %}
-                <div class="accordion-item" id="accordionReviewForm" role="tablist" aria-multiselectable="true">
-                    <h4 class="accordion-product-info-header" id="headingReviewForm">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseReviewForm" role="tab" aria-expanded="false"
-                            aria-controls="collapseReviewForm">
-                            Leave a Review
-                        </button>
-                    </h4>
-                </div>
-                <div class="accordion-body collapse" id="collapseReviewForm" role="tabpanel"
-                    aria-labelledby="headingReviewForm">
-                    <form class="form product-review-form" action="{% url 'product_detail' product.pk %}" method="POST">
-                        {% csrf_token %}
-                        {{ prform|crispy }}
-                        <div class="button-row">
-                            <button class="common-button btn-orange" action="submit"
-                                aria-label="Product Review Submit Button"><i class="fas fa-cloud-upload-alt"></i> Post
-                                Review</button>
-                        </div>
-                    </form>
-                </div>
-                {% else %}
-                {% endif %}
             </div>
         </div>
     </div>

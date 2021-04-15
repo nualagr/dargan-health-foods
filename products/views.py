@@ -209,6 +209,7 @@ def add_product(request):
         # Include request.FILES in order to make sure to
         # capture the image of the product if one was submitted
         pform = ProductForm(request.POST, request.FILES)
+        ptformset = ProductAndTagsInlineFormSet(request.POST, request.FILES)
 
         if pform.is_valid():
             new_product = pform.save()
@@ -233,7 +234,7 @@ def add_product(request):
                 "Failed to add product. Please ensure the form is valid.",
             )
     else:
-        # If it was a GET request
+        # If it was a GET request.
         # Create a blank product form
         pform = ProductForm()
         # Create a blank instance of the producttags inline formset
@@ -281,6 +282,7 @@ def edit_product(request, product_id):
                 request,
                 "Failed to update product. Please ensure that the form is valid.",
             )
+
     else:
         # If the request is a GET request
         # Create an instance of the product form using the given product id
@@ -314,6 +316,72 @@ def delete_product(request, product_id):
     return redirect(reverse("products"))
 
 
+@login_required
+def add_review(request, product_id):
+    """
+    View to allow a logged_in user to add a product review to the site.
+    """
+    # Get the product from the database
+    product = get_object_or_404(Product, pk=product_id)
+    # Get the related product reviews and order by latest added
+    reviews = ProductReview.objects.filter(product=product_id).order_by(
+        "-created"
+    )
+
+    if request.method == "POST":
+        # Get the current user
+        user = UserProfile.objects.get(user=request.user)
+        # Instantiate a new instance of the ProductReviewForm
+        prform = ProductReviewForm(request.POST)
+
+        if prform.is_valid():
+            # Create Review object but don't save to database yet
+            new_review = prform.save(commit=False)
+            # Link the review to the product
+            new_review.product = product
+            # Link the logged-in user to the review
+            new_review.user = user
+            # Save the review to the database
+            new_review.save()
+            # Get the New Review Rating
+            new_review_rating = new_review.review_rating
+            # Work out the overall product rating
+            if reviews:
+                total_score = reviews.all().aggregate(
+                    Sum('review_rating'))["review_rating__sum"]
+                number_of_reviews = len(reviews) + 1
+                avg_rating = (
+                    total_score + new_review_rating) / number_of_reviews
+            else:
+                avg_rating = new_review_rating
+
+            product.avg_rating = avg_rating
+            product.save(update_fields=["avg_rating"])
+
+            prform = ProductReviewForm()
+            messages.success(request, "Successfully posted your review.")
+            return redirect(reverse('product_detail', args=(product.id,)))
+        else:
+            # If the form is invalid send an error message
+            messages.error(
+                request,
+                "Failed to add review. Please ensure that the form is valid.",
+            )
+
+    else:
+        # If it was a GET request
+        # Instantiate a new instance of the Product Review Form
+        prform = ProductReviewForm()
+
+    context = {
+        "prform": prform,
+        "product": product,
+    }
+
+    return render(request, "products/add_review.html", context)
+
+
+@login_required
 def delete_review(request, review_id):
     """
     View to enable logged-in users to delete their own product reviews.
@@ -344,6 +412,6 @@ def delete_review(request, review_id):
     # If the review was not deleted return an error message
     except Exception as e:
         messages.error(request, "We couldn't delete your review because "
-                                f" error:{e} occured. Try again later.")
+                                f" error:{e} occured. Please try again later.")
 
     return redirect(reverse('product_detail', args=(product.id,)))

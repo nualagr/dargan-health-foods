@@ -36,6 +36,10 @@ body {
     color: #3486FF;
 }
 
+.text-green {
+    color: #29873C;
+}
+
 a.green-text-link {
     color: #29873C;
     text-decoration: none;
