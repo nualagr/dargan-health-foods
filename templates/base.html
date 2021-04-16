@@ -307,11 +307,31 @@
                                     Blog
                                 </a>
                             </li>
-                            <li>
-                                <a href="{% url 'profile' %}" aria-label="My Account link">
-                                    My Account
-                                </a>
-                            </li>
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                <li>
+                                    <a href="{% url 'add_product' %}" aria-label="Product Management link">
+                                        Product Management
+                                    </a>
+                                </li>
+                                {% endif %}
+                                <li>
+                                    <a href="{% url 'profile' %}" aria-label="My Account link">
+                                        My Account
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'account_logout' %}" aria-label="Logout link">
+                                        Logout
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{% url 'account_signup' %}" aria-label="Register link">
+                                        Sign Up
+                                    </a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="footer-box d-block d-sm-none">

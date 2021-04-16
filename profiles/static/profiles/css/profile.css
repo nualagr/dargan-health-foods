@@ -10,3 +10,8 @@
 .single-star {
     color: #FFCC00;
 }
+
+.tab-content>.active {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    padding: 1rem 1rem 3rem;
+}
