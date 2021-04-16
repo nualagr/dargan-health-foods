@@ -232,6 +232,16 @@
                     </h4>
                 </div>
                 <div class="accordion-body collapse" id="collapseReviews" aria-labelledby="headingReviews">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.id|can_review:reviews %}
+                        <!-- Open ProductReview Form button -->
+                            <div class="my-3 text-end">
+                                <a class="common-button btn-forest-green" href="{% url 'add_review' product.id %}">
+                                    <i class="fas fa-user-edit"></i>&nbsp;Leave a Review
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endif %}
                     {% if reviews %}
                     {% for review in reviews %}
                     <div>
@@ -286,9 +296,6 @@
                     {% else %}
                     <div>
                         <p>No customer reviews currently exist for this product.</p>
-                         {% if request.user.is_authenticated %}
-                         <a class="common-button btn-forest-green" href="{% url 'add_review' product.id %}">Leave a Review</a>
-                         {% endif %}
                     </div>
                     {% endif %}
                 </div>
