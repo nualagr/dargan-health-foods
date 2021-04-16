@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
+from products.models import ProductReview
 
 
 @login_required
@@ -14,11 +15,9 @@ def profile(request):
     where they can access their default
     shipping information and order history.
     """
-    profile = get_object_or_404(UserProfile, user=request.user)
-    print(profile)
-
+    user = get_object_or_404(UserProfile, user=request.user)
     if request.method == "POST":
-        form = UserProfileForm(request.POST, instance=profile)
+        form = UserProfileForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
             messages.success(request, "Profile updated successfully.")
@@ -26,14 +25,15 @@ def profile(request):
             messages.error(
                 request, "Update failed. Please ensure your form is valid.")
     else:
-        form = UserProfileForm(instance=profile)
+        form = UserProfileForm(instance=user)
 
-    orders = profile.orders.all()
-
+    my_reviews = ProductReview.objects.all().filter(user=user)
+    orders = user.orders.all()
     template = "profiles/profile.html"
     context = {
         "form": form,
         "orders": orders,
+        "reviews": my_reviews,
         "on_profile_page": True,
     }
 

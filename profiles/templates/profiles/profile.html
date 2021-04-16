@@ -83,9 +83,9 @@
                             </tr>
                             <tr>
                                 <td colspan="2" class="text-end">
-                                <a class="common-button btn-apple-green" href="{% url 'account_change_password' %}">
-                                    <i class="fas fa-unlock-alt"></i>&nbsp;Change Password
-                                </a>
+                                    <a class="common-button btn-apple-green" href="{% url 'account_change_password' %}">
+                                        <i class="fas fa-unlock-alt"></i>&nbsp;Change Password
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
@@ -163,26 +163,70 @@
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
-                                <th>Product</th>
-                                <th>Date</th>
-                                <th>Rating</th>
-                                <th>Review</th>
+                                <th class="col review_product" scope="col">Product</th>
+                                <th class="col review_date" scope="col">Date</th>
+                                <th class="col review_rating" scope="col">Rating</th>
+                                <th class="col review_title" scope="col">Review</th>
+                                <th class="col delete" scope="col"><i class="fas fa-user-edit"></i></th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for review in reviews %}
                             <tr>
                                 <td>
-                                    
+                                    {{ review.product.abbreviated_friendly_name }}
+
                                 </td>
                                 <td>
-                                    
+                                    {{ review.created }}
                                 </td>
                                 <td>
-                                    
+                                    <div class="d-none d-md-block">
+                                        <span class="stars-outer ">
+                                            <span class="stars-inner"
+                                                style="width:{% widthratio review.review_rating 5 100 %}%;"></span>
+                                        </span>
+                                    </div>
+                                    <div class="d-block d-md-none">{{ review.review_rating }} 
+                                        <i class="fas fa-star single-star"></i>
+                                    </div>
                                 </td>
                                 <td>
-                                    
+                                    {{ review.review_title }}
+                                </td>
+                                <td class="item-delete">
+                                    <!-- Link to Edit ProductReview Form -->
+                                    <a class="blue-text-link" href="{% url 'edit_review' review.id %}">Edit</a> <span
+                                        class="d-none d-xl-inline">|</span>
+                                    <!-- Delete Review Modal Trigger -->
+                                    <a class="red-text-link" data-bs-toggle="modal"
+                                        data-bs-target="#deleteReviewModal">Delete</a>
+                                    <!-- Delete Review Modal -->
+                                    <div class="modal fade" id="deleteReviewModal" tabindex="-1"
+                                        aria-labelledby="deleteReviewModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content rounded-0">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-danger text-center"
+                                                        id="deleteReviewModalLabel">
+                                                        Are you sure that you want to delete this review?</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    Your product review really helps other shoppers get a clearer idea
+                                                    of the product before purchasing it.
+                                                </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <a class="common-button btn-blue" data-bs-dismiss="modal">
+                                                       <i class="fas fa-undo"></i>&nbsp;Cancel</a>
+                                                    <a class="common-button btn-grey"
+                                                        href="{% url 'delete_review' review.id %}">
+                                                        <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             {% endfor %}
