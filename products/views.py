@@ -107,7 +107,7 @@ def all_products(request):
     current_sorting = f"{sort}_{direction}"
 
     # Pagination
-    paginator = Paginator(products, 4)
+    paginator = Paginator(products, 12)
     page = request.GET.get("page")
     page_obj = paginator.get_page(page)
     page_range = paginator.page_range
@@ -149,10 +149,29 @@ def product_detail(request, product_id):
         "-created"
     )
 
+    if request.user.is_authenticated:
+        user = get_object_or_404(UserProfile, user=request.user)
+        # Get a list of the products purchased by the user
+        products_purchased = user.orders.values_list(
+            "lineitems__product", flat=True)
+        # Get a list of the people who have reviewed the product already
+        reviewers = reviews.values_list('user', flat=True)
+        # If the current user has purchased the product
+        # AND has not already reviewed it
+        if (product_id in products_purchased and user.id not in reviewers):
+            # Render the Leave a Review button
+            can_review = True
+        else:
+            can_review = False
+    else:
+        # If the user is not logged in they cannot review a product
+        can_review = False
+
     context = {
         "product": product,
         "tags": tags,
         "reviews": reviews,
+        "can_review": can_review,
     }
 
     return render(request, "products/product_detail.html", context)

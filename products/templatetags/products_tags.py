@@ -28,15 +28,3 @@ def current_query_url(key, value, urlencode=None):
         # Reattach the queries to the page number
         url = "{}&{}".format(url, encoded_queries)
     return url
-
-
-@register.filter
-def can_review(user, reviews):
-    reviews = reviews
-    user = user
-    reviewers = reviews.values_list('user', flat=True)
-    if (user in reviewers):
-        can_review = False
-    else:
-        can_review = True
-    return can_review

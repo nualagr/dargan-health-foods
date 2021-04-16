@@ -233,8 +233,8 @@
                 </div>
                 <div class="accordion-body collapse" id="collapseReviews" aria-labelledby="headingReviews">
                     {% if request.user.is_authenticated %}
-                        {% if request.user.id|can_review:reviews %}
-                        <!-- Open ProductReview Form button -->
+                        {% if can_review %}
+                            <!-- Open ProductReview Form button -->
                             <div class="my-3 text-end">
                                 <a class="common-button btn-forest-green" href="{% url 'add_review' product.id %}">
                                     <i class="fas fa-user-edit"></i>&nbsp;Leave a Review
