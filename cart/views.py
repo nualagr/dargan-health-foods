@@ -2,8 +2,6 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from products.models import Product
 
-# Create your views here.
-
 
 def view_cart(request):
     """
