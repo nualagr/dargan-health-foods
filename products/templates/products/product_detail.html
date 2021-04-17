@@ -241,6 +241,12 @@
                                 </a>
                             </div>
                         {% endif %}
+                    {% else %}
+                    <small>
+                        <p class="text-end text-muted">
+                            Have you purchased this product? Please <a class="blue-text-link" href="{% url 'account_login' %}">login</a></li> or <a class="blue-text-link" href="{% url 'account_signup' %}">register</a> to write a review for this product.
+                        </p>
+                    </small>
                     {% endif %}
                     {% if reviews %}
                     {% for review in reviews %}
