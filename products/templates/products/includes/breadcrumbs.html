@@ -8,7 +8,7 @@
                 Home
             </a>
         </li>
-        {% if current_department or current_category or search_term or current_tag %}
+        {% if current_department or current_category or search_term or current_tag or current_sorting %}
             <!-- All Products Breadcrumb -->
             <li class="item products">
                 <a href="{% url 'products' %}" title="Go to Products Page">
@@ -41,6 +41,11 @@
             {% elif current_tag %}
                 <li class="item tag">
                     <strong>{{ current_tag|first|title|to_ampersand }}</strong>
+                </li>
+            <!-- All New In Breadcrumb -->
+            {% elif current_sorting == "-date_added_None" %}
+                <li class="item new_in">
+                    <strong>New In</strong>
                 </li>
             {% else %}
             {% endif %}

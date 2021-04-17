@@ -40,6 +40,8 @@
                     {{ current_category|first|title|to_ampersand }}
                     {% elif current_tag %}
                     {{ current_tag|first|title|to_ampersand }}
+                    {% elif current_sorting == "-date_added_None" %}
+                    All New In
                     {% else %}
                     All Products
                     {% endif %}
