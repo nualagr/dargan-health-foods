@@ -864,6 +864,7 @@ Then they were converted to JSON using [JSON-CSV](https://json-csv.com/reverse).
   * [RandomKeyGen](https://randomkeygen.com/). Used to generate the Secret Key.
   * [Slack](code-institute-room.slack.com). Used during development and testing to find the solutions to problems enountered.
   * [Stack Overflow](https://stackoverflow.com/). Used to search for the answers to problems encountered during the development and testing of the website.
+  * [Subtle Tools](https://subtitletools.com/convert-text-files-to-utf8-online). Used to convert the products csv file to utf-8 so that it could be read by dictReader() before being converted to json.
   * [TinyPNG](https://tinypng.com/). Used to compress the site logos and background-images to improve performance results.
   * [Unsplash](https://www.unsplash.com). Used to source the non-product site images.
   * [Vecteezy](https://www.vecteezy.com). Used to source the site logo, banner offer image and the custom 404 and 500 page backgrounds.
