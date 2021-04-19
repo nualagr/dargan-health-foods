@@ -65,7 +65,7 @@
             <div class="col-12">
                 <ul>
                     <li><a href="{% url 'our_story' %}">Our Story</a></li>
-                    <li><a href="">Blog</a></li>
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
                     <li><a href="{% url 'contact' %}">Contact Us</a></li>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
@@ -303,7 +303,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="" aria-label="Blog link">
+                                <a href="{% url 'blog' %}" aria-label="Blog link">
                                     Blog
                                 </a>
                             </li>
@@ -358,7 +358,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" aria-label="Blog link">
+                                    <a href="{% url 'blog' %}" aria-label="Blog link">
                                         Blog
                                     </a>
                                 </li>

@@ -29,12 +29,33 @@ def csv_to_json(csvFilePath, jsonFilePath):
             for key, value in row.items():
                 # Add the following key value pairs
                 # to the fields subset dict
-                if (
+                if key == "name":
+                    if value != "":
+                        new_name = (
+                            value.lower()
+                            .strip()
+                            .replace("-", "")
+                            .replace("(", "")
+                            .replace(")", "")
+                            .replace("'", "")
+                            .replace(".", "")
+                            .replace("+", "_plus")
+                            .replace("&", "n")
+                            .replace(" ", "_")
+                            .replace("__", "_")
+                        )
+                        outRow["fields"][key] = new_name
+                elif key == "main_image":
+                    if value != "":
+                        if value.endswith(".jpg"):
+                            image_name = value
+                        else:
+                            image_name = value + ".jpg"
+                        outRow["fields"][key] = image_name
+                elif (
                     key == "sku"
-                    or key == "name"
                     or key == "friendly_name"
                     or key == "abbreviated_friendly_name"
-                    or key == "main_image"
                     or key == "brand"
                     or key == "size_value"
                     or key == "size_unit"
@@ -48,13 +69,12 @@ def csv_to_json(csvFilePath, jsonFilePath):
                     or key == "usage"
                     or key == "category"
                     or key == "barcode"
-                    or key == "tags"
                 ):
-                    if (value != ""):
-                        outRow["fields"][key] = value
+                    if value != "":
+                        outRow["fields"][key] = value.strip()
                 # Add the other key value pairs to the outer dict
                 else:
-                    if (value != ""):
+                    if value != "":
                         outRow[key] = value
 
             # Add this python dict to json array
@@ -67,8 +87,8 @@ def csv_to_json(csvFilePath, jsonFilePath):
 
 
 # File paths
-csvFilePath = r"./products/fixtures/products.csv"
-jsonFilePath = r"./products/fixtures/products.json"
+csvFilePath = r"./products/fixtures/dargan_product_selection_no_tags_brand_id.csv"
+jsonFilePath = r"./products/fixtures/viridian_products.json"
 
 # Call the csv_to_json function
 csv_to_json(csvFilePath, jsonFilePath)

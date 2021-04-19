@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dargan's Blog{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs Navigation -->
+<div class="container-fluid breadcrumbs-container pb-3">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <div class="breadcrumbs">
+                <ul class="items">
+                    <li class="item home">
+                        <a href="{% url 'home' %}" title="Go to Home Page">
+                            Home
+                        </a>
+                    </li>
+                    <li class="item blog">
+                        <a href="{% url 'blog' %}" title="Go to Blog Page">
+                            Blog
+                        </a>
+                    </li>
+                    <li class="item blog_post">
+                        <strong>{{ blogpost.title }}</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto text-center">
+            <h1>{{ blogpost.title }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto text-start">
+            <p>{{ blogpost.created_on }} | {{ blogpost.topic }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                    <div class="card text-center">
+                            {% if blogpost.image %}
+                            <img src="{{ MEDIA_URL }}{{ blogpost.image }}" class="card-img-top"
+                                alt="{{ blogpost.title }}">
+                            {% else %}
+                            <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
+                                alt="{{ blogpost.title }}">
+                            {% endif %}
+                        <div class="card-body">
+                            <h4 class="mb-3">{{ blogpost.subtitle }}</h4>
+                            <p class="card-text text-start">{{ blogpost.content }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a class="page-link-with-arrow" href="{% url 'blog' %}" title="View Our Blog">
+                        <span class="link">
+                            To Blog
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

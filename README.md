@@ -1225,6 +1225,7 @@ The following [Bootstrap](https://getbootstrap.com/) components were used and mo
 - Ecology Nature Element from [Vecteezy](https://www.vecteezy.com/vector-art/632493-ecology-logo-nature-element-vector) was used for the site logo.
 - Fresh Spring Background with Illustrated Flowers from [Vecteezy](https://www.vecteezy.com/vector-art/143782-free-spring-flower-wreath-background) was used for the offer banner image.
 - Come In We're Open Sign from Tim Mossholder on [Unsplash](https://unsplash.com/photos/jEOAOVq39Z4) was used for the Our Story page.
+- Herbs and Spices on Board from Chinh Le Duc on [Unsplash](https://unsplash.com/photos/vuDXJ60mJOA) was used for the Blog banner image.
 - Sliced Kiwi Fruit Photo from Lesly Juarez on [Unsplash](lesly-juarez-1rafrfyrsZw-unsplash) was used for the Heart Health Blog Post image.
 - Vegan Salad Bowl by Anna Pelzer on [Unsplash](https://unsplash.com/photos/IGfIGP5ONV0) was used for the Easy Vegan Swaps Blog Post image.
 - Product images were provided by [Viridian Nutrition](https://www.viridian-nutrition.com/).

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dargan's Blog{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs Navigation -->
+<div class="container-fluid breadcrumbs-container pb-3">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <div class="breadcrumbs">
+                <ul class="items">
+                    <li class="item home">
+                        <a href="{% url 'home' %}" title="Go to Home Page">
+                            Home
+                        </a>
+                    </li>
+                    <li class="item our_blog">
+                        <strong>Dargan's Blog</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog Intro Text -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <img src="{{ MEDIA_URL }}/blog_images/herbs-and-spice-on-board.jpg"
+                alt="Herbs and Spices on a Chopping Board" width="100%" height="auto">
+        </div>
+        <div class="col-12 col-lg-9 mx-auto text-center">
+            <h2 class="logo-font-sub-heading">
+                Dargan's Blog
+            </h2>
+            <p>
+                Interested in health and nutrition?<br />
+                Keep an eye on our blog articles below for news, reviews, tips, and
+                more!
+            </p>
+            <hr class="divider">
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <div class="row">
+                {% for blogpost in blogs_list %}
+                <div class="col-12 col-md-6">
+                    <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                    <div class="card text-center">
+                        <a href="{% url 'blog_post' blogpost.slug %}" class="blog-post-link">
+                            {% if blogpost.image %}
+                            <img src="{{ MEDIA_URL }}{{ blogpost.image }}" class="card-img-top"
+                                alt="{{ blogpost.title }}">
+                            {% else %}
+                            <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
+                                alt="{{ blogpost.title }}">
+                            {% endif %}
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">{{ blogpost.topic }} | {{ blogpost.created_on }}</p>
+                            <a href="{% url 'blog_post' blogpost.slug %}" class="blog-post-link">
+                                <h5 class="card-title">{{ blogpost.title }}</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
