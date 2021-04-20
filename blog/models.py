@@ -26,8 +26,8 @@ class Topic(models.Model):
 class BlogPost(models.Model):
     topic = models.CharField(max_length=200, null=True, blank=True)
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
     subtitle = models.CharField(max_length=200, null=True, blank=True)
+    intro = models.TextField(null=True, blank=True)
     content = models.TextField()
     image = models.ImageField(
         upload_to="blog_images", null=True, blank=True
@@ -40,6 +40,7 @@ class BlogPost(models.Model):
         on_delete=models.SET_NULL,
         related_name="usersblogposts",
     )
+    slug = models.SlugField(max_length=200, unique=True)
     tags = models.ForeignKey(
         Tag,
         null=True,

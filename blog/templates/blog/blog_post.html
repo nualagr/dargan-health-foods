@@ -62,17 +62,16 @@
                             {% endif %}
                         <div class="card-body">
                             <h4 class="mb-3">{{ blogpost.subtitle }}</h4>
+                            <p class="card-text text-start">{{ blogpost.intro }}</p>
                             <p class="card-text text-start">{{ blogpost.content }}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row button-row">
                 <div class="col-12 text-center">
-                    <a class="page-link-with-arrow" href="{% url 'blog' %}" title="View Our Blog">
-                        <span class="link">
-                            To Blog
-                        </span>
+                    <a class="common-button btn-green-outline" href="{% url 'blog' %}" title="Return to Blog">
+                        Return To Blog
                     </a>
                 </div>
             </div>
