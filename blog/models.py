@@ -60,3 +60,8 @@ class BlogPost(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(BlogPost, self).save(*args, **kwargs)
+
+    # def delete(self, using=None, keep_parents=False):
+    #     self.blogpost.storage.delete(self.pk)
+    #     self.main_image.storage.delete(self.pk)
+    #     super().delete()

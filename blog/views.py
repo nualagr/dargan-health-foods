@@ -154,6 +154,11 @@ def delete_post(request, blogpost_id):
         return redirect(reverse("blog"))
 
     blogpost = get_object_or_404(BlogPost, id=blogpost_id)
+    # Solution to removing the related, now redundant, image
+    # from the Media folder found on Stack Overflow:
+    # https://stackoverflow.com/questions/56205957/django-delete-file-after-filefield-delete
+    blogpost.main_image.close()
+    blogpost.main_image.delete()
     blogpost.delete()
     messages.success(request, "BlogPost successfully deleted!")
     return redirect(reverse("blog"))
