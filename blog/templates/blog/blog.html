@@ -86,5 +86,25 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <div class="btt-btn">
+                <a class="btt-link d-flex h-100">
+                    <i class="fas fa-chevron-up mx-auto my-auto"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+<!-- Append to block, don't overwrite -->
+{{ block.super }}
+<!-- Scroll-To-Top Button Functionality copied from Code Institute Boutique Ado walkthrough project: https://github.com/nualagr/boutique-ado-v1 -->
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
 {% endblock %}
