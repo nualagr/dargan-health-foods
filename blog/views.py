@@ -90,3 +90,18 @@ def add_post(request):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_post(request, blogpost_id):
+    """
+    View to delete a blog post from the Blog.
+    """
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only Dargan team members can do that.")
+        return redirect(reverse("blog"))
+
+    blogpost = get_object_or_404(BlogPost, id=blogpost_id)
+    blogpost.delete()
+    messages.success(request, "BlogPost successfully deleted!")
+    return redirect(reverse("blog"))

@@ -43,8 +43,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-9 mx-auto text-start">
-            <p>{{ blogpost.created_on }} | {{ blogpost.topic }}</p>
+        <div class="col-12 col-lg-9 mx-auto text-end">
+            {% if request.user.is_superuser %}
+            <p class="text-end">
+                <small class="text-end">
+                    <a class="blue-text-link" href="">Edit</a> |
+                    <!-- Delete Product Modal Trigger -->
+                    <a class="red-text-link" data-bs-toggle="modal" data-bs-target="#deleteBlogPostModal">Delete</a>
+                </small>
+            </p>
+            {% endif %}
         </div>
     </div>
     <div class="row">
@@ -53,14 +61,15 @@
                 <div class="col-12">
                     <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
                     <div class="card text-center">
-                            {% if blogpost.main_image %}
-                            <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class="card-img-top"
-                                alt="{{ blogpost.title }}">
-                            {% else %}
-                            <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
-                                alt="{{ blogpost.title }}">
-                            {% endif %}
+                        {% if blogpost.main_image %}
+                        <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class="card-img-top"
+                            alt="{{ blogpost.title }}">
+                        {% else %}
+                        <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
+                            alt="{{ blogpost.title }}">
+                        {% endif %}
                         <div class="card-body text-start">
+                            <p>By {{ blogpost.author }} | {{ blogpost.created_on }} | {{ blogpost.topic }}</p>
                             <h4 class="mb-3 text-center">{{ blogpost.subtitle }}</h4>
                             <p>{{ blogpost.intro }}</p>
                             {{ blogpost.content|safe|linebreaks }}
@@ -74,6 +83,26 @@
                         Return To Blog
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete BlogPost Modal -->
+<div class="modal fade" id="deleteBlogPostModal" tabindex="-1" aria-labelledby="deleteBlogPostModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title text-red" id="deleteBlogPostModalLabel">{{ blogpost.title }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                Are you sure that you want to delete this blog post?
+            </div>
+            <div class="modal-footer justify-content-center">
+                <a class="common-button btn-blue" data-bs-dismiss="modal"><i class="fas fa-undo"></i>&nbsp;Cancel</a>
+                <a class="common-button btn-grey" href="{% url 'delete_post' blogpost.pk %}">
+                    <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
             </div>
         </div>
     </div>
