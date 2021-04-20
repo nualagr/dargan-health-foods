@@ -244,7 +244,11 @@
                     {% else %}
                     <small>
                         <p class="text-end text-muted">
-                            Have you purchased this product? Please <a class="blue-text-link" href="{% url 'account_login' %}">login</a></li> or <a class="blue-text-link" href="{% url 'account_signup' %}">register</a> to write a review for this product.
+                            Have you purchased this product? Please 
+                            <a class="blue-text-link" href="{% url 'account_login' %}">login</a> 
+                            or 
+                            <a class="blue-text-link" href="{% url 'account_signup' %}">register</a> 
+                            to write a review for this product.
                         </p>
                     </small>
                     {% endif %}
@@ -253,19 +257,23 @@
                     <div>
                         <span class="stars-outer">
                             <span class="stars-inner"
-                                style="width:{% widthratio review.review_rating 5 100 %}%;"></span>
+                                style="width:{% widthratio review.review_rating 5 100 %}%;">
+                            </span>
                         </span>
-                        <span><strong>&nbsp;{{ review.review_title }}</strong></span>
+                        <span>
+                            <strong>&nbsp;{{ review.review_title }}</strong>
+                        </span>
                     </div>
                     <div class="my-1 text-muted">
-                        <small>Reviewed by {{ review.user }} on {{ review.created }}
+                        <small>Reviewed by {{ review.user }} on {{ review.created }}</small>
                             {% if request.user.is_authenticated %}
                                 {% if user.id == review.user.id %}
+                                <small>
                                 <a class="blue-text-link" href="{% url 'edit_review' review.id %}">Edit</a> |
                                 <!-- Delete Review Modal Trigger -->
                                 <a class="red-text-link" data-bs-toggle="modal"
                                     data-bs-target="#deleteReviewModal">Delete</a>
-                        </small>
+                                </small>
                                 <!-- Delete Review Modal -->
                                 <div class="modal fade" id="deleteReviewModal" tabindex="-1"
                                     aria-labelledby="deleteReviewModalLabel" aria-hidden="true">

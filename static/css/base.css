@@ -184,7 +184,7 @@ h4 {
     margin-top: 0;
     font-size: 22px;
     letter-spacing: 1px;
-    line-height: 18px;
+    /* line-height: 18px; */
     font-weight: 700;
 }
 
