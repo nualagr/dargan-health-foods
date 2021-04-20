@@ -24,10 +24,10 @@ class Topic(models.Model):
 
 
 class BlogPost(models.Model):
-    topic = models.CharField(max_length=200, null=True, blank=True)
+    topic = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
-    subtitle = models.CharField(max_length=200, null=True, blank=True)
-    intro = models.TextField(null=True, blank=True)
+    subtitle = models.CharField(max_length=200)
+    intro = models.TextField()
     content = models.TextField()
     main_image = models.ImageField(
         upload_to="blog_images", null=True, blank=True
