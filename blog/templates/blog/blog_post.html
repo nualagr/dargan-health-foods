@@ -60,10 +60,10 @@
                             <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
                                 alt="{{ blogpost.title }}">
                             {% endif %}
-                        <div class="card-body">
-                            <h4 class="mb-3">{{ blogpost.subtitle }}</h4>
-                            <p class="card-text text-start">{{ blogpost.intro }}</p>
-                            <p class="card-text text-start">{{ blogpost.content }}</p>
+                        <div class="card-body text-start">
+                            <h4 class="mb-3 text-center">{{ blogpost.subtitle }}</h4>
+                            <p>{{ blogpost.intro }}</p>
+                            {{ blogpost.content|linebreaks }}
                         </div>
                     </div>
                 </div>
