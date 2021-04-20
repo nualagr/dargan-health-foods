@@ -5,6 +5,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 from .models import BlogPost
 from .forms import BlogPostForm
+from profiles.models import UserProfile
 
 
 def all_posts(request):
@@ -52,13 +53,40 @@ def add_post(request):
     Upload submitted BlogPost forms to the database.
     """
     if not request.user.is_superuser:
-        messages.error(request, "Sorry, only store owners can do that.")
+        messages.error(
+            request, "Sorry, only Dargan staff members have access to this.")
         return redirect(reverse("home"))
 
-    blogpostform = BlogPostForm()
+    if request.method == 'POST':
+        # Instantiate a new instance of the BlogPostForm
+        # Include request.FILES in order to make sure to
+        # capture the image if one was submitted
+        bpform = BlogPostForm(request.POST, request.FILES)
+        user = get_object_or_404(UserProfile, user=request.user)
+
+        if bpform.is_valid():
+            # Create Blog object but don't save to database yet
+            new_post = bpform.save(commit=False)
+            # Assign the author to the new blog and save it
+            new_post.author = user
+            new_post.save()
+            slug = new_post.slug
+            messages.success(
+                request, 'Successfully uploaded your new blog post.')
+            return redirect(
+                    reverse("blog_post", args=[slug])
+                )
+        else:
+            messages.error(request, 'Failed to add the new blog post. \
+                           Please ensure that the form is valid.')
+
+    # If the request is a GET request create a new blank form
+    # for the SuperUser to input the new blog post
+    bpform = BlogPostForm()
     template = "blog/add_post.html"
+
     context = {
-        "bpform": blogpostform,
+        "bpform": bpform,
     }
 
     return render(request, template, context)

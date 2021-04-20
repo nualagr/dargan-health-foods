@@ -1,4 +1,6 @@
 from django.db import models
+from django.template.defaultfilters import slugify
+
 from profiles.models import UserProfile
 from products.models import Tag
 
@@ -54,3 +56,7 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(BlogPost, self).save(*args, **kwargs)
