@@ -6,16 +6,24 @@ from django.contrib import messages
 
 from products.models import Product
 from profiles.models import UserProfile
+from blog.models import BlogPost
 from .models import NewsletterSubscription
 from .forms import NewsletterSubscriptionForm, ContactForm
 
 
 def index(request):
-    """ A view to return the index page. """
+    """
+    A view to find the four most recently added products
+    and the two most recent blog posts in the database.
+    Render the index.html template using that data.
+    """
     # Get latest 4 products from the database
     latest_products = Product.objects.order_by("-date_added")[:4]
+    # Get latest 2 blogposts from the database
+    latest_posts = BlogPost.objects.order_by("-created_on")[:2]
     context = {
         "latest_products": latest_products,
+        "latest_posts": latest_posts,
     }
 
     return render(request, "home/index.html", context)

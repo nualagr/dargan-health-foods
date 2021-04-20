@@ -9,6 +9,11 @@ from profiles.models import UserProfile
 
 
 def all_posts(request):
+    """
+    A view to fetch all the blog posts in the database
+    ordered by date descending.
+    Send the list of posts to the blog.html page.
+    """
     blogs_list = BlogPost.objects.all().order_by("-created_on")
     total_post_count = blogs_list.count()
     paginator = Paginator(blogs_list, 4)  # 4 posts maximum on each page
@@ -34,7 +39,9 @@ def all_posts(request):
 
 
 def blog_post(request, slug):
-    """ A view to return individual blog post page """
+    """
+    A view to return an individual Blog Post page.
+    """
 
     blogpost = get_object_or_404(BlogPost, slug=slug)
 
@@ -49,7 +56,7 @@ def blog_post(request, slug):
 @login_required
 def add_post(request):
     """
-    A view to render the BlogPost Form for Super Users.
+    A view to render an empty BlogPost Form for Super Users.
     Upload submitted BlogPost forms to the database.
     """
     if not request.user.is_superuser:
@@ -65,9 +72,9 @@ def add_post(request):
         user = get_object_or_404(UserProfile, user=request.user)
 
         if bpform.is_valid():
-            # Create Blog object but don't save to database yet
+            # Create BlogPost object but don't save it to the database yet
             new_post = bpform.save(commit=False)
-            # Assign the author to the new blog and save it
+            # Assign the User as Author to the new BlogPost and save it
             new_post.author = user
             new_post.save()
             slug = new_post.slug
@@ -80,8 +87,8 @@ def add_post(request):
             messages.error(request, 'Failed to add the new blog post. \
                            Please ensure that the form is valid.')
 
-    # If the request is a GET request create a new blank form
-    # for the SuperUser to input the new blog post
+    # If the request is a GET request create a new blank BlogPost form
+    # to enable the SuperUser to input a new blog post
     bpform = BlogPostForm()
     template = "blog/add_post.html"
 
@@ -107,7 +114,7 @@ def edit_post(request, blogpost_id):
 
     if request.method == "POST":
         # Create an instance of the BlogPost form using
-        # that given post's existing data from the database.
+        # the given post's existing data from the database.
         bpform = BlogPostForm(request.POST, request.FILES, instance=blogpost)
 
         if bpform.is_valid():
@@ -140,7 +147,7 @@ def edit_post(request, blogpost_id):
 @login_required
 def delete_post(request, blogpost_id):
     """
-    View to delete a blog post from the Blog.
+    View to delete a blog post from the database.
     """
     if not request.user.is_superuser:
         messages.error(request, "Sorry, only Dargan team members can do that.")

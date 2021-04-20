@@ -157,35 +157,28 @@
         <div class="row">
             <div class="col-12 col-lg-9 mx-auto">
                 <div class="row">
+                    {% for post in latest_posts %}
                     <div class="col-12 col-md-6">
                         <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
                         <div class="card text-center">
-                            <a href="#" class="blog-post-link">
-                                <img src="{{ MEDIA_URL }}/blog_images/easy-vegan-swaps.jpg" class="card-img-top"
-                                    alt="Easy Vegan Swaps">
+                            <a href="{% url 'blog_post' post.slug %}" class="blog-post-link">
+                                {% if post.main_image %}
+                                <img src="{{ MEDIA_URL }}/{{ post.main_image }}" class="card-img-top"
+                                    alt="{{ post.title }}">
+                                {% else %}
+                                <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
+                                    alt="{{ post.title }}">
+                                {% endif %}
                             </a>
                             <div class="card-body">
-                                <p class="card-text">Recipes | March 18th 2021</p>
-                                <a href="#" class="blog-post-link">
-                                    <h5 class="card-title">Easy Vegan Swaps</h5>
+                                <p class="card-text">{{ post.topic }} | {{ post.created_on }}</p>
+                                <a href="{% url 'blog_post' post.slug %}" class="blog-post-link">
+                                    <h5 class="card-title">{{ post.title }}</h5>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                        <div class="card text-center">
-                            <a href="#" class="blog-post-link">
-                                <img src="{{ MEDIA_URL }}/blog_images/heart-health.jpg" class="card-img-top" alt="Heart Health">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Health | February 14th 2021</p>
-                                <a href="#" class="blog-post-link">
-                                    <h5 class="card-title">Heart Health</h5>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
