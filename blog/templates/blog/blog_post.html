@@ -63,7 +63,7 @@
                         <div class="card-body text-start">
                             <h4 class="mb-3 text-center">{{ blogpost.subtitle }}</h4>
                             <p>{{ blogpost.intro }}</p>
-                            {{ blogpost.content|linebreaks }}
+                            {{ blogpost.content|safe|linebreaks }}
                         </div>
                     </div>
                 </div>
