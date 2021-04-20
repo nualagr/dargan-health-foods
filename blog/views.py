@@ -1,6 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from .models import BlogPost
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
+from .models import BlogPost
+from .forms import BlogPostForm
 
 
 def all_posts(request):
@@ -36,6 +40,25 @@ def blog_post(request, slug):
     template = "blog/blog_post.html"
     context = {
         "blogpost": blogpost,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_post(request):
+    """
+    A view to render the BlogPost Form for Super Users.
+    Upload submitted BlogPost forms to the database.
+    """
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
+
+    blogpostform = BlogPostForm()
+    template = "blog/add_post.html"
+    context = {
+        "bpform": blogpostform,
     }
 
     return render(request, template, context)

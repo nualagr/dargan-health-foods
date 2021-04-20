@@ -1,8 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
 from .models import Product, Category, ProductTag, ProductReview
-# from django.utils.encoding import force_unicode
-# from django.utils.html import escape, conditional_escape
 
 
 class ProductForm(forms.ModelForm):

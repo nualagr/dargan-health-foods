@@ -64,18 +64,19 @@
         <div id="desktop-top-nav" class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-12">
                 <ul>
-                    <li><a href="{% url 'our_story' %}">Our Story</a></li>
-                    <li><a href="{% url 'blog' %}">Blog</a></li>
-                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="{% url 'our_story' %}" aria-label="Our Story page link">Our Story</a></li>
+                    <li><a href="{% url 'blog' %}" aria-label="Dargan's Blog link">Blog</a></li>
+                    <li><a href="{% url 'contact' %}" aria-label="Contact Us link">Contact Us</a></li>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                        <li><a href="{% url 'add_product' %}">Product Management</a></li>
-                        {% endif %}
-                    <li><a href="{% url 'profile' %}">My Account</a></li>
-                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
+                        <li><a href="{% url 'add_product' %}" aria-label="Product Management link">Product Management</a></li>
+                        <li><a href="{% url 'add_post' %}" aria-label="Blog Management link">Blog Management</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'profile' %}" aria-label="My Account link">My Account</a></li>
+                    <li><a href="{% url 'account_logout' %}" aria-label="Logout link">Logout</a></li>
                     {% else %}
-                    <li><a href="{% url 'account_login' %}">Sign In</a></li>
-                    <li><a href="{% url 'account_signup' %}">Join</a></li>
+                    <li><a href="{% url 'account_login' %}" aria-label="Sign In link">Sign In</a></li>
+                    <li><a href="{% url 'account_signup' %}" aria-label="Registration link">Join</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -312,6 +313,11 @@
                                 <li>
                                     <a href="{% url 'add_product' %}" aria-label="Product Management link">
                                         Product Management
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'add_post' %}" aria-label="Blog Management link">
+                                        Blog Management
                                     </a>
                                 </li>
                                 {% endif %}

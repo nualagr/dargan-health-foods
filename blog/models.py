@@ -29,7 +29,7 @@ class BlogPost(models.Model):
     subtitle = models.CharField(max_length=200, null=True, blank=True)
     intro = models.TextField(null=True, blank=True)
     content = models.TextField()
-    image = models.ImageField(
+    main_image = models.ImageField(
         upload_to="blog_images", null=True, blank=True
     )
     created_on = models.DateField(auto_now_add=True, editable=False)
