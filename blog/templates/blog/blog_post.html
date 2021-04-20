@@ -47,7 +47,7 @@
             {% if request.user.is_superuser %}
             <p class="text-end">
                 <small class="text-end">
-                    <a class="blue-text-link" href="">Edit</a> |
+                    <a class="blue-text-link" href="{% url 'edit_post' blogpost.id %}">Edit</a> |
                     <!-- Delete Product Modal Trigger -->
                     <a class="red-text-link" data-bs-toggle="modal" data-bs-target="#deleteBlogPostModal">Delete</a>
                 </small>

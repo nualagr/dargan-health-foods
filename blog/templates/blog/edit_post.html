@@ -10,22 +10,22 @@
 {% endblock %}
 
 {% block content %}
-<!-- Add Blog Post Container -->
+<!-- Edit Blog Post Container -->
 <div class="container-fluid section-container pt-0">
-    <!-- Add Blog Post Page Title Row -->
+    <!-- Edit Blog Post Page Title Row -->
     <div class="row page-title-wapper">
         <div class="col-12 col-lg-9 mx-auto">
             <h1 class="page-title text-center" id="page-title-heading" aria-labelledby="page-title-heading">
                 Blog Management
             </h1>
-            <h3>Add a Blog Post</h3>
+            <h3>Edit Blog Post</h3>
         </div>
     </div>
-    <!-- Add Blog Post Form Row -->
+    <!-- Edit Blog Post Form Row -->
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
             <!-- Encoding type attribute included since the form will potentially be submitting an image field -->
-            <form method="POST" action="{% url 'add_post' %}" class="form mb-2" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'edit_post' blogpost.pk %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in bpform %}
                 {% if field.name != 'main_image' %}
@@ -38,7 +38,7 @@
                         <a class="common-button btn-grey" href="{% url 'blog' %}"><i
                                 class="fas fa-times"></i>&nbsp;Cancel</a>
                         <button class="common-button btn-forest-green" type="submit"><i
-                                class="fas fa-cloud-upload-alt"></i>&nbsp;Add Blog Post</button>
+                                class="fas fa-cloud-upload-alt"></i>&nbsp;Update BlogPost</button>
                     </div>
             </form>
         </div>

@@ -93,6 +93,51 @@ def add_post(request):
 
 
 @login_required
+def edit_post(request, blogpost_id):
+    """
+    View to enable the Super User to edit existing blog posts.
+    """
+    if not request.user.is_superuser:
+        messages.error(
+            request, "Sorry, only members of the Dargan Team can do that.")
+        return redirect(reverse("blog"))
+
+    # Get the BlogPost Object using the given id
+    blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
+
+    if request.method == "POST":
+        # Create an instance of the BlogPost form using
+        # that given post's existing data from the database.
+        bpform = BlogPostForm(request.POST, request.FILES, instance=blogpost)
+
+        if bpform.is_valid():
+            blogpost = bpform.save()
+            messages.success(request, "Successfully updated blog post!")
+            # Redirect to the BlogPost's Page using the Slug
+            return redirect(reverse("blog_post", args=[blogpost.slug]))
+        else:
+            messages.error(
+                request,
+                "Failed to update blog post. Please ensure that the form is valid.",
+            )
+
+    else:
+        # If the request is a GET request
+        # Create an instance of the BlogPost form using the given post id
+        bpform = BlogPostForm(instance=blogpost)
+        messages.info(
+            request, f"You are editing blog post: { blogpost.title }")
+
+    template = "blog/edit_post.html"
+    context = {
+        "bpform": bpform,
+        "blogpost": blogpost,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
 def delete_post(request, blogpost_id):
     """
     View to delete a blog post from the Blog.
