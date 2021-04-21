@@ -69,11 +69,9 @@
                             alt="{{ blogpost.title }}">
                         {% endif %}
                         <div class="card-body text-start">
-                            <p>By {{ blogpost.author }} | {{ blogpost.created_on }} | {{ blogpost.topic.friendly_name }}
+                            <p class="text-end">By {{ blogpost.author }} | {{ blogpost.created_on }} | {{ blogpost.topic.friendly_name }}
                             </p>
                             <h4 class="mb-3 text-center">{{ blogpost.subtitle }}</h4>
-                            <p>{{ blogpost.intro }}</p>
-                            {{ blogpost.content|safe|linebreaks }}
                             {% if tags %}
                             <p class="small">
                                 <i class="fas fa-tag mr-1"></i>
@@ -84,6 +82,8 @@
                                 {% endfor %}
                             </p>
                             {% endif %}
+                            <p>{{ blogpost.intro }}</p>
+                            {{ blogpost.content|safe|linebreaks }}
                         </div>
                     </div>
                 </div>
