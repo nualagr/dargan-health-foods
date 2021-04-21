@@ -1,0 +1,50 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <meta charset="UTF-8">
+    <meta name="author" content="Nuala Greenwood">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Dargan Health Foods is an independently-run health-food shop in Castletroy Shopping Centre, Limerick.">
+    <meta name="keywords"
+        content="Castletroy SC, Limerick, Organic, fresh, vibrant, SLS free, Nutritionists, family run business">
+    <title>Dargan Health Foods | Castletroy Shopping Centre, Limerick</title>
+    <link rel="icon" type="image/png" href="{{ MEDIA_URL }}favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- Google Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Montserrat&family=Open+Sans&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+ 
+    <title>Dargan Health Food's 404 Page</title>
+</head>
+<body>  
+<div class="container-fluid error-container">
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto text-center">
+            <div class="error-image">
+                <div class="error-text">
+                    <h1 class="logo-font-heading">404 Error</h1>
+                    <h2 class="mt-5">
+                        Oops!
+                    </h2>
+                    <h2>
+                        We can't seem to find the page you're looking for.
+                    </h2>
+                    <p class="mt-5">Click <strong><a href="{% url 'home' %}" class="green-text-link" aria-label="Back to Home link">here</a></strong> to head back to safety</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
