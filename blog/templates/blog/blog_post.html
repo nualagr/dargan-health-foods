@@ -69,7 +69,7 @@
                             alt="{{ blogpost.title }}">
                         {% endif %}
                         <div class="card-body text-start">
-                            <p>By {{ blogpost.author }} | {{ blogpost.created_on }} | {{ blogpost.topic }}</p>
+                            <p>By {{ blogpost.author }} | {{ blogpost.created_on }} | {{ blogpost.topic.friendly_name }}</p>
                             <h4 class="mb-3 text-center">{{ blogpost.subtitle }}</h4>
                             <p>{{ blogpost.intro }}</p>
                             {{ blogpost.content|safe|linebreaks }}

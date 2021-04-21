@@ -8,7 +8,7 @@ from products.models import Tag
 class Topic(models.Model):
     """
     Creates a Topic model containing the names of
-    blog post topics
+    blog post topics.
     """
 
     class Meta:
@@ -26,7 +26,13 @@ class Topic(models.Model):
 
 
 class BlogPost(models.Model):
-    topic = models.CharField(max_length=200)
+    topic = models.ForeignKey(
+        Topic,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="blogposttopic",
+    )
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=200)
     intro = models.TextField()
@@ -60,8 +66,3 @@ class BlogPost(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(BlogPost, self).save(*args, **kwargs)
-
-    # def delete(self, using=None, keep_parents=False):
-    #     self.blogpost.storage.delete(self.pk)
-    #     self.main_image.storage.delete(self.pk)
-    #     super().delete()

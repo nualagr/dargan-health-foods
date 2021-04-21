@@ -171,7 +171,7 @@
                                 {% endif %}
                             </a>
                             <div class="card-body">
-                                <p class="card-text">{{ post.topic }} | {{ post.created_on }}</p>
+                                <p class="card-text">{{ post.topic.friendly_name }} | {{ post.created_on }}</p>
                                 <a href="{% url 'blog_post' post.slug %}" class="blog-post-link">
                                     <h5 class="card-title">{{ post.title }}</h5>
                                 </a>

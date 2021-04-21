@@ -14,7 +14,7 @@ def csv_to_json(csvFilePath, jsonFilePath):
     jsonArray = []
 
     # Read the file
-    with open(csvFilePath, encoding="utf-8") as csvf:
+    with open(csvFilePath, encoding="utf-8-sig") as csvf:
         # Load the CSV-file data using CSV library's dictionary reader
         csvReader = csv.DictReader(csvf)
 
@@ -46,8 +46,8 @@ def csv_to_json(csvFilePath, jsonFilePath):
 
 
 # File paths
-csvFilePath = r"./products/fixtures/tags.csv"
-jsonFilePath = r"./products/fixtures/tags.json"
+csvFilePath = r"./blog/fixtures/topics.csv"
+jsonFilePath = r"./blog/fixtures/topics.json"
 
 # Call the csv_to_json function
 csv_to_json(csvFilePath, jsonFilePath)
