@@ -34,6 +34,12 @@
                 <p>{{ field }}</p>
                 {% endif %}
                 {% endfor %}
+                {% if bptformset %}
+                    {{ bptformset.management_form }}
+                    {% for form in bptformset %}
+                        {{ form | crispy }}
+                    {% endfor %}
+                {% endif %}
                     <div class="button-row">
                         <a class="common-button btn-grey" href="{% url 'blog' %}"><i
                                 class="fas fa-times"></i>&nbsp;Cancel</a>

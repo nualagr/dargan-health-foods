@@ -49,13 +49,6 @@ class BlogPost(models.Model):
         related_name="usersblogposts",
     )
     slug = models.SlugField(max_length=200, unique=True)
-    tags = models.ForeignKey(
-        Tag,
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name="tags",
-    )
 
     class Meta:
         ordering = ["-created_on"]
@@ -66,3 +59,23 @@ class BlogPost(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(BlogPost, self).save(*args, **kwargs)
+
+
+class BlogPostTag(models.Model):
+    blogpost = models.ForeignKey(
+        BlogPost,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="blogposts",
+    )
+    tag = models.ForeignKey(
+        Tag,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="tags",
+    )
+
+    def __str__(self):
+        return "{}, {}".format(self.blogpost, self.tag.friendly_name)

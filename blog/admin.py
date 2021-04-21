@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import BlogPost, Topic
+from .models import (
+    BlogPost,
+    Topic,
+    BlogPostTag,
+    )
 
 
 class TopicAdmin(admin.ModelAdmin):
@@ -12,7 +16,15 @@ class TopicAdmin(admin.ModelAdmin):
     ordering = ('friendly_name',)
 
 
+class BlogPostTagInline(admin.TabularInline):
+    model = BlogPostTag
+
+
 class BlogPostAdmin(admin.ModelAdmin):
+    inlines = (
+        BlogPostTagInline,
+    )
+
     list_display = (
         "title",
         "topic",

@@ -1,7 +1,6 @@
 from django import forms
-
-from .models import BlogPost
 from products.widgets import CustomClearableFileInput
+from .models import BlogPost, BlogPostTag
 
 
 class BlogPostForm(forms.ModelForm):
@@ -23,3 +22,13 @@ class BlogPostForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             # Add styling so it matches the Dargan Health Foods theme
             field.widget.attrs["class"] = "rounded-0"
+
+
+class BlogPostAndTagsForm(forms.ModelForm):
+    class Meta:
+        model = BlogPostTag
+        exclude = ()
+
+
+BlogPostAndTagsInlineFormSet = forms.inlineformset_factory(
+    BlogPost, BlogPostTag, form=BlogPostAndTagsForm, extra=3, can_delete=True)

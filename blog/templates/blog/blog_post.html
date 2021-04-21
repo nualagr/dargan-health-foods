@@ -36,7 +36,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid blogpost-details-container">
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto text-center">
             <h1>{{ blogpost.title }}</h1>
@@ -69,10 +69,21 @@
                             alt="{{ blogpost.title }}">
                         {% endif %}
                         <div class="card-body text-start">
-                            <p>By {{ blogpost.author }} | {{ blogpost.created_on }} | {{ blogpost.topic.friendly_name }}</p>
+                            <p>By {{ blogpost.author }} | {{ blogpost.created_on }} | {{ blogpost.topic.friendly_name }}
+                            </p>
                             <h4 class="mb-3 text-center">{{ blogpost.subtitle }}</h4>
                             <p>{{ blogpost.intro }}</p>
                             {{ blogpost.content|safe|linebreaks }}
+                            {% if tags %}
+                            <p class="small">
+                                <i class="fas fa-tag mr-1"></i>
+                                {% for tag in tags %}
+                                <a class="tag" href="{% url 'products' %}?tag={{ tag.tag.name }}">
+                                    {{ tag.tag.friendly_name }}&nbsp;
+                                </a>
+                                {% endfor %}
+                            </p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

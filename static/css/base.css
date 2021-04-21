@@ -119,11 +119,15 @@ a.red-text-link:focus {
     font-weight: bold;
 }
 
+.blogpost-details-container p.small a.tag,
 .product-details-container p.small a.tag {
     text-decoration: none;
     color: #6C757D;
 }
 
+.blogpost-details-container p.small a.tag:hover,
+.blogpost-details-container p.small a.tag:active,
+.blogpost-details-container p.small a.tag:focus,
 .product-details-container p.small a.tag:hover,
 .product-details-container p.small a.tag:active,
 .product-detaisl-container p.small a.tag:focus {
