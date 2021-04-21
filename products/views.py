@@ -115,10 +115,13 @@ def all_products(request):
     try:
         products_list = paginator.page(page)
     except PageNotAnInteger:
+        # If page is not an integer deliver the first page
         products_list = paginator.page(1)
     except EmptyPage:
+        # If page is out of range deliver last page of results
         products_list = paginator.page(paginator.num_pages)
 
+    template = "products/products.html"
     context = {
         "products": products_list,
         "search_term": query,
@@ -130,7 +133,7 @@ def all_products(request):
         "page_range": page_range,
     }
 
-    return render(request, "products/products.html", context)
+    return render(request, template, context)
 
 
 def product_detail(request, product_id):

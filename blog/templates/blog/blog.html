@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load products_tags %}
 
 {% block title %}Dargan's Blog{% endblock %}
 
@@ -51,7 +52,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid blogposts-list-container">
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
             <div class="row">
@@ -69,12 +70,14 @@
                             {% endif %}
                         </a>
                         <div class="card-body">
-                            <p class="card-text text-start">{{ blogpost.topic.friendly_name }} | {{ blogpost.created_on }}</p>
+                            <p class="card-text text-start">{{ blogpost.topic.friendly_name }} |
+                                {{ blogpost.created_on }}</p>
                             <a href="{% url 'blog_post' blogpost.slug %}" class="blog-post-link">
                                 <h5 class="card-title">{{ blogpost.title }}</h5>
                             </a>
                             <p class="card-text text-start">{{ blogpost.intro|truncatewords:60 }}</p>
-                            <a class="page-link-with-arrow" href="{% url 'blog_post' blogpost.slug %}" title="Link to full blog post {{ blogpost.title }}">
+                            <a class="page-link-with-arrow" href="{% url 'blog_post' blogpost.slug %}"
+                                title="Link to full blog post {{ blogpost.title }}">
                                 <span class="link">
                                     Read Post
                                 </span>
@@ -84,6 +87,12 @@
                 </div>
                 {% endfor %}
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <!-- Pagination Navigation taken from Bootstrap: https://getbootstrap.com/docs/4.0/components/pagination/ and then modified -->
+            {% include '../products/includes/pagination.html' %}
         </div>
     </div>
     <div class="row">

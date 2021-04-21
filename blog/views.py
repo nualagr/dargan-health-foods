@@ -17,8 +17,13 @@ def all_posts(request):
     # Get all the BlogPosts from the database, in descending order by date
     blogs_list = BlogPost.objects.all().order_by("-created_on")
     total_post_count = blogs_list.count()
+
+    # Pagination
     paginator = Paginator(blogs_list, 4)  # 4 posts maximum on each page
-    page = request.GET.get('page')
+    page = request.GET.get("page")
+    page_obj = paginator.get_page(page)
+    page_range = paginator.page_range
+
     try:
         blogs_list = paginator.page(page)
     except PageNotAnInteger:
@@ -31,7 +36,8 @@ def all_posts(request):
     template = "blog/blog.html"
     context = {
         "blog_page": "active",
-        "page": page,
+        "page_obj": page_obj,
+        "page_range": page_range,
         "blogs_list": blogs_list,
         "total_post_count": total_post_count,
     }
