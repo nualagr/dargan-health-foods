@@ -13,6 +13,9 @@ urlpatterns = [
         "add_comment/<int:blogpost_id>", views.add_comment, name="add_comment"
     ),
     path(
+        "edit_comment/<int:blogpostcomment_id>", views.edit_comment, name="edit_comment"
+    ),
+    path(
         "delete_comment/<int:blogpostcomment_id>", views.delete_comment, name="delete_comment"
     ),
 ]

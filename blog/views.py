@@ -284,6 +284,52 @@ def add_comment(request, blogpost_id):
 
 
 @login_required
+def edit_comment(request, blogpostcomment_id):
+    """
+    View to enable the logged-in User to edit
+    their existing blogpost comments.
+    """
+    # Get the existing BlogPostComment object
+    blogpostcomment = get_object_or_404(BlogPostComment, pk=blogpostcomment_id)
+    # Get the blog post being commented on
+    blogpost = get_object_or_404(BlogPost, pk=blogpostcomment.blogpost.pk)
+
+    if request.method == "POST":
+        # Create an instance of the BlogPostCommentForm using
+        # the posted data
+        bpcform = BlogPostCommentForm(
+            request.POST, instance=blogpostcomment)
+
+        if bpcform.is_valid():
+            bpcform.save()
+            messages.success(request, "Successfully updated your comment!")
+            # Redirect to the related blog_post.html page
+            return redirect(reverse("blog_post", args=[blogpost.slug]))
+        else:
+            messages.error(
+                request,
+                "Failed to update your comment. Please ensure that the form is valid.",
+            )
+
+    else:
+        # Populate the BlogPostComment form
+        # with the existing content from the database
+        bpcform = BlogPostCommentForm(instance=blogpostcomment)
+        # If the request is a GET request
+        messages.info(
+            request,
+            f"You are editing your comment on the blog post { blogpost.title }")
+
+    template = "blog/edit_comment.html"
+    context = {
+        "bpcform": bpcform,
+        "blogpost": blogpost,
+        "blogpostcomment": blogpostcomment,
+    }
+    return render(request, template, context)
+
+
+@login_required
 def delete_comment(request, blogpostcomment_id):
     """
     View to enable logged-in users to delete their own
