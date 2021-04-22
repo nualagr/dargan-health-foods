@@ -73,7 +73,7 @@
                             {% if reviews %}
                             <a href="{% url 'product_detail' product.id %}#collapseReviews" class="green-text-link"
                                 id="open-product-reviews">
-                                ({{ reviews|length }} {% if reviews|length == 1 %}review{% else %}reviews{% endif %})
+                                ({{ reviews|length }} review{{ reviews|length|pluralize }})
                             </a>
                             {% endif %}
                         </span>
