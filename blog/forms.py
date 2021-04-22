@@ -37,16 +37,23 @@ BlogPostAndTagsInlineFormSet = forms.inlineformset_factory(
 
 class BlogPostCommentForm(forms.ModelForm):
     """
-    Create a form for Dargan site members to add comments to Blog Posts
+    Create a form for Dargan site members to add comments to Blog Posts.
+    Add a placeholder and a css class and remove the auto-generated label.
     """
     class Meta:
         model = BlogPostComment
         exclude = ("blogpost", "user", "created_on")
 
-    # Override the init method to make a couple of changes to the fields
+    # Override the init method to make a couple of changes to the
+    # 'content' field, the only field being displayed
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields["content"].label = ""
 
         for field_name, field in self.fields.items():
-            # Add styling so it matches the Dargan Health Foods theme
-            field.widget.attrs["class"] = "rounded-0"
+            if field_name == "content":
+                field.widget = forms.Textarea(
+                    attrs={
+                        "placeholder": "Share your thoughts here...",
+                        "class": "rounded-0"}
+                )

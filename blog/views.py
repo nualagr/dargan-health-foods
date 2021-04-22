@@ -216,3 +216,25 @@ def delete_post(request, blogpost_id):
     blogpost.delete()
     messages.success(request, "BlogPost successfully deleted!")
     return redirect(reverse("blog"))
+
+
+@login_required
+def add_comment(request, blogpost_id):
+    """
+    View to allow a logged-in user to add a comment to
+    a post on the Dargan Blog.
+    """
+    # Get the blogpost from the database
+    blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
+
+    # If it was a GET request
+    # Instantiate a new instance of the Blog Post Comment Form
+    bpcform = BlogPostCommentForm()
+
+    template = "blog/add_comment.html"
+    context = {
+        "bpcform": bpcform,
+        "blogpost": blogpost,
+    }
+
+    return render(request, template, context)

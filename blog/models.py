@@ -103,4 +103,4 @@ class BlogPostComment(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
-        return "{}, {}, {}".format(self.blogpost, self.user)
+        return "{}, {}".format(self.blogpost, self.user)

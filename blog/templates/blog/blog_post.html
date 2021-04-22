@@ -118,7 +118,7 @@
                     {% if request.user.is_authenticated %}
                     <!-- Open BlogPostComment Form button -->
                     <div class="my-3 text-end">
-                        <a class="common-button btn-forest-green" href="">
+                        <a class="common-button btn-forest-green" href="{% url 'add_comment' blogpost.id %}">
                             <i class="fas fa-user-edit"></i>&nbsp;Leave a Comment
                         </a>
                     </div>
