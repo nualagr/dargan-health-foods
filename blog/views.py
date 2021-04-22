@@ -281,3 +281,27 @@ def add_comment(request, blogpost_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_comment(request, blogpostcomment_id):
+    """
+    View to enable logged-in users to delete their own
+    blog post comments.
+    """
+    # Get the BlogPostComment and the BlogPost
+    blogpostcomment = get_object_or_404(BlogPostComment, pk=blogpostcomment_id)
+    blogpost = get_object_or_404(BlogPost, pk=blogpostcomment.blogpost.id)
+
+    # Delete the comment and return a success message
+    try:
+        blogpostcomment.delete()
+
+        messages.success(request, 'Your comment was deleted')
+
+    # If the comment was not deleted return an error message
+    except Exception as e:
+        messages.error(request, "We couldn't delete your comment because "
+                                f" error:{e} occured. Please try again later.")
+
+    return redirect(reverse('blog_post', args=(blogpost.slug,)))

@@ -141,7 +141,7 @@
                         {% if user.id == comment.user.id %}
                         <small>
                             <a class="blue-text-link" href="">Edit</a> |
-                            <!-- Delete Review Modal Trigger -->
+                            <!-- Delete Comment Modal Trigger -->
                             <a class="red-text-link" data-bs-toggle="modal"
                                 data-bs-target="#deleteCommentModal">Delete</a>
                         </small>
@@ -162,7 +162,7 @@
                                     <div class="modal-footer justify-content-center">
                                         <a class="common-button btn-blue" data-bs-dismiss="modal"><i
                                                 class="fas fa-undo"></i>&nbsp;Cancel</a>
-                                        <a class="common-button btn-grey" href="">
+                                        <a class="common-button btn-grey" href="{% url 'delete_comment' comment.pk %}">
                                             <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
                                     </div>
                                 </div>
