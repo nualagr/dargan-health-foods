@@ -49,13 +49,15 @@
             </h1>
         </div>
     </div>
+    {% if page_obj.paginator.count > 0 %}
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
             <div class="row">
                 <!-- Result Counter -->
                 <div class="col-6">
                     <p class="text-muted">
-                        Item{{ page_obj.paginator.count|pluralize }} {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }}
+                        Item{{ page_obj.paginator.count|pluralize }} {{ page_obj.start_index }} -
+                        {{ page_obj.end_index }} of {{ page_obj.paginator.count }}
                     </p>
                 </div>
                 <!-- Sort Options Dropdown -->
@@ -80,6 +82,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     <div class="products-container">
         <div class="row">
             <div class="col-12 col-lg-9 mx-auto">
@@ -116,12 +119,16 @@
                                             {% csrf_token %}
                                             <div class="col">
                                                 <div class="input-group">
-                                                    <input class="form-control qty-input rounded-0" type="hidden" name="quantity" value="1">
+                                                    <input class="form-control qty-input rounded-0" type="hidden"
+                                                        name="quantity" value="1">
                                                 </div>
-                                                <input type="submit" class="common-button btn-orange quick-add-to-cart-btn" value="Add to Cart">
+                                                <input type="submit"
+                                                    class="common-button btn-orange quick-add-to-cart-btn"
+                                                    value="Add to Cart">
                                             </div>
                                             <!-- Submit the current url with the form so that we can redirect the user back to the same page once the item has been added to the Cart -->
-                                            <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                            <input type="hidden" name="redirect_url"
+                                                value="{{ request.get_full_path }}">
                                         </form>
                                     </div>
                                 </div>
@@ -132,6 +139,14 @@
                     {% else %}
                     <div class="col-12">
                         Sorry, no results found...
+                    </div>
+                    <div class="col-8 mx-auto col-lg-4 mx-auto pt-3">
+                        <img src="{{ MEDIA_URL }}magnifying-glass.jpg" class="card-img-top" alt="Magnifying Glass">
+                    </div>
+                    <div class="col-12">
+                        <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping-btn">
+                            Continue Shopping
+                        </a>
                     </div>
                     {% endif %}
                 </div>
