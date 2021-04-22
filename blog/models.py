@@ -96,7 +96,6 @@ class BlogPostComment(models.Model):
         on_delete=models.SET_NULL,
         related_name="usersblogpostcomments",
     )
-    title = models.CharField(max_length=200)
     content = models.TextField()
     created_on = models.DateField(auto_now_add=True, editable=False)
 
@@ -104,4 +103,4 @@ class BlogPostComment(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
-        return "{}, {}, {}".format(self.blogpost, self.user, self.title)
+        return "{}, {}, {}".format(self.blogpost, self.user)
