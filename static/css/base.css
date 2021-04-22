@@ -134,6 +134,9 @@ a.red-text-link:focus {
     text-decoration: underline;
 }
 
+.blogpost-details-container p strong {
+    color: #29873C;
+}
 /* from Bulma */
 /* .icon {
     align-items: center;
@@ -723,7 +726,7 @@ input[name="q"]::placeholder {
     text-decoration: none;
 }
 
-/* Accordions in Footer and on Product Details Page ------------------- */
+/* Accordions in Footer, on Product Details and on Blog Posts Pages --- */
 .accordion-item {
     border-top: 1px solid #EEEEEE;
     margin-left: -10px;
@@ -757,7 +760,8 @@ Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-bu
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2329873C'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
-.individual-product-container .accordion-button.collapsed::after {
+.individual-product-container .accordion-button.collapsed::after, 
+.blogpost-comments-accordion-container .accordion-button.collapsed::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236C757D'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
@@ -766,11 +770,13 @@ Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-bu
 }
 
 .individual-product-container .accordion-button:not(.collapsed),
+.blogpost-comments-accordion-container .accordion-button:not(.collapsed),
 .footer-container .accordion-button:not(.collapsed) {
     color: #29873C;
     background-color: #FFFFFF;
 }
 
+.blogpost-comments-accordion-container .accordion-button,
 .individual-product-container .accordion-button {
     color: #6C757D;
 }

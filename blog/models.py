@@ -67,15 +67,41 @@ class BlogPostTag(models.Model):
         null=True,
         blank=True,
         on_delete=models.CASCADE,
-        related_name="blogposts",
+        related_name="taggedblogposts",
     )
     tag = models.ForeignKey(
         Tag,
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name="tags",
+        related_name="blogposttags",
     )
 
     def __str__(self):
         return "{}, {}".format(self.blogpost, self.tag.friendly_name)
+
+
+class BlogPostComment(models.Model):
+    blogpost = models.ForeignKey(
+        BlogPost,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="blogpostcomments",
+    )
+    user = models.ForeignKey(
+        UserProfile,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="usersblogpostcomments",
+    )
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_on = models.DateField(auto_now_add=True, editable=False)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return "{}, {}, {}".format(self.blogpost, self.user, self.title)

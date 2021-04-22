@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
-from .models import BlogPost, BlogPostTag
-from .forms import BlogPostForm, BlogPostAndTagsInlineFormSet
+from .models import BlogPost, BlogPostTag, BlogPostComment
+from .forms import BlogPostForm, BlogPostAndTagsInlineFormSet, BlogPostCommentForm
 from profiles.models import UserProfile
 
 
@@ -47,17 +47,34 @@ def all_posts(request):
 
 def blog_post(request, slug):
     """
-    A view to return an individual Blog Post page.
+    A view to return an individual Blog Post page
+    and the associated comments from the database.
+    If the user is logged in, render an empty comment form.
     """
     # Get the specified BlogPost from the database
     blogpost = get_object_or_404(BlogPost, slug=slug)
     # Get the related BlogPostTag objects
     tags = BlogPostTag.objects.filter(blogpost=blogpost.id)
+    # Get the related BlogPostComment objects
+    comments = BlogPostComment.objects.filter(blogpost=blogpost.id)
+    print("These are the comments", comments)
+
+    if request.user.is_authenticated:
+        try:
+            user = UserProfile.objects.get(user=request.user)
+            bpcform = BlogPostCommentForm()
+        except UserProfile.DoesNotExist:
+            bpcform = BlogPostCommentForm(
+                initial={'user': user, 'blogpost': blogpost})
+    else:
+        bpcform = BlogPostCommentForm()
 
     template = "blog/blog_post.html"
     context = {
         "blogpost": blogpost,
         "tags": tags,
+        "comments": comments,
+        "bpcform": bpcform,
     }
 
     return render(request, template, context)
