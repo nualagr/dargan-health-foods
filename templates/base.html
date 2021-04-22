@@ -121,7 +121,7 @@
                             <a class="{% if grand_total %}text-black{% else %}text-grey disabled{% endif %}"
                                 href="{% url 'view_cart' %}">
                                 {% if grand_total %}
-                                <span class="hide-for-small-laptop">{{ product_count }} items -
+                                <span class="hide-for-small-laptop">{{ product_count }} item{{ product_count|pluralize }} -
                                 </span>€{{ grand_total|floatformat:2 }}
                                 {% else %}
                                 <span class="hide-for-small-laptop">0 items - </span>€0.00
