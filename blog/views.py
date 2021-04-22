@@ -4,7 +4,11 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 from .models import BlogPost, BlogPostTag, BlogPostComment
-from .forms import BlogPostForm, BlogPostAndTagsInlineFormSet, BlogPostCommentForm
+from .forms import (
+    BlogPostForm,
+    BlogPostAndTagsInlineFormSet,
+    BlogPostCommentForm,
+)
 from profiles.models import UserProfile
 
 
@@ -65,7 +69,8 @@ def blog_post(request, slug):
             bpcform = BlogPostCommentForm()
         except UserProfile.DoesNotExist:
             bpcform = BlogPostCommentForm(
-                initial={'user': user, 'blogpost': blogpost})
+                initial={"user": user, "blogpost": blogpost}
+            )
     else:
         bpcform = BlogPostCommentForm()
 
@@ -90,10 +95,11 @@ def add_post(request):
     """
     if not request.user.is_superuser:
         messages.error(
-            request, "Sorry, only Dargan staff members have access to this.")
+            request, "Sorry, only Dargan staff members have access to this."
+        )
         return redirect(reverse("home"))
 
-    if request.method == 'POST':
+    if request.method == "POST":
         # Instantiate a new instance of the BlogPostForm
         # Include request.FILES in order to make sure to
         # capture the image if one was submitted
@@ -121,13 +127,15 @@ def add_post(request):
                         if bptform.cleaned_data != {}:
                             bptform.save()
             messages.success(
-                request, 'Successfully uploaded your new blog post.')
-            return redirect(
-                    reverse("blog_post", args=[slug])
-                )
+                request, "Successfully uploaded your new blog post."
+            )
+            return redirect(reverse("blog_post", args=[slug]))
         else:
-            messages.error(request, 'Failed to add the new blog post. \
-                           Please ensure that the form is valid.')
+            messages.error(
+                request,
+                "Failed to add the new blog post. \
+                           Please ensure that the form is valid.",
+            )
 
     # If the request is a GET request create a new blank BlogPost form
     # to enable the SuperUser to input a new blog post
@@ -152,7 +160,8 @@ def edit_post(request, blogpost_id):
     """
     if not request.user.is_superuser:
         messages.error(
-            request, "Sorry, only members of the Dargan Team can do that.")
+            request, "Sorry, only members of the Dargan Team can do that."
+        )
         return redirect(reverse("blog"))
 
     # Get the BlogPost Object using the given id
@@ -186,7 +195,8 @@ def edit_post(request, blogpost_id):
         # Create an instance of the producttags inline formset
         bptformset = BlogPostAndTagsInlineFormSet(instance=blogpost)
         messages.info(
-            request, f"You are editing blog post: { blogpost.title }")
+            request, f"You are editing blog post: { blogpost.title }"
+        )
 
     template = "blog/edit_post.html"
     context = {
@@ -226,10 +236,43 @@ def add_comment(request, blogpost_id):
     """
     # Get the blogpost from the database
     blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
+    # Get the current user
+    user = UserProfile.objects.get(user=request.user)
 
-    # If it was a GET request
-    # Instantiate a new instance of the Blog Post Comment Form
-    bpcform = BlogPostCommentForm()
+    if request.method == "POST":
+        # Instantiate a new instance of the BlogPostCommentForm
+        bpcform = BlogPostCommentForm(request.POST)
+
+        if bpcform.is_valid():
+            # Create Comment object but don't save to database yet
+            new_comment = bpcform.save(commit=False)
+            # Link the comment to the blogpost
+            new_comment.blogpost = blogpost
+            # Link the logged-in user to the comment
+            new_comment.user = user
+            # Save the review to the database
+            new_comment.save()
+
+            bpcform = BlogPostCommentForm()
+            messages.success(request, "Successfully posted your comment.")
+            return redirect(
+                reverse(
+                    "blog_post",
+                    args=[
+                        blogpost.slug,
+                    ],
+                )
+            )
+        else:
+            # If the form is invalid send an error message
+            messages.error(
+                request,
+                "Failed to add comment. Please ensure that the form is valid.",
+            )
+    else:
+        # If it was a GET request
+        # Instantiate a new instance of the Blog Post Comment Form
+        bpcform = BlogPostCommentForm()
 
     template = "blog/add_comment.html"
     context = {
