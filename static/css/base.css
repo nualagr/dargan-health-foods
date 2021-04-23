@@ -485,6 +485,11 @@ input[name="q"]::placeholder {
     cursor: pointer;
 }
 
+.btn-filter-blog {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
 #sort-selector {
     float: right;
     color: #333333;
@@ -1189,6 +1194,16 @@ on the login page since all the other inputs have placeholders. */
     text-align: right;
     white-space: nowrap;
 }
+
+/* Blog Styling ------------------------------------------------------ */
+#dropdownTopicFilter~.dropdown-menu {
+    width: 94%;
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    margin-right: calc(var(--bs-gutter-x)/ -2);
+    margin-left: calc(var(--bs-gutter-x)/ -2);
+}
+
 /* Media Queries ------------------------------------------------------*/
 
 /* Desktop */

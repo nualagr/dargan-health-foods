@@ -82,33 +82,33 @@
         <div class="col-12 col-lg-9 mx-auto">
             <div class="row">
                 <!-- Filter by Topic Dropdown -->
-                <div class="col dropdown show text-start">
-                    <a class="btn filter-btn rounded-0" href="#" role="button" id="dropdownTopicFilter"
+                <div class="col-12 col-md-6 dropdown show text-start">
+                    <a class="common-button btn-forest-green btn-filter-blog rounded-0" href="#" role="button" id="dropdownTopicFilter"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Filter by Topic...&nbsp;<i class="fa-xs fas fa-chevron-down pl-2"></i>
+                        Filter Posts by Topic...&nbsp;<i class="fa-xs fas fa-chevron-down pl-2"></i>
                     </a>
-                    <div class="dropdown-menu rounded-0" aria-labelledby="dropdownTopicFilter">
-                        <a class="dropdown-item" href="{% url 'blog' %}">All</a>
-                        <a class="dropdown-item" href="{% url 'blog' %}?topic=beauty">Beauty</a>
-                        <a class="dropdown-item" href="{% url 'blog' %}?topic=eco_living">Eco Living</a>
-                        <a class="dropdown-item" href="{% url 'blog' %}?topic=food_n_nutrition">Food &
-                            Nutrition</a>
-                        <a class="dropdown-item" href="{% url 'blog' %}?topic=health_n_wellbeing">Health &
-                            Wellbeing</a>
-                        <a class="dropdown-item" href="{% url 'blog' %}?topic=lifestyle">Lifestyle</a>
-                        <a class="dropdown-item" href="{% url 'blog' %}?topic=news">News</a>
-                        <a class="dropdown-item" href="{% url 'blog' %}?topic=recipes">Recipes</a>
-                        <a class="dropdown-item" href="{% url 'blog' %}?topic=uncategorised">Uncategorised</a>
-                    </div>
+                    <ul class="dropdown-menu rounded-0" aria-labelledby="dropdownTopicFilter">
+                        <li><a class="dropdown-item" href="{% url 'blog' %}">All</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=beauty">Beauty</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=eco_living">Eco Living</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=food_n_nutrition">Food &
+                            Nutrition</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=health_n_wellbeing">Health &
+                            Wellbeing</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=lifestyle">Lifestyle</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=news">News</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=recipes">Recipes</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=uncategorised">Uncategorised</a></li>
+                        </ul>
                 </div>
                 <!-- Search Blog Bar -->
-                <div class="col">
+                <div class="col-12 col-md-6">
                     <form method="GET" action="{% url 'blog' %}">
                         <div class="input-group w-100">
                             <input class="form-control rounded-0" type="text" name="bq"
                                 placeholder="Search blog by keyword(s)">
                             <div class="input-group-append">
-                                <button class="form-control common-button btn-forest-green border-green rounded-0"
+                                <button class="form-control common-button btn-apple-green border-green rounded-0"
                                     type="submit">
                                     <span class="icon">
                                         <i class="fas fa-search"></i>
