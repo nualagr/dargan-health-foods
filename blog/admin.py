@@ -3,6 +3,7 @@ from .models import (
     BlogPost,
     Topic,
     BlogPostTag,
+    BlogPostComment,
     )
 
 
@@ -20,9 +21,13 @@ class BlogPostTagInline(admin.TabularInline):
     model = BlogPostTag
 
 
+class BlogPostCommentInline(admin.TabularInline):
+    model = BlogPostComment
+
 class BlogPostAdmin(admin.ModelAdmin):
     inlines = (
         BlogPostTagInline,
+        BlogPostCommentInline,
     )
 
     list_display = (
