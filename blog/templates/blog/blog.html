@@ -13,20 +13,49 @@
 {% endblock %}
 
 {% block content %}
-<!-- Breadcrumbs Navigation -->
+<!-- Blog Breadcrumbs Navigation -->
 <div class="container-fluid breadcrumbs-container pb-3">
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
             <div class="breadcrumbs">
                 <ul class="items">
+                    <!-- Home Breadcrumb -->
                     <li class="item home">
                         <a href="{% url 'home' %}" title="Go to Home Page">
                             Home
                         </a>
                     </li>
-                    <li class="item our_blog">
-                        <strong>Dargan's Blog</strong>
+                    {% if current_blog_topic or current_blog_tag or blog_search_term %}
+                    <!-- All Blog Posts Breadcrumb -->
+                    <li class="item blog">
+                        <a href="{% url 'blog' %}" title="Go to Blog Plage">
+                            Blog
+                        </a>
                     </li>
+                        <!-- Blog Topic Breadcrumb -->
+                        {% if current_blog_topic %}
+                        <li class="item topic">
+                            <strong>
+                                {{ current_blog_topic|first|title|to_ampersand }}
+                            </strong>
+                        </li>
+                        <!-- Blog Tag Breadcrumb-->
+                        {% elif current_blog_tag %}
+                        <li class="item tag">
+                            <strong>{{ current_blog_tag|first|title|to_ampersand }}</strong>
+                        </li>
+                        <!-- Blog Search Term Breadcrumb -->
+                        {% elif blog_search_term %}
+                        <li class="item search_term">
+                            <strong>Search Results For: "{{ blog_search_term|truncatechars:25 }}"</strong>
+                        </li>
+                        {% else %}
+                        {% endif %}
+                    {% else %}
+                    <li class="item blog">
+                        <strong>Blog</strong>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -35,10 +64,6 @@
 <!-- Blog Intro Text -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-lg-9 mx-auto">
-            <img src="{{ MEDIA_URL }}/blog_images/herbs-and-spice-on-board.jpg"
-                alt="Herbs and Spices on a Chopping Board" width="100%" height="auto">
-        </div>
         <div class="col-12 col-lg-9 mx-auto text-center">
             <h2 class="logo-font-heading">
                 Dargan's Blog
@@ -51,6 +76,41 @@
             <hr class="divider">
         </div>
     </div>
+    {% if page_obj.paginator.count > 0 %}
+    <div class="row">
+        <div class="col-12 col-lg-9 mx-auto">
+            <div class="row">
+                <!-- Result Counter -->
+                <div class="col-6">
+                    <p class="text-muted">
+                        Post{{ page_obj.paginator.count|pluralize }} {{ page_obj.start_index }} -
+                        {{ page_obj.end_index }} of {{ page_obj.paginator.count }}
+                    </p>
+                </div>
+                <!-- Filter by Topic Dropdown -->
+                <div class="col-6 dropdown show text-end">
+                    <a class="btn filter-btn rounded-0" href="#" role="button" id="dropdownTopicFilter"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Filter by Topic...&nbsp;<i class="fa-xs fas fa-chevron-down pl-2"></i>
+                    </a>
+                    <div class="dropdown-menu rounded-0" aria-labelledby="dropdownTopicFilter">
+                        <a class="dropdown-item" href="{% url 'blog' %}">All</a>
+                        <a class="dropdown-item" href="{% url 'blog' %}?topic=beauty">Beauty</a>
+                        <a class="dropdown-item" href="{% url 'blog' %}?topic=eco_living">Eco Living</a>
+                        <a class="dropdown-item" href="{% url 'blog' %}?topic=food_n_nutrition">Food &
+                            Nutrition</a>
+                        <a class="dropdown-item" href="{% url 'blog' %}?topic=health_n_wellbeing">Health &
+                            Wellbeing</a>
+                        <a class="dropdown-item" href="{% url 'blog' %}?topic=lifestyle">Lifestyle</a>
+                        <a class="dropdown-item" href="{% url 'blog' %}?topic=news">News</a>
+                        <a class="dropdown-item" href="{% url 'blog' %}?topic=recipes">Recipes</a>
+                        <a class="dropdown-item" href="{% url 'blog' %}?topic=uncategorised">Uncategorised</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </div>
 <div class="container-fluid blogposts-list-container">
     <div class="row">

@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.db.models import Q
 
-from .models import BlogPost, BlogPostTag, BlogPostComment
+from products.models import Tag
+from .models import BlogPost, BlogPostTag, BlogPostComment, Topic
 from .forms import (
     BlogPostForm,
     BlogPostAndTagsInlineFormSet,
@@ -15,12 +17,62 @@ from profiles.models import UserProfile
 def all_posts(request):
     """
     A view to fetch all the blog posts in the database
-    ordered by date descending.
-    Send the list of posts to the blog.html page.
+    including topic, tag and search queries.
     """
     # Get all the BlogPosts from the database, in descending order by date
     blogs_list = BlogPost.objects.all().order_by("-created_on")
     total_post_count = blogs_list.count()
+    # Get all BlogPostTags from the database
+    blogposttags = BlogPostTag.objects.all()
+    # So that we don't get an error when loading
+    # the blog page without the following terms.
+    blogquery = None
+    topic = None
+    tag = None
+
+    if request.GET:
+
+        if "topic" in request.GET:
+            topic = request.GET["topic"].split(",")
+            blogs_list = blogs_list.filter(topic__name__in=topic)
+            topic = Topic.objects.filter(name__in=topic).values_list(
+                "name", flat=True
+            )
+
+        if "tag" in request.GET:
+            tag = request.GET["tag"].split(",")
+            tagged_posts = blogposttags.filter(
+                tag__name__in=tag
+            ).values_list("blogpost", flat=True)
+            blogs_list = blogs_list.filter(id__in=tagged_posts)
+
+        if "bq" in request.GET:
+            blogquery = request.GET["bq"]
+            # If the search was left blank
+            if not blogquery:
+                messages.error(
+                    request, "No search criteria entered. Please try again."
+                )
+                return redirect(reverse("blog"))
+
+            all_tags = Tag.objects.all().values_list("name", flat=True)
+            # Check to see if the search term is a Tag
+            if all_tags.filter(friendly_name__iexact=blogquery):
+                tagged_posts = blogposttags.filter(
+                    tag__friendly_name__iexact=blogquery
+                ).values_list("blogpost", flat=True)
+                blogs_list = blogs_list.filter(id__in=tagged_posts)
+            # If not a recognized tag, search the following
+            # product table fields for the search term
+            else:
+                queries = (
+                    Q(title__icontains=blogquery)
+                    | Q(subtitle__icontains=blogquery)
+                    | Q(intro__icontains=blogquery)
+                    | Q(intro__icontains=blogquery)
+                    | Q(topic__name__icontains=blogquery)
+                )
+                blogs_list = blogs_list.filter(queries)
 
     # Pagination
     paginator = Paginator(blogs_list, 4)  # 4 posts maximum on each page
@@ -43,7 +95,10 @@ def all_posts(request):
         "page_obj": page_obj,
         "page_range": page_range,
         "blogs_list": blogs_list,
+        "blog_search_term": blogquery,
         "total_post_count": total_post_count,
+        "current_blog_topic": topic,
+        "current_blog_tag": tag,
     }
 
     return render(request, template, context)
