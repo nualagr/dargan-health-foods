@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load products_tags %}
 
 {% block title %}Dargan's Blog{% endblock %}
 
@@ -26,6 +27,12 @@
                     <li class="item blog">
                         <a href="{% url 'blog' %}" title="Go to Blog Page">
                             Blog
+                        </a>
+                    </li>
+                    <li class="item topic">
+                        <a href="{% url 'blog' %}?topic={{ blogpost.topic }}"
+                            title="Go to related Blog Topic Page">
+                            {{ blogpost.topic|title|to_ampersand }}
                         </a>
                     </li>
                     <li class="item blog_post">
