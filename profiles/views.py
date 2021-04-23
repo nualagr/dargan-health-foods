@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
 from .forms import UserProfileForm
+from blog.models import BlogPostComment
 from checkout.models import Order
 from products.models import ProductReview
 
@@ -28,12 +29,14 @@ def profile(request):
         form = UserProfileForm(instance=user)
 
     my_reviews = ProductReview.objects.all().filter(user=user)
+    my_comments = BlogPostComment.objects.all().filter(user=user)
     orders = user.orders.all()
     template = "profiles/profile.html"
     context = {
         "form": form,
         "orders": orders,
         "reviews": my_reviews,
+        "comments": my_comments,
         "on_profile_page": True,
     }
 

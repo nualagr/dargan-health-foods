@@ -63,7 +63,7 @@ def all_posts(request):
                 ).values_list("blogpost", flat=True)
                 blogs_list = blogs_list.filter(id__in=tagged_posts)
             # If not a recognized tag, search the following
-            # product table fields for the search term
+            # blogpost fields for the search term
             else:
                 queries = (
                     Q(title__icontains=blogquery)

@@ -65,6 +65,11 @@
                         data-bs-target="#pills-my-product-reviews" type="button" role="tab"
                         aria-controls="pills-my-product-reviews" aria-selected="false">My Product Reviews</button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link common-button" id="pills-my-blog-comments-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-my-blog-comments" type="button" role="tab"
+                        aria-controls="pills-my-blog-comments" aria-selected="false">My Blog Comments</button>
+                </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 <!-- My Details -->
@@ -234,6 +239,76 @@
                     </table>
                     {% else %}
                     <p>You have yet to review any products.</p>
+                    {% endif %}
+                </div>
+                <!-- My Blog Comments -->
+                <div class="tab-pane fade" id="pills-my-blog-comments" role="tabpanel"
+                    aria-labelledby="pills-my-blog-comments-tab">
+                    <p class="subtitle">
+                        Blog Comments
+                    </p>
+                    {% if comments %}
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th class="col comment_post" scope="col">Blog Post</th>
+                                <th class="col comment_date" scope="col">Date</th>
+                                <th class="col comment" scope="col">Comment</th>
+                                <th class="col delete" scope="col"><i class="fas fa-user-edit"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for comment in comments %}
+                            <tr>
+                                <td>
+                                    {{ comment.blogpost.title }}
+
+                                </td>
+                                <td>
+                                    {{ comment.created_on }}
+                                </td>
+                                <td>
+                                    {{ comment.content }}
+                                </td>
+                                <td class="item-delete">
+                                    <!-- Link to Edit BlogCommentForm -->
+                                    <a class="blue-text-link" href="{% url 'edit_comment' comment.id %}">Edit</a> <span
+                                        class="d-none d-xl-inline">|</span>
+                                    <!-- Delete BlogPostComment Modal Trigger -->
+                                    <a class="red-text-link" data-bs-toggle="modal"
+                                        data-bs-target="#deleteCommentModal">Delete</a>
+                                    <!-- Delete BlogPostComment Modal -->
+                                    <div class="modal fade" id="deleteCommentModal" tabindex="-1"
+                                        aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content rounded-0">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-danger text-center"
+                                                        id="deleteCommentModalLabel">
+                                                        Are you sure that you want to delete this comment?</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    Your views are valued by Dargan's Blog Community Members.
+                                                </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <a class="common-button btn-blue" data-bs-dismiss="modal">
+                                                       <i class="fas fa-undo"></i>&nbsp;Cancel</a>
+                                                    <a class="common-button btn-grey"
+                                                        href="{% url 'delete_comment' comment.id %}">
+                                                        <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>You have yet to comment on any blog posts.</p>
                     {% endif %}
                 </div>
             </div>
