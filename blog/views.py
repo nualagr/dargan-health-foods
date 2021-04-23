@@ -69,7 +69,7 @@ def all_posts(request):
                     Q(title__icontains=blogquery)
                     | Q(subtitle__icontains=blogquery)
                     | Q(intro__icontains=blogquery)
-                    | Q(intro__icontains=blogquery)
+                    | Q(content__icontains=blogquery)
                     | Q(topic__name__icontains=blogquery)
                 )
                 blogs_list = blogs_list.filter(queries)

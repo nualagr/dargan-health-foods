@@ -82,7 +82,7 @@ a.red-text-link:focus {
 }
 
 .border-apple-green {
-    border: 1px solid #97BE0D;
+    border: 1px solid #97BE0D !important;
 }
 
 .bg-white {
@@ -1197,12 +1197,15 @@ on the login page since all the other inputs have placeholders. */
 
 /* Blog Styling ------------------------------------------------------ */
 #dropdownTopicFilter~.dropdown-menu {
-    width: 94%;
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    margin-right: calc(var(--bs-gutter-x)/ -2);
-    margin-left: calc(var(--bs-gutter-x)/ -2);
+    width: 95%;
+    border-top: none;
+    margin-top: -1px !important;
 }
+
+#searchBlogButton {
+    border: 0 !important;
+}
+
 
 /* Media Queries ------------------------------------------------------*/
 
