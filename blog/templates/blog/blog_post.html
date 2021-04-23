@@ -84,7 +84,7 @@
                             <p class="small">
                                 <i class="fas fa-tag mr-1"></i>
                                 {% for tag in tags %}
-                                <a class="tag" href="{% url 'products' %}?tag={{ tag.tag.name }}">
+                                <a class="tag" href="{% url 'blog' %}?tag={{ tag.tag.name }}">
                                     {{ tag.tag.friendly_name }}
                                 </a>&nbsp;
                                 {% endfor %}

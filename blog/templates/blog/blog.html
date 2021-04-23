@@ -76,6 +76,27 @@
             <hr class="divider">
         </div>
     </div>
+</div>
+<!-- Blog Posts -->
+<div class="container-fluid section-container">
+    <div class="row page-title-wapper">
+        <div class="col-12 col-lg-9 mx-auto">
+            <!-- Page Title -->
+            <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
+                <span class="base" data-ui-id="page-title-wrapper">
+                    {% if blog_search_term %}
+                    Search Results For: "{{ blog_search_term }}"
+                    {% elif current_blog_topic %}
+                    {{ current_blog_topic|first|title|to_ampersand }}
+                    {% elif current_blog_tag %}
+                    {{ current_blog_tag|first|title|to_ampersand }}
+                    {% else %}
+                    All Posts
+                    {% endif %}
+                </span>
+            </h1>
+        </div>
+    </div>
     {% if page_obj.paginator.count > 0 %}
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
