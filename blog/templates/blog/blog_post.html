@@ -64,15 +64,15 @@
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 col-lg-9 mx-auto">
                     <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
                     <div class="card">
                         {% if blogpost.main_image %}
-                        <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class="card-img-top"
+                        <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class="card-img-top blog-photo"
                             alt="{{ blogpost.title }}">
                         {% else %}
-                        <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
-                            alt="{{ blogpost.title }}">
+                        <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg"
+                            class="card-img-top blog-photo" alt="{{ blogpost.title }}">
                         {% endif %}
                         <div class="card-body">
                             <div class="row">
@@ -100,8 +100,8 @@
                                 <div class="col-12 col-md-6">
                                     <p class="small text-end">
                                         <i class="fas fa-comment-alt"></i>&nbsp;
-                                        <a href="{% url 'blog_post' blogpost.slug %}#collapseComments"
-                                            class="tag" id="open-comments">
+                                        <a href="{% url 'blog_post' blogpost.slug %}#collapseComments" class="tag"
+                                            id="open-comments">
                                             {{ comments|length }}
                                         </a>
                                     </p>
@@ -133,107 +133,115 @@
 <div class="container-fluid blogpost-comments-accordion-container">
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto">
-            <div class="accordion accordion-flush">
-                <!-- Comments Accordion -->
-                <div class="accordion-item" id="accordionComments">
-                    <h4 class="accordion-comments-header" id="headingComments">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseComments" aria-expanded="false" aria-controls="collapseComments">
-                            Comments
-                        </button>
-                    </h4>
-                </div>
-                <div class="accordion-body collapse" id="collapseComments" aria-labelledby="headingComments">
-                    {% if request.user.is_authenticated %}
-                    <!-- Open BlogPostComment Form button -->
-                    <div class="my-3 text-end">
-                        <a class="common-button btn-forest-green" href="{% url 'add_comment' blogpost.id %}">
-                            <i class="fas fa-user-edit"></i>&nbsp;Leave a Comment
-                        </a>
-                    </div>
-                    {% else %}
-                    <small>
-                        <p class="text-end text-muted">
-                            Have a comment? Please
-                            <a class="blue-text-link" href="{% url 'account_login' %}">login</a>
-                            or
-                            <a class="blue-text-link" href="{% url 'account_signup' %}">register</a>
-                            to share your views on this topic.
-                        </p>
-                    </small>
-                    {% endif %}
-                    {% if comments %}
-                    {% for comment in comments %}
-                    <div class="my-1 text-muted">
-                        <small>{{ comment.user }} on {{ comment.created_on }}</small>
-                        {% if request.user.is_authenticated %}
-                        {% if user.id == comment.user.id %}
-                        <small>
-                            <a class="blue-text-link" href="{% url 'edit_comment' comment.pk %}">Edit</a> |
-                            <!-- Delete Comment Modal Trigger -->
-                            <a class="red-text-link" data-bs-toggle="modal"
-                                data-bs-target="#deleteCommentModal{{ comment.pk }}">Delete</a>
-                        </small>
-                        <!-- Delete Comment Modal -->
-                        <div class="modal fade" id="deleteCommentModal{{ comment.pk }}" tabindex="-1"
-                            aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content rounded-0">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title text-danger text-center" id="deleteCommentModalLabel">
-                                            Are you sure that you want to delete this comment?</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body text-center">
-                                        Your comments are valued.
-                                    </div>
-                                    <div class="modal-footer justify-content-center">
-                                        <a class="common-button btn-blue" data-bs-dismiss="modal"><i
-                                                class="fas fa-undo"></i>&nbsp;Cancel</a>
-                                        <a class="common-button btn-grey" href="{% url 'delete_comment' comment.pk %}">
-                                            <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+            <div class="row">
+                <div class="col-12 col-lg-9 mx-auto">
+                    <div class="accordion accordion-flush">
+                        <!-- Comments Accordion -->
+                        <div class="accordion-item" id="accordionComments">
+                            <h4 class="accordion-comments-header" id="headingComments">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseComments" aria-expanded="false"
+                                    aria-controls="collapseComments">
+                                    Comments
+                                </button>
+                            </h4>
+                        </div>
+                        <div class="accordion-body collapse" id="collapseComments" aria-labelledby="headingComments">
+                            {% if request.user.is_authenticated %}
+                            <!-- Open BlogPostComment Form button -->
+                            <div class="my-3 text-end">
+                                <a class="common-button btn-forest-green" href="{% url 'add_comment' blogpost.id %}">
+                                    <i class="fas fa-user-edit"></i>&nbsp;Leave a Comment
+                                </a>
+                            </div>
+                            {% else %}
+                            <small>
+                                <p class="text-end text-muted">
+                                    Have a comment? Please
+                                    <a class="blue-text-link" href="{% url 'account_login' %}">login</a>
+                                    or
+                                    <a class="blue-text-link" href="{% url 'account_signup' %}">register</a>
+                                    to share your views on this topic.
+                                </p>
+                            </small>
+                            {% endif %}
+                            {% if comments %}
+                            {% for comment in comments %}
+                            <div class="my-1 text-muted">
+                                <small>{{ comment.user }} on {{ comment.created_on }}</small>
+                                {% if request.user.is_authenticated %}
+                                {% if user.id == comment.user.id %}
+                                <small>
+                                    <a class="blue-text-link" href="{% url 'edit_comment' comment.pk %}">Edit</a> |
+                                    <!-- Delete Comment Modal Trigger -->
+                                    <a class="red-text-link" data-bs-toggle="modal"
+                                        data-bs-target="#deleteCommentModal{{ comment.pk }}">Delete</a>
+                                </small>
+                                <!-- Delete Comment Modal -->
+                                <div class="modal fade" id="deleteCommentModal{{ comment.pk }}" tabindex="-1"
+                                    aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content rounded-0">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-danger text-center"
+                                                    id="deleteCommentModalLabel">
+                                                    Are you sure that you want to delete this comment?</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                Your comments are valued.
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <a class="common-button btn-blue" data-bs-dismiss="modal"><i
+                                                        class="fas fa-undo"></i>&nbsp;Cancel</a>
+                                                <a class="common-button btn-grey"
+                                                    href="{% url 'delete_comment' comment.pk %}">
+                                                    <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                {% endif %}
+                                {% endif %}
                             </div>
+                            <div class="pt-2">
+                                {{ comment.content|linebreaks }}
+                            </div>
+                            <hr>
+                            {% endfor %}
+                            {% else %}
+                            <div>
+                                <p>Be the first to comment on this post.</p>
+                            </div>
+                            {% endif %}
                         </div>
-                        {% endif %}
-                        {% endif %}
-                    </div>
-                    <div class="pt-2">
-                        {{ comment.content|linebreaks }}
-                    </div>
-                    <hr>
-                    {% endfor %}
-                    {% else %}
-                    <div>
-                        <p>Be the first to comment on this post.</p>
-                    </div>
-                    {% endif %}
-                </div>
-                <!-- Search Accordion -->
-                <div class="accordion-item" id="accordionSearchBlog">
-                    <h4 class="accordion-search-blog-header" id="headingSearchBlog">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseSearchBlog" aria-expanded="false"
-                            aria-controls="collapseSearchBlog">
-                            Search Blog
-                        </button>
-                    </h4>
-                </div>
-                <div class="accordion-body collapse" id="collapseSearchBlog" aria-labelledby="headingSearchBlog">
-                    <form method="GET" action="{% url 'blog' %}">
-                        <div class="input-group">
-                            <input class="form-control rounded-0" type="text" name="bq"
-                                placeholder="Search blog by keyword(s)">
-                            <div class="input-group-append">
-                                <button class="form-control common-button btn-apple-green" type="submit"
-                                    id="searchBlogButton">
-                                    <i class="fas fa-search"></i>
+                        <!-- Search Accordion -->
+                        <div class="accordion-item" id="accordionSearchBlog">
+                            <h4 class="accordion-search-blog-header" id="headingSearchBlog">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSearchBlog" aria-expanded="false"
+                                    aria-controls="collapseSearchBlog">
+                                    Search Blog
                                 </button>
-                            </div>
+                            </h4>
                         </div>
-                    </form>
+                        <div class="accordion-body collapse" id="collapseSearchBlog"
+                            aria-labelledby="headingSearchBlog">
+                            <form method="GET" action="{% url 'blog' %}">
+                                <div class="input-group">
+                                    <input class="form-control rounded-0" type="text" name="bq"
+                                        placeholder="Search blog by keyword(s)">
+                                    <div class="input-group-append">
+                                        <button class="form-control common-button btn-apple-green" type="submit"
+                                            id="searchBlogButton">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
