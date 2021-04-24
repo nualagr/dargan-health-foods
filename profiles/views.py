@@ -28,9 +28,11 @@ def profile(request):
     else:
         form = UserProfileForm(instance=user)
 
-    my_reviews = ProductReview.objects.all().filter(user=user)
-    my_comments = BlogPostComment.objects.all().filter(user=user)
-    orders = user.orders.all()
+    my_reviews = ProductReview.objects.all().filter(
+        user=user).order_by("-created")
+    my_comments = BlogPostComment.objects.all().filter(
+        user=user).order_by("-created_on")
+    orders = user.orders.all().order_by("-date")
     template = "profiles/profile.html"
     context = {
         "form": form,
