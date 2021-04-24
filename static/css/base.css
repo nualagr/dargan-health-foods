@@ -1171,6 +1171,20 @@ on the login page since all the other inputs have placeholders. */
 }
 
 /* Shopping Cart ------------------------------------------------------*/
+.lbl-cart-wrapper{
+position: relative;
+}
+
+.lbl-cart-wrapper span{
+    font-size: 12px;
+    position: absolute;
+    top: -2px;
+    left:1px;
+    background-color: #F9A620;
+    padding: 0 6px;
+    border-radius: 9px;
+}
+
 .cart-wrapper table.cart-items tbody tr {
    border-bottom: 1px solid rgba(108, 117, 125,0.75);
 }
