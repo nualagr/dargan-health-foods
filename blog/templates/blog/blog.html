@@ -169,7 +169,7 @@
                     <div class="card text-center">
                         <a href="{% url 'blog_post' blogpost.slug %}" class="blog-post-link">
                             {% if blogpost.main_image %}
-                            <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class="card-img-top"
+                            <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class=" card-img-top"
                                 alt="{{ blogpost.title }}">
                             {% else %}
                             <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
@@ -198,7 +198,7 @@
                         Sorry, no results returned...
                     </div>
                     <div class="col-8 mx-auto col-lg-4 mx-auto pt-3">
-                        <img src="{{ MEDIA_URL }}magnifying-glass.jpg" class="card-img-top" alt="Magnifying Glass">
+                        <img src="{{ MEDIA_URL }}magnifying-glass.jpg" class="card-img-top opacity-2" alt="Magnifying Glass">
                     </div>
                     <div class="col-12">
                         <a href="{% url 'blog' %}" class="common-button btn-green-outline">
