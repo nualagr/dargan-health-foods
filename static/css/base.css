@@ -40,6 +40,10 @@ body {
     color: #29873C;
 }
 
+.text-red {
+    color: #DC3545;
+}
+
 a.green-text-link {
     color: #29873C;
     text-decoration: none;
@@ -49,6 +53,18 @@ a.green-text-link:hover,
 a.green-text-link:active,
 a.green-text-link:focus {
     color: #29873C;
+    text-decoration: underline;
+}
+
+a.grey-text-link {
+    color: #AAB7C4;
+    text-decoration: none;
+}
+
+a.grey-text-link:hover,
+a.grey-text-link:active,
+a.grey-text-link:focus {
+    color: #AAB7C4;
     text-decoration: underline;
 }
 

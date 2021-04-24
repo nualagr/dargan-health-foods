@@ -179,8 +179,9 @@
                             {% for review in reviews %}
                             <tr>
                                 <td>
-                                    {{ review.product.abbreviated_friendly_name }}
-
+                                    <a class="green-text-link" href="{% url 'product_detail' review.product.id %}">
+                                        {{ review.product.abbreviated_friendly_name }}
+                                    </a>
                                 </td>
                                 <td>
                                     {{ review.created }}
@@ -192,7 +193,7 @@
                                                 style="width:{% widthratio review.review_rating 5 100 %}%;"></span>
                                         </span>
                                     </div>
-                                    <div class="d-block d-md-none">{{ review.review_rating }} 
+                                    <div class="d-block d-md-none">{{ review.review_rating }}
                                         <i class="fas fa-star single-star"></i>
                                     </div>
                                 </td>
@@ -224,7 +225,7 @@
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
                                                     <a class="common-button btn-blue" data-bs-dismiss="modal">
-                                                       <i class="fas fa-undo"></i>&nbsp;Cancel</a>
+                                                        <i class="fas fa-undo"></i>&nbsp;Cancel</a>
                                                     <a class="common-button btn-grey"
                                                         href="{% url 'delete_review' review.id %}">
                                                         <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
@@ -261,14 +262,14 @@
                             {% for comment in comments %}
                             <tr>
                                 <td>
-                                    {{ comment.blogpost.title }}
-
+                                    <a class="green-text-link" href="{% url 'blog_post' comment.blogpost.slug %}">
+                                        {{ comment.blogpost.title|truncatewords:3 }} </a>
                                 </td>
                                 <td>
                                     {{ comment.created_on }}
                                 </td>
                                 <td>
-                                    {{ comment.content }}
+                                    {{ comment.content|truncatewords:10 }}
                                 </td>
                                 <td class="item-delete">
                                     <!-- Link to Edit BlogCommentForm -->
@@ -294,7 +295,7 @@
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
                                                     <a class="common-button btn-blue" data-bs-dismiss="modal">
-                                                       <i class="fas fa-undo"></i>&nbsp;Cancel</a>
+                                                        <i class="fas fa-undo"></i>&nbsp;Cancel</a>
                                                     <a class="common-button btn-grey"
                                                         href="{% url 'delete_comment' comment.id %}">
                                                         <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
