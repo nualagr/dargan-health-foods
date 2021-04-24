@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                    <div class="card text-center">
+                    <div class="card">
                         {% if blogpost.main_image %}
                         <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class="card-img-top"
                             alt="{{ blogpost.title }}">
@@ -74,23 +74,46 @@
                         <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="card-img-top"
                             alt="{{ blogpost.title }}">
                         {% endif %}
-                        <div class="card-body text-start">
-                            <p>By {{ blogpost.author }} | {{ blogpost.created_on }} |
-                                {{ blogpost.topic.friendly_name }}
-                            </p>
-                            <h4 class="mb-3 text-center text-green">{{ blogpost.subtitle }}</h4>
-                            {% if tags %}
-                            <p class="small">
-                                <i class="fas fa-tag mr-1"></i>
-                                {% for tag in tags %}
-                                <a class="tag" href="{% url 'blog' %}?tag={{ tag.tag.name }}">
-                                    {{ tag.tag.friendly_name }}
-                                </a>&nbsp;
-                                {% endfor %}
-                            </p>
-                            {% endif %}
-                            <p>{{ blogpost.intro }}</p>
-                            {{ blogpost.content|safe|linebreaks }}
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>By {{ blogpost.author }} | {{ blogpost.created_on }} |
+                                        {{ blogpost.topic.friendly_name }}
+                                    </p>
+                                    <h4 class="mb-3 text-center text-green">{{ blogpost.subtitle }}</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                {% if tags %}
+                                <div class="col-12 col-md-6">
+                                    <p class="small">
+                                        <i class="fas fa-tag mr-1"></i>
+                                        {% for tag in tags %}
+                                        <a class="tag" href="{% url 'blog' %}?tag={{ tag.tag.name }}">
+                                            {{ tag.tag.friendly_name }}
+                                        </a>&nbsp;
+                                        {% endfor %}
+                                    </p>
+                                </div>
+                                {% endif %}
+                                {% if comments %}
+                                <div class="col-12 col-md-6">
+                                    <p class="small text-end">
+                                        <i class="fas fa-comment-alt"></i>&nbsp;
+                                        <a href="{% url 'blog_post' blogpost.slug %}#collapseComments"
+                                            class="tag" id="open-comments">
+                                            {{ comments|length }}
+                                        </a>
+                                    </p>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>{{ blogpost.intro }}</p>
+                                    {{ blogpost.content|safe|linebreaks }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -204,7 +227,8 @@
                             <input class="form-control rounded-0" type="text" name="bq"
                                 placeholder="Search blog by keyword(s)">
                             <div class="input-group-append">
-                                <button class="form-control common-button btn-apple-green" type="submit" id="searchBlogButton">
+                                <button class="form-control common-button btn-apple-green" type="submit"
+                                    id="searchBlogButton">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -236,4 +260,26 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    // Reveal Comments Accordion when Total Comments Count clicked
+    $(document).ready(function () {
+        $('#open-comments').click(function () {
+            let accordion_body = $("#collapseComments")
+            let accordion_button = $("#headingComments").children("button")
+            // Check that the accordion body has not already been opened
+            if ((accordion_body.hasClass("collapse")) && (accordion_body.is(":not(.show)"))) {
+                // Toggle the 'collapse' class to reveal the Reviews Accordion Body Content
+                accordion_body.toggleClass("collapse");
+                // Toggle the 'collapsed' class so that the accordion button styling mimics that of a clicked accordion button
+                accordion_button.toggleClass("collapsed");
+                // Programmatically simulate clicking the button so that the accordion now closes when the user clicks on it to close it
+                accordion_button.click();
+            }
+        });
+    });
+</script>
 {% endblock %}

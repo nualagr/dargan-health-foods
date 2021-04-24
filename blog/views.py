@@ -116,7 +116,6 @@ def blog_post(request, slug):
     tags = BlogPostTag.objects.filter(blogpost=blogpost.id)
     # Get the related BlogPostComment objects
     comments = BlogPostComment.objects.filter(blogpost=blogpost.id)
-    print("These are the comments", comments)
 
     if request.user.is_authenticated:
         try:
