@@ -16,14 +16,13 @@
     <div class="row page-title-wapper">
         <div class="col-12 col-lg-9 mx-auto">
             <h3 class="page-title text-muted" id="page-title-heading" aria-labelledby="page-title-heading">
-                You are commenting on blog post: 
-                <p class="my-1 text-green text-center">{{ blogpost.title }}</p>
-            </h3>
+                You are commenting on blog post:</h3> 
+            <h4 class="my-1 text-green text-center">{{ blogpost.title }}</h4>
         </div>
     </div>
     <!-- Edit BlogPostCommentForm Row -->
     <div class="row">
-        <div class="col-12 col-lg-9 mx-auto">
+        <div class="col-12 col-lg-9 mx-auto pt-3">
             {% if request.user.is_authenticated %}
                 <form class="form blogpost-comment-form" action="{% url 'edit_comment' blogpostcomment.pk %}" method="POST">
                     {% csrf_token %}

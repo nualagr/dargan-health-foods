@@ -16,14 +16,13 @@
     <div class="row page-title-wapper">
         <div class="col-12 col-lg-9 mx-auto">
             <h3 class="page-title text-muted" id="page-title-heading" aria-labelledby="page-title-heading">
-                You are editing your review of: 
-                <p class="my-1 text-green text-center">{{ product.brand.friendly_name }}'s <strong>{{ product.friendly_name }}</strong></p>
-            </h3>
+                You are editing your review of: </h3>
+            <h4 class="my-1 text-green text-center">{{ product.brand.friendly_name }}'s <strong>{{ product.friendly_name }}</strong></h4>
         </div>
     </div>
     <!-- Edit Product Review Form Row -->
     <div class="row">
-        <div class="col-12 col-lg-9 mx-auto">
+        <div class="col-12 col-lg-9 mx-auto pt-3">
             {% if request.user.is_authenticated %}
                 <form class="form product-review-form" action="{% url 'edit_review' review.id %}" method="POST">
                     {% csrf_token %}
