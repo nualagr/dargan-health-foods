@@ -149,6 +149,31 @@ class Product(models.Model):
         return self.friendly_name
 
 
+class ProductDiscount(models.Model):
+    """
+    Creates a CategoryDiscount model containing
+    the CategoryID, Discount Value, start and
+    end dates for the promotion and the voucher
+    code to be used.
+    """
+
+    product = models.ForeignKey(
+        Product,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="discountedproducts",
+    )
+    discount_value = models.DecimalField(max_digits=6, decimal_places=2)
+    dicount_unit = models.CharField(max_length=10)
+    start_date = models.DateField()
+    expiry_date = models.DateField()
+    discount_code = models.CharField(max_length=10)
+
+    def __str__(self):
+        return "{}, {}".format(self.category, self.discount_code)
+
+
 class ProductImage(models.Model):
     """
     Creates a ProductImage model containing

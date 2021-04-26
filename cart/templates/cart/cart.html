@@ -14,34 +14,34 @@
 
 {% block messages %}
 {% if messages %}
-    <!-- Message Container -->
-    <div class="container-fluid messages-container">
-        <div class="row">
-            <div class="col-12 col-lg-10 offset-lg-1">
-                {% for message in messages %}
-                {% with message.level as level %}
-                {% if level == 40 %}
-                    <p class="text-danger">
-                        <i class="fas fa-times"></i> {{ message }}
-                    </p>
-                {% elif level == 30 %}
-                    <p class="text-warning">
-                        <i class="fas fa-exclamation-circle"></i> {{ message }}
-                    </p>
-                {% elif level == 25 %}
-                    <p class="text-success">
-                        <i class="fas fa-check"></i> {{ message }}
-                    </p>
-                {% else %}
-                    <p class="text-info">
-                        <i class="fas fa-info-circle"></i> {{ message }}
-                    </p>
-                {% endif %}
-                {% endwith %}
-                {% endfor %}
-            </div>
+<!-- Message Container -->
+<div class="container-fluid messages-container">
+    <div class="row">
+        <div class="col-12 col-lg-10 offset-lg-1">
+            {% for message in messages %}
+            {% with message.level as level %}
+            {% if level == 40 %}
+            <p class="text-danger">
+                <i class="fas fa-times"></i> {{ message }}
+            </p>
+            {% elif level == 30 %}
+            <p class="text-warning">
+                <i class="fas fa-exclamation-circle"></i> {{ message }}
+            </p>
+            {% elif level == 25 %}
+            <p class="text-success">
+                <i class="fas fa-check"></i> {{ message }}
+            </p>
+            {% else %}
+            <p class="text-info">
+                <i class="fas fa-info-circle"></i> {{ message }}
+            </p>
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
         </div>
     </div>
+</div>
 {% endif %}
 {% endblock %}
 
@@ -78,13 +78,13 @@
                         {% for item in cart_items %}
                         <tr>
                             <td class="item-img py-4">
-                            {% if item.product.main_image %}
+                                {% if item.product.main_image %}
                                 <img src="{{ MEDIA_URL }}{{ item.product.main_image }}" class="product-image-photo"
                                     alt="{{ item.product.abbreviated_friendly_name }}">
-                            {% else %}
-                                <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="product-image-photo"
-                                    alt="{{ product.abbreviated_friendly_name }}">
-                            {% endif %}
+                                {% else %}
+                                <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg"
+                                    class="product-image-photo" alt="{{ product.abbreviated_friendly_name }}">
+                                {% endif %}
                             </td>
                             <td class="item-info py-4">
                                 <a href="{% url 'product_detail' item.product.id %}" class="product-link">
@@ -139,9 +139,29 @@
                     <tfoot>
                         <tr>
                             <td class="py-4 text-start" colspan="6">
-                                <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping-btn" title="Continue Shopping">
+                                <a href="{% url 'products' %}"
+                                    class="common-button btn-green-outline continue-shopping-btn"
+                                    title="Continue Shopping">
                                     Continue Shopping
                                 </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 text-start" colspan="6">
+                                <div class="order-summary-discount" data-reduction-form="update">
+                                    <form class="edit_checkout" action="" accept-charset="UTF-8" method="POST">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            {{ discount_form | crispy }}
+                                        </div>
+                                        <div class="button-row">
+                                            <button type="submit" class="common-button btn-grey">
+                                                Apply
+                                            </button>
+                                            <input type="hidden" name="subscribe_redirect" value="{{ request.path }}">
+                                        </div>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     </tfoot>
@@ -187,7 +207,8 @@
                         {% if free_delivery_delta > 0 %}
                         <tr class="text-blue">
                             <td colspan="2">
-                                <p class="small"><i class="fas fa-info-circle"></i> You could get free delivery by spending just
+                                <p class="small"><i class="fas fa-info-circle"></i> You could get free delivery by
+                                    spending just
                                     <strong>€{{ free_delivery_delta }}</strong>
                                     more!
                                 </p>
@@ -198,7 +219,8 @@
                     <tfoot>
                         <tr>
                             <td colspan="2" class="text-center">
-                                <a href="{% url 'checkout' %}" class="common-button btn-proceed-to-checkout btn-orange" title="Proceed to Checkout">
+                                <a href="{% url 'checkout' %}" class="common-button btn-proceed-to-checkout btn-orange"
+                                    title="Proceed to Checkout">
                                     <span class="text-uppercase"><i class="fas fa-lock"></i>&nbsp;Secure Checkout</span>
                                 </a>
                             </td>

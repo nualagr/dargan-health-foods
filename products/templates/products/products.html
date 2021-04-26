@@ -109,7 +109,14 @@
                                 <a href="{% url 'product_detail' product.id %}" class="product-link">
                                     <h5 class="card-title">{{ product.abbreviated_friendly_name}}</h5>
                                 </a>
-                                <p class="card-text product-price">€{{ product.price }}</p>
+                                <p class="card-text product-price">
+                                    {% if product.discount %}
+                                    <span class="small text-muted strike-through d-none d-md-block">was €{{ product.price }}</span>
+                                    now €{{ product.price }}
+                                    {% else %}
+                                    €{{ product.price }}
+                                    {% endif %}
+                                </p>
                             </div>
                             <div class="card-footer bg-white border-0">
                                 <div class="row">
@@ -133,6 +140,11 @@
                                     </div>
                                 </div>
                             </div>
+                            {% if  not product.discount %}
+                            <div class="ribbon-wrapper-2">
+                                <div class="ribbon-2">25% Off</div>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
@@ -141,7 +153,8 @@
                         Sorry, no results returned...
                     </div>
                     <div class="col-8 mx-auto col-lg-4 mx-auto pt-3">
-                        <img src="{{ MEDIA_URL }}magnifying-glass.jpg" class="card-img-top opacity-2" alt="Magnifying Glass">
+                        <img src="{{ MEDIA_URL }}magnifying-glass.jpg" class="card-img-top opacity-2"
+                            alt="Magnifying Glass">
                     </div>
                     <div class="col-12">
                         <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping-btn">
