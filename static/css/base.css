@@ -41,7 +41,11 @@ body {
 }
 
 .text-red {
-    color: #DC3545;
+    color: #F8463F;
+}
+
+.text-orange {
+    color: #EF9606 !important;
 }
 
 a.green-text-link {
@@ -81,14 +85,14 @@ a.blue-text-link:focus {
 }
 
 a.red-text-link {
-    color: #DC3545;
+    color: #F8463F;
     text-decoration: none;
 }
 
 a.red-text-link:hover,
 a.red-text-link:active,
 a.red-text-link:focus {
-    color: #DC3545;
+    color: #F8463F;
     text-decoration: underline;
     cursor:pointer;
 }
@@ -475,14 +479,14 @@ input[name="q"]::placeholder {
 
 .btn-red {
     color: #FFFFFF;
-    background-color: #DC3545;
-    border-color: #DC3545;
+    background-color: #F8463F;
+    border-color: #F8463F;
 }
 
 .btn-red:hover,
 .btn-red:active,
 .btn-red:focus {
-    background: #BF2231;
+    background: #C02031;
     color: #FFFFFF;
 }
 
@@ -563,6 +567,23 @@ input[name="q"]::placeholder {
 .newsletter-container {
     background-color: #F5F5F5;
 }
+
+.join-now-container {
+    background: #FFEBCD url("../../media/watermelon-smile.jpg");
+    background-attachment: scroll;
+}
+
+/* .join-now-container {
+    background-image: radial-gradient(#FFFFFF, #FFEBCD, #F9A620);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0px;
+    width: 100%;
+    margin: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+} */
 
 .footer-container {
     /* Keep footer at the bottom of the page */
@@ -953,7 +974,7 @@ a.blog-post-link {
 
 a.product-link h5.card-title {
     height: 76px;
-    font-size: 1rem;
+    /* font-size: 1rem; */
 }
 
 a.product-link h5:hover, 
@@ -964,6 +985,126 @@ a.blog-post-link h5:hover {
 p.card-text.brand-name {
     font-size: .75em;
     text-transform: capitalize;
+}
+
+/* Code for how to style discount ribbons found on: https://uicookies.com/css-ribbons/*/
+/* Ribbon 1 found at: https://codepen.io/JohnOSTend/pen/ZXrwoM*/
+.ribbon-wrapper {
+  position: relative;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.ribbon1 {
+  position: absolute;
+  top: -6.1px;
+  right: 10px;
+}
+.ribbon1:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-top: 10px solid #F8463F;
+}
+.ribbon1 span {
+  position: relative;
+  display: block;
+  text-align: center;
+  background: #F8463F;
+  font-size: 14px;
+  line-height: 1;
+  padding: 12px 8px 10px;
+  border-top-right-radius: 8px;
+  width: 90px;
+}
+.ribbon1 span:before, 
+.ribbon1 span:after {
+  position: absolute;
+  content: "";
+}
+.ribbon1 span:before {
+ height: 6px;
+ width: 6px;
+ left: -6px;
+ top: 0;
+ background: #F8463F;
+}
+.ribbon1 span:after {
+ height: 6px;
+ width: 8px;
+ left: -8px;
+ top: 0;
+ border-radius: 8px 8px 0 0;
+ background: #C02031;
+}
+
+/* https://codepen.io/renduh/pen/EZVxza */
+
+.ribbon-wrapper-2 {
+  width: 108px;
+  height: 108px;
+  overflow: hidden;
+  position: absolute;
+  top: -6px;
+  right: -6px; }
+
+.ribbon-2 {
+  font: bold 15px Sans-Serif;
+  line-height: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -4px;
+  top: 26px;
+  width: 150px;
+  background-color: #97BE0D;
+  color: #FFFFFF;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  box-shadow: -3px 5px 6px -5px rgba(0, 0, 0, 0.5);
+  outline: 1px dashed #FFFFFF;
+  outline-offset: -4px; }
+
+.ribbon-2:before, .ribbon-8:after {
+  content: "";
+  border-top: 4px solid #89AC0C;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  position: absolute;
+  bottom: -4px; }
+
+.ribbon-2:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 4px solid #89AC0C;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid #89AC0C; }
+
+.ribbon-2:after {
+  content: "";
+  position: absolute;
+  right: 7px;
+  top: 100%;
+  z-index: -1;
+  border-left: 4px solid transparent;
+  border-right: 4px solid #89AC0C;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid #89AC0C; }
+
+.strike-through {
+    text-decoration: line-through;
 }
 
 /* Allauth, Newsletter, ProductReview and Contact Us Form Formatting -------------------------------------------- */
