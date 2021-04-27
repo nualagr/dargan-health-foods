@@ -689,6 +689,8 @@ Enum product_status {
 |Size Unit of Measurement   |size_unit                  |CharField      |max_length=10, null=True, blank=True|
 |Weight in Grams            |weight_g                   |IntegerField   |null=True, blank=True|
 |Price                      |price                      |DecimalField   |max_digits=6, decimal_places=2| 
+|On Offer                   |on_offer                   |BooleanField   |default=False|
+|Discount Price             |discount_price             |DecimalField   |max_digits=6, decimal_places=2, default=0|
 |Vat Code                   |vat_code                   |CharField      |max_length=3|
 |Product Information        |product_information        |TextField      |null=True, blank=True|
 |Ingredients                |ingredients                |TextField      |null=True, blank=True|
@@ -701,6 +703,8 @@ Enum product_status {
 |Date added                 |date_added                 |DateTimeField  |auto_now_add=True|
 |Number in Stock            |num_in_stock               |IntegerField   |null=False, default=0|
 |Discontinued               |discontinued               |BooleanField   |null=False, default=False|
+|Main Image                 |main_image                 |ImageField     |upload_to="product_images", null=True, blank=True|
+|Main Image URL             |main_image_url             |URLField       |max_length=1024, null=True, blank=True|
 
 <br>
 
@@ -714,12 +718,12 @@ Enum product_status {
 
 <br>
 
-#### ProductTags Model
+#### ProductTag Model
 | Title	        |Key in db	    |Data Type	    |Type Validation    |
 | :------------ |:--------------| :-------------|:----------------- |
-| ProductTags ID|id             |AutoField      |primary_key=True   |
-| Product ID    |product_id     |ForeignKey     |[ref: > Product.id]|
-| Tags          |tags           |OneToMany      |[ref: < Tag.id] |
+| ProductTag  ID|id             |AutoField      |primary_key=True   |
+| Product       |product        |ForeignKey     |[ref: Product.id]|
+| Tag           |tag            |ForeignKey     |[ref: Tag.id] |
 
 <br>
 
@@ -727,13 +731,13 @@ Enum product_status {
 | Title	            |Key in db	    |Data Type	    |Type Validation    |
 | :-----------------|:--------------| :-------------|:----------------- |
 | ProductReview ID  |id             |AutoField      |primary_key=True   |
-| Product ID        |product_id     |ForeignKey     |[ref: > Product.id] // inline relationship (many-to-one)|
-| User ID           |user_id        |ForeignKey     |[ref: > UserProfile.id]|
-| Rating score      |rating_score   |IntegerField   |choices=RATING_CHOICES, default=0|
-| Review Title      |review_title   |CharField      |max_length=80|
+| Product           |product        |ForeignKey     |[ref: > Product.id] // inline relationship (many-to-one)|
+| User              |user           |ForeignKey     |[ref: > UserProfile.id]|
+| Review Rating     |review_rating  |IntegerField   |choices=Star_RATING_CHOICES|
+| Review Title      |review_title   |CharField      |max_length=255|
 | Review Content    |review_content |TextField      ||
-| Review Date       |created        |DateTimeField  |auto_now_add=True|
-| Review Updated    |updated        |DateTimeField  |[default: `now()`]|
+| Created           |created        |DateTimeField  |auto_now_add=True|
+| Updated           |updated        |DateTimeField  |[default: `now()`]|
 
 <br>
 
@@ -754,12 +758,13 @@ Enum product_status {
 <br>
 
 #### OrderLineItem Model
-| Title	            |Key in db	    |Data Type	    |Type Validation    |
-| :-----------------|:--------------| :-------------|:----------------- |
-| Order ID          |order_id       |ForeignKey     |[ref: > Order.id] // inline relationship (many-to-one)|
-| Product ID        |product_id     |ForeignKey     |[ref: > Product.id]|
-| Quantity          |quantity       |IntegerField   |default=1|
-| Line Item Total   |lineitem_total |DecimalField   |max_digits=6|
+| Title	                |Key in db	        |Data Type	    |Type Validation    |
+| :-------------------- |:----------------- | :-------------|:----------------- |
+| Order ID              |order_id           |ForeignKey     |[ref: > Order.id] // inline relationship (many-to-one)|
+| Product ID            |product_id         |ForeignKey     |[ref: > Product.id]|
+| Product Price Paid    |product_price_paid |DecimalField   |max_digits=6, decimal_places=2, null=False, blank=False, editable=False, default=0,|
+| Quantity              |quantity           |IntegerField   |default=1|
+| Line Item Total       |lineitem_total     |DecimalField   |max_digits=6|
 
 
 <br>
@@ -795,20 +800,41 @@ Enum product_status {
 
 <br>
 
+#### Topic Model
+| Title	        |Key in db	    |Data Type	    |Type Validation    |
+| :------------ |:--------------| :-------------|:----------------- |
+|Topic ID       |id             |AutoField      |primary_key=True   |
+|Name           |name           |CharField      |max_length=30|
+|Friendly Name  |friendly_name  |CharField      |max_length=30, null=True, blank=True|
+
+<br>
+
 #### BlogPost Model
 | Title	                |Key in db	    |Data Type	    |Type Validation    |
 | :-----------------    |:--------------| :-------------|:----------------- |
 |BlogPost ID            |id             |AutoField      |primary_key=True   |
-|BlogPost Title         |title          |CharField      |max_length=80|
-|BlogPost URL Fragment  |slug           |SlugField      |max_length=100|
-|BlogPost Subtitle      |subtitle       |CharField      |max_length=100|
-|BlogPost Content       |content        |TextField      ||
+|Topic ID               |topic          |ForeignKey     |[ref: > Topic.id]|
+|Title                  |title          |CharField      |max_length=200|
+|Subtitle               |subtitle       |CharField      |max_length=200|
+|Intro                  |Intro          |TextField      ||
+|Content                |content        |TextField      ||
+|Main Image             |main_image     |ImageField     |upload_to="blog_images", null=True, blank=True|
 |Created On             |created_on     |DateTimeField  |auto_now_add=True|
 |Author                 |author         |ForeignKey     |[ref: > UserProfile.id]|
-|Tags                   |tags           |OneToMany      |[ref: < Tag.id] |
+|URL Fragment           |slug           |SlugField      |max_length=100|
 
 
 <br>
+
+#### BlogPostTag Model
+| Title	        |Key in db	    |Data Type	    |Type Validation    |
+| :------------ |:--------------| :-------------|:----------------- |
+| BlogPostTag ID|id             |AutoField      |primary_key=True   |
+| BlogPost ID   |blogpost       |ForeignKey     |[ref: BlogPost.id]|
+| Tag ID        |tag            |ForeignKey     |[ref: Tag.id] |
+
+<br>
+
 
 #### BlogComment Model
 | Title	            |Key in db	        |Data Type	    |Type Validation    |
@@ -823,10 +849,12 @@ Enum product_status {
 <br>
 
 Fixtures were made for 
-* Product, 
-* Brand, 
-* Category and 
-* Department 
+* Product 
+* Brand 
+* Category 
+* Department
+* Tag
+* Topic 
 
 in [Microsoft Excel](https://www.microsoft.com/en-ie/microsoft-365/excel) and saved as .csv files.
 Then they were converted to JSON using [JSON-CSV](https://json-csv.com/reverse).
@@ -1016,8 +1044,20 @@ def current_query_url(key, value, urlencode=None):
 
 ```
 
-This succeeded in bringing the user to the next/previous page of the product results page and kept their 
-category, department, tag or search term and sorting choice.
+This succeeded in bringing the user to the next/previous page of the results queryset, including 
+the chosen category, department, tag or search term and sorting choice.
+
+### [Product Discount Price Issue](https://github.com/nualagr/dargan-health-foods/commit/506f2f19c369db6eba3a474022047e26b5cc1ae2):
+When it came to applying a discount to individual products, for the purposes of an MVP, a 'discount_price' field and a 
+Boolean 'on_offer' field were added to the Product model. This allowed SuperUsers to mark individual product prices down from within the admin panel. 
+This new structure was then reflected in the OrderLineItem Model where the subtotal for each lineitem is calculated. 
+An issue arose relating to a User's past orders however.  The Order model accesses the 'product.price' through a Foreign Key to the Product model.
+This points to the price for that product, as it appears, currently, in the database. 
+The Order, however, needed to reference the price, as it existed, when the order was originally placed.
+This original price had been, and still is, stored in the Order model within the json string of the original_cart.
+To facilitate easier access to this vital piece of information, a new field, 'product_price_paid', was added to the OrderLineItem model.
+This value is now set when the OrderLineItem is saved. 
+It is this field that is now accessed and displayed within each order on the profile.html 'My Orders' tab.
 
 ##### back to [top](#table-of-contents)
 ---
