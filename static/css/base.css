@@ -380,8 +380,9 @@ input[name="q"]::placeholder {
     padding-right: 0.3em;
 }
 
-.quick-add-to-cart-btn {
-    margin: 10px auto;
+.quick-add-to-cart-btn,
+.apply-promo-code-btn {
+    margin: 1em auto;
 }
 
 .add-to-cart-btn {
@@ -1122,6 +1123,7 @@ p.card-text.brand-name {
 .product-review-form textarea,
 .product-review-form select,
 #newsletter-subscription-form input[type=email].emailinput,
+#discount-code-form input,
 .contact-form input,
 .contact-form textarea,
 .allauth-form-inner-content input {

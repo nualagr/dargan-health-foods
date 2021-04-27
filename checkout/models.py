@@ -8,18 +8,11 @@ from django_countries.fields import CountryField
 
 from products.models import Product
 from profiles.models import UserProfile
+from cart.models import DiscountCode
 
 # Order and OrderLineItem Models taken from the
 # Code Institute Boutique Ado walkthrough project:
 # https://github.com/nualagr/boutique-ado-v1 - and then modified
-
-
-class DiscountCode(models.Model):
-    code = models.CharField(max_length=30)
-    discount_amount = models.FloatField()
-
-    def __str__(self):
-        return self.code
 
 
 class Order(models.Model):
@@ -46,7 +39,11 @@ class Order(models.Model):
         max_digits=6, decimal_places=2, null=False, default=0
     )
     discount_code = models.ForeignKey(
-        "DiscountCode", on_delete=models.SET_NULL, blank=True, null=True)
+        DiscountCode,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
     discount_amount = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, default=0
     )

@@ -43,9 +43,9 @@ class ContactForm(forms.Form):
 
     class Meta:
         fields = [
-            'your_name',
-            'your_email',
-            'your_message',
+            "your_name",
+            "your_email",
+            "your_message",
         ]
 
     # Override the init method to make a couple of changes to the fields
@@ -55,5 +55,5 @@ class ContactForm(forms.Form):
             field = self.fields.get(field_name)
             self.fields[field_name].widget.attrs.update({
                 "placeholder": field.label,
-                'class': "input-control"
+                "class": "input-control"
             })

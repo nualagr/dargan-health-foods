@@ -1,13 +1,22 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from products.models import Product
+from .forms import DiscountCodeForm
 
 
 def view_cart(request):
     """
-    A view that renders the shopping cart contents page.
+    A view that renders the shopping cart contents page
+    and the empty DiscountCodeForm.
     """
-    return render(request, "cart/cart.html")
+    cart = request.session.get("cart", {})
+
+    discount_code_form = DiscountCodeForm()
+    template = "cart/cart.html"
+    context = {
+        "dcform": discount_code_form,
+    }
+    return render(request, template, context)
 
 
 def add_to_cart(request, item_id):
@@ -115,3 +124,5 @@ def decrease_quantity_by_one(request, item_id):
 
     request.session["cart"] = cart
     return redirect(reverse("view_cart"))
+
+

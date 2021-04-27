@@ -1,7 +1,8 @@
 from django import forms
 from .models import Order
 
-# Code taken from the Code Institute Boutique Ado walkthrough project:
+# OrderForm class taken from the Code Institute
+# Boutique Ado walkthrough project:
 # https://github.com/nualagr/boutique-ado-v1 - and then modified
 
 

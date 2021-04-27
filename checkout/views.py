@@ -125,7 +125,6 @@ def checkout(request):
 
     # GET request
     else:
-        # end of new
         cart = request.session.get("cart", {})
         if not cart:
             messages.error(

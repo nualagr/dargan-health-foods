@@ -143,6 +143,23 @@
                             </td>
                         </tr>
                         {% endfor %}
+                        <tr>
+                            <td colspan="6">
+                                <form id="discount-code-form" method="POST" action="">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-8 col-md-5 col-xl-4">
+                                            {{ dcform.code|as_crispy_field }}
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="submit" class="common-button btn-grey-outline apply-promo-code-btn">
+                                                Apply
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
                     </tbody>
                     <tfoot>
                         <tr>
