@@ -74,6 +74,7 @@ class ProductAdmin(admin.ModelAdmin):
         "size_value",
         "size_unit",
         "price",
+        "on_offer",
         "free_from",
         "category",
         "date_added",

@@ -991,7 +991,6 @@ p.card-text.brand-name {
 /* Ribbon 1 found at: https://codepen.io/JohnOSTend/pen/ZXrwoM*/
 .ribbon-wrapper {
   position: relative;
-  text-transform: uppercase;
   color: #FFFFFF;
 }
 
@@ -1014,7 +1013,7 @@ p.card-text.brand-name {
   display: block;
   text-align: center;
   background: #F8463F;
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 1;
   padding: 12px 8px 10px;
   border-top-right-radius: 8px;

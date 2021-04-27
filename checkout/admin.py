@@ -1,13 +1,13 @@
 from django.contrib import admin
-from .models import Order, OrderLineItem
+from .models import Order, OrderLineItem, DiscountCode
 
-# Admin Models code taken from the Code Institute
+# Admin Model OrderAdmin taken from the Code Institute
 # Boutique Ado walkthrough project and then modified
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
-    readonly_fields = ("lineitem_total",)
+    readonly_fields = ("product_price_paid", "lineitem_total",)
 
 
 class OrderAdmin(admin.ModelAdmin):
@@ -36,6 +36,8 @@ class OrderAdmin(admin.ModelAdmin):
         "county",
         "postcode",
         "country",
+        "discount_code",
+        "discount_amount",
         "delivery_cost",
         "order_total",
         "grand_total",
@@ -56,3 +58,4 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderAdmin)
+admin.site.register(DiscountCode)

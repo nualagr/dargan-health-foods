@@ -98,7 +98,11 @@
                             </td>
                             <td class="item-price py-4">
                                 <p>
+                                    {% if item.product.on_offer and item.product.discount_price %}
+                                    €{{ item.product.discount_price }}
+                                    {% else %}
                                     €{{ item.product.price }}
+                                    {% endif %}
                                 </p>
                             </td>
                             <td class="item-qty py-4 text-center">
@@ -122,7 +126,11 @@
                             </td>
                             <td class="item-subtotal py-4">
                                 <p>
+                                    {% if item.product.on_offer and item.product.discount_price %}
+                                    €{{ item.product.discount_price | calc_subtotal:item.quantity }}
+                                    {% else %}
                                     €{{ item.product.price | calc_subtotal:item.quantity }}
+                                    {% endif %}
                                 </p>
                             </td>
                             <td class="item-remove py-4">
@@ -144,24 +152,6 @@
                                     title="Continue Shopping">
                                     Continue Shopping
                                 </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 text-start" colspan="6">
-                                <div class="order-summary-discount" data-reduction-form="update">
-                                    <form class="edit_checkout" action="" accept-charset="UTF-8" method="POST">
-                                        {% csrf_token %}
-                                        <div class="form-group">
-                                            {{ discount_form | crispy }}
-                                        </div>
-                                        <div class="button-row">
-                                            <button type="submit" class="common-button btn-grey">
-                                                Apply
-                                            </button>
-                                            <input type="hidden" name="subscribe_redirect" value="{{ request.path }}">
-                                        </div>
-                                    </form>
-                                </div>
                             </td>
                         </tr>
                     </tfoot>

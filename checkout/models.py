@@ -9,8 +9,17 @@ from django_countries.fields import CountryField
 from products.models import Product
 from profiles.models import UserProfile
 
-# Models taken from the Code Institute Boutique Ado walkthrough project:
+# Order and OrderLineItem Models taken from the
+# Code Institute Boutique Ado walkthrough project:
 # https://github.com/nualagr/boutique-ado-v1 - and then modified
+
+
+class DiscountCode(models.Model):
+    code = models.CharField(max_length=30)
+    discount_amount = models.FloatField()
+
+    def __str__(self):
+        return self.code
 
 
 class Order(models.Model):
@@ -36,6 +45,11 @@ class Order(models.Model):
     delivery_cost = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0
     )
+    discount_code = models.ForeignKey(
+        "DiscountCode", on_delete=models.SET_NULL, blank=True, null=True)
+    discount_amount = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, default=0
+    )
     order_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0
     )
@@ -55,19 +69,23 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update grand total each time a line item is added,
-        accounting for delivery costs.
+        Update grand total each time a line item is added.
+        Check if discount code has been entered and if so, apply the discount.
+        Check to see if order is over the free delivery threshold.
         """
+        # if all the line items from an order are deleted
+        # the order will be set to zero instead of None.
+        # This prevents errors when comparing the total
+        # to the free delivery threshold.
         self.order_total = (
             self.lineitems.aggregate(Sum("lineitem_total"))[
                 "lineitem_total__sum"
             ]
             or 0
         )
-        # if all the line items from an order are deleted
-        # the order will be set to zero instead of None.
-        # This prevents errors when comparing the total
-        # to the free delivery threshold.
+        if self.discount_code:
+            self.order_total -= self.discount_code.amount
+
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = (
                 self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
@@ -101,17 +119,44 @@ class OrderLineItem(models.Model):
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE
     )
+    product_price_paid = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        null=False,
+        blank=False,
+        editable=False,
+        default=0,
+    )
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False, editable=False
     )
+
+    def get_total_lineitem_price(self):
+        return self.quantity * self.product.price
+
+    def get_total_discount_lineitem_price(self):
+        return self.quantity * self.product.discount_price
+
+    def get_amount_saved(self):
+        return self.get_total_lineitem_price() - self.get_total_discount_lineitem_price()
+
+    def get_final_price(self):
+        if self.product.discount_price:
+            return self.get_total_discount_lineitem_price()
+        return self.get_total_lineitem_price()
 
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        self.lineitem_total = self.product.price * self.quantity
+        if self.product.discount_price and self.product.on_offer:
+            self.product_price_paid = self.product.discount_price
+            self.lineitem_total = self.product.discount_price * self.quantity
+        else:
+            self.product_price_paid = self.product.price
+            self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):

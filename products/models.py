@@ -115,6 +115,9 @@ class Product(models.Model):
         default=0, null=True, blank=True
     )
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    on_offer = models.BooleanField(default=False, null=True, blank=True)
+    discount_price = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
     vat_code = models.CharField(max_length=3, null=True, blank=True)
     information = models.TextField(null=True, blank=True)
     ingredients = models.TextField(null=True, blank=True)
@@ -147,31 +150,6 @@ class Product(models.Model):
 
     def get_friendly_name(self):
         return self.friendly_name
-
-
-class ProductDiscount(models.Model):
-    """
-    Creates a CategoryDiscount model containing
-    the CategoryID, Discount Value, start and
-    end dates for the promotion and the voucher
-    code to be used.
-    """
-
-    product = models.ForeignKey(
-        Product,
-        null=True,
-        blank=True,
-        on_delete=models.CASCADE,
-        related_name="discountedproducts",
-    )
-    discount_value = models.DecimalField(max_digits=6, decimal_places=2)
-    dicount_unit = models.CharField(max_length=10)
-    start_date = models.DateField()
-    expiry_date = models.DateField()
-    discount_code = models.CharField(max_length=10)
-
-    def __str__(self):
-        return "{}, {}".format(self.category, self.discount_code)
 
 
 class ProductImage(models.Model):

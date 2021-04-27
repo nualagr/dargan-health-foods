@@ -59,9 +59,9 @@
                     <img class="product-details-image" src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg"
                         alt="{{ product.abbreviated_friendly_name }}">
                     {% endif %}
-                    {% if product.discount %}
+                    {% if product.on_offer and product.discount_price %}
                     <span class="ribbon1">
-                        <span>25% Discount</span>
+                        <span>SAVE</span>
                     </span>
                     {% endif %}
                 </div>
@@ -85,8 +85,8 @@
                         </span>
                     </p>
                     <p class="lead">
-                        {% if product.discount %}
-                        now €{{ product.price }} 
+                        {% if product.on_offer and product.discount_price %}
+                        now €{{ product.discount_price }} 
                         <span class="small text-muted strike-through">was €{{ product.price }}</span>
                         {% else %}
                         €{{ product.price }}

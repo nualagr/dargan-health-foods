@@ -58,7 +58,11 @@
                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                 </div>
                 <div class="col-3 text-end">
+                    {% if item.product.on_offer and item.product.discount_price %}
+                    <p class="my-0 small text-muted">€{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
+                    {% else %}
                     <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}

@@ -110,9 +110,9 @@
                                     <h5 class="card-title">{{ product.abbreviated_friendly_name}}</h5>
                                 </a>
                                 <p class="card-text product-price">
-                                    {% if product.discount %}
-                                    <span class="small text-muted strike-through d-none d-md-block">was €{{ product.price }}</span>
-                                    now €{{ product.price }}
+                                    {% if product.on_offer and product.discount_price %}
+                                    <span class="small text-muted strike-through d-none d-xl-inline">was €{{ product.price }}</span>
+                                    now €{{ product.discount_price }}
                                     {% else %}
                                     €{{ product.price }}
                                     {% endif %}
@@ -140,9 +140,9 @@
                                     </div>
                                 </div>
                             </div>
-                            {% if  not product.discount %}
+                            {% if product.on_offer and product.discount_price %}
                             <div class="ribbon-wrapper-2">
-                                <div class="ribbon-2">25% Off</div>
+                                <div class="ribbon-2">On Offer</div>
                             </div>
                             {% endif %}
                         </div>
