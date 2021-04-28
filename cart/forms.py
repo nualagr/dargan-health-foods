@@ -16,4 +16,6 @@ class DiscountCodeForm(forms.ModelForm):
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            # Add a CSS class we can use to style the inputs
+            self.fields[field].widget.attrs["class"] = "form-control"
             self.fields[field].label = False

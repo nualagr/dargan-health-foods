@@ -290,10 +290,6 @@ a.disabled{
     cursor: default;
 }
 
-input[name="q"]::placeholder {
-    color: #AAB7C4;
-}
-
 .subtitle {
     color: #29873C;
     text-transform: uppercase;
@@ -380,9 +376,13 @@ input[name="q"]::placeholder {
     padding-right: 0.3em;
 }
 
-.quick-add-to-cart-btn,
+.quick-add-to-cart-btn {
+    margin: 1em auto;
+}
+
 .apply-promo-code-btn {
     margin: 1em auto;
+    line-height: inherit;
 }
 
 .add-to-cart-btn {
@@ -1103,10 +1103,6 @@ p.card-text.brand-name {
   border-bottom: 4px solid transparent;
   border-top: 4px solid #89AC0C; }
 
-.strike-through {
-    text-decoration: line-through;
-}
-
 /* Allauth, Newsletter, ProductReview and Contact Us Form Formatting -------------------------------------------- */
 .contact-form p:not(.invalid-feedback),
 .allauth-form-inner-content p {
@@ -1140,6 +1136,9 @@ on the login page since all the other inputs have placeholders. */
 }
 
 /* Style the placeholders to match the rest of the site */
+input[name="q"]::placeholder,
+#discount-code-form input::placeholder,
+#profile-update-form input::placeholder,
 .contact-form input::placeholder,
 .contact-form textarea::placeholder,
 .allauth-form-inner-content input::placeholder {
@@ -1186,10 +1185,6 @@ on the login page since all the other inputs have placeholders. */
     margin: 1em 0;
     border-radius: 0;
     /* border-color: #6C757D; */
-}
-
-#profile-update-form input::placeholder {
-    color: #AAB7C4;
 }
 
 #id_default_country,
@@ -1472,6 +1467,7 @@ position: relative;
     .page-title-wrapper .page-title {
         display: inline-block;
     }
+    
 }
 
 /* Small Laptop Screens */
