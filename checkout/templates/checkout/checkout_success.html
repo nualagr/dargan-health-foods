@@ -160,7 +160,16 @@
                         <p class="subtitle">Billing Info:</p>
                     </div>
                 </div>
-
+                {% if order.discount_amount > 0 %}
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <p class="heading">Discount: {{ order.discount_code.discount_code }}&nbsp;<i class="fas fa-tags"></i></p>
+                    </div>
+                    <div class="col-12 col-md-8 text-md-end">
+                        <p class="info">€{{ order.discount_amount }}</p>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <p class="heading">Order Total</p>
