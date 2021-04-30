@@ -147,10 +147,10 @@
                         <!-- Discount Code Form Row -->
                         <tr>
                             <td colspan="6">
-                                <form id="discount-code-form" method="POST" action="">
+                                <form id="discount-code-form" method="POST" action="{% url 'view_cart' %}">
                                     {% csrf_token %}
                                     <div class="input-group">
-                                        {{ dcform.code }}
+                                        {{ dcform.discount_code }}
                                         <button type="submit" class="common-button btn-grey-outline input-group-append apply-promo-code-btn">
                                             Apply
                                         </button>
@@ -185,6 +185,24 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% if discount_amount > 0 %}
+                        <tr class="cart-totals">
+                            <th scope="row" class="lighter-heading">
+                                Cart Total:
+                            </th>
+                            <td class="amount">
+                                €{{ total_before_discount|floatformat:2 }}
+                            </td>
+                        </tr>
+                        <tr class="cart-discount">
+                            <th scope="row" class="lighter-heading">
+                               {{ discount_code.discount_code }}&nbsp;<i class="fas fa-tags"></i>
+                            </th>
+                            <td class="amount">
+                                -&nbsp;€{{ discount_amount|floatformat:2 }}
+                            </td>
+                        </tr>
+                        {% else %}
                         <tr class="cart-totals">
                             <th scope="row" class="lighter-heading">
                                 Cart Total:
@@ -193,6 +211,7 @@
                                 €{{ total|floatformat:2 }}
                             </td>
                         </tr>
+                        {% endif %}
                         <tr>
                             <th scope="row" class="lighter-heading">
                                 Shipping:
@@ -214,7 +233,7 @@
                             <td colspan="2">
                                 <p class="small"><i class="fas fa-info-circle"></i> You could get free delivery by
                                     spending just
-                                    <strong>€{{ free_delivery_delta }}</strong>
+                                    <strong>€{{ free_delivery_delta|floatformat:2 }}</strong>
                                     more!
                                 </p>
                             </td>
