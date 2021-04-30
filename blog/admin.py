@@ -24,6 +24,7 @@ class BlogPostTagInline(admin.TabularInline):
 class BlogPostCommentInline(admin.TabularInline):
     model = BlogPostComment
 
+
 class BlogPostAdmin(admin.ModelAdmin):
     inlines = (
         BlogPostTagInline,
