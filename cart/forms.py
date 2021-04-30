@@ -5,12 +5,12 @@ from .models import DiscountCode
 class DiscountCodeForm(forms.ModelForm):
     class Meta:
         model = DiscountCode
-        fields = ['code', ]
+        fields = ['discount_code', ]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         placeholders = {
-            'code': 'Promo Code',
+            'discount_code': 'Promo Code',
         }
 
         for field in self.fields:
