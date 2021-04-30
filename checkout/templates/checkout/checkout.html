@@ -59,7 +59,8 @@
                 </div>
                 <div class="col-3 text-end">
                     {% if item.product.on_offer and item.product.discount_price %}
-                    <p class="my-0 small text-muted">€{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
+                    <p class="my-0 small text-muted"><s>€{{ item.product.price | calc_subtotal:item.quantity }}</s>
+                        €{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
                     {% else %}
                     <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                     {% endif %}
@@ -70,11 +71,19 @@
             <div class="row text-end">
                 <div class="col-7 offset-2">
                     <p class="my-0">Order Total:</p>
+                    {% if discount_amount > 0 %}
+                    <p class="my-0">{{ discount_code.discount_code }} <i class="fas fa-tags"></i></p>
+                    {% endif %}
                     <p class="my-0">Delivery:</p>
                     <p class="my-0">Grand Total:</p>
                 </div>
                 <div class="col-3">
+                    {% if discount_amount > 0 %}
+                    <p class="my-0">€{{ total_before_discount | floatformat:2 }}</p>
+                    <p class="my-0">-&nbsp;€{{ discount_amount | floatformat:2 }}</p>
+                    {% else %}
                     <p class="my-0">€{{ total | floatformat:2 }}</p>
+                    {% endif %}
                     <p class="my-0">€{{ delivery | floatformat:2 }}</p>
                     <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
                 </div>
