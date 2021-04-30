@@ -229,6 +229,10 @@ def checkout_success(request, order_number):
     if "cart" in request.session:
         del request.session["cart"]
 
+    # Remove the used Discount Code from the Session
+    if "discount" in request.session:
+        del request.session["discount"]
+
     template = "checkout/checkout_success.html"
     context = {
         # Send the order back to the template
