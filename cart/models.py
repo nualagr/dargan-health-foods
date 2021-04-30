@@ -2,8 +2,8 @@ from django.db import models
 
 
 class DiscountCode(models.Model):
-    code = models.CharField(max_length=30)
-    discount_amount = models.FloatField()
+    discount_code = models.CharField(max_length=30)
+    percentage_discount = models.FloatField()
 
     def __str__(self):
-        return f"Code:{self.code}, {self.discount_amount}% discount"
+        return f"PromoCode:{self.discount_code}, {self.percentage_discount}% discount"
