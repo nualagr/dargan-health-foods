@@ -111,7 +111,7 @@
                                 </a>
                                 <p class="card-text product-price">
                                     {% if product.on_offer and product.discount_price %}
-                                    <span class="small text-muted strike-through d-none d-xl-inline">was €{{ product.price }}</span>
+                                    <span class="small text-muted text-decoration-line-through d-none d-xl-inline">was €{{ product.price }}</span>
                                     now €{{ product.discount_price }}
                                     {% else %}
                                     €{{ product.price }}
