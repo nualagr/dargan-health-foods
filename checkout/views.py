@@ -42,6 +42,7 @@ def cache_checkout_data(request):
                 "cart": json.dumps(request.session.get("cart", {})),
                 "save_info": request.POST.get("save_info"),
                 "username": request.user,
+                "discount": json.dumps(request.session.get("discount", {})),
             },
         )
         return HttpResponse(status=200)
@@ -88,7 +89,11 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
             if discount:
-                order.discount_code = DiscountCode.objects.get(pk=discount["discount_code_id"])
+                order.discount_code = DiscountCode.objects.get(
+                    pk=discount["discount_code_id"])
+                print(
+                    "This is the discount code coming from checkout view during order creation",
+                    order.discount_code)
             # Now save the Order to the database
             order.save()
             # Iterate through the cart to create each OrderLineItem
