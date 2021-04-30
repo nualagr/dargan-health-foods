@@ -11,6 +11,7 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+from cart.models import DiscountCode
 
 from products.models import Product
 from profiles.models import UserProfile
@@ -62,6 +63,8 @@ def checkout(request):
     if request.method == "POST":
         # The user is trying to submit their payment details
         cart = request.session.get("cart", {})
+        # Get the discount code if one exists
+        discount = request.session.get("discount", {})
 
         # Create a dict with the data from the Billing Details form
         form_data = {
@@ -84,6 +87,8 @@ def checkout(request):
             pid = request.POST.get("client_secret").split("_secret")[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
+            if discount:
+                order.discount_code = DiscountCode.objects.get(pk=discount["discount_code_id"])
             # Now save the Order to the database
             order.save()
             # Iterate through the cart to create each OrderLineItem
