@@ -9,6 +9,7 @@ def cart_contents(request):
 
     cart_items = []
     total = 0
+    total_before_discount = 0
     product_count = 0
     discount_code_object = None
     discount_amount = 0
@@ -33,6 +34,7 @@ def cart_contents(request):
     print("This is the discount printing from contexts.py", discount)
 
     if discount:
+        total_before_discount = total
         print(
             "This is the discount code id printing from contexts.py",
             discount["discount_code_id"])
@@ -55,6 +57,7 @@ def cart_contents(request):
         "cart_items": cart_items,
         "discount_amount": discount_amount,
         "discount_code": discount_code_object,
+        "total_before_discount": total_before_discount,
         "total": total,
         "product_count": product_count,
         "delivery": delivery,
