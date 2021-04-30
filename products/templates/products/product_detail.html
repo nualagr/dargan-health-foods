@@ -87,7 +87,7 @@
                     <p class="lead">
                         {% if product.on_offer and product.discount_price %}
                         now €{{ product.discount_price }} 
-                        <span class="small text-muted strike-through">was €{{ product.price }}</span>
+                        <span class="small text-muted text-decoration-line-through">was €{{ product.price }}</span>
                         {% else %}
                         €{{ product.price }}
                         {% endif %}
