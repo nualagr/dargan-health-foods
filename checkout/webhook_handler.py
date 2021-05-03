@@ -69,6 +69,7 @@ class StripeWH_Handler:
         pid = intent.id
         # Get the cart info added in checkout/views.py cache_checkout_data
         cart = intent.metadata.cart
+        discount = intent.metadata.discount
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
@@ -143,7 +144,9 @@ class StripeWH_Handler:
             # If the Order does not exist
             # Create an Order using the data from the paymentIntent
             order = None
+            discount = json.loads(discount)
             try:
+                discount_code_object = DiscountCode.objects.get(pk=discount["discount_code_id"])
                 order = Order.objects.create(
                     full_name=shipping_details.name,
                     # Attach the profile which will be full if they were
@@ -157,6 +160,7 @@ class StripeWH_Handler:
                     county=shipping_details.address.state,
                     country=shipping_details.address.country,
                     postcode=shipping_details.address.postal_code,
+                    discount_code=discount_code_object,
                     grand_total=grand_total,
                     original_cart=cart,
                     stripe_pid=pid,
@@ -171,6 +175,7 @@ class StripeWH_Handler:
                         quantity=quantity,
                     )
                     order_line_item.save()
+
             except Exception as e:
                 if order:
                     order.delete()
@@ -178,7 +183,6 @@ class StripeWH_Handler:
                         content=f'Webhook received: {event["type"]} | ERROR: {e}',
                         status=500,
                     )
-        print(intent)
         # If it gets to this point the Order has been created
         # Send the confirmation email and send a response to Stripe.
         self._send_confirmation_email(order)
