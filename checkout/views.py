@@ -91,9 +91,6 @@ def checkout(request):
             if discount:
                 order.discount_code = DiscountCode.objects.get(
                     pk=discount["discount_code_id"])
-                print(
-                    "This is the discount code coming from checkout view during order creation",
-                    order.discount_code)
             # Now save the Order to the database
             order.save()
             # Iterate through the cart to create each OrderLineItem
@@ -153,12 +150,10 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        print(intent)
 
         # Attempt to prefill the Order Form with any info
         # the user maintains in their Profile
         if request.user.is_authenticated:
-            print("I recognize this user", request.user.is_authenticated)
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
