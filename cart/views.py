@@ -9,6 +9,9 @@ def view_cart(request):
     """
     A view that renders the shopping cart contents page
     and the empty DiscountCodeForm.
+    When posting from this view, the discount code, if valid,
+    is added to the session cookie so that it can be accessed
+    by the cart_contents function in the context.py file.
     """
     discount = request.session.get("discount", {})
     discount_code_form = DiscountCodeForm()
@@ -17,27 +20,26 @@ def view_cart(request):
         discount_code_form = DiscountCodeForm(request.POST)
         if discount_code_form.is_valid():
             discount_code = discount_code_form.cleaned_data["discount_code"]
-            print("This is the code that was entered:", discount_code)
             try:
                 # Get the code from the database
                 discount_code_object = DiscountCode.objects.get(
-                    discount_code=discount_code)
-                print("This is the discount_code_object", discount_code_object)
+                    discount_code=discount_code
+                )
                 if discount_code_object:
                     discount["discount_code_id"] = discount_code_object.id
-                    percentage_discount = discount_code_object.percentage_discount
-                    print("This is the percentage discount to be applied:",
-                          percentage_discount)
-                    # Put the promocode variable in the session
+                    percentage_discount = (
+                        discount_code_object.percentage_discount
+                    )
+                    # Put the promocode id variable in the session
+                    # so that the discount can be applied in the
+                    # cart_contents context
                     request.session["discount"] = discount
                     return redirect(reverse("view_cart"))
             except DiscountCode.DoesNotExist:
                 messages.error(
-                        request,
-                        (
-                            "Promo Code not recognised."
-                        ),
-                    )
+                    request,
+                    ("Promo Code not recognised."),
+                )
                 # Return the user to the Shopping Cart page
                 return redirect(reverse("view_cart"))
         else:
@@ -74,13 +76,15 @@ def add_to_cart(request, item_id):
     if item_id in list(cart.keys()):
         cart[item_id] += quantity
         messages.success(
-                request,
-                f"Added another {product.friendly_name} to your cart.",
-            )
+            request,
+            f"Added another {product.friendly_name} to your cart.",
+        )
     else:
         cart[item_id] = quantity
         # Add a message to the request object
-        messages.success(request, f"Added {product.friendly_name} to your cart")
+        messages.success(
+            request, f"Added {product.friendly_name} to your cart"
+        )
 
     # Put the cart variable in the session
     request.session["cart"] = cart
@@ -105,7 +109,6 @@ def remove_from_cart(request, item_id):
             )
 
         request.session["cart"] = cart
-        print(request.session["cart"])
         return redirect(reverse("view_cart"))
 
     except Exception as e:
