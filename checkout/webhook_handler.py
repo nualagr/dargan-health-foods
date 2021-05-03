@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 
 from .models import Order, OrderLineItem
+from cart.models import DiscountCode
 from products.models import Product
 from profiles.models import UserProfile
 
@@ -21,15 +22,30 @@ class StripeWH_Handler:
         self.request = request
 
     def _send_confirmation_email(self, order):
-        """Send the user a confirmation email"""
+        """
+        Check to see whether a discount code was used.
+        If so, render the discounted amount within the email.
+        Send the user a confirmation email.
+        """
         cust_email = order.email
         subject = render_to_string(
             "checkout/confirmation_emails/confirmation_email_subject.txt",
             {"order": order},
         )
+        if order.discount_code is not None:
+            discount_code = order.discount_code
+            discount_amount = f"-€{order.discount_amount}"
+        else:
+            discount_code = ""
+            discount_amount = ""
         body = render_to_string(
             "checkout/confirmation_emails/confirmation_email_body.txt",
-            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+            {
+                "order": order,
+                "discount_code": discount_code,
+                "discount_amount": discount_amount,
+                "contact_email": settings.DEFAULT_FROM_EMAIL
+            },
         )
         # The subject, body and from email are strings.
         # The cust_email list is a list of strings.
