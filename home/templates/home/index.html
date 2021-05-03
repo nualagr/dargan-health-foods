@@ -138,6 +138,8 @@
         </div>
     </div>
 </div>
+{% if request.user.is_authenticated %}
+{% else %}
 <!-- Join Us -->
 <div class="container-fluid section-container join-now-container">
     <div class="section-title-container">
@@ -165,6 +167,7 @@
         </div>
     </div>
 </div>
+{% endif %}
 <!-- Latest Blog Posts -->
 <div class="container-fluid section-container">
     <div class="section-title-container">
