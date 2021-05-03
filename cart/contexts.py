@@ -31,13 +31,9 @@ def cart_contents(request):
         })
 
     discount = request.session.get("discount", {})
-    print("This is the discount printing from contexts.py", discount)
 
     if discount:
         total_before_discount = total
-        print(
-            "This is the discount code id printing from contexts.py",
-            discount["discount_code_id"])
         discount_code_object = get_object_or_404(
             DiscountCode, pk=discount["discount_code_id"])
         percentage_discount = discount_code_object.percentage_discount
