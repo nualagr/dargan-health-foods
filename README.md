@@ -70,6 +70,9 @@ Click <a href="">here</a> to visit the deployed site.
         - [Existing User](#tested-existing-user-stories)
         - [Site Owner](#tested-site-owner-stories)
     - [Bugs](#bugs)
+        - [Pagination Issue](#pagination-issue)
+        - [Product Discount-Price Issue](#product-discount-price-issue)
+        - [Discount Code Issues](#discount-code-issues)
     - [Unresolved Issues](#unresolved-issues)
 6. [**Deployment**](#deployment)
 7. [**Credits**](#credits)
@@ -1002,8 +1005,8 @@ Each website feature, including buttons, modals, external links, hover effects e
 
 ### Bugs
 
-### [Pagination Issue](https://github.com/nualagr/dargan-health-foods/commit/7b8b1e0fc9afd4d0f8b39b69611bc38c8679ff28):
-Pagination was applied to the products.html page and initially worked correctly.  However, once filtering of products 
+#### Pagination Issue
+[Pagination]((https://github.com/nualagr/dargan-health-foods/commit/7b8b1e0fc9afd4d0f8b39b69611bc38c8679ff28)) was applied to the products.html page and initially worked correctly.  However, once filtering of products 
 by search criteria was implemented, the pagination 'previous' and 'next' buttons
 brought the user to page one or three of the products.html page, rather than the page associated with the chosen queryset. 
 This problem was put to one side. Filtering of products by category and department was implemented. Then sorting of 
@@ -1047,9 +1050,12 @@ def current_query_url(key, value, urlencode=None):
 This succeeded in bringing the user to the next/previous page of the results queryset, including 
 the chosen category, department, tag or search term and sorting choice.
 
-### [Product Discount Price Issue](https://github.com/nualagr/dargan-health-foods/commit/506f2f19c369db6eba3a474022047e26b5cc1ae2):
-When it came to applying a discount to individual products, for the purposes of an MVP, a 'discount_price' field and a 
-Boolean 'on_offer' field were added to the Product model. This allowed SuperUsers to mark individual product prices down from within the admin panel. 
+<br>
+
+#### Product Discount Price Issue
+When it came to applying a [discount to individual products](https://github.com/nualagr/dargan-health-foods/commit/506f2f19c369db6eba3a474022047e26b5cc1ae2),
+for the purposes of an MVP, a 'discount_price' field and a Boolean 'on_offer' field were added to the Product model. 
+This allowed SuperUsers to mark individual product prices down from within the admin panel. 
 This new structure was then reflected in the OrderLineItem Model where the subtotal for each lineitem is calculated. 
 An issue arose relating to a User's past orders however.  The Order model accesses the 'product.price' through a Foreign Key to the Product model.
 This points to the price for that product, as it appears, currently, in the database. 
@@ -1059,13 +1065,17 @@ To facilitate easier access to this vital piece of information, a new field, 'pr
 This value is now set when the OrderLineItem is saved. 
 It is this field that is now accessed and displayed within each order on the profile.html 'My Orders' tab.
 
-### [Discount Code Issues](https://github.com/nualagr/dargan-health-foods/commit/c9445ca3d1c48bb004ce65434aaf856e3cfdcad2):
+<br>
+
+#### Discount Code Issues
 The addition of Discount Codes to the project required revision of many elements of the payment process.
 
-At first, a very simple DiscountCode model of only two fields was used. This consisted of the promocode and the percentage discount to be applied.
+At first, a very simple [DiscountCode model](https://github.com/nualagr/dargan-health-foods/commit/c9445ca3d1c48bb004ce65434aaf856e3cfdcad2) 
+of only two fields was used. This consisted of the promo code and the associate percentage discount to be applied.
 After reading Kim Salazar's article ["Applying Discounts and Ecommerce Websites"](https://www.nngroup.com/articles/applying-discounts/) it became clear
 that, from a user-experience point-of-view, it would be best to allow site users to apply this code within the Cart rather than making them wait
-until they were on the Checkout page.
+until they were on the Checkout page. This approach enables people to check that the discount code is valid before they enter any personal information 
+and also allows the total to be updated appropriately early in the process.
 A DiscountCodeForm, based on the DiscountCode model was created and rendered on the cart.html page. On submission of this form, the discount code, 
 if valid, is stored in the Session Cookie.
 
