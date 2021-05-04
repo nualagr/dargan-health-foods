@@ -151,7 +151,7 @@ def decrease_quantity_by_one(request, item_id):
     """
     View to decrease the quantity of the
     specified item in the shopping cart by one.
-    If this empties the cart, check whether a 
+    If this empties the cart, check whether a
     discount code had been applied. If so,
     delete it from the session cookie.
     """
@@ -180,4 +180,18 @@ def decrease_quantity_by_one(request, item_id):
             )
 
     request.session["cart"] = cart
+    return redirect(reverse("view_cart"))
+
+
+def remove_discount_code(request):
+    """
+    View to remove the discount code that had been applied
+    to the cart total by deleting the 'discount' variable from
+    the session cookie.
+    """
+
+    # Remove the Discount Code from the Session
+    if "discount" in request.session:
+        del request.session["discount"]
+
     return redirect(reverse("view_cart"))

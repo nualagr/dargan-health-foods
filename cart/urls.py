@@ -15,4 +15,8 @@ urlpatterns = [
         name="decrease_quantity_by_one",
     ),
     path("remove/<item_id>/", views.remove_from_cart, name="remove_from_cart"),
+    path(
+        "remove_discount_code",
+        views.remove_discount_code,
+        name="remove_discount_code"),
 ]

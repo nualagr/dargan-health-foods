@@ -196,7 +196,10 @@
                         </tr>
                         <tr class="cart-discount">
                             <th scope="row" class="lighter-heading">
-                               {{ discount_code.discount_code }}&nbsp;<i class="fas fa-tags"></i>
+                               <a href="{% url 'remove_discount_code' %}" role="button" class="btn btn-grey-outline">
+                                   {{ discount_code.discount_code }}&nbsp;<i class="fas fa-tags"></i>
+                                   &nbsp;<i class="fas fa-times"></i>
+                                </a>
                             </th>
                             <td class="amount">
                                 -&nbsp;€{{ discount_amount|floatformat:2 }}
