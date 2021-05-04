@@ -193,5 +193,9 @@ def remove_discount_code(request):
     # Remove the Discount Code from the Session
     if "discount" in request.session:
         del request.session["discount"]
+        messages.success(
+                request,
+                "Promo Code removed.",
+            )
 
     return redirect(reverse("view_cart"))
