@@ -144,24 +144,33 @@
                             </td>
                         </tr>
                         {% endfor %}
-                        <!-- Discount Code Form Row -->
+                        {% if request.user.is_authenticated %}
+                        <!-- Discount Code Form Row for site members to apply discount codes -->
                         <tr>
                             <td colspan="6">
                                 <form id="discount-code-form" method="POST" action="{% url 'view_cart' %}">
                                     {% csrf_token %}
                                     <div class="input-group">
                                         {{ dcform.discount_code }}
-                                        <button type="submit" class="common-button btn-grey-outline input-group-append apply-promo-code-btn">
+                                        <button type="submit"
+                                            class="common-button btn-grey-outline input-group-append apply-promo-code-btn">
                                             Apply
                                         </button>
                                     </div>
                                 </form>
                             </td>
                         </tr>
+                        {% endif %}
                     </tbody>
                     <tfoot>
                         <tr>
                             <td class="py-4 text-start" colspan="6">
+                                {% if not request.user.is_authenticated %}
+                                    <p class="text-end text-muted small">Have a promo code? 
+                                        <a href="{% url 'account_login' %}" class="blue-text-link" aria-label="Sign In link">
+                                            Sign In</a> to apply it and receive your discount.
+                                    </p>
+                                {% endif %}
                                 <a href="{% url 'products' %}"
                                     class="common-button btn-green-outline continue-shopping-btn"
                                     title="Continue Shopping">
@@ -185,6 +194,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                    {% if request.user.is_authenticated %}
                         {% if discount_amount > 0 %}
                         <tr class="cart-totals">
                             <th scope="row" class="lighter-heading">
@@ -196,9 +206,9 @@
                         </tr>
                         <tr class="cart-discount">
                             <th scope="row" class="lighter-heading">
-                               <a href="{% url 'remove_discount_code' %}" role="button" class="btn btn-grey-outline">
-                                   {{ discount_code.discount_code }}&nbsp;<i class="fas fa-tags"></i>
-                                   &nbsp;<i class="fas fa-times"></i>
+                                <a href="{% url 'remove_discount_code' %}" role="button" class="badge rounded-pill bg-forest-green white-text-link">
+                                    {{ discount_code.discount_code }}&nbsp;<i class="fas fa-tags"></i>
+                                    &nbsp;<i class="fas fa-times"></i>
                                 </a>
                             </th>
                             <td class="amount">
@@ -215,6 +225,16 @@
                             </td>
                         </tr>
                         {% endif %}
+                    {% else %}
+                        <tr class="cart-totals">
+                            <th scope="row" class="lighter-heading">
+                                Cart Total:
+                            </th>
+                            <td class="amount">
+                                €{{ total|floatformat:2 }}
+                            </td>
+                        </tr>
+                    {% endif %}
                         <tr>
                             <th scope="row" class="lighter-heading">
                                 Shipping:
