@@ -1059,6 +1059,45 @@ To facilitate easier access to this vital piece of information, a new field, 'pr
 This value is now set when the OrderLineItem is saved. 
 It is this field that is now accessed and displayed within each order on the profile.html 'My Orders' tab.
 
+### [Discount Code Issues](https://github.com/nualagr/dargan-health-foods/commit/c9445ca3d1c48bb004ce65434aaf856e3cfdcad2):
+The addition of Discount Codes to the project required revision of many elements of the payment process.
+
+At first, a very simple DiscountCode model of only two fields was used. This consisted of the promocode and the percentage discount to be applied.
+After reading Kim Salazar's article ["Applying Discounts and Ecommerce Websites"](https://www.nngroup.com/articles/applying-discounts/) it became clear
+that, from a user-experience point-of-view, it would be best to allow site users to apply this code within the Cart rather than making them wait
+until they were on the Checkout page.
+A DiscountCodeForm, based on the DiscountCode model was created and rendered on the cart.html page. On submission of this form, the discount code, 
+if valid, is stored in the Session Cookie.
+
+The discount_amount is then calculated and applied to the cart 'total' within the cart_contents context.
+The discount code object is saved in a variable, discount_code, and added to the context dictionary so that it is globally available within the different templates.
+
+Within the 'checkout' view the discount code object ID is obtained from the session cookie.
+The corresponding DiscountCode object is attached, as a ForeignKey field, to the Order before it is saved to the database.
+Then when .save() is called on the Order, the update_total() method is called and the discount applied.
+
+To be able to provide the user with visible feedback on the financial benefit of the addition of their promo code, 
+a new variable, ['total_before_discount'](https://github.com/nualagr/dargan-health-foods/commit/cdac94bafada5d89e5310a452a4785b2cbb578fe)
+was created within the cart_contents context.  'If' 'else' statements were added to the checkout_success.html page to render the discount code and the amount
+of money discounted, providing the user with confirmation that they received their discount.  
+
+Within the '_send_confirmation_email()' function in the webhook_handler two new variables were created to store the discount code and amount discounted.
+These are set to empty strings if no discount code was used. Otherwise, the discount code and amount discounted are printed within the email providing
+customers with a confirmation that their promo code had been applied and that they had received the discount they expected.
+
+Logic then had to be applied to [handle the discount when orders are created within the webhook](https://github.com/nualagr/dargan-health-foods/commit/fabfac039b94966cbd99fc3b59e166e2c4d5bd44). 
+This process is triggered when errors occur during the checkout process, such as the browser being closed before the Order has been created in the database.
+In the cache_checkout_data() function in the checkout/views.py a json string of the discount code was attached to the Payment Intent metadata. 
+Within the handle_payment_intent_succeeded() function this is unpacked and the associated DiscountCode object located in the database. 
+This object can then be linked to the discount_code ForeignKey field on the newly created Order.
+This ensured that Orders created in this manner, within the webhook, now correctly reflect the discount applied by the user in the Cart.
+
+An issue arose in relation to this however as [exceptions were raised when no discount code had been applied to the Order being created in the webhook](https://github.com/nualagr/dargan-health-foods/commit/0b92b6e7594f0881dc2f2cb0d934ddf8b95511e7).
+Different solutions, suggested by [StackOverflow](https://stackoverflow.com/questions/3090302/how-do-i-get-the-object-if-it-exists-or-none-if-it-does-not-exist) members were attempted.
+In the end an 'if' 'else' statement was inserted before the 'try' 'except' block in which the Order is created.
+This retrieves the DiscountCode object from the database, if one exists, and if not, it sets the variable to 'None'. 
+Now Orders, with or without discount codes, are successfully created within the Webhook Handler in the event of errors during the checkout process.
+
 ##### back to [top](#table-of-contents)
 ---
 
