@@ -157,6 +157,12 @@ def decrease_quantity_by_one(request, item_id):
             )
         else:
             cart.pop(item_id)
+            # If the cart is now empty
+            if not cart:
+                # Check if a discount code had been applied
+                if "discount" in request.session:
+                    # Remove the unused Discount Code from the Session
+                    del request.session["discount"]
             messages.success(
                 request,
                 f"Removed {product.friendly_name} from your shopping cart.",
