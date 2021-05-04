@@ -97,6 +97,17 @@ a.red-text-link:focus {
     cursor:pointer;
 }
 
+a.white-text-link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a.white-text-link:hover,
+a.white-text-link:active,
+a.white-text-link:focus {
+    color: #E4F1E7;
+}
+
 .border-green {
     border: 1px solid #29873C !important;
 }
