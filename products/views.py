@@ -64,9 +64,12 @@ def all_products(request):
 
         if "tag" in request.GET:
             tag = request.GET["tag"].split(",")
-            tagged_products = product_tag_objects.filter(
-                tag__name__in=tag
-            ).values_list("product", flat=True)
+            if tag[0] == "special_offers":
+                tagged_products = products.filter(on_offer=True)
+            else:
+                tagged_products = product_tag_objects.filter(
+                    tag__name__in=tag
+                    ).values_list("product", flat=True)
             products = products.filter(id__in=tagged_products)
 
         if "q" in request.GET:
