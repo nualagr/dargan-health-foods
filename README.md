@@ -1303,6 +1303,8 @@ The following [Bootstrap](https://getbootstrap.com/) components were used and mo
 
 - [Modal](https://getbootstrap.com/docs/5.0/components/modal/)
 
+- [Badge](https://getbootstrap.com/docs/5.0/components/badge/)
+
 #### Product Information
 - Product information, where available, including the product descriptions and ingredients were provided by the following companies:
     - [Viridian Nutrition](https://www.viridian-nutrition.com/).
