@@ -145,8 +145,15 @@ class StripeWH_Handler:
             # Create an Order using the data from the paymentIntent
             order = None
             discount = json.loads(discount)
+            # If there was no discount code in the metadata
+            # Set the discount_code_object variable to None
+            # So that an exception is not raised
+            if not discount:
+                discount_code_object = None
+            else:
+                discount_code_object = DiscountCode.objects.get(
+                    pk=discount["discount_code_id"])
             try:
-                discount_code_object = DiscountCode.objects.get(pk=discount["discount_code_id"])
                 order = Order.objects.create(
                     full_name=shipping_details.name,
                     # Attach the profile which will be full if they were
@@ -177,6 +184,7 @@ class StripeWH_Handler:
                     order_line_item.save()
 
             except Exception as e:
+                print("There was an exception")
                 if order:
                     order.delete()
                     return HttpResponse(
