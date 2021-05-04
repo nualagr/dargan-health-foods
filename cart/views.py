@@ -95,7 +95,9 @@ def remove_from_cart(request, item_id):
     """
     View to remove the specified item from the shopping cart
     and alert the user as to whether the action was successful
-    or not.
+    or not. If this empties the cart completely, check whether
+    a discount code had been applied. If so, remove from the
+    session cookie.
     """
     try:
         product = get_object_or_404(Product, pk=item_id)
@@ -103,6 +105,12 @@ def remove_from_cart(request, item_id):
 
         if item_id in list(cart.keys()):
             cart.pop(item_id)
+            # If the cart is now empty
+            if not cart:
+                # Check if a discount code had been applied
+                if "discount" in request.session:
+                    # Remove the unused Discount Code from the Session
+                    del request.session["discount"]
             messages.success(
                 request,
                 f"Removed {product.friendly_name} from your shopping cart.",
@@ -143,6 +151,9 @@ def decrease_quantity_by_one(request, item_id):
     """
     View to decrease the quantity of the
     specified item in the shopping cart by one.
+    If this empties the cart, check whether a 
+    discount code had been applied. If so,
+    delete it from the session cookie.
     """
 
     cart = request.session.get("cart", {})
