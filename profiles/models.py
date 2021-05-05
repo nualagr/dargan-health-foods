@@ -39,6 +39,9 @@ class UserProfile(models.Model):
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
     Create or update the User Profile
+    On creation, create an associated DiscountCode2User
+    so that user's can get 10% off their next order with the
+    promo code NEW10.
     """
     if created:
         new_user = UserProfile.objects.create(user=instance)
@@ -68,4 +71,4 @@ class DiscountCode2User(models.Model):
     )
 
     def __str__(self):
-        return f"{self.user}'s PromoCode: {self.discount_code}, Valid: {self.active}"
+        return f"{self.user}'s {self.discount_code}, Valid: {self.active}"
