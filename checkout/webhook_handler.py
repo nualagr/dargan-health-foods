@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -6,7 +7,7 @@ from django.conf import settings
 from .models import Order, OrderLineItem
 from cart.models import DiscountCode
 from products.models import Product
-from profiles.models import UserProfile
+from profiles.models import UserProfile, DiscountCode2User
 
 import json
 import time
@@ -134,6 +135,20 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
+            # Check if the customer was a logged in site member
+            if username != "AnonymousUser":
+                profile = UserProfile.objects.get(user__username=username)
+                # If a discount code was used, deactivate it
+                if order.discount_code:
+                    discount = order.discount_code
+                    discount_code_object = get_object_or_404(
+                        DiscountCode,
+                        discount_code=discount.discount_code)
+                    discount_code_2_user = DiscountCode2User.objects.get(
+                        user=profile,
+                        discount_code=discount_code_object)
+                    discount_code_2_user.active = False
+                    discount_code_2_user.save()
             # Send the confirmation email
             self._send_confirmation_email(order)
             return HttpResponse(
@@ -184,14 +199,28 @@ class StripeWH_Handler:
                     order_line_item.save()
 
             except Exception as e:
-                print("There was an exception")
                 if order:
                     order.delete()
                     return HttpResponse(
                         content=f'Webhook received: {event["type"]} | ERROR: {e}',
                         status=500,
                     )
+
         # If it gets to this point the Order has been created
+        # Check to see whether the user was logged in
+        if username != "AnonymousUser":
+            profile = UserProfile.objects.get(user__username=username)
+            # If a discount code was used, deactivate it
+            if order.discount_code:
+                discount = order.discount_code
+                discount_code_object = get_object_or_404(
+                    DiscountCode,
+                    discount_code=discount.discount_code)
+                discount_code_2_user = DiscountCode2User.objects.get(
+                    user=profile,
+                    discount_code=discount_code_object)
+                discount_code_2_user.active = False
+                discount_code_2_user.save()
         # Send the confirmation email and send a response to Stripe.
         self._send_confirmation_email(order)
         return HttpResponse(
