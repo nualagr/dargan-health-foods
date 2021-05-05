@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from products.models import Product
 from .models import DiscountCode
 from .forms import DiscountCodeForm
+from profiles.models import UserProfile, DiscountCode2User
 
 
 def view_cart(request):
@@ -20,28 +22,50 @@ def view_cart(request):
         discount_code_form = DiscountCodeForm(request.POST)
         if discount_code_form.is_valid():
             discount_code = discount_code_form.cleaned_data["discount_code"]
-            try:
-                # Get the code from the database
-                discount_code_object = DiscountCode.objects.get(
-                    discount_code=discount_code
-                )
-                if discount_code_object:
-                    discount["discount_code_id"] = discount_code_object.id
-                    percentage_discount = (
-                        discount_code_object.percentage_discount
+            if request.user.is_authenticated:
+                user = get_object_or_404(UserProfile, user=request.user)
+                try:
+                    # Get the code from the database or set variable to None
+                    discount_code_object = DiscountCode.objects.filter(
+                        discount_code=discount_code
+                    ).first()
+                    # Get the DiscountCode2User object or set variable to None
+                    discount_code_2_user = DiscountCode2User.objects.filter(
+                        discount_code=discount_code_object, user=user).first()
+                    # If the DiscountCode2User object exists & is still active
+                    if discount_code_2_user and discount_code_2_user.active:
+                        discount["discount_code_id"] = discount_code_object.id
+                        # Put the promocode id variable in the session
+                        # so that the discount can be applied in the
+                        # cart_contents context
+                        request.session["discount"] = discount
+                        messages.success(
+                            request,
+                            "Promo Code applied.",
+                        )
+                        return redirect(reverse("view_cart"))
+                    # If the DiscountCode2User object exists
+                    # but is no longer active
+                    elif discount_code_2_user:
+                        messages.error(
+                            request,
+                            "Promo Code no longer active.",
+                        )
+                        return redirect(reverse("view_cart"))
+                    # The DiscountCode2User object does not exist
+                    else:
+                        messages.error(
+                            request,
+                            "Promo Code not recognised.",
+                        )
+                        return redirect(reverse("view_cart"))
+                except DiscountCode.DoesNotExist:
+                    messages.error(
+                        request,
+                        ("Promo Code not recognised."),
                     )
-                    # Put the promocode id variable in the session
-                    # so that the discount can be applied in the
-                    # cart_contents context
-                    request.session["discount"] = discount
+                    # Return the user to the Shopping Cart page
                     return redirect(reverse("view_cart"))
-            except DiscountCode.DoesNotExist:
-                messages.error(
-                    request,
-                    ("Promo Code not recognised."),
-                )
-                # Return the user to the Shopping Cart page
-                return redirect(reverse("view_cart"))
         else:
             discount_code_form = DiscountCodeForm()
             # Add a message to the request object
@@ -183,6 +207,7 @@ def decrease_quantity_by_one(request, item_id):
     return redirect(reverse("view_cart"))
 
 
+@login_required
 def remove_discount_code(request):
     """
     View to remove the discount code that had been applied
