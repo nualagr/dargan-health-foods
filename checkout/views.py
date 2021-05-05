@@ -14,7 +14,7 @@ from .models import Order, OrderLineItem
 from cart.models import DiscountCode
 
 from products.models import Product
-from profiles.models import UserProfile
+from profiles.models import UserProfile, DiscountCode2User
 from profiles.forms import UserProfileForm
 from cart.contexts import cart_contents
 
@@ -195,7 +195,6 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
-    # Will be required once we create User Profiles
     save_info = request.session.get("save_info")
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -204,6 +203,18 @@ def checkout_success(request, order_number):
         # Attach the user's profile to the Order
         order.user_profile = profile
         order.save()
+
+        # If a discount code was used, deactivate it
+        if order.discount_code:
+            discount = order.discount_code
+            discount_code_object = get_object_or_404(
+                DiscountCode,
+                discount_code=discount.discount_code)
+            discount_code_2_user = DiscountCode2User.objects.get(
+                user=profile,
+                discount_code=discount_code_object)
+            discount_code_2_user.active = False
+            discount_code_2_user.save()
 
         # Save the user's info if the box was checked
         if save_info:
