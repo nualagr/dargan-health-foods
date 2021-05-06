@@ -1,7 +1,9 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
+from django.core.exceptions import ObjectDoesNotExist
 from products.models import Product
+from profiles.models import UserProfile, DiscountCode2User
 from cart.models import DiscountCode
 
 
@@ -29,16 +31,31 @@ def cart_contents(request):
             "quantity": quantity,
             "product": product,
         })
+    # If the user is logged in, then check discount
+    if request.user.is_authenticated:
+        discount = request.session.get("discount", {})
 
-    discount = request.session.get("discount", {})
-
-    if discount:
-        total_before_discount = total
-        discount_code_object = get_object_or_404(
-            DiscountCode, pk=discount["discount_code_id"])
-        percentage_discount = discount_code_object.percentage_discount
-        discount_amount = total * Decimal(percentage_discount / 100)
-        total -= discount_amount
+        if discount:
+            # Check to see whether the DiscountCode2User for this user exists
+            try:
+                user = UserProfile.objects.get(user=request.user)
+                discount_code_object = DiscountCode.objects.filter(
+                    pk=discount["discount_code_id"]).first()
+                user_discount_code = DiscountCode2User.objects.filter(
+                    discount_code=discount_code_object,
+                    user=user).first()
+            except ObjectDoesNotExist:
+                # Delete the discount variable from the session cookie
+                del request.session["discount"]
+            if user_discount_code.active:
+                total_before_discount = total
+                # Calculate the discount to be applied
+                percentage_discount = discount_code_object.percentage_discount
+                discount_amount = total * Decimal(percentage_discount / 100)
+                total -= discount_amount
+            else:
+                # Delete the discount variable from the session cookie
+                del request.session["discount"]
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
