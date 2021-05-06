@@ -56,25 +56,39 @@ def csv_to_json(csvFilePath, jsonFilePath):
                     key == "sku"
                     or key == "friendly_name"
                     or key == "abbreviated_friendly_name"
-                    or key == "brand"
-                    or key == "size_value"
                     or key == "size_unit"
-                    or key == "weight_g"
-                    or key == "price"
                     or key == "vat_code"
                     or key == "product_information"
                     or key == "ingredients"
                     or key == "free_from"
                     or key == "allergens"
                     or key == "usage"
-                    or key == "category"
                     or key == "barcode"
                 ):
                     if value != "":
                         outRow["fields"][key] = value.strip()
+                elif (
+                    key == "brand"
+                    or key == "size_value"
+                    or key == "weight_g"
+                    or key == "category"
+                ):
+                    if value != "":
+                        outRow["fields"][key] = int(value.strip())
+                elif key == "price":
+                    if value != "":
+                        outRow["fields"][key] = float(value.strip())
+                elif key == "free_from":
+                    if value != "":
+                        if value == "TRUE":
+                            outRow["fields"][key] = bool(1)
+                        else:
+                            outRow["fields"][key] = bool(0)
                 # Add the other key value pairs to the outer dict
                 else:
-                    if value != "":
+                    if key == "pk" and value != "":
+                        outRow[key] = int(value)
+                    elif value != "":
                         outRow[key] = value
 
             # Add this python dict to json array
@@ -87,8 +101,8 @@ def csv_to_json(csvFilePath, jsonFilePath):
 
 
 # File paths
-csvFilePath = r"./products/fixtures/dargan_product_selection_no_tags_brand_id.csv"
-jsonFilePath = r"./products/fixtures/viridian_products.json"
+csvFilePath = r"./products/fixtures/products_csv_prep_for_ints_utf8.csv"
+jsonFilePath = r"./products/fixtures/viridian_products_with_int_pk.json"
 
 # Call the csv_to_json function
 csv_to_json(csvFilePath, jsonFilePath)

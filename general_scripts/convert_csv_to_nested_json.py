@@ -32,6 +32,10 @@ def csv_to_json(csvFilePath, jsonFilePath):
                     or key == "friendly_name"
                 ):
                     outRow["fields"][key] = value
+                elif key == "pk":
+                    outRow[key] = int(value)
+                elif key == "department":
+                    outRow["fields"][key] = int(value)
                 # Add the other key value pairs to the outer dict
                 else:
                     outRow[key] = value
@@ -46,8 +50,8 @@ def csv_to_json(csvFilePath, jsonFilePath):
 
 
 # File paths
-csvFilePath = r"./blog/fixtures/topics.csv"
-jsonFilePath = r"./blog/fixtures/topics.json"
+csvFilePath = r"./products/fixtures/tags.csv"
+jsonFilePath = r"./products/fixtures/tags.json"
 
 # Call the csv_to_json function
 csv_to_json(csvFilePath, jsonFilePath)

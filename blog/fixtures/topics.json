@@ -4,7 +4,7 @@
             "name": "recipes",
             "friendly_name": "Recipes"
         },
-        "pk": "1",
+        "pk": 1,
         "model": "blog.topic"
     },
     {
@@ -12,7 +12,7 @@
             "name": "health_n_wellbeing",
             "friendly_name": "Health & Wellbeing"
         },
-        "pk": "2",
+        "pk": 2,
         "model": "blog.topic"
     },
     {
@@ -20,7 +20,7 @@
             "name": "uncategorised",
             "friendly_name": "Uncategorised"
         },
-        "pk": "3",
+        "pk": 3,
         "model": "blog.topic"
     },
     {
@@ -28,7 +28,7 @@
             "name": "lifestyle",
             "friendly_name": "Lifestyle"
         },
-        "pk": "4",
+        "pk": 4,
         "model": "blog.topic"
     },
     {
@@ -36,7 +36,7 @@
             "name": "beauty",
             "friendly_name": "Beauty"
         },
-        "pk": "5",
+        "pk": 5,
         "model": "blog.topic"
     },
     {
@@ -44,7 +44,7 @@
             "name": "news",
             "friendly_name": "News"
         },
-        "pk": "6",
+        "pk": 6,
         "model": "blog.topic"
     },
     {
@@ -52,7 +52,7 @@
             "name": "eco_living",
             "friendly_name": "Eco Living"
         },
-        "pk": "7",
+        "pk": 7,
         "model": "blog.topic"
     },
     {
@@ -60,7 +60,7 @@
             "name": "food_n_nutrition",
             "friendly_name": "Food & Nutrition"
         },
-        "pk": "8",
+        "pk": 8,
         "model": "blog.topic"
     }
 ]
