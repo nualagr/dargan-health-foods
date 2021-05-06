@@ -1,25 +1,26 @@
 /* Stripe Form Formatting ----------------------------------------------------- */
 .StripeElement,
 .stripe-style-input {
-  box-sizing: border-box;
-  font-size: .97em;
-  padding: 10px 12px;
-  border: 1px solid transparent;
-  border-radius: 0px;
-  background-color: #FFFFFF;
-  box-shadow: 0 1px 3px 0 #E6EBF1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
+    box-sizing: border-box;
+    font-size: .97em;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px 0 #E6EBF1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+    box-shadow: 0 1px 3px 0 #CFD7DF;
 }
 
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+    background-color: #FEFDE5 !important;
+    /* background-color: rgb(232, 240, 254) !important; */
 }
 
 .stripe-style-input::placeholder {
@@ -40,13 +41,13 @@
 
 select,
 select option {
-    color: #333333 !important;
-}
-
-select:valid {
-    background-color: rgb(232, 240, 254) !important;
     color: #000000 !important;
 }
+
+/* select:valid {
+    background-color: rgb(232, 240, 254) !important;
+    color: #333333 !important;
+} */
 
 /* input:-internal-autofill-selected {
     appearance: menulist-button;
@@ -58,7 +59,7 @@ select:valid {
 
 select:invalid,
 select option[value=""] {
-    color: #aab7c4 !important;
+    color: #AAB7C4 !important;
 }
 
 #loading-overlay {

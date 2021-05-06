@@ -17,7 +17,7 @@ var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
     base: {
-        color: '#333333',
+        color: '#000000',
         fontFamily: '"Open Sans", sans-serif',
         fontSmoothing: 'antialiased',
         fontSize: '16px',
