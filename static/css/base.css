@@ -168,14 +168,6 @@ a.white-text-link:focus {
 .blogpost-details-container p strong {
     color: #29873C;
 }
-/* from Bulma */
-/* .icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-} */
 
 .logo-font {
     font-family: "Cookie", cursive;
@@ -1477,6 +1469,10 @@ position: relative;
 
     .page-title-wrapper .page-title {
         display: inline-block;
+    }
+
+    #discount-code-form .input-group>.form-control {
+        max-width: 50%;
     }
     
 }
