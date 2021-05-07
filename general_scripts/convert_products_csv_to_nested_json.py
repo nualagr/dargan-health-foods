@@ -1,5 +1,6 @@
 # Initial code found at: https://pythonexamples.org/python-csv-to-json/
 # and then modified
+from datetime import datetime, timezone
 
 import csv
 import json
@@ -48,9 +49,9 @@ def csv_to_json(csvFilePath, jsonFilePath):
                 elif key == "main_image":
                     if value != "":
                         if value.endswith(".jpg"):
-                            image_name = value
+                            image_name = "product_images/" + value
                         else:
-                            image_name = value + ".jpg"
+                            image_name = "product_images/" + value + ".jpg"
                         outRow["fields"][key] = image_name
                 elif (
                     key == "sku"
@@ -58,9 +59,8 @@ def csv_to_json(csvFilePath, jsonFilePath):
                     or key == "abbreviated_friendly_name"
                     or key == "size_unit"
                     or key == "vat_code"
-                    or key == "product_information"
+                    or key == "information"
                     or key == "ingredients"
-                    or key == "free_from"
                     or key == "allergens"
                     or key == "usage"
                     or key == "barcode"
@@ -72,18 +72,35 @@ def csv_to_json(csvFilePath, jsonFilePath):
                     or key == "size_value"
                     or key == "weight_g"
                     or key == "category"
+                    or key == "num_in_stock"
                 ):
                     if value != "":
                         outRow["fields"][key] = int(value.strip())
-                elif key == "price":
+                elif (
+                    key == "price"
+                    or key == "discount_price"
+                    or key == "avg_rating"
+                ):
                     if value != "":
                         outRow["fields"][key] = float(value.strip())
-                elif key == "free_from":
-                    if value != "":
-                        if value == "TRUE":
-                            outRow["fields"][key] = bool(1)
-                        else:
-                            outRow["fields"][key] = bool(0)
+                elif (
+                    key == "free_from"
+                    or key == "on_offer"
+                    or key == "discontinued"
+                ):
+                    if value == "TRUE":
+                        outRow["fields"][key] = True
+                    elif value == "FALSE":
+                        outRow["fields"][key] = False
+                elif key == "main_image_url":
+                    outRow["fields"][key] = None
+                elif key == "date_added":
+                    # Solution to creating a timezone aware datetime
+                    # found on StackOverflow:
+                    # https://stackoverflow.com/questions/796008/cant-subtract-offset-naive-and-offset-aware-datetimes/25662061#25662061
+                    now = datetime.now(timezone.utc)
+                    # Make the datetime compatible with JSON
+                    outRow["fields"][key] = now.isoformat()
                 # Add the other key value pairs to the outer dict
                 else:
                     if key == "pk" and value != "":
@@ -101,8 +118,8 @@ def csv_to_json(csvFilePath, jsonFilePath):
 
 
 # File paths
-csvFilePath = r"./products/fixtures/products_csv_prep_for_ints_utf8.csv"
-jsonFilePath = r"./products/fixtures/viridian_products_with_int_pk.json"
+csvFilePath = r"./products/fixtures/products.csv"
+jsonFilePath = r"./products/fixtures/products.json"
 
 # Call the csv_to_json function
 csv_to_json(csvFilePath, jsonFilePath)

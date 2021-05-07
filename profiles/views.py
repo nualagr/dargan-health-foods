@@ -17,6 +17,10 @@ def profile(request):
     shipping information and order history.
     """
     user = get_object_or_404(UserProfile, user=request.user)
+    my_reviews = []
+    my_comments = []
+    my_orders = []
+
     if request.method == "POST":
         form = UserProfileForm(request.POST, instance=user)
         if form.is_valid():
@@ -32,11 +36,12 @@ def profile(request):
         user=user).order_by("-created")
     my_comments = BlogPostComment.objects.all().filter(
         user=user).order_by("-created_on")
-    orders = user.orders.all().order_by("-date")
+    my_orders = user.orders.all().order_by("-date")
+
     template = "profiles/profile.html"
     context = {
         "form": form,
-        "orders": orders,
+        "orders": my_orders,
         "reviews": my_reviews,
         "comments": my_comments,
         "on_profile_page": True,
