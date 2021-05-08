@@ -27,7 +27,7 @@ SECRET_KEY = "3o$e8&sp+(pv0#&#vc@@r-5!@7m$no9)&@%f*ucr=g5w&j-xog"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["dargan-health-foods.herokuapp.com", "localhost"]
 
 
 # Application definition

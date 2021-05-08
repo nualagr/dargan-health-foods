@@ -1159,8 +1159,15 @@ the app is deployed.
 ```
 heroku login -i
 
-heroku config:set DISABLE_COLLECTSTATIC=1 --app dargan-health-foods
+heroku config:set DISABLE_COLLECTSTATIC=1 --app <app name>
 ```
+
+15. Within settings.py, the hostname of the Heroku app and the localhost were added to allowed hosts list.
+```
+ALLOWED_HOSTS = ["<app name>.herokuapp.com", "localhost"]
+```
+
+
 'Deploy' was selected from the dashboard of the newly created application.  In the 'Deployment method' section GitHub was selected.
 ![alt text](documentation/readme-images/heroku-deploy-to-github.png "Deploy to GitHub in Heroku.")
 
