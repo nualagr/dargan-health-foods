@@ -1038,11 +1038,59 @@ git push
 1. Navigated to the [Heroku](https://www.heroku.com/) site.
 2. Logged in to the site.
 3. Created a new app on the Heroku website by clicking the "New" button on the dashboard. 
-![alt text](documentation/readme-images/heroku-new-app-button.png "New App button in Heroku.")
+![alt text](documentation/readme-images/heroku-new-app-button.png "New App button on Heroku.")
 
 <br>
 
-4. Named the Heroku App and set the region to Europe.
+4. A unique name was chosen for the Heroku App and the region was set to the closest option, Europe.
+![alt text](documentation/readme-images/heroku-create-new-app-form.png "Create New App form on Heroku.")
+
+<br>
+
+5. A new Postgres database was provisioned for the app.  
+This was located by searching for Postgres in the Add ons search bar on the Resources tab on Heroku, 
+![alt text](documentation/readme-images/heroku-resources-tab.png "Heroku Resources tab.")
+
+<br>
+The 'Hobby Dev - Free' plan was chosen for this project.
+
+![alt text](documentation/readme-images/heroku-postgres-provision-form.png "Postgres provision form on Heroku.")
+
+<br>
+
+6. To set up the new database [dj_database_url](https://pypi.org/project/dj-database-url/) was imported within the local IDE.
+```
+pip3 install dj_database_url
+```
+This Django utility utilizes the DATABASE_URL environment variable to configure the Django application, swapping 
+the local database with one managed by a third party (such as Amazon) without changing the app’s code.
+
+
+In settings.py dj_database_url was imported.  
+The default database url was commented out and the Postgres database URL was passed to dj_database_url.
+```
+import dj_database_url
+
+DATABASES = {
+        'default': dj_database_url.parse("<your Postrgres database URL>")
+    }
+```
+This url can be located under the Config Variables heading on the Settings tab on Heroku.
+
+![alt text](documentation/readme-images/heroku-settings-tab.png "Heroku Settings tab.")
+
+<br>
+
+7. [psycopg2-binary]()
+
+```
+pip3 install psycopg2-binary
+```
+
+'Deploy' was selected from the dashboard of the newly created application.  In the 'Deployment method' section GitHub was selected.
+![alt text](documentation/readme-images/heroku-deploy-to-github.png "Deploy to GitHub in Heroku.")
+
+<br>
 
 5. 'Deploy' was selected from the dashboard of the newly created application.  In the 'Deployment method' section GitHub was selected.
 ![alt text](documentation/readme-images/heroku-deploy-to-github.png "Deploy to GitHub in Heroku.")
