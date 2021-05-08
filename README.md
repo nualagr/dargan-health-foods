@@ -1058,7 +1058,15 @@ The 'Hobby Dev - Free' plan was chosen for this project.
 
 <br>
 
-6. To set up the new database [dj_database_url](https://pypi.org/project/dj-database-url/) was imported within the local IDE.
+6. Set up the new database.  
+The PostgreSQL database adapter [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
+was installed.
+
+```
+pip3 install psycopg2-binary
+```
+
+[dj_database_url](https://pypi.org/project/dj-database-url/) was also installed.
 ```
 pip3 install dj_database_url
 ```
@@ -1081,11 +1089,35 @@ This url can be located under the Config Variables heading on the Settings tab o
 
 <br>
 
-7. [psycopg2-binary]()
+7. Requirements were updated.  
+To make sure that Heroku installed all of the app's requirements, these new dependencies
+were added to the requirements.txt file.
+```
+pip3 freeze > requirements.txt
+```
 
+8. Models were migrated to the new Postgres database.
 ```
-pip3 install psycopg2-binary
+python3 manage.py showmigrations
+python3 manage.py migrate
 ```
+
+9. Data, from fixtures, was imported in the following order.
+```
+python3 manage.py loaddata topics
+python3 manage.py loaddata tags
+python3 manage.py loaddata brands
+python3 manage.py loaddata departments
+python3 manage.py loaddata categories
+python3 manage.py loaddata products
+```
+
+10. A superuser, with admin rights, was created.
+```
+python3 manage.py createsuperuser
+```
+An email address, username and password were chosen.
+
 
 'Deploy' was selected from the dashboard of the newly created application.  In the 'Deployment method' section GitHub was selected.
 ![alt text](documentation/readme-images/heroku-deploy-to-github.png "Deploy to GitHub in Heroku.")
