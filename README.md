@@ -1066,7 +1066,7 @@ was installed.
 pip3 install psycopg2-binary
 ```
 
-[dj_database_url](https://pypi.org/project/dj-database-url/) was also installed.
+[Dj_database_url](https://pypi.org/project/dj-database-url/) was also installed.
 ```
 pip3 install dj_database_url
 ```
@@ -1074,7 +1074,7 @@ This Django utility utilizes the DATABASE_URL environment variable to configure 
 the local database with one managed by a third party (such as Amazon) without changing the app’s code.
 
 
-In settings.py dj_database_url was imported.  
+In settings.py [dj_database_url](https://pypi.org/project/dj-database-url/) was imported.  
 The default database url was commented out and the Postgres database URL was passed to dj_database_url.
 ```
 import dj_database_url
@@ -1118,7 +1118,49 @@ python3 manage.py createsuperuser
 ```
 An email address, username and password were chosen.
 
+11. Within settings.py the file the new database settings were removed and the original default setting was un-commented.
+This was done so that the database URL did not go into version control.
+An 'if' 'else' statement was added to check whether DATABASE_URL is to be found in the environment variables.
+If that is the case, as it is when the app is running on Heroku, 
+DATABASES points to the Postgres database.
+Otherwise, the app connects to SQLite3.
+```
+if "DATABASE_URL" in os.environ:
+    DATABASES = {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+```
 
+12. [Gunicorn](https://gunicorn.org/), the Python WSGI HTTP Server for UNIX, was installed to act as the webserver.
+```
+pip3 install gunicorn
+```
+This new dependency was added to the requirements.txt file.
+```
+pip3 freeze > requirements.txt
+```
+
+13. The [Procfile](https://devcenter.heroku.com/articles/procfile) was created in the root directory.  
+This file specifies the commands that are executed by the app on startup.
+In this case, create a web dyno which will run [gunicorn](https://gunicorn.org/) and serve the Django app.
+```
+web: gunicorn dargan_health_foods.wsgi:application
+```
+
+14. After logging in to Heroku at the command line Collectstatic was temporarily disabled so that Heroku did not try to collect static files when 
+the app is deployed.
+```
+heroku login -i
+
+heroku config:set DISABLE_COLLECTSTATIC=1 --app dargan-health-foods
+```
 'Deploy' was selected from the dashboard of the newly created application.  In the 'Deployment method' section GitHub was selected.
 ![alt text](documentation/readme-images/heroku-deploy-to-github.png "Deploy to GitHub in Heroku.")
 
