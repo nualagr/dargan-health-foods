@@ -1167,45 +1167,175 @@ heroku config:set DISABLE_COLLECTSTATIC=1 --app <app name>
 ALLOWED_HOSTS = ["<app name>.herokuapp.com", "localhost"]
 ```
 
+16. Deployed to Heroku, without any static files.  
+As the Heroku app had been created on the website rather than at the command line, it was necessary
+to initialize the Heroku git remote first.
+```
+heroku git:remote -a <app name>
 
-'Deploy' was selected from the dashboard of the newly created application.  In the 'Deployment method' section GitHub was selected.
-![alt text](documentation/readme-images/heroku-deploy-to-github.png "Deploy to GitHub in Heroku.")
+git push heroku master
+```
+
+17. Automatic deployments were set up.  
+The 'Deploy' tab was selected on the Heroku dashboard.  
+Within the 'Deployment method' section GitHub was selected.
+![alt text](documentation/readme-images/heroku-deploy-connect-to-github.png "Deploy to GitHub in Heroku.")
+
+<br>
+Making sure that the correct GitHub profile was displayed, the Dargan Health Foods repository was entered into the search box.
+
+When found, the button 'Connect' was clicked.  
+Next, 'Enable Automatic Deploys' was selected to ensure that every time code was pushed to GitHub
+it would automatically deploy to Heroku as well.
+
+![alt text](documentation/readme-images/heroku-deploy-connect-to-github.png "Deploy to GitHub in Heroku.")
 
 <br>
 
-5. 'Deploy' was selected from the dashboard of the newly created application.  In the 'Deployment method' section GitHub was selected.
-![alt text](documentation/readme-images/heroku-deploy-to-github.png "Deploy to GitHub in Heroku.")
+18. Next the configuration variables were set in Heroku and within the local environment.
+ - Within the 'Settings' tab for the app the button 'Reveal Config Vars' was clicked.
+ - The following config vars were added (some information has been redacted for security purposes):
+ ([Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) was used to generate the secret keys.)
+<br>
+
+|Key                    |Value                  |
+|:----------------------|:----------------------|
+|DATABASE_URL           |<YOUR_DATABASE_URL> (Set by Heroku Postgres)|
+|STRIPE_PUBLIC_KEY      |<YOUR_STRIPE_PUBLIC_KEY>  |
+|STRIPE_SECRET_KEY      |<YOUR_STRIPE_SECRET_KEY>  |
+|STRIPE_WH_SECRET       |<YOUR_STRIPE_WH_SECRET>  |
+|SECRET_KEY	            |<YOUR_SECRET_KEY>      |
 
 <br>
 
-6. Making sure that the correct GitHub profile was displayed, the Dargan Health Foods repository was entered into the search box.
+- Within settings.py the SECRET_KEY variable was replaced with a call get it from the environment. An empty string was set as the default.
 
-7. When found, the button 'Connect' was clicked.
+```
+SECRET_KEY = os.environ.get("SECRET_KEY", "")
+```
 
-8. Next the configuration variables were set in Heroku.
-    - Within the 'Settings' tab for the app the button 'Reveal Config Vars' was clicked.
-    ![alt text](documentation/readme-images/heroku-config-vars.png "Heroku Configuration Variables Location in Settings.")
+- Also within settings.py DEBUG was set to TRUE if a variable, 'DEVELOPMENT', exists within the environment.
+
+```
+DEBUG = "DEVELOPMENT" in os.environ
+```
+
+#### Amazon Web Services (AWS)
+Amazon Web Services Simple Storage Service (S3) was used to store all of the static files, JavaScript, CSS and product images for the site.
+
+19. An account was created on [AWS](aws.amazon.com).
+This process involves inputting an email, password, username, phone number (for verification purposes) and credit card details (for billing).
+
+20. Once signed in, the S3 Services link was located on the AWS Management Console.
+![alt text](documentation/readme-images/aws-management-console.png "AWS Management Console.")
 
 <br>
-    - The following config vars were added (some information has been redacted for security purposes):
-    
-<br>
 
-|Key            |Value                  |
-|:--------------|:----------------------|
-|IP	            |0.0.0.0                |
-|PORT           |5000                   |
-|MONGO_URI	    |mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority|
-|MONGO_DBNAME   |<database_name>   |
-|SECRET_KEY	    |<secret_key>      |
+21. A new bucket was created to store the files.
+![alt text](documentation/readme-images/aws-create-bucket.png "AWS S3 Create Bucket.")
 
 <br>
 
-9. In the Heroku dashboard within the 'Deploy' tab, the 'Master' branch was selected in the 'Manual Deployment' section.
+- This bucket was named to match the Heroku app name.
+- The closest region was chosen: EU(Ireland) eu-west-1
+- The 'Block all public access' checkbox was unchecked 
+and the checkbox to acknowledge that the bucket will be public was checked.
+![alt text](documentation/readme-images/aws-bucket-public-access-form.png "AWS S3 Bucket Public Access Form.")
 
-10. Clicking on the 'Deploy Branch' button successfully deployed the site.
+<br>
 
+22. Once created the Bucket 'Properties' were set.
+- Static Website Hosting was turned on.
+![alt text](documentation/readme-images/aws-bucket-properties-static-website-hosting.png "AWS S3 Bucket Static Website Hosting Properties box.")
 
+<br>
+
+23. Bucket 'Permissions' were set up to allow full access to all resources within the bucket.
+- The following Cross Origin Resource Settings (CORS) Configuration was used.
+```
+[
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+```
+
+- A Security Policy was created for the Bucket using the AWS S3 Bucket Policy Generator.
+![alt text](documentation/readme-images/aws-bucket-policy-generator.png "AWS S3 Bucket Policy Generator.")
+
+<br>
+- The Access Control List permission was set for Everyone, under the Public Access Section
+
+![alt text](documentation/readme-images/aws-bucket-access-control-list.png "AWS S3 Bucket Access Control List.")
+
+<br>
+
+24. AWS Identity and Access Management (IAM) was used to created a user to access the bucket.
+- A new Group called 'manage-dargan-health-foods' was created.
+- A Policy outlining access to the bucket and its contents was created.
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::dargan-health-foods",
+                "arn:aws:s3:::dargan-health-foods/*"]
+        }
+    ]
+}
+```
+- The Policy was attached to the Group.
+- A new User with 'Programmatic Access' was created and attached to the Group.
+
+25. The S3 Bucket was connected to Django.  
+Within the IDE two new packages were installed.
+```
+pip3 install boto3
+
+pip3 install django-storages
+```
+These new dependencies were added to the requirements.txt file.
+
+```
+pip3 freeze > requirements.txt
+```
+
+Django-storages was added to the list of INSTALLED_APPS within settings.py.
+```
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "home",
+    "products",
+    "cart",
+    "checkout",
+    "profiles",
+    "blog",
+    # Other
+    "crispy_forms",
+    "storages",
+]
+```
 ##### back to [top](#table-of-contents)
 ---
 
