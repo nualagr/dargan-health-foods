@@ -29,7 +29,7 @@ the [Stripe Documentation](https://stripe.com/docs/testing):
 
 <br>
 
-Click <a href="">here</a> to visit the deployed site.
+Click <a href="https://dargan-health-foods.herokuapp.com/">here</a> to visit the deployed site.
 
 <br>
 
