@@ -1059,22 +1059,22 @@ The 'Hobby Dev - Free' plan was chosen for this project.
 <br>
 
 6. Set up the new database.  
-The PostgreSQL database adapter [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
+- The PostgreSQL database adapter [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
 was installed.
 
 ```
 pip3 install psycopg2-binary
 ```
 
-[Dj_database_url](https://pypi.org/project/dj-database-url/) was also installed.
+- The Django utility [Dj_database_url](https://pypi.org/project/dj-database-url/) was installed. 
+This utilizes the DATABASE_URL environment variable to configure the Django application, swapping 
+the local database with one managed by a third party (such as Amazon) without changing the app’s code.
+
 ```
 pip3 install dj_database_url
 ```
-This Django utility utilizes the DATABASE_URL environment variable to configure the Django application, swapping 
-the local database with one managed by a third party (such as Amazon) without changing the app’s code.
 
-
-In settings.py [dj_database_url](https://pypi.org/project/dj-database-url/) was imported.  
+- In settings.py [dj_database_url](https://pypi.org/project/dj-database-url/) was imported.  
 The default database url was commented out and the Postgres database URL was passed to dj_database_url.
 ```
 import dj_database_url
@@ -1083,7 +1083,7 @@ DATABASES = {
         'default': dj_database_url.parse("<your Postrgres database URL>")
     }
 ```
-This url can be located under the Config Variables heading on the Settings tab on Heroku.
+- This url can be located under the Config Variables heading on the Settings tab on Heroku.
 
 ![alt text](documentation/readme-images/heroku-settings-tab.png "Heroku Settings tab.")
 
@@ -1116,14 +1116,14 @@ python3 manage.py loaddata products
 ```
 python3 manage.py createsuperuser
 ```
-An email address, username and password were chosen.
+- An email address, username and password were chosen.
 
 11. Within settings.py the file the new database settings were removed and the original default setting was un-commented.
-This was done so that the database URL did not go into version control.
-An 'if' 'else' statement was added to check whether DATABASE_URL is to be found in the environment variables.
+
+- This was done so that the database URL did not go into version control.
+An 'if' 'else' block was added to check whether DATABASE_URL variable exists in the environment.
 If that is the case, as it is when the app is running on Heroku, 
-DATABASES points to the Postgres database.
-Otherwise, the app connects to SQLite3.
+DATABASES points to the Postgres database, otherwise, the app connects to SQLite3.
 ```
 if "DATABASE_URL" in os.environ:
     DATABASES = {
@@ -1142,7 +1142,7 @@ else:
 ```
 pip3 install gunicorn
 ```
-This new dependency was added to the requirements.txt file.
+- This new dependency was added to the requirements.txt file.
 ```
 pip3 freeze > requirements.txt
 ```
@@ -1154,22 +1154,23 @@ In this case, create a web dyno which will run [gunicorn](https://gunicorn.org/)
 web: gunicorn dargan_health_foods.wsgi:application
 ```
 
-14. After logging in to Heroku at the command line Collectstatic was temporarily disabled so that Heroku did not try to collect static files when 
-the app is deployed.
+14. After logging in to Heroku at the command line Collectstatic was temporarily 
+disabled so that Heroku did not try to collect static files when the app was deployed.
 ```
 heroku login -i
 
 heroku config:set DISABLE_COLLECTSTATIC=1 --app <app name>
 ```
 
-15. Within settings.py, the hostname of the Heroku app and the localhost were added to allowed hosts list.
+15. Within settings.py, the hostname of the Heroku app and the localhost were added 
+to the list of allowed hosts.
 ```
 ALLOWED_HOSTS = ["<app name>.herokuapp.com", "localhost"]
 ```
 
 16. Deployed to Heroku, without any static files.  
 As the Heroku app had been created on the website rather than at the command line, it was necessary
-to initialize the Heroku git remote first.
+to initialize the Heroku Git Remote first.
 ```
 heroku git:remote -a <app name>
 
@@ -1177,25 +1178,27 @@ git push heroku master
 ```
 
 17. Automatic deployments were set up.  
-The 'Deploy' tab was selected on the Heroku dashboard.  
-Within the 'Deployment method' section GitHub was selected.
+- The 'Deploy' tab was selected on the Heroku dashboard.  
+- Within the 'Deployment method' section GitHub was selected.
 ![alt text](documentation/readme-images/heroku-deploy-connect-to-github.png "Deploy to GitHub in Heroku.")
 
 <br>
-Making sure that the correct GitHub profile was displayed, the Dargan Health Foods repository was entered into the search box.
 
-When found, the button 'Connect' was clicked.  
-Next, 'Enable Automatic Deploys' was selected to ensure that every time code was pushed to GitHub
+- Making sure that the correct GitHub profile was displayed, the Dargan Health Foods repository was entered into the search box.
+
+- When found, the button 'Connect' was clicked.  
+- Next, 'Enable Automatic Deploys' was selected to ensure that every time code was pushed to GitHub
 it would automatically deploy to Heroku as well.
 
 ![alt text](documentation/readme-images/heroku-deploy-connect-to-github.png "Deploy to GitHub in Heroku.")
 
 <br>
 
-18. Next the configuration variables were set in Heroku and within the local environment.
+18. The configuration variables were set in Heroku and within the local environment.
  - Within the 'Settings' tab for the app the button 'Reveal Config Vars' was clicked.
  - The following config vars were added (some information has been redacted for security purposes):
- ([Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) was used to generate the secret keys.)
+ [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
+ was used to generate the secret keys.
 <br>
 
 |Key                    |Value                  |
@@ -1208,49 +1211,63 @@ it would automatically deploy to Heroku as well.
 
 <br>
 
-- Within settings.py the SECRET_KEY variable was replaced with a call get it from the environment. An empty string was set as the default.
+- Within settings.py the SECRET_KEY variable was replaced with a call to get it from the environment. 
+An empty string was set as the default value.
 
 ```
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
 ```
 
-- Also within settings.py DEBUG was set to TRUE if a variable, 'DEVELOPMENT', exists within the environment.
+- Also within settings.py DEBUG was set to TRUE if a variable, 'DEVELOPMENT', 
+is to be found within the environment variables.
 
 ```
 DEBUG = "DEVELOPMENT" in os.environ
 ```
 
-#### Amazon Web Services (AWS)
-Amazon Web Services Simple Storage Service (S3) was used to store all of the static files, JavaScript, CSS and product images for the site.
+##### back to [top](#table-of-contents)
+---
+
+
+#### Set Up an Amazon Web Services (AWS) Account.
+- Amazon Web Services Simple Storage Service (S3) was used to store all of the static 
+files, JavaScript files, CSS files and product images for the site.
 
 19. An account was created on [AWS](aws.amazon.com).
-This process involves inputting an email, password, username, phone number (for verification purposes) and credit card details (for billing).
+This process involved inputting an email, password, username, phone number 
+(for verification purposes) and credit card details (for billing).
 
 20. Once signed in, the S3 Services link was located on the AWS Management Console.
 ![alt text](documentation/readme-images/aws-management-console.png "AWS Management Console.")
 
 <br>
 
-21. A new bucket was created to store the files.
+##### back to [top](#table-of-contents)
+---
+
+
+#### Set Up the Simple Storage Service (S3) Bucket
+
+21. A new Bucket was created to store the files.
 ![alt text](documentation/readme-images/aws-create-bucket.png "AWS S3 Create Bucket.")
 
 <br>
 
 - This bucket was named to match the Heroku app name.
-- The closest region was chosen: EU(Ireland) eu-west-1
-- The 'Block all public access' checkbox was unchecked 
-and the checkbox to acknowledge that the bucket will be public was checked.
+- The closest region was chosen: EU(Ireland) eu-west-1.
+- The 'Block all public access' checkbox was unchecked.
+- The checkbox to acknowledge that the bucket will be public was selected.
 ![alt text](documentation/readme-images/aws-bucket-public-access-form.png "AWS S3 Bucket Public Access Form.")
 
 <br>
 
-22. Once created the Bucket 'Properties' were set.
+22. Once created the **Bucket 'Properties'** were set.
 - Static Website Hosting was turned on.
 ![alt text](documentation/readme-images/aws-bucket-properties-static-website-hosting.png "AWS S3 Bucket Static Website Hosting Properties box.")
 
 <br>
 
-23. Bucket 'Permissions' were set up to allow full access to all resources within the bucket.
+23. **Bucket 'Permissions'** were set up to allow full access to all resources within the bucket.
 - The following Cross Origin Resource Settings (CORS) Configuration was used.
 ```
 [
@@ -1273,13 +1290,20 @@ and the checkbox to acknowledge that the bucket will be public was checked.
 ![alt text](documentation/readme-images/aws-bucket-policy-generator.png "AWS S3 Bucket Policy Generator.")
 
 <br>
-- The Access Control List permission was set for Everyone, under the Public Access Section
+- The Access Control List permission was set for Everyone, under the Public Access 
+Section.
 
 ![alt text](documentation/readme-images/aws-bucket-access-control-list.png "AWS S3 Bucket Access Control List.")
 
 <br>
 
-24. AWS Identity and Access Management (IAM) was used to created a user to access the bucket.
+##### back to [top](#table-of-contents)
+---
+
+#### Set up an Identity and Access Management (IAM) Group and User
+
+24. AWS Identity and Access Management (IAM) was used to created a User to access 
+the Bucket.
 - A new Group called 'manage-dargan-health-foods' was created.
 - A Policy outlining access to the bucket and its contents was created.
 ```
@@ -1300,19 +1324,21 @@ and the checkbox to acknowledge that the bucket will be public was checked.
 - A new User with 'Programmatic Access' was created and attached to the Group.
 
 25. The S3 Bucket was connected to Django.  
-Within the IDE two new packages were installed.
+- Within the IDE two new packages were installed.
 ```
 pip3 install boto3
 
 pip3 install django-storages
 ```
-These new dependencies were added to the requirements.txt file.
+- These new dependencies were added to the requirements.txt file.
 
 ```
 pip3 freeze > requirements.txt
 ```
 
-Django-storages was added to the list of INSTALLED_APPS within settings.py.
+- [Django-storages](https://django-storages.readthedocs.io/en/latest/) was 
+added to the list of INSTALLED_APPS within settings.py. This collection of 
+custom storage backends for Django includes Amazon S3.
 ```
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -1336,6 +1362,78 @@ INSTALLED_APPS = [
     "storages",
 ]
 ```
+- Configuration Variables, to direct Django to the correct AWS Bucket,
+were created in Heroku and referenced within settings.py.
+```
+# Within Heroku Config Vars:
+
+USE_AWS => True
+AWS_ACCESS_KEY_ID => (To be found in the 'new_user_credentials' file from AWS)
+AWS_SECRET_ACCESS_KEY => (To be found in the 'new_user_credentials' file from AWS)
+```
+
+```
+# Within settings.py:
+
+if "USE_AWS" in os.environ:
+
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = "dargan-health-foods"
+    AWS_S3_REGION_NAME = "eu-west-1"
+    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+    # Tell Django where the static files will be coming from in Production
+    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+```
+
+26. COLLECTSTATIC was renabled and configured so that, in production, Django
+uses S3 to store static files whenever 'collectstatic' is run and uploads product
+and blog images to the Bucket.
+
+- Re-enabled COLLECTSTATIC, by removing the DISABLE_COLLECTSTATIC variable
+within Config Vars on Heroku, so that Django collects static files automatically
+and uploads them to the newly referenced Bucket.
+
+- Created a new file in the project root directory called 'custom_storages.py'.
+```
+# Import the project settings
+from django.conf import settings
+
+# Import the S3 specific class from Django storages
+from storages.backends.s3boto3 import S3Boto3Storage
+
+
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+```
+- Within settings.py, these new storage classes were attached to new variables 
+within the 'if USE_AWS' block.  In production they direct Django to save the static
+files in a folder called 'static'.
+```
+if "USE_AWS" in os.environ:
+
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = "dargan-health-foods"
+    AWS_S3_REGION_NAME = "eu-west-1"
+    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+
+    # Static and media files
+    STATICFILES_STORAGE = "custom_storages.StaticStorage"
+    STATICFILES_LOCATION = "static"
+    DEFAULT_FILE_STORAGE = "custom_storages.MediaStorage"
+    MEDIAFILES_LOCATION = "media"
+
+    # Override static and media URLs in production
+    STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/"
+    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/"
+```
+
 ##### back to [top](#table-of-contents)
 ---
 
