@@ -1434,6 +1434,19 @@ if "USE_AWS" in os.environ:
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/"
 ```
 
+- In order to improve performance for the end user, an optional setting 
+was added to settings.py to tell the browser to cache static files, which are
+not changed very often, for a long time.
+```
+if "USE_AWS" in os.environ:
+
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        "Expires": "Thu, 31 Dec 2099 20:00:00 GMT",
+        "CacheControl": "max-age=94608000",
+    }
+```
+
 ##### back to [top](#table-of-contents)
 ---
 
