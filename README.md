@@ -1435,8 +1435,8 @@ if "USE_AWS" in os.environ:
 ```
 
 - In order to improve performance for the end user, an optional setting 
-was added to settings.py to tell the browser to cache static files, which are
-not changed very often, for a long time.
+was added to settings.py to tell the browser to cache static files for a 
+long time, as they are not changed very often.
 ```
 if "USE_AWS" in os.environ:
 
@@ -1445,6 +1445,48 @@ if "USE_AWS" in os.environ:
         "Expires": "Thu, 31 Dec 2099 20:00:00 GMT",
         "CacheControl": "max-age=94608000",
     }
+```
+
+27. Media files were added to the S3 Bucket.
+- Within the dargan-health-foods bucket a folder called 'media' was created.
+![alt text](documentation/readme-images/aws-bucket-s3-create-folder.png "Creating a folder within the S3 bucket.")
+
+<br>
+
+- A 'product_images' folder was created within the 'media' folder.
+
+- Using the 'Upload' button, the product images to be uploaded were selected.
+
+![alt text](documentation/readme-images/aws-bucket-upload-images.png "Uploading images to the S3 bucket.")
+
+<br>
+
+- Under 'Permissions' public-read access was granted.
+![alt text](documentation/readme-images/aws-bucket-image-permissions.png "S3 bucket image permissions.")
+
+<br>
+
+- A 'blog_images' folder was also created within the 'media' folder and populated with the 
+blog post images.
+
+- Other images on the site were uploaded directly into the media folder.
+
+#### Link Stripe to Heroku
+28. The stripe 'public key' and 'secret key' were added to the list of Config Vars on Heroku.
+```
+STRIPE_PUBLIC_KEY => YOUR_STRIPE_PUBLIC_KEY
+STRIPE_SECRET_KEY => YOUR_STRIPE_SECRET_KEY
+```
+
+- A new webhook endpoint was added to Heroku by adding the Heroku app url followed 
+by "/checkout/wh".
+```
+https://dargan-health-foods.herokuapp.com/checkout/wh/
+```
+
+- The Stripe webhook secret was then added to the Heroku app variables.
+```
+STRIPE_WH_SECRET => YOUR_STRIPE_WH_SECRET
 ```
 
 ##### back to [top](#table-of-contents)
