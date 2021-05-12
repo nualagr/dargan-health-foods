@@ -18,17 +18,18 @@
         </li>
         {% endif %}
         {% for i in page_range %}
-        {% if page_obj.number == i %}
-        <li class="page-item active">
-            <span class="page-link">{{ i }}
-                <span class="sr-only">(current)</span>
-            </span>
-        </li>
-        {% else %}
-        <li class="page-item">
-            <a class="page-link" href="{% current_query_url 'page' i request.GET.urlencode %}" aria-label="Link to Page {{ i }}">{{ i }}</a>
-        </li>
-        {% endif %}
+            {% if page_obj.number == i %}
+            <li class="page-item active">
+                <span class="page-link">{{ i }}
+                    <span class="sr-only">(current)</span>
+                </span>
+            </li>
+            {% elif i <= page_obj.number|add:3 and i >= page_obj.number|add:-3 %}
+            <li class="page-item">
+                <a class="page-link" href="{% current_query_url 'page' i request.GET.urlencode %}" aria-label="Link to Page {{ i }}">{{ i }}</a>
+            </li>
+            {% else %}
+            {% endif %}
         {% endfor %}
         {% if page_obj.has_next %}
         <li class="page-item">
