@@ -24,6 +24,7 @@
                     <span class="sr-only">(current)</span>
                 </span>
             </li>
+            <!-- Solution to page overflow found on Stack Overflow: https://stackoverflow.com/questions/41131802/django-paginator-page-range-for-not-displaying-all-numbers-->
             {% elif i <= page_obj.number|add:3 and i >= page_obj.number|add:-3 %}
             <li class="page-item">
                 <a class="page-link" href="{% current_query_url 'page' i request.GET.urlencode %}" aria-label="Link to Page {{ i }}">{{ i }}</a>
