@@ -169,6 +169,31 @@ def current_query_url(key, value, urlencode=None):
 This succeeded in bringing the user to the next/previous page of the results queryset, including 
 the chosen category, department, tag or search term and sorting choice.
 
+Pagination caused issues [again](https://github.com/nualagr/dargan-health-foods/commit/80532381676ebbe2f619fbffd42b5d5f0add8c97) 
+once the site had been populated with a significant number of products as
+the number of page links resulted in horizontal overflow, particularly when viewed on mobile devices.
+An answer posted on [StackOverflow](https://stackoverflow.com/questions/41131802/django-paginator-page-range-for-not-displaying-all-numbers)
+suggested limiting the number of links being rendered within the template.
+An 'if' 'elif' 'else' block was added to the pagination include to limit the number 
+of page numbers being rendered to +-3 on either side of the active page number.
+```
+ {% for i in page_range %}
+    {% if page_obj.number == i %}
+        <li class="page-item active">
+            <span class="page-link">{{ i }}
+                <span class="sr-only">(current)</span>
+            </span>
+        </li>
+    {% elif i <= page_obj.number|add:3 and i >= page_obj.number|add:-3 %}
+        <li class="page-item">
+            <a class="page-link" href="{% current_query_url 'page' i request.GET.urlencode %}" aria-label="Link to Page {{ i }}">{{ i }}</a>
+        </li>
+    {% else %}
+    {% endif %}
+{% endfor %}
+```
+This removed the horizontal overflow, but was not ideal as it was not immediately obvious
+to the viewer that the page range did not reflect the total number of pages returned.
 <br>
 
 ### Product Discount Price Issue
