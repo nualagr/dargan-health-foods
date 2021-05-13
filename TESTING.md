@@ -174,7 +174,7 @@ once the site had been populated with a significant number of products as
 the number of page links resulted in horizontal overflow, particularly when viewed on mobile devices.
 An answer posted on [StackOverflow](https://stackoverflow.com/questions/41131802/django-paginator-page-range-for-not-displaying-all-numbers)
 suggested limiting the number of links being rendered within the template.
-An 'if' 'elif' 'else' block was added to the pagination include to limit the number 
+An 'if' 'elif' 'else' block was added to the pagination.html include to limit the number 
 of page numbers being rendered to +-3 on either side of the active page number.
 ```
  {% for i in page_range %}

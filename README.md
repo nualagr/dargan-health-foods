@@ -72,7 +72,7 @@ Click <a href="https://dargan-health-foods.herokuapp.com/">here</a> to visit the
 
 The Covid-19 crisis has focused attention on online shopping out of necessity. 
 Rigid social distancing restrictions and the closure of various types of business 
-has focused consumers’ minds on ways in which they can get their desired 
+has focused consumers’ minds on the ways in which they can get their desired 
 products and services online. 
 
 Dargan Health Foods website is of direct interest to Dargan's regular customers 
@@ -97,7 +97,7 @@ These reviews and comments can subsequently be edited or deleted by their creato
 Dargan's owners see a need to provide their customer base with a 
 fluid and intuitive remote-shopping experience 
 that will negate the need for them to visit the physical store 
-and enable to company to connect with customers 
+and enable the company to connect with customers 
 they wouldn’t normally reach, increasing the business’ profitability.  
 This website has been designed to work in tandem with the retailer's 
 physical store and advance their business goals.
@@ -181,7 +181,8 @@ As the owner of Dargan Health Foods website I would like to:
 -	Provide users with an effective and user-friendly platform where they can see what products Dargan's have to offer.
 -   Provide site users with a straight-forward online shopping experience.
 -   Provide visitors with visually appealing images of the products on offer.
--   Provide visitors with information about the products, such as their ingredients/nutritional information (where applicable), so that they can make more informed choices when choosing their products.
+-   Provide visitors with information about the products, such as their ingredients/nutritional information 
+(where applicable), so that they can make more informed choices when choosing their products.
 -   Provide site users with an easy way to add their desired product to their cart.
 -   Provide users with a visual representation of their cart total and the number of products already added, visible on all screens.
 -   Provide users with an updated total when they add or remove products from their cart.
@@ -239,7 +240,8 @@ with a way to purchase their favourite Dargan's products online.
 Consumers who have €35 worth of products in their shopping cart will be 
 encouraged to spend an extra €15 to get free shipping at €50. 
 
-Visitors are encouraged to become site members in order to take advantage of a 
+Visitors are encouraged to become site members in order to take advantage of 
+an introductory offer of 10% off their first purchase and to be able to access a  
 faster and more convenient checkout process. The inclusion of the site blog, with 
 regular posts on food and health-related content, of interest to our target audience, 
 has been designed with a view to encourage visitors to return to the site regularly 
@@ -346,7 +348,7 @@ of products was identified as being a high priority for the end user.  The mobil
 dropdown menu on the Dargan Health Foods website provides links to the different 
 **product departments** – Health & Beauty, Vitamins & Supplements etc. that were 
 identified by the company. These departmental links, in turn, open **submenus** 
-revealing the different **product types** – Bath & Shower, Body Care, Skincare, etc., 
+revealing the different **categories** – Bath & Shower, Body Care, Skincare, etc., 
 providing the user with a quick means of narrowing their choice. 
 **Chevron-down icons** are used to alert the user to the presence of the sub-menu. 
 The remaining links provide access to the site **Blog**, **About Us** section and 
@@ -354,10 +356,9 @@ the **Contact Us** page, which were deemed important in the User Stories section
 
 ![alt text](documentation/readme-images/mobile-navbar-dropdown-menu-chevron.png "Mobile Navbar Dropdown Menu.")
 
-In order to utilise the full screen on a mobile device to display products 
-and their information cleanly it was decided to use a **'back-to-top' button**, 
-which appears once the user has scrolled below the fold, in order to negate 
-the need for a sticky header.
+In order to make navigation easier for the user, particularly on pages with content
+that requires the user to scroll, a **'back-to-top' button** was used. This 
+appears once the user has scrolled below the fold.
 
 ![alt text](documentation/readme-images/back-to-top-chevron.png "Back to Top Chevron.")
 
@@ -369,7 +370,7 @@ the **brand logo / home button**, **search bar**, **navigation links**,
 
 ![alt text](documentation/readme-images/desktop-navbar.png "Desktop Navbar.")
 
-Each departmental link opens a dropdown menu containing the different product types 
+Each departmental link opens a dropdown menu containing the different product categories 
 associated with that department.
 
 ![alt text](documentation/readme-images/product-type-dropdown-menu-desktop.png "Desktop Navbar Dropdown Menu.")
@@ -420,7 +421,7 @@ Main content areas on each page were designed for functionality and consistency.
 To cater to for increasing number of consumers shopping from mobile devices, the site 
 uses responsive web design. 
 Dargan Health Foods was designed with a mobile-first design philosophy,
-beginning the product design from the mobile end, which has more restrictions, 
+beginning with the product design from the mobile end, which has more restrictions and 
 then expanding its features to create a tablet and desktop version.
 
 <br>
@@ -481,8 +482,8 @@ health-conscious and environmentally-conscious consumers.
 
 Design choices were chosen to complement the business strategies and goals. 
 The colour palette is bright and modern. 
-As Dargan’s is a Health Food store a mix of greens were chosen to reflect the 
-products sold and to create a link to nature. Green is also seen as energetic 
+As Dargan’s is a Health Food store a mixture of green hues were chosen to reflect the 
+link between the products sold and nature. Green is also seen as energetic 
 and a symbol of renewal.  This ties in with Dargan’s branding, they are 
 energetic and passionate about the Health Food business. 
 White was chosen as a background colour to keep the look fresh and clean. 
@@ -502,12 +503,20 @@ including [Full Of Beans](https://www.fullofbeans.ie/),
 [The Health Store](https://www.thehealthstore.ie/), 
 [iHerb](iherb.com) and 
 [EverGreen](https://www.evergreen.ie/).
-Colour on these sites is limited to the use one or two accent colours. 
-This simple colour scheme allows the featured products to stand out and to grab the 
+Colour on these sites is limited to the use of one or two accent colours. 
+These simple colour schemes allow the featured products to stand out and to grab the 
 consumer's attention. A similar approach was adopted on the Dargan Health Foods site. 
 The accent colours of Apple Green, Middle Yellow and Bright Yellow Crayola were chosen.
 
 ![alt text](documentation/readme-images/dargans-colour-palette.png "Dargan Health Foods colour palette.")
+
+<br>
+
+During the development process this colour palette was extended in order to provide 
+visual contrast and interest, as well as for functional purposes, for example, Tart Orange
+was used to draw attention to error messages.
+
+![alt text](documentation/readme-images/dargans-extended-colour-palette.png "Dargan Health Foods extended colour palette.")
 
 <br>
 
@@ -539,17 +548,12 @@ The friendly-looking Google font, *Cookie*, a script typeface, was chosen for th
 
 <br>
 
-The *Montserrat* font was chosen for headings and subheadings within the site. This font is clear, 
-well-spaced and pleasant to read on screens.    
-![alt text](documentation/readme-images/font-montserrat-400.png "Montserrat Font.")
+The *Open Sans* font was chosen for headings, subheadings and text within the site. 
+This font is clear, well-spaced and pleasant to read on screens. This font also 
+ensured the readability of smaller text when the site is viewed on a mobile screen 
+as it remains legible even when the typeface is small. 
 
-<br>
-
-To ensure the readability of smaller text on a mobile screen *Open Sans* was chosen 
-for the main text used within the body of the site. This font works well with *Montserrat*
-and remains legible even when the typeface is small. 
-
-![alt text](documentation/readme-images/open-sans-font.png "Open Sans font example.")
+![alt text](documentation/readme-images/open-sans-font-example.png "Open Sans font example.")
 
 <br>
 
@@ -832,6 +836,15 @@ Enum product_status {
 | Title             |blog_comment_title |CharField      |max_length=80|
 | Comment           |blog_comment       |TextField      ||
 | Created On        |created_on         |DateTimeField  |auto_now_add=True|
+
+<br>
+
+#### NewsletterSubscription Model
+| Title	                    |Key in db	    |Data Type	    |Type Validation    |
+| :---------------------    |:--------------| :-------------|:----------------- |
+| NewsletterSubscription ID |id             |AutoField      |primary_key=True   |
+| Email Address             |email_address  |EmailField     |max_length=254|
+| Date Subscribed           |date_subscribed|DateTimeField  |auto_now_add=True|
 
 <br>
 
