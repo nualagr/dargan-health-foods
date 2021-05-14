@@ -586,7 +586,7 @@ illustrates the relationships between the models.
 
 ### Data Models
 
-The Dargan Health Foods website relies on fifteen database models:
+The Dargan Health Foods website relies on nineteen database models:
 
 
 #### User Model
@@ -636,7 +636,7 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 | Category ID           |id                 |AutoField      |primary_key=True   |
 | Name                  |name               |CharField      |max_length=254|
 | Friendly Name         |friendly_name      |CharField      |max_length=254, null=True, blank=True|
-| Category Department   |category_department|ForeignKey     |[ref: > Department.id]|
+| Department            |department         |ForeignKey     |[ref: > Department.id]|
 
 <br>
 
@@ -644,8 +644,8 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 | Title	        |Key in db	    |Data Type	    |Type Validation    |
 | :------------ |:--------------| :-------------|:----------------- |
 | Brand ID      |id             |AutoField      |primary_key=True   |
-| Name          |name           |CharField      |max_length=30|
-| Friendly Name |friendly_name  |CharField      |max_length=30, null=True, blank=True|
+| Name          |name           |CharField      |max_length=254|
+| Friendly Name |friendly_name  |CharField      |max_length=254, null=True, blank=True|
 
 <br>
 
@@ -653,19 +653,10 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 | Title	        |Key in db	    |Data Type	    |Type Validation    |
 | :------------ |:--------------| :-------------|:----------------- |
 |Tag ID         |id             |AutoField      |primary_key=True   |
-|Name           |name           |CharField      |max_length=30|
-|Friendly Name  |friendly_name  |CharField      |max_length=30, null=True, blank=True|
+|Name           |name           |CharField      |max_length=80|
+|Friendly Name  |friendly_name  |CharField      |max_length=80, null=True, blank=True|
 
 <br>
-
-// Enum for 'Product' table below
-
-Enum product_status {
-* out_of_stock
-* in_stock
-* running_low [note: 'less than 20'] // add column note
-
-}
 
 #### Product Model
 | Title	                    |Key in db	                |Data Type	    |Type Validation    |
@@ -674,8 +665,8 @@ Enum product_status {
 |Stock Keeping Unit         |sku                        |CharField      |max_length=254, null=True, blank=True|
 |Name                       |name                       |CharField      |max_length=254|
 |Friendly Name              |friendly_name              |CharField      |max_length=254|
-|Abbreviated Friendly Name  |abbreviated_friendly_name  |CharField      |max_length=40|
-|Brand ID                   |brand_id                   |ForeignKey     |[ref: > Brand.id]|
+|Abbreviated Friendly Name  |abbreviated_friendly_name  |CharField      |max_length=80|
+|Brand ID                   |brand                      |ForeignKey     |[ref: > Brand.id]|
 |Size Value                 |size_value                 |IntegerField   |max_length=10, null=True, blank=True|
 |Size Unit of Measurement   |size_unit                  |CharField      |max_length=10, null=True, blank=True|
 |Weight in Grams            |weight_g                   |IntegerField   |null=True, blank=True|
@@ -683,12 +674,12 @@ Enum product_status {
 |On Offer                   |on_offer                   |BooleanField   |default=False|
 |Discount Price             |discount_price             |DecimalField   |max_digits=6, decimal_places=2, default=0|
 |Vat Code                   |vat_code                   |CharField      |max_length=3|
-|Product Information        |product_information        |TextField      |null=True, blank=True|
+|Product Information        |information                |TextField      |null=True, blank=True|
 |Ingredients                |ingredients                |TextField      |null=True, blank=True|
 |Free From                  |free_from                  |BooleanField   |default=False|
 |Allegens                   |allergens                  |TextField      |null=True, blank=True|
 |Usage Instructions         |usage                      |TextField      |null=True, blank=True|
-|Category ID                |category_id                |ForeignKey     |[ref: > Category.id]|
+|Category ID                |category                   |ForeignKey     |[ref: > Category.id]|
 |Barcode                    |barcode                    |CharField      |max_length=13, null=True, blank=True|
 |Average Rating             |avg_rating                 |DecimalField   |max_digits=2, decimal_places=1, default=0, null=True, blank=True|
 |Date added                 |date_added                 |DateTimeField  |auto_now_add=True|
@@ -700,12 +691,12 @@ Enum product_status {
 <br>
 
 #### ProductImage Model
-| Title	                |Key in db	    |Data Type	    |Type Validation    |
-| :------------         |:--------------| :-------------|:----------------- |
-| Product Image ID      |id             |AutoField      |primary_key=True   |
-| Product ID            |product_id     |ForeignKey     |[ref: > Product.id]|
-| Product Image         |image          |ImageField     |null=True, blank=True|
-| Product Image URL     |image_url      |URLField       |max_length=1024, null=True, blank=True|
+| Title	         |Key in db	    |Data Type	    |Type Validation    |
+| :------------  |:--------------| :-------------|:----------------- |
+| ProductImage ID|id             |AutoField      |primary_key=True   |
+| Product        |product        |ForeignKey     |[ref: Product.id]|
+| Image          |image          |ImageField     |upload_to="product_images", null=True, blank=True|
+| Image URL      |image_url      |URLField       |max_length=1024, null=True, blank=True|
 
 <br>
 
@@ -732,19 +723,48 @@ Enum product_status {
 
 <br>
 
-#### ProductDiscount Model
+#### DiscountCode Model
 | Title	                    |Key in db	            |Data Type	    |Type Validation    |
-| :-----------------        |:--------------        | :-------------|:----------------- |
-| ProductDiscount ID        |id                     |AutoField      |primary_key=True   |
-| Product ID                |product_id             |ForeignKey     |[ref: > Product.id]|
-| Discount Value            |discount_value         |DecimalField   |max_digits=6|
-| Discount Unit             |discount_unit          |CharField      | //Currency or Percentage|
-| Start Date                |start_date             |DateTimeField  ||
-| Expiry Date               |expiry_date            |DateTimeField  ||
-| Discount Code             |discount_code          |CharField      |max_length=10|
-| Minimum Order Value       |minimum_order_value    |DecimalField   |max_digits=6|
-| Maximum Discount Amount   |maximum_discount_amount|DecimalField   |max_digits=6|
+| :-----------------        |:--------------        | :------------ |:----------------- |
+| DiscountCode ID           |id                     |AutoField      |primary_key=True   |
+| Discount Code             |discount_code          |CharField      |max_length=30|
+| Percentage Discount       |percentage_discount    |DecimalField   |max_digits=6|
 
+<br>
+
+#### DiscountCode2User Model
+| Title	                    |Key in db	     |Data Type	     |Type Validation    |
+| :-----------------        |:-------------- | :------------ |:----------------- |
+| DiscountCode2User ID      |id              |AutoField      |primary_key=True   |
+| Discount Code ID          |discount_code   |ForeignKey     |[ref: > UserProfile.id]|
+| User Profile ID           |user            |ForeignKey     |[ref: > UserProfile.id]|
+| Active                    |active          |BooleanField   |default=True|
+
+<br>
+
+#### Order Model
+| Title	                    |Key in db	                |Data Type	    |Type Validation    |
+| :-----------------        |:--------------            | :-------------|:----------------- |
+| Order ID                  |id                         |AutoField      |primary_key=True   |
+| Order Number              |order_number               |CharField      |max_length=32, null=False, editable=False|
+| User Profile ID           |user_profile               |ForeignKey     |[ref: > UserProfile.id]|
+| Full Name                 |full_name                  |CharField      |max_length=50, null=False, blank=False|
+| Email Address             |email                      |CharField      |max_length=254, null=False, blank=False|
+| Phone Number              |phone_number               |CharField      |max_length=20, null=False, blank=False|
+| Street Address1           |street_address1            |CharField      |max_length=80, null=False, blank=False|
+| Street Address2           |street_address2            |CharField      |max_length=80, null=True, blank=True|
+| Town or City              |town_or_city               |CharField      |max_length=40, null=False, blank=False|
+| County                    |county                     |CharField      |max_length=80, null=True, blank=True|
+| Postcode                  |postcode                   |CharField      |max_length=20, null=True, blank=True|
+| Country                   |country                    |CountryField   |blank_label="Country *", null=False, blank=False|
+| Order Date                |date                       |DateTimeField  |auto_now_add=True|
+| Delivery Cost             |delivery_cost              |DecimalField   |max_digits=6, decimal_places=2, null=False, default=0|
+| Discount Code             |discount_code              |ForeignKey     |[ref: > DiscountCode.id], null=True, blank=True|
+| Discount amount           |discount_amount            |DecimalField   |max_digits=10, decimal_places=2, null=True, default=0|
+| Order Total               |order_total                |DecimalField   |max_digits=10, decimal_places=2, null=False, default=0|
+| Grand Total               |grand_total                |DecimalField   |max_digits=10, decimal_places=2, null=False, default=0|
+| Original Cart             |original_cart              |TextField      |null=False, blank=False, default=""|
+| Stripe PID                |stripe_pid                 |CharField      |max_length=254, null=False, blank=False, default=""|
 
 <br>
 
@@ -756,37 +776,6 @@ Enum product_status {
 | Product Price Paid    |product_price_paid |DecimalField   |max_digits=6, decimal_places=2, null=False, blank=False, editable=False, default=0,|
 | Quantity              |quantity           |IntegerField   |default=1|
 | Line Item Total       |lineitem_total     |DecimalField   |max_digits=6|
-
-
-<br>
-
-#### Order Model
-| Title	                    |Key in db	                |Data Type	    |Type Validation    |
-| :-----------------        |:--------------            | :-------------|:----------------- |
-| Order ID                  |id                         |AutoField      |primary_key=True   |
-| Order Number              |order_number               |CharField      |max_length=32, null=False, editable=False|
-| User Profile ID           |user_profile_id            |ForeignKey     |[ref: > UserProfile.id]|
-| Full Name                 |full_name                  |CharField      |max_length=50, null=False, blank=False|
-| Email Address             |email                      |CharField      |max_length=254, null=False, blank=False|
-| Phone Number              |phone_number               |CharField      |max_length=20, null=False, blank=False|
-| Billing Street Address1   |billing_street_address1    |CharField      |max_length=80, null=False, blank=False|
-| Billing Street Address2   |billing_street_address2    |CharField      |max_length=80, null=True, blank=True|
-| Billing Town or City      |billing_town_or_city       |CharField      |max_length=40, null=False, blank=False|
-| Billing County            |billing_county             |CharField      |max_length=80, null=True, blank=True|
-| Billing Postcode          |billing_postcode           |CharField      |max_length=20, null=True, blank=True|
-| Billing Country           |billing_country            |CountryField   |blank_label="Country *", null=False, blank=False|
-| Shipping Street Address1  |shipping_street_address1   |CharField      |max_length=80, null=False, blank=False|
-| Shipping Street Address2  |shipping_street_address2   |CharField      |max_length=80, null=True, blank=True|
-| Shipping Town or City     |shipping_town_or_city      |CharField      |max_length=40, null=False, blank=False|
-| Shipping County           |shipping_county            |CharField      |max_length=80, null=True, blank=True|
-| Shipping Postcode         |shipping_postcode          |CharField      |blank_label="Country *", null=False, blank=False|
-| Shipping Country          |shipping_country           |CountryField   ||
-| Order Date                |order_date                 |DateTimeField  |auto_now_add=True|
-| Delivery Cost             |delivery_cost              |DecimalField   |max_digits=6, decimal_places=2, null=False, default=0|
-| Order Total               |order_total                |DecimalField   |max_digits=10, decimal_places=2, null=False, default=0|
-| Grand Total               |grand_total                |DecimalField   |max_digits=10, decimal_places=2, null=False, default=0|
-| Original Cart             |original_cart              |TextField      |null=False, blank=False, default=""|
-| Stripe PID                |stripe_pid                 |CharField      |max_length=254, null=False, blank=False, default=""|
 
 
 <br>
@@ -827,14 +816,13 @@ Enum product_status {
 <br>
 
 
-#### BlogComment Model
+#### BlogPostComment Model
 | Title	            |Key in db	        |Data Type	    |Type Validation    |
 | :-----------------|:--------------    | :-------------|:----------------- |
-| BlogComment ID    |id                 |AutoField      |primary_key=True   |
-| Blog ID           |blog_id            |ForeignKey     |[ref: > BlogPost.id] // inline relationship (many-to-one)|
-| User ID           |user_id            |ForeignKey     |[ref: > UserProfile.id]|
-| Title             |blog_comment_title |CharField      |max_length=80|
-| Comment           |blog_comment       |TextField      ||
+| BlogPostComment ID|id                 |AutoField      |primary_key=True   |
+| BlogPost ID       |blogpost           |ForeignKey     |[ref: > BlogPost.id]|
+| User ID           |user               |ForeignKey     |[ref: > UserProfile.id]|
+| Content           |content            |TextField      ||
 | Created On        |created_on         |DateTimeField  |auto_now_add=True|
 
 <br>
@@ -857,7 +845,7 @@ Fixtures were made for
 * Topic 
 
 in [Microsoft Excel](https://www.microsoft.com/en-ie/microsoft-365/excel) and saved as .csv files.
-Then they were converted to JSON using [JSON-CSV](https://json-csv.com/reverse).
+They were then converted to json using [custom scripts](general_scripts/convert_products_csv_to_nested_json.py).
 
 ##### back to [top](#table-of-contents)
 ---
