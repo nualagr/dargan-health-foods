@@ -586,7 +586,7 @@ illustrates the relationships between the models.
 
 ### Data Models
 
-The Dargan Health Foods website relies on nineteen database models:
+The Dargan Health Foods website relies on nineteen database models and six apps:
 
 
 #### User Model
@@ -855,17 +855,17 @@ They were then converted to json using [custom scripts](general_scripts/convert_
 
 - Languages: 
 
-  * [HTML5](http://en.wikipedia.org/wiki/HTML5). Used to create the structure of the Read n' Reviewed website and the custom 404 and 500 pages.
+  * [HTML5](http://en.wikipedia.org/wiki/HTML5). Used to create the structure of the Dargan Health Foods website and the custom 404 and 500 pages.
   * [CSS3](http://en.wikipedia.org/wiki/CSS). Used to add style to the website. 
-  * [JavaScript](https://en.wikipedia.org/wiki/JavaScript). Used to create the dynamic, interactive elements of the website such as the carousel and to call the Google Books API.
+  * [JavaScript](https://en.wikipedia.org/wiki/JavaScript). Used to create the dynamic, interactive elements of the website such as the Bootstrap accordions.
   * [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).  Used to create and run the web application.
-  * [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine)).  Used to simplify displaying data from the backend of this project smoothly and effectively in html.
   
 - Websites
   * [Am I Responsive](http://ami.responsivedesign.is/). Used to create the mock-up image showing the site as it would behave when viewed on desktop, mobile and tablet devices. 
+  * [AWS](https://aws.amazon.com/). Amazon Web Services - Simple Storage Service (S3) was used to host the media and static files.
   * [Code Institute](https://codeinstitute.net/). Used to review concepts covered in preceding modules and walk-through projects. 
   * [Coolors](https://coolors.co/ffbe0b-fb5607-ff006e-8338ec-3a86ff). Used to analyse the site logo to isolate the colours within and to construct the colour palette for the site.
-  * [Emailjs](https://emailjs.com/). Used to connect EmailJS to gmail, create an email template, and use their Javascript library to trigger an email with dynamic variables that are populated from the Contact Us form.
+  * [Dbdiagram](https://dbdiagram.io/). Used to create the Entity Relationship diagram used in the README.md file.
   * [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools).  Used to test the responsiveness of the site.
   * [Font Awesome](https://fontawesome.com/). Used to source the free icons that were used for the social media links in the footer and for the profile, home, review, edit, delete, buy, reset, clear and search buttons.
   * [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools). Used throughout the project to test the responsiveness of elements, to target and apply CSS styles during the design phase and to test the site's performance once built. 
@@ -880,6 +880,7 @@ They were then converted to json using [custom scripts](general_scripts/convert_
   * [RandomKeyGen](https://randomkeygen.com/). Used to generate the Secret Key.
   * [Slack](code-institute-room.slack.com). Used during development and testing to find the solutions to problems enountered.
   * [Stack Overflow](https://stackoverflow.com/). Used to search for the answers to problems encountered during the development and testing of the website.
+  * [Stripe](www.stripe.com). Payment processing platform used to validate and authenticate payments and, potentially, to receive payments made over the internet.
   * [Subtle Tools](https://subtitletools.com/convert-text-files-to-utf8-online). Used to convert the products csv file to utf-8 so that it could be read by dictReader() before being converted to json.
   * [TinyPNG](https://tinypng.com/). Used to compress the site logos and background-images to improve performance results.
   * [Unsplash](https://www.unsplash.com). Used to source the non-product site images.
@@ -891,16 +892,26 @@ They were then converted to json using [custom scripts](general_scripts/convert_
   * [Bootstrap](https://getbootstrap.com/). Used to structure the website layout and ensure that it was responsive on all devices.
   * [Django](https://www.djangoproject.com/).  Python web framework used to create the web app.
 
-- Database
+- Databases
   * [SQLite](https://www.sqlite.org/). Used during development to host the collection of data.
   * [Heroku Postgres](https://www.heroku.com/postgres). Used during production to store the product information, user information, and other data.
-
-- APIs
 
 - Apps:
   * [Balsamiq](https://balsamiq.com/). Used to create the project wireframes.
   * [Inkscape](https://inkscape.org/). Used to edit the Vecteezy svgs.
   * [Microsoft Excel](https://www.microsoft.com/en-ie/microsoft-365/excel). Used to create the fixture files and convert them to .csv files.  Also used to create the testing spreadsheets.
+
+- Other Tools and Libraries:
+  * [Black](https://pypi.org/project/black/). Used to format the python code.
+  * [Boto3](https://boto3.amazonaws.com/). A Python Software Development Kit (SDK) for AWS. 
+  Used to provide direct CRUD functionality of AWS resources from the Python scripts.
+  * [Dj_database_url](https://pypi.org/project/dj-database-url/) used to configure the Django application, swapping 
+the local database with one managed by a third party without changing the app’s code. 
+  * [Gunicorn](https://gunicorn.org/). Used as a Web Server Gateway Interface (WSGI).
+  * [PIP](https://pypi.org/project/pip/). Used to install Python packages.
+  * [Pillow](https://pillow.readthedocs.io/en/stable/). Python Imaging Library (PIL), used to add image processing
+  capabilites such as opening, manipulating, and saving images.
+  * [Psycopg2](https://pypi.org/project/psycopg2/). Python PostgreSQL database adapter.
 
 ##### back to [top](#table-of-contents)
 ---
@@ -915,15 +926,21 @@ A detailed description of the testing process and the results achieved can be fo
 ## Deployment
 ### How to run this project locally
 
-To run this project on your own Integrated Development Environment ensure that the 
+To run this project on your own Integrated Development Environment (IDE) ensure that the 
 following are installed on your machine:
 
 - PIP
 - Python 3
 - Git
-- 
 
-<br> 
+
+Accounts with the following services are also used within this project:
+
+- [Stripe](www.stripe.com)
+- [AWS](https://aws.amazon.com/)
+- [Gmail](https://mail.google.com/)
+
+<br>
 
 ### To clone the repository:
 1. Log in to Github.
@@ -950,47 +967,55 @@ git clone https://github.com/nualagr/dargan-health-foods.git
 ```
 9. Press 'Enter' to create the clone.
 
-
-
 (Alternative you can select "Download ZIP" from the dropdown menu, extract the zip file to your chosen folder and use your IDE of choice to access it.) 
 
-
-
 <br>
-11. Within your terminal window install the required dependencines needed to run the application using the following command:
+
+10. Within your terminal window install the required dependencies needed to run the application using the following command:
 
 ```
 $ pip3 install -r requirements.txt
 ```
 
-
-12. Initialize virtual environment by typing the following command into the terminal:
-```python
-py -m venv virtual
-```
-13. Create a free account on MongoDb.  Create a new database and reproduce the 3 collections as described above in the [Collections Data Structure](#collections-data-structure) section of the README.
-
-14. Within your IDE create a file to hold your environment variables and call it env.py.
+11. Within your IDE create a file to hold your environment variables and call it env.py or set the variables 
+within your IDE settings if that is supported.
 
 ```
     os.environ.setdefault("Key", "Value")
 ```
 
-| Key               | Value               |
-|-------------------|---------------------|
-| AWS_ACCESS_KEY_ID | To be added by user |
-| AWS_SECRET_KEY_ID | To be added by user |
-| DATABASE_URL      | To be added by user |
-| EMAIL_HOST_PASS   | To be added by user |
-| EMAIL_HOST_USER   | To be added by user |
-| SECRET_KEY        | To be added by user |
-| STRIPE_PUBLIC_KEY | To be added by user |
-| STRIPE_SECRET_KEY | To be added by user |
-| STRIPE_WH_SECRET  | To be added by user |
+| Key               | Value                         |
+|-------------------|-------------------------------|
+| DEVELOPMENT       | True                          |
+| STRIPE_PUBLIC_KEY | Your Stripe Public Key        |
+| STRIPE_SECRET_KEY | Your Stripe Secret Key        |
+| STRIPE_WH_SECRET  | Your Stripe Webhook Secret    |
 
-15. Add env.py to your .gitignore file to ensure this file is never pushed to GitHub.
+If using env.py, add it to your .gitignore file to ensure this file is never pushed to GitHub.
 
-16. In the settings.py file change 
+12. Migrate the models and create the database by typing the following commands into the terminal:
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+13. Import the provided fixtures in the following order:
+```
+python3 manage.py loaddata topics
+python3 manage.py loaddata tags
+python3 manage.py loaddata brands
+python3 manage.py loaddata departments
+python3 manage.py loaddata categories
+python3 manage.py loaddata products
+```
+
+14. Create a superuser for accessing the Django admin view by typing the following
+command and then inputting an email address, username and password.
+```
+python3 manage.py createsuperuser
+```
+
+15. In the settings.py file change 
 ```
 debug=False
 ```
