@@ -59,6 +59,8 @@ Click <a href="https://dargan-health-foods.herokuapp.com/">here</a> to visit the
 4. [**Technologies Used**](#technologies-used)
 5. [**Testing**](#testing)
 6. [**Deployment**](#deployment)
+    - [Local Deployment](#local-deployment)
+    - [Heroku Deployment](#heroku-deployment)
 7. [**Credits**](#credits)
     - [Content](#content)
     - [Media](#media)
@@ -924,7 +926,7 @@ A detailed description of the testing process and the results achieved can be fo
 ---
 
 ## Deployment
-### How to run this project locally
+### Local Deployment
 
 To run this project on your own Integrated Development Environment (IDE) ensure that the 
 following are installed on your machine:
@@ -943,7 +945,7 @@ Accounts with the following services are also used within this project:
 <br>
 
 ### To clone the repository:
-1. Log in to Github.
+1. Log in to [Github](https://github.com/).
 
 2. Navigate to the main page of the repository.
 
@@ -987,9 +989,9 @@ within your IDE settings if that is supported.
 | Key               | Value                         |
 |-------------------|-------------------------------|
 | DEVELOPMENT       | True                          |
-| STRIPE_PUBLIC_KEY | Your Stripe Public Key        |
-| STRIPE_SECRET_KEY | Your Stripe Secret Key        |
-| STRIPE_WH_SECRET  | Your Stripe Webhook Secret    |
+| STRIPE_PUBLIC_KEY | <YOUR_STRIPE_PUBLIC_KEY>      |
+| STRIPE_SECRET_KEY | <YOUR_STRIPE_SECRET_KEY>      |
+| STRIPE_WH_SECRET  | <YOUR_STRIPE_WEBHOOK_SECRET>  |
 
 If using env.py, add it to your .gitignore file to ensure this file is never pushed to GitHub.
 
@@ -1024,10 +1026,14 @@ to
 debug=True
 ```
 
-17. You will then be able to run the app locally by typing 
+16. You will then be able to run the app locally by typing 
 ```
 python3 manage.py runserver
 ```
+
+17. You can access the Admin interface by adding '/admin' to the end of the url
+and logging in with the credentials of the Superuser that you created.
+
 <br>
 
 ##### back to [top](#table-of-contents)
@@ -1517,6 +1523,37 @@ STRIPE_WH_SECRET => YOUR_STRIPE_WH_SECRET
 
 ##### back to [top](#table-of-contents)
 ---
+
+#### Set up Django emails using Gmail
+29. Automatic emails were set up using [Gmail](mail.google.com).
+
+- Within Gmail's 'Account Settings',
+the 'Other Google Account Settings' link was selected.
+![alt text](documentation/readme-images/gmail-other-google-account-settings.png "Gmail Other Google Account Settings link.")
+
+<br>
+
+- Within the 'Security' tab, 2-step verification was turned on.
+
+![alt text](documentation/readme-images/gmail-security-tab.png "Gmail Security Tab.")
+
+<br>
+
+- Still within the 'Security' tab, the link for 'App Passwords' was clicked.
+- 'Mail' was chosen from the 'Select app' dropdown box.
+- 'Other' was chosen from the 'Select device' dropdown box and the custom name 'Django' was typed in.
+- The password was created by clicking the button 'GENERATE'.
+- This password was then copied and saved as a config variable in Heroku along with the 
+account email address.
+```
+EMAIL_HOST_PASS => <YOUR_GMAIL_APP_PASSWORD>
+EMAIL_HOST_USER => <YOUR_GMAIL_EMAIL_ADDRESS>
+```
+
+##### back to [top](#table-of-contents)
+---
+
+<br>
 
 ## Credits
 ### Content
