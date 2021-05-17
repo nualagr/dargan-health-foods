@@ -107,7 +107,7 @@
                             <div class="card-body">
                                 <p class="card-text brand-name">{{ product.brand }}</p>
                                 <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                    <h5 class="card-title">{{ product.abbreviated_friendly_name}}</h5>
+                                    <h4 class="card-title">{{ product.abbreviated_friendly_name}}</h4>
                                 </a>
                                 <p class="card-text product-price">
                                     {% if product.on_offer and product.discount_price %}

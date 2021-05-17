@@ -12,10 +12,8 @@ html {
 }
 
 body {
-    /* height: calc(100vh - 186px); */
     color: #333333;
     font-family: 'Open Sans', sans-serif;
-    /* font-family: "Montserrat", sans-serif; */
     background-color: #FFFFFF;
     /* Keep footer at the bottom of the screen */
     height: 100vh;
@@ -214,7 +212,6 @@ h4:not(.card-title) {
     margin-top: 0;
     font-size: 22px;
     letter-spacing: 1px;
-    /* line-height: 18px; */
     font-weight: 700;
 }
 
@@ -223,7 +220,6 @@ h5 {
     margin-top: 0;
     font-size: 22px;
     letter-spacing: 1px;
-    /* line-height: 18px; */
     font-weight: 700;
 }
 
@@ -288,7 +284,6 @@ hr.divider {
 /* Solution to changing the Bootstrap blue glow around form input boxes found on 
 Stack Overflow: https://stackoverflow.com/questions/14820952/change-bootstrap-input-focus-blue-glow */
 .form-control:focus {
-    /* box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); */
     border-color: #E0E0E0;
     box-shadow: 0 0 0 0.1rem rgba(224, 224, 224, 0.1);
 } 
@@ -321,23 +316,11 @@ a.disabled{
 }
 /* Images ------------------------------------------------------------- */
 /*https://bootstrapcreative.com/pattern/bootstrap-opacity-classes-custom-css/*/
-.opacity-0 {
-  opacity:0!important;
-}
 .opacity-1 {
   opacity:0.2!important;
 }
 .opacity-2 {
   opacity:0.4!important;
-}
-.opacity-3 {
-  opacity:0.6!important;
-}
-.opacity-4 {
-  opacity:.8!important;
-}
-.opacity-5 {
-  opacity:1!important;
 }
 
 /* Buttons ------------------------------------------------------------ */
@@ -693,6 +676,10 @@ a.disabled{
     background-color: #FFFFFF;
 }
 
+#desktop-middle-nav button {
+    font-size: inherit;
+}
+
 /* Footer ------------------------------------------------------------- */
 
 .footer-area-top {
@@ -972,7 +959,7 @@ a.blog-post-link {
 
 a.product-link h4.card-title {
     height: 76px;
-    /* font-size: 1rem; */
+    font-size: 1.25rem;
 }
 
 a.product-link h4:hover, 
@@ -1038,8 +1025,7 @@ p.card-text.brand-name {
  background: #C02031;
 }
 
-/* https://codepen.io/renduh/pen/EZVxza */
-
+/* Ribbon 2 found at: https://codepen.io/renduh/pen/EZVxza */
 .ribbon-wrapper-2 {
   width: 108px;
   height: 108px;
@@ -1103,8 +1089,8 @@ p.card-text.brand-name {
 /* Allauth, Newsletter, ProductReview and Contact Us Form Formatting -------------------------------------------- */
 .contact-form p:not(.invalid-feedback),
 .allauth-form-inner-content p {
-    margin: 1.5rem 0 2.5rem 0; /* mt-4 */
-    color: #6C757D; /* text-secondary */
+    margin: 1.5rem 0 2.5rem 0;
+    color: #6C757D;
     text-align: center;
 }
 
@@ -1120,7 +1106,6 @@ p.card-text.brand-name {
 .contact-form input,
 .contact-form textarea,
 .allauth-form-inner-content input {
-    /* border-color: #6C757D; */
     border-radius: 0;
     margin: 1em 0;
 }
@@ -1141,10 +1126,6 @@ input[name="q"]::placeholder,
 .allauth-form-inner-content input::placeholder {
     color: #AAB7C4;
 }
-
-/* .allauth-form-inner-content a {
-    color: #29873C;
-} */
 
 .alert {
     padding: 0;
@@ -1181,7 +1162,6 @@ input[name="q"]::placeholder,
     color: #333333 !important;
     margin: 1em 0;
     border-radius: 0;
-    /* border-color: #6C757D; */
 }
 
 #id_default_country,
@@ -1211,7 +1191,7 @@ input[name="q"]::placeholder,
 
 .custom-checkbox .custom-control-label::before {
     border-radius: 0;
-    border-color: #DC3545; /* Bootstrap danger colour */
+    border-color: #DC3545;
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
@@ -1435,7 +1415,6 @@ position: relative;
     }
 
     .header-container {
-        /* padding-top: 186px; */
         padding-top: 250px;
     }
 

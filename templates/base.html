@@ -86,7 +86,7 @@
             <!-- Main Logo -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link" title="Dargan Health Foods Home Link">
-                    <img src="{{ MEDIA_URL }}seedling-logo-bigger-with-text.png" class="d-inline-block align-middle"
+                    <img src="{{ MEDIA_URL }}seedling-logo-with-text.png" class="d-inline-block align-middle"
                         alt="Seedling Icon" loading="lazy" />
                 </a>
             </div>
@@ -96,8 +96,8 @@
                     <div class="input-group w-100">
                         <input class="form-control rounded-0" type="text" name="q" placeholder="Search for products and brands">
                         <div class="input-group-append">
-                            <button class="form-control common-button btn-forest-green border-green rounded-0" type="submit">
-                                <span class="icon">
+                            <button class="form-control common-button btn-forest-green border-green rounded-0" type="submit" aria-label="Search Site">
+                                <span class="search-icon">
                                     <i class="fas fa-search"></i>
                                 </span>
                             </button>
@@ -209,17 +209,18 @@
                         </ul>
                     </div>
                     <div class="accordion accordion-flush footer-box d-block d-sm-none">
-                        <div class="accordion-item" id="accordion1">
-                            <h5 class="accordion-header" id="headingOne">
+                        <!-- Find Us Accordion -->
+                        <div class="accordion-item" id="accordionFindUs">
+                            <h5 class="accordion-header" id="headingFindUs">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    data-bs-target="#collapseFindUs" aria-expanded="false" aria-controls="collapseFindUs">
                                     Find Us
                                 </button>
                             </h5>
                         </div>
-                        <div class="accordion-body collapse bg-white" id="collapseOne" aria-labelledby="headingOne">
+                        <div class="accordion-body collapse bg-white" id="collapseFindUs" aria-labelledby="headingFindUs">
                             <ul class="accordion-list list-unstyled">
-                                <li><img src="{{ MEDIA_URL }}seedling-logo-bigger-with-text.png"
+                                <li><img src="{{ MEDIA_URL }}seedling-logo-with-text.png"
                                         alt="Dargan Health Foods brand logo" width="100%" height="auto"></li>
                                 <li class="address"><a href="https://goo.gl/maps/Ktuehd7RdoimKafC9"
                                         target="_blank" rel="noopener">Castletroy Town Centre, <br>Limerick</a></li>
@@ -256,15 +257,16 @@
                         </table>
                     </div>
                     <div class="footer-box d-block d-sm-none">
-                        <div class="accordion-item" id="accordion2">
-                            <h5 class="accordion-header" id="headingTwo">
+                        <!-- Opening Hours Accordion -->
+                        <div class="accordion-item" id="accordionOpeningHours">
+                            <h5 class="accordion-header" id="headingOpeningHours">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    data-bs-target="#collapseOpeningHours" aria-expanded="false" aria-controls="collapseOpeningHours">
                                     Opening Hours
                                 </button>
                             </h5>
                         </div>
-                        <div class="accordion-body collapse bg-white" id="collapseTwo" aria-labelledby="headingTwo">
+                        <div class="accordion-body collapse bg-white" id="collapseOpeningHours" aria-labelledby="headingOpeningHours">
                             <table class="table">
                                 <tbody>
                                     <tr>
@@ -341,16 +343,16 @@
                         </ul>
                     </div>
                     <div class="footer-box d-block d-sm-none">
-                        <div class="accordion-item" id="accordion3">
-                            <h5 class="accordion-header" id="headingThree">
+                        <!-- Quick Links Accordion -->
+                        <div class="accordion-item" id="accordionQuickLinks">
+                            <h5 class="accordion-header" id="headingQuickLinks">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    data-bs-target="#collapseQuickLinks" aria-expanded="false" aria-controls="collapseQuickLinks">
                                     Quick Links
                                 </button>
                             </h5>
                         </div>
-                        <div class="accordion-body collapse bg-white" id="collapseThree" role="tabpanel"
-                            aria-labelledby="headingThree">
+                        <div class="accordion-body collapse bg-white" id="collapseQuickLinks" aria-labelledby="headingQuickLinks">
                             <ul class="accordion-list list-unstyled">
                                 <li>
                                     <a href="{% anchor 'home' 'about' %}" aria-label="About Us link">

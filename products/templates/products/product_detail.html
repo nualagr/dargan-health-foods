@@ -118,7 +118,7 @@
                         <div class="col-2 m-0 pe-0">
                             <div class="input-group">
                                 <input class="form-control qty-input rounded-0" type="number" name="quantity" value="1"
-                                    min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}" aria-label="Quantity">
                             </div>
                         </div>
                         <div class="col-10 m-0 ps-0">
@@ -180,14 +180,12 @@
                 <div class="accordion-item" id="accordionMoreInformation">
                     <h4 class="accordion-product-info-header" id="headingMoreInformation">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseMoreInformation" aria-expanded="false"
-                            aria-controls="collapseMoreInformation">
+                            data-bs-target="#collapseMoreInformation" aria-expanded="false" aria-controls="collapseMoreInformation">
                             More Information
                         </button>
                     </h4>
                 </div>
-                <div class="accordion-body collapse" id="collapseMoreInformation"
-                    aria-labelledby="headingMoreInformation">
+                <div class="accordion-body collapse" id="collapseMoreInformation" aria-labelledby="headingMoreInformation">
                     {% if product.weight_g %}
                     <p>
                         <strong>
@@ -217,17 +215,15 @@
                     {% endif %}
                 </div>
                 <!-- Disclaimer Accordion -->
-                <div class="accordion-item" id="accordionDisclaimer" role="tablist" aria-multiselectable="true">
+                <div class="accordion-item" id="accordionDisclaimer">
                     <h4 class="accordion-product-info-header" id="headingDisclaimer">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseDisclaimer" role="tab" aria-expanded="false"
-                            aria-controls="collapseDisclaimer">
+                            data-bs-target="#collapseDisclaimer" aria-expanded="false" aria-controls="collapseDisclaimer">
                             Disclaimer
                         </button>
                     </h4>
                 </div>
-                <div class="accordion-body collapse" id="collapseDisclaimer" role="tabpanel"
-                    aria-labelledby="headingDisclaimer">
+                <div class="accordion-body collapse" id="collapseDisclaimer" aria-labelledby="headingDisclaimer">
                     <p>
                         Please note that while we take every care to make sure the product information displayed on our
                         website is correct, product recipes are regularly changed. This may affect nutrition and
