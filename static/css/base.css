@@ -218,7 +218,16 @@ h4:not(.card-title) {
     font-weight: 700;
 }
 
-h4.accordion-header {
+h5 {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 22px;
+    letter-spacing: 1px;
+    /* line-height: 18px; */
+    font-weight: 700;
+}
+
+h5.accordion-header {
     color: #29873C;
 }
 
@@ -255,19 +264,19 @@ h4.accordion-header {
 
 .footer-box-brand-header {
     font-family: "Cookie", cursive;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 500;
-    line-height: 1rem;
+    line-height: 1.6rem;
     color: #29873C;
-    margin-top: 0;
+    margin-top: 8px;
     letter-spacing: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 13px;
     padding-left: 10px;
     text-align: center;
 }
 
 .general-sub {
-    margin-bottom: 13px;
+    margin: 0.4rem 0 1rem;
     text-align: center;
     color: #29873C;
 }
@@ -577,18 +586,6 @@ a.disabled{
     background-attachment: scroll;
 }
 
-/* .join-now-container {
-    background-image: radial-gradient(#FFFFFF, #FFEBCD, #F9A620);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 0px;
-    width: 100%;
-    margin: 0px;
-    padding-right: 0px;
-    padding-left: 0px;
-} */
-
 .footer-container {
     /* Keep footer at the bottom of the page */
     margin-top:auto;
@@ -697,9 +694,6 @@ a.disabled{
 }
 
 /* Footer ------------------------------------------------------------- */
-/* footer {
-    min-height: 120px;
-}  */
 
 .footer-area-top {
     margin: 0;
@@ -1508,5 +1502,9 @@ position: relative;
         font-family: "FontAwesome";
         position: absolute;
         right:0;        
+    }
+
+    .footer-box-brand-header {
+        font-size: 1.9rem;
     }
 }
