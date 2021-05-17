@@ -38,7 +38,7 @@
 <br>
 
 ### **JavaScript**
-[JSHint](https://jshint.com/) 
+[JSHint](https://jshint.com/) was used to validate the JavaScript used within the site.
 
 <br>
 
@@ -192,8 +192,8 @@ of page numbers being rendered to +-3 on either side of the active page number.
     {% endif %}
 {% endfor %}
 ```
-This removed the horizontal overflow, but was not ideal as it was not immediately obvious
-to the viewer that the page range did not reflect the total number of pages returned.
+This removed the horizontal overflow, but is not an ideal solution as it was not immediately obvious
+to the viewer that the page range does not reflect the total number of pages returned.
 <br>
 
 ### Product Discount Price Issue

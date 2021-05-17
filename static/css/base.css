@@ -209,7 +209,7 @@ a.white-text-link:focus {
     margin: 2rem;
 }
 
-h4 {
+h4:not(.card-title) {
     margin-bottom: 0;
     margin-top: 0;
     font-size: 22px;
@@ -976,13 +976,13 @@ a.blog-post-link {
     color: #333333;
 }
 
-a.product-link h5.card-title {
+a.product-link h4.card-title {
     height: 76px;
     /* font-size: 1rem; */
 }
 
-a.product-link h5:hover, 
-a.blog-post-link h5:hover {
+a.product-link h4:hover, 
+a.blog-post-link h4:hover {
     font-weight: 600;
 }
 
@@ -1454,7 +1454,7 @@ position: relative;
         padding-left: 1rem;
     }
 
-    h5.card-title {
+    h4.card-title {
         font-size: 1.25rem;
     }
 
