@@ -96,7 +96,9 @@
                     <div class="input-group w-100">
                         <input class="form-control rounded-0" type="text" name="q" placeholder="Search for products and brands">
                         <div class="input-group-append">
-                            <button class="form-control common-button btn-forest-green border-green rounded-0" type="submit" aria-label="Search Site">
+                            <button class="form-control common-button btn-forest-green border-green rounded-0" 
+                                type="submit" 
+                                aria-label="Search Site">
                                 <span>
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -111,7 +113,8 @@
                     <ul class="list-inline list-unstyled">
                         <li class="checkout-button list-inline-item">
                             <a class="btn btn-checkout rounded-0 {% if grand_total %} btn-orange {% else %} btn-cream disabled{% endif %}"
-                                href="{% url 'checkout' %}">
+                                href="{% url 'checkout' %}"
+                                aria-label="Checkout Link">
                                 Checkout
                             </a>
                         </li>
@@ -135,8 +138,13 @@
         <!-- Main Nav (Toggler on Tablet and Mobile) -->
         <div class="row bg-forest-green">
             <nav class="navbar navbar-expand-lg navbar-dark w-100">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#main-nav"
+                    aria-controls="main-nav" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 {% include 'includes/mobile-top-header.html' %}
@@ -212,8 +220,12 @@
                         <!-- Find Us Accordion -->
                         <div class="accordion-item" id="accordionFindUs">
                             <h5 class="accordion-header" id="headingFindUs">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFindUs" aria-expanded="false" aria-controls="collapseFindUs">
+                                <button class="accordion-button collapsed" 
+                                    type="button" 
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFindUs" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseFindUs">
                                     Find Us
                                 </button>
                             </h5>
@@ -260,8 +272,12 @@
                         <!-- Opening Hours Accordion -->
                         <div class="accordion-item" id="accordionOpeningHours">
                             <h5 class="accordion-header" id="headingOpeningHours">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOpeningHours" aria-expanded="false" aria-controls="collapseOpeningHours">
+                                <button class="accordion-button collapsed" 
+                                    type="button" 
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOpeningHours" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseOpeningHours">
                                     Opening Hours
                                 </button>
                             </h5>
@@ -346,8 +362,12 @@
                         <!-- Quick Links Accordion -->
                         <div class="accordion-item" id="accordionQuickLinks">
                             <h5 class="accordion-header" id="headingQuickLinks">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseQuickLinks" aria-expanded="false" aria-controls="collapseQuickLinks">
+                                <button class="accordion-button collapsed" 
+                                    type="button" 
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseQuickLinks" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseQuickLinks">
                                     Quick Links
                                 </button>
                             </h5>

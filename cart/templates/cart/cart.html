@@ -108,18 +108,18 @@
                             </td>
                             <td class="item-qty py-4 text-center">
                                 <div class="quantity-control">
-                                    <form class="d-inline" method="POST"
+                                    <form class="d-block d-sm-inline" method="POST"
                                         action="{% url 'decrease_quantity_by_one' item.product.id %}">
                                         {% csrf_token %}
-                                        <button type="submit" class="btn btn-sm p-0 text-muted">
+                                        <button type="submit" class="btn btn-sm p-0 text-muted" aria-label="Decrease Product Quantity by One Button">
                                             <i class="fas fa-minus"></i>
                                         </button>
                                     </form>
                                     <span class="p-0">{{ item.quantity }}</span>
-                                    <form class="d-inline" method="POST"
+                                    <form class="d-block d-sm-inline" method="POST"
                                         action="{% url 'increase_quantity_by_one' item.product.id %}">
                                         {% csrf_token %}
-                                        <button type="submit" class="btn btn-sm p-0 text-muted">
+                                        <button type="submit" class="btn btn-sm p-0 text-muted" aria-label="Increase Product Quantity by One Button">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </form>
@@ -137,7 +137,7 @@
                             <td class="item-remove py-4">
                                 <form method="POST" action="{% url 'remove_from_cart' item.product.id %}">
                                     {% csrf_token %}
-                                    <button type="submit" class="btn">
+                                    <button type="submit" class="btn" aria-label="Remove Item from Cart Button">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                 </form>
@@ -153,7 +153,8 @@
                                     <div class="input-group">
                                         {{ dcform.discount_code }}
                                         <button type="submit"
-                                            class="common-button btn-grey-outline input-group-append apply-promo-code-btn">
+                                            class="common-button btn-grey-outline input-group-append apply-promo-code-btn"
+                                            aria-label="Apply Discount Code Button">
                                             Apply
                                         </button>
                                     </div>
@@ -173,7 +174,8 @@
                                 {% endif %}
                                 <a href="{% url 'products' %}"
                                     class="common-button btn-green-outline continue-shopping-btn"
-                                    title="Continue Shopping">
+                                    title="Continue Shopping"
+                                    aria-label="Continue Shopping Button">
                                     Continue Shopping
                                 </a>
                             </td>
@@ -206,7 +208,10 @@
                         </tr>
                         <tr class="cart-discount">
                             <th scope="row" class="lighter-heading">
-                                <a href="{% url 'remove_discount_code' %}" role="button" class="badge rounded-pill bg-forest-green white-text-link">
+                                <a href="{% url 'remove_discount_code' %}" 
+                                    role="button" 
+                                    class="badge rounded-pill bg-forest-green white-text-link"
+                                    aria-label="Remove Discount Code">
                                     {{ discount_code.discount_code }}&nbsp;<i class="fas fa-tags"></i>
                                     &nbsp;<i class="fas fa-times"></i>
                                 </a>
@@ -266,8 +271,10 @@
                     <tfoot>
                         <tr>
                             <td colspan="2" class="text-center">
-                                <a href="{% url 'checkout' %}" class="common-button btn-proceed-to-checkout btn-orange"
-                                    title="Proceed to Checkout">
+                                <a href="{% url 'checkout' %}" 
+                                    class="common-button btn-proceed-to-checkout btn-orange"
+                                    title="Proceed to Checkout"
+                                    aria-label="Proceed to Checkout Button">
                                     <span class="text-uppercase"><i class="fas fa-lock"></i>&nbsp;Secure Checkout</span>
                                 </a>
                             </td>
@@ -283,7 +290,9 @@
             <h3 class="my-4">
                 Your shopping cart is currently empty.
             </h3>
-            <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping-btn">
+            <a href="{% url 'products' %}" 
+                class="common-button btn-green-outline continue-shopping-btn"
+                aria-label="Continue Shopping Button">
                 Continue Shopping
             </a>
         </div>

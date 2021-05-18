@@ -83,9 +83,15 @@
             <div class="row">
                 <!-- Filter by Topic Dropdown -->
                 <div class="col-12 col-md-6 dropdown show">
-                    <a class="common-button btn-forest-green btn-filter-blog rounded-0" href="#" role="button" id="dropdownTopicFilter"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Filter Blog by Topic...&nbsp;<i class="fa-xs fas fa-chevron-down pl-2"></i>
+                    <a class="common-button btn-forest-green btn-filter-blog rounded-0" 
+                        href="#" 
+                        role="button" 
+                        id="dropdownTopicFilter"
+                        data-bs-toggle="dropdown" 
+                        aria-haspopup="true" 
+                        aria-expanded="false">
+                        Filter Blog by Topic...&nbsp;
+                        <i class="fa-xs fas fa-chevron-down pl-2"></i>
                     </a>
                     <ul class="dropdown-menu rounded-0" aria-labelledby="dropdownTopicFilter">
                         <li><a class="dropdown-item" href="{% url 'blog' %}">All</a></li>
@@ -109,7 +115,8 @@
                                 placeholder="Search blog by keyword(s)">
                             <div class="input-group-append">
                                 <button class="form-control common-button btn-apple-green border-green rounded-0"
-                                    type="submit" aria-label="Search Blog">
+                                    type="submit" 
+                                    aria-label="Search Blog">
                                     <span class="icon">
                                         <i class="fas fa-search"></i>
                                     </span>
@@ -201,7 +208,9 @@
                         <img src="{{ MEDIA_URL }}magnifying-glass.jpg" class="card-img-top opacity-2" alt="Magnifying Glass">
                     </div>
                     <div class="col-12">
-                        <a href="{% url 'blog' %}" class="common-button btn-green-outline">
+                        <a href="{% url 'blog' %}" 
+                            class="common-button btn-green-outline"
+                            aria-label="Return to Blog Link">
                             Return to Blog
                         </a>
                     </div>
