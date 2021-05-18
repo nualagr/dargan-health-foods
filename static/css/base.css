@@ -975,116 +975,125 @@ p.card-text.brand-name {
 /* Code for how to style discount ribbons found on: https://uicookies.com/css-ribbons/*/
 /* Ribbon 1 found at: https://codepen.io/JohnOSTend/pen/ZXrwoM*/
 .ribbon-wrapper {
-  position: relative;
-  color: #FFFFFF;
+    position: relative;
+    color: #FFFFFF;
 }
 
 .ribbon1 {
-  position: absolute;
-  top: -6.1px;
-  right: 10px;
+    position: absolute;
+    top: -6.1px;
+    right: 10px;
 }
+
 .ribbon1:after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 45px solid transparent;
-  border-right: 45px solid transparent;
-  border-top: 10px solid #F8463F;
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 10px solid #F8463F;
 }
+
 .ribbon1 span {
-  position: relative;
-  display: block;
-  text-align: center;
-  background: #F8463F;
-  font-size: 1rem;
-  line-height: 1;
-  padding: 12px 8px 10px;
-  border-top-right-radius: 8px;
-  width: 90px;
+    position: relative;
+    display: block;
+    text-align: center;
+    background: #F8463F;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 12px 8px 10px;
+    border-top-right-radius: 8px;
+    width: 90px;
 }
 .ribbon1 span:before, 
 .ribbon1 span:after {
-  position: absolute;
-  content: "";
+    position: absolute;
+    content: "";
 }
 .ribbon1 span:before {
- height: 6px;
- width: 6px;
- left: -6px;
- top: 0;
- background: #F8463F;
+    height: 6px;
+    width: 6px;
+    left: -6px;
+    top: 0;
+    background: #F8463F;
 }
 .ribbon1 span:after {
- height: 6px;
- width: 8px;
- left: -8px;
- top: 0;
- border-radius: 8px 8px 0 0;
- background: #C02031;
+    height: 6px;
+    width: 8px;
+    left: -8px;
+    top: 0;
+    border-radius: 8px 8px 0 0;
+    background: #C02031;
 }
 
 /* Ribbon 2 found at: https://codepen.io/renduh/pen/EZVxza */
 .ribbon-wrapper-2 {
-  width: 108px;
-  height: 108px;
-  overflow: hidden;
-  position: absolute;
-  top: -6px;
-  right: -6px; }
+    width: 108px;
+    height: 108px;
+    overflow: hidden;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+}
 
 .ribbon-2 {
-  font: bold 15px Sans-Serif;
-  line-height: 18px;
-  text-align: center;
-  text-transform: uppercase;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  position: relative;
-  padding: 7px 0;
-  left: -4px;
-  top: 26px;
-  width: 150px;
-  background-color: #97BE0D;
-  color: #FFFFFF;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  letter-spacing: 0.5px;
-  box-shadow: -3px 5px 6px -5px rgba(0, 0, 0, 0.5);
-  outline: 1px dashed #FFFFFF;
-  outline-offset: -4px; }
+    transform: rotate(45deg);
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    position: relative;
+    padding: 7px 0;
+    left: -4px;
+    top: 26px;
+    width: 150px;
+    background-color: #97BE0D;
+    color: #FFFFFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    box-shadow: -3px 5px 6px -5px rgba(0, 0, 0, 0.5);
+    outline: 1px dashed #FFFFFF;
+    outline-offset: -4px; 
+}
 
 .ribbon-2:before, .ribbon-8:after {
-  content: "";
-  border-top: 4px solid #89AC0C;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  position: absolute;
-  bottom: -4px; }
+    content: "";
+    border-top: 4px solid #89AC0C;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    position: absolute;
+    bottom: -4px;
+}
 
 .ribbon-2:before {
-  content: "";
-  position: absolute;
-  left: 0px;
-  top: 100%;
-  z-index: -1;
-  border-left: 4px solid #89AC0C;
-  border-right: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-top: 4px solid #89AC0C; }
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 4px solid #89AC0C;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid #89AC0C;
+}
 
 .ribbon-2:after {
-  content: "";
-  position: absolute;
-  right: 7px;
-  top: 100%;
-  z-index: -1;
-  border-left: 4px solid transparent;
-  border-right: 4px solid #89AC0C;
-  border-bottom: 4px solid transparent;
-  border-top: 4px solid #89AC0C; }
+    content: "";
+    position: absolute;
+    right: 7px;
+    top: 100%;
+    z-index: -1;
+    border-left: 4px solid transparent;
+    border-right: 4px solid #89AC0C;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid #89AC0C;
+}
 
 /* Allauth, Newsletter, ProductReview and Contact Us Form Formatting -------------------------------------------- */
 .contact-form p:not(.invalid-feedback),
