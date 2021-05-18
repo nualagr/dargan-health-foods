@@ -114,10 +114,6 @@ a.white-text-link:focus {
     border: 1px solid #97BE0D !important;
 }
 
-.bg-white {
-    background-color: #FFFFFF !important;
-}
-
 .bg-blue {
     background-color: #3486FF;
 }
@@ -974,6 +970,10 @@ p.card-text.brand-name {
     text-transform: capitalize;
 }
 
+.blog-card {
+    height: 95%;
+}
+
 /* Code for how to style discount ribbons found on: https://uicookies.com/css-ribbons/*/
 /* Ribbon 1 found at: https://codepen.io/JohnOSTend/pen/ZXrwoM*/
 .ribbon-wrapper {
@@ -1397,9 +1397,9 @@ position: relative;
         font-weight: 400;
         line-height: 1.5em;
         color: #AAB7C4;
-        background-color: #fff;
+        background-color: #FFFFFF;
         background-clip: padding-box;
-        border: 1px solid #ced4da;
+        border: 1px solid #CED4DA;
     }
 
     #minicart ul li {

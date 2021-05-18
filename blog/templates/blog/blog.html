@@ -97,10 +97,8 @@
                         <li><a class="dropdown-item" href="{% url 'blog' %}">All</a></li>
                         <li><a class="dropdown-item" href="{% url 'blog' %}?topic=beauty">Beauty</a></li>
                         <li><a class="dropdown-item" href="{% url 'blog' %}?topic=eco_living">Eco Living</a></li>
-                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=food_n_nutrition">Food &
-                            Nutrition</a></li>
-                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=health_n_wellbeing">Health &
-                            Wellbeing</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=food_n_nutrition">Food & Nutrition</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blog' %}?topic=health_n_wellbeing">Health & Wellbeing</a></li>
                         <li><a class="dropdown-item" href="{% url 'blog' %}?topic=lifestyle">Lifestyle</a></li>
                         <li><a class="dropdown-item" href="{% url 'blog' %}?topic=news">News</a></li>
                         <li><a class="dropdown-item" href="{% url 'blog' %}?topic=recipes">Recipes</a></li>
@@ -108,7 +106,7 @@
                         </ul>
                 </div>
                 <!-- Search Blog Bar -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 pb-2">
                     <form method="GET" action="{% url 'blog' %}">
                         <div class="input-group">
                             <input class="form-control rounded-0" type="text" name="bq"
@@ -130,7 +128,7 @@
     </div>
 </div>
 <!-- Blog Posts -->
-<div class="container-fluid section-container">
+<div class="container-fluid">
     <div class="row page-title-wapper">
         <div class="col-12 col-lg-9 mx-auto">
             <!-- Page Title -->
@@ -173,7 +171,7 @@
                 {% for blogpost in blogs_list %}
                 <div class="col-12 col-md-6">
                     <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                    <div class="card text-center">
+                    <div class="card text-center blog-card">
                         <a href="{% url 'blog_post' blogpost.slug %}" class="blog-post-link">
                             {% if blogpost.main_image %}
                             <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class=" card-img-top"
@@ -189,7 +187,7 @@
                             <a href="{% url 'blog_post' blogpost.slug %}" class="blog-post-link">
                                 <h5 class="card-title">{{ blogpost.title }}</h5>
                             </a>
-                            <p class="card-text text-start">{{ blogpost.intro|truncatewords:60 }}</p>
+                            <p class="card-text text-start blog-intro">{{ blogpost.intro|truncatewords:60 }}</p>
                             <a class="page-link-with-arrow" href="{% url 'blog_post' blogpost.slug %}"
                                 title="Link to full blog post {{ blogpost.title }}">
                                 <span class="link">
