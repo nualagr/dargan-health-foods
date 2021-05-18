@@ -391,7 +391,8 @@ def edit_review(request, review_id):
         if prform.is_valid():
 
             prform.save()
-            rating = prform.cleaned_data['review_rating']
+            # Get the previous page url from the hidden form input
+            previous_page_url = request.POST.get("previous_page_url")
             # Update average rating for the product
             reviews = ProductReview.objects.filter(product=product)
             avg_rating = reviews.aggregate(
@@ -406,8 +407,13 @@ def edit_review(request, review_id):
             product.save(update_fields=["avg_rating"])
 
             messages.success(request, "Successfully updated your review!")
-            # Redirect to the Product's Details Page
-            return redirect(reverse("product_detail", args=[product.id]))
+            # If the user got to the edit review page from their profile
+            # Redirect them back to their profile page.
+            if "profile" in previous_page_url:
+                return redirect(reverse("profile"))
+            else:
+                # Redirect to the Product's Details Page
+                return redirect(reverse("product_detail", args=[product.id]))
         else:
             messages.error(
                 request,

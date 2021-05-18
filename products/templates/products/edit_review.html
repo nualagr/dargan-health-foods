@@ -27,6 +27,7 @@
                 <form class="form product-review-form" action="{% url 'edit_review' review.id %}" method="POST">
                     {% csrf_token %}
                     {{ prform|crispy }}
+                    <input type="hidden" value="{{ request.META.HTTP_REFERER }}" name="previous_page_url">
                     <div class="button-row">
                         <a class="common-button btn-green-outline" href="{% url 'product_detail' product.id %}" aria-label="Return to Product Details Page link">
                             Product Page
