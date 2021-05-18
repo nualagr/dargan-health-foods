@@ -110,7 +110,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <p>{{ blogpost.intro }}</p>
+                                    <p>{{ blogpost.intro|safe|linebreaks }}</p>
                                     {{ blogpost.content|safe|linebreaks }}
                                 </div>
                             </div>
