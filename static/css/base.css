@@ -530,6 +530,8 @@ a.disabled{
 #sort-selector {
     float: right;
     color: #333333;
+    width: 100%;
+    margin-bottom: 1em;
 }
 
 #sort-selector:active,
@@ -1456,7 +1458,10 @@ position: relative;
     #discount-code-form .input-group>.form-control {
         max-width: 50%;
     }
-    
+
+    #sort-selector {
+        width: 50%;
+    }
 }
 
 /* Small Laptop Screens */
@@ -1494,5 +1499,45 @@ position: relative;
 
     .footer-box-brand-header {
         font-size: 1.9rem;
+    }
+}
+
+/* Extra Small Mobile Screens */
+@media (max-width: 281px) {
+    .nav-link {
+        padding: 0;
+    }
+
+    #delivery-banner h4 {
+        font-size: .7rem;
+    }
+
+    #main-nav .navbar-nav .nav-item {
+        padding: .3em 5%;
+    }
+
+    .quick-add-to-cart-btn {
+        margin: 0;
+        padding: 0 0.5em;
+        font-size: 0.7em !important;
+    }
+
+    p,
+    span:not(.stars-outer):not(.stars-inner):not(.ribbon1),
+    small,
+    .btn,
+    th,
+    td {
+        font-size: 0.7em !important;
+    }
+
+    a.product-link h4.card-title,
+    input,
+    input.form-control {
+        font-size: 0.97em;
+    }
+
+    span.link::after {
+        position: relative;
     }
 }

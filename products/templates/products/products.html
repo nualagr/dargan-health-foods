@@ -54,14 +54,14 @@
         <div class="col-12 col-lg-9 mx-auto">
             <div class="row">
                 <!-- Result Counter -->
-                <div class="col-6">
+                <div class="col-12 col-sm-6">
                     <p class="text-muted">
                         Item{{ page_obj.paginator.count|pluralize }} {{ page_obj.start_index }} -
                         {{ page_obj.end_index }} of {{ page_obj.paginator.count }}
                     </p>
                 </div>
                 <!-- Sort Options Dropdown -->
-                <div class="col-6">
+                <div class="col-12 col-sm-6">
                     <div class="dropdown-sort-products">
                         <select id="sort-selector" class="rounded-0">
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
@@ -109,7 +109,7 @@
                                 <a href="{% url 'product_detail' product.id %}" class="product-link">
                                     <h4 class="card-title">{{ product.abbreviated_friendly_name}}</h4>
                                 </a>
-                                <p class="card-text product-price">
+                                <p class="card-text product-price pt-2">
                                     {% if product.on_offer and product.discount_price %}
                                     <span class="small text-muted text-decoration-line-through d-none d-xl-inline">was €{{ product.price }}</span>
                                     now €{{ product.discount_price }}
