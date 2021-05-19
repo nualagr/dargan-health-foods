@@ -17,6 +17,7 @@
 - [Manual Testing](#manual-testing)
 - [Bugs](#bugs)
     - [Pagination Issue](#pagination-issue)
+    - [Multiple Destination Redirects](#multiple-destination-redirects)
     - [Product Discount-Price Issue](#product-discount-price-issue)
     - [Discount Code Issues](#discount-code-issues)
 - [Unresolved Issues](#unresolved-issues)

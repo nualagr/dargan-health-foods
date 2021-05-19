@@ -342,6 +342,9 @@ def edit_comment(request, blogpostcomment_id):
     """
     View to enable the logged-in User to edit
     their existing blogpost comments.
+    The referring url is captured and if the
+    user accessed this view from their profile
+    page they are redirected there after submission.
     """
     # Get the existing BlogPostComment object
     blogpostcomment = get_object_or_404(BlogPostComment, pk=blogpostcomment_id)
@@ -356,9 +359,16 @@ def edit_comment(request, blogpostcomment_id):
 
         if bpcform.is_valid():
             bpcform.save()
+            # Get the previous page url from the hidden form input
+            previous_page_url = request.POST.get("previous_page_url")
             messages.success(request, "Successfully updated your comment!")
-            # Redirect to the related blog_post.html page
-            return redirect(reverse("blog_post", args=[blogpost.slug]))
+            # If the user got to the edit comment page from their profile
+            # Redirect them back to their profile page.
+            if "profile" in previous_page_url:
+                return redirect(reverse("profile"))
+            else:
+                # Redirect to the related blog_post.html page
+                return redirect(reverse("blog_post", args=[blogpost.slug]))
         else:
             messages.error(
                 request,

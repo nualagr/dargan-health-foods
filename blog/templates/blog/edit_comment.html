@@ -27,9 +27,10 @@
                 <form class="form blogpost-comment-form" action="{% url 'edit_comment' blogpostcomment.pk %}" method="POST">
                     {% csrf_token %}
                     {{ bpcform|crispy }}
+                    <input type="hidden" value="{{ request.META.HTTP_REFERER }}" name="previous_page_url">
                     <div class="button-row">
-                        <a class="common-button btn-green-outline" href="{% url 'blog_post' blogpost.slug %}" aria-label="Return to Blog Post link">
-                            Return to Blog Post
+                        <a class="common-button btn-green-outline" href="{% url 'blog_post' blogpost.slug %}" aria-label="To Blog Post link">
+                            To Blog Post
                         </a>
                         <button class="common-button btn-orange" action="submit" aria-label="Post Comment Button">
                             <i class="fas fa-cloud-upload-alt"></i> Update Comment
