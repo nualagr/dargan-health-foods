@@ -16,7 +16,8 @@ def all_products(request):
     including sorting and search queries
     """
     # Get all products from the database
-    products = Product.objects.all()
+    # excluding those that have been discontinued
+    products = Product.objects.filter(discontinued=False)
     # Get all product tag objects from the database
     product_tag_objects = ProductTag.objects.all()
     # So that we don't get an error when loading
@@ -147,7 +148,7 @@ def product_detail(request, product_id):
     """
 
     # Get the product from the database
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Product, pk=product_id, discontinued=False)
 
     # Get the related product tags
     tags = ProductTag.objects.filter(product=product_id)
@@ -312,7 +313,7 @@ def add_review(request, product_id):
     View to allow a logged_in user to add a product review to the site.
     """
     # Get the product from the database
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Product, pk=product_id, discontinued=False)
     # Get the related product reviews and order by latest added
     reviews = ProductReview.objects.filter(product=product_id).order_by(
         "-created"
