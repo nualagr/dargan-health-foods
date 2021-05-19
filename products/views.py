@@ -87,18 +87,18 @@ def all_products(request):
                 tagged_products = product_tag_objects.filter(
                     tag__friendly_name__iexact=query
                 ).values_list("product", flat=True)
-                products = products.filter(id__in=tagged_products)
-            # If not a recognized tag, search the following
-            # product table fields for the search term
             else:
-                queries = (
-                    Q(name__icontains=query)
-                    | Q(information__icontains=query)
-                    | Q(ingredients__icontains=query)
-                    | Q(category__name__icontains=query)
-                    | Q(brand__name__icontains=query)
-                )
-                products = products.filter(queries)
+                tagged_products = []
+
+            queries = (
+                Q(name__icontains=query)
+                | Q(information__icontains=query)
+                | Q(ingredients__icontains=query)
+                | Q(category__name__icontains=query)
+                | Q(brand__name__icontains=query)
+                | Q(id__in=tagged_products)
+            )
+            products = products.filter(queries)
 
     if "limit" in request.GET:
         # This request comes from the New In Dropdown
