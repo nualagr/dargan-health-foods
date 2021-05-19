@@ -131,8 +131,15 @@ a.white-text-link:focus {
 }
 
 .bg-light-orange {
-    /* background-color: #FFF0C5; */
     background-color: #FFEBCD;
+}
+
+.bg-red {
+    background-color: #F8463F;
+}
+
+.bg-blue {
+    background-color: #3486FF;
 }
 
 /* Special Fonts and Text Styling ------------------------------------- */
@@ -862,6 +869,7 @@ Stack Overflow: https://stackoverflow.com/questions/66231936/change-accordion-bu
     overflow: visible;
     position: absolute;
     right: 0;
+    top: 100px;
     z-index: 5;
 }
 
@@ -1482,6 +1490,10 @@ position: relative;
 
     #sort-selector {
         width: 50%;
+    }
+
+    .custom-toast {
+        top: 210px;
     }
 }
 

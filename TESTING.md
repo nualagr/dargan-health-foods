@@ -199,7 +199,7 @@ to the viewer that the page range does not reflect the total number of pages ret
 <br>
 
 ### Multiple Destination Redirects
-This issue arose in relation to three different pages.  The Change Password page, the Edit Product Review 
+This issue arose in relation to two different pages.  The Edit Product Review 
 page and the Edit BlogPost page.  Links to these pages exist in multiple locations within the site.
 Initially, the redirects upon submission of the forms were hardcoded to a single location. 
 If the user edited their product review they were redirected to the product page, 
