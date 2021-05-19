@@ -367,6 +367,27 @@ a.disabled{
     padding-right: 0.3em;
 }
 
+.btn-orange-outline {
+    background-color: transparent;
+    color: #EF9606;
+    font-weight: 600;
+}
+
+.btn-orange-outline:hover,
+.btn-orange-outline:active,
+.btn-orange-outline:focus {
+    background-color: #EF9606;
+    border: 1px solid #EF9606;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.btn-orange-outline::after {
+    color: inherit;
+    content: '>';
+    padding-left: 0.3em;
+}
+
 .quick-add-to-cart-btn {
     margin: 1em auto;
 }
