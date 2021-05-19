@@ -194,6 +194,37 @@ of page numbers being rendered to +-3 on either side of the active page number.
 ```
 This removed the horizontal overflow, but is not an ideal solution as it was not immediately obvious
 to the viewer that the page range does not reflect the total number of pages returned.
+
+<br>
+
+### Multiple Destination Redirects
+This issue arose in relation to three different pages.  The Change Password page, the Edit Product Review 
+page and the Edit BlogPost page.  Links to these pages exist in multiple locations within the site.
+Initially, the redirects upon submission of the forms were hardcoded to a single location. 
+If the user edited their product review they were redirected to the product page, 
+even if they had clicked the 'Edit' button on their Profile page.
+This was less than satisfactory, from a user-experience point of view.
+[In order to redirect users to the page from which they had initially come](https://github.com/nualagr/dargan-health-foods/commit/0ee02100805b0a999e9a9fac397cd26c41b13bf3),
+it was necessary to capture the referring page url from the HttpRequest.META, 
+which is a dictionary containing all the HTTP headers including the HTTP_REFERER. 
+As this value changes to the current url upon the submission of the form
+it was necessary to assign the referring url, with the GET request, to a hidden input on the EditReview form.
+```
+<input type="hidden" value="{{ request.META.HTTP_REFERER }}" name="previous_page_url">
+```
+The referring url is now posted along with the review to the edit_review view where an 'if' 'else'
+block checks for the existence of the substring "profile" within the url before redirecting to the 
+correct page.
+```
+# If the user got to the edit review page from their profile
+# Redirect them back to their profile page.
+if "profile" in previous_page_url:
+    return redirect(reverse("profile"))
+else:
+    # Redirect to the Product's Details Page
+    return redirect(reverse("product_detail", args=[product.id]))
+```
+
 <br>
 
 ### Product Discount Price Issue
