@@ -843,6 +843,7 @@ Fixtures were made for
 * Brand 
 * Category 
 * Department
+* DiscountCode
 * Tag
 * Topic 
 
@@ -1009,6 +1010,7 @@ python3 manage.py loaddata brands
 python3 manage.py loaddata departments
 python3 manage.py loaddata categories
 python3 manage.py loaddata products
+python3 manage.py loaddata discountcodes
 ```
 
 14. Create a superuser for accessing the Django admin view by typing the following
@@ -1142,6 +1144,7 @@ python3 manage.py loaddata brands
 python3 manage.py loaddata departments
 python3 manage.py loaddata categories
 python3 manage.py loaddata products
+python3 manage.py loaddata discountcodes
 ```
 
 10. A superuser, with admin rights, was created.
