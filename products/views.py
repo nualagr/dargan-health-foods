@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Sum, Avg
 from django.db.models.functions import Lower
 
-from .models import Product, ProductTag, Category, Tag, ProductReview
+from .models import Product, ProductTag, Category, Tag, ProductReview, ProductImage
 from .forms import ProductForm, ProductAndTagsInlineFormSet, ProductReviewForm
 from profiles.models import UserProfile
 
@@ -144,19 +144,29 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """
-    A view to show individual product details
+    A view to show individual product details.
+    Display the Tags associated with that Product.
+    Display the product's customer reviews.
+    Render the Review button if the user is logged in
+    and has purchased the item previously.
     """
 
     # Get the product from the database
     product = get_object_or_404(Product, pk=product_id, discontinued=False)
 
-    # Get the related product tags
+    # Fetch the related product tags
     tags = ProductTag.objects.filter(product=product_id)
 
     # Get the related product reviews and order by latest added
     reviews = ProductReview.objects.filter(product=product_id).order_by(
         "-created"
     )
+
+    # Fetch any extra product images that exist
+    images = ProductImage.objects.filter(product=product_id)
+
+    if product.main_image and images:
+        images = images.values_list("image", flat=True)
 
     if request.user.is_authenticated:
         user = get_object_or_404(UserProfile, user=request.user)
@@ -179,6 +189,7 @@ def product_detail(request, product_id):
     context = {
         "product": product,
         "tags": tags,
+        "images": images,
         "reviews": reviews,
         "can_review": can_review,
     }

@@ -1558,21 +1558,25 @@ EMAIL_HOST_USER => <YOUR_GMAIL_EMAIL_ADDRESS>
 ## Credits
 ### Content
 The following [Bootstrap](https://getbootstrap.com/) components were used and modified:
-- [Navbar](https://getbootstrap.com/docs/5.0/components/navbar/) 
 
-- [Accordion](https://getbootstrap.com/docs/5.0/components/accordion/) 
+- [Accordion](https://getbootstrap.com/docs/5.0/components/accordion/)
 
-- [Dropdowns](https://getbootstrap.com/docs/5.0/components/dropdowns/) 
-
-- [Toasts](https://getbootstrap.com/docs/5.0/components/toasts/)
+- [Badge](https://getbootstrap.com/docs/5.0/components/badge/)
 
 - [Card](https://getbootstrap.com/docs/5.0/components/card/)
 
-- [Pagination](https://getbootstrap.com/docs/5.0/components/pagination/)
+- [Carousel](https://getbootstrap.com/docs/5.0/components/carousel/)
+
+- [Dropdowns](https://getbootstrap.com/docs/5.0/components/dropdowns/)
 
 - [Modal](https://getbootstrap.com/docs/5.0/components/modal/)
 
-- [Badge](https://getbootstrap.com/docs/5.0/components/badge/)
+- [Navbar](https://getbootstrap.com/docs/5.0/components/navbar/)
+
+- [Pagination](https://getbootstrap.com/docs/5.0/components/pagination/)
+
+- [Toasts](https://getbootstrap.com/docs/5.0/components/toasts/)
+
 
 #### Product Information
 - Product information, where available, including the product descriptions and ingredients were provided by the following companies:
