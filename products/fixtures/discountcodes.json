@@ -1,0 +1,10 @@
+[
+    {
+        "fields": {
+            "discount_code": "NEW10",
+            "percentage_discount": 10.0
+        },
+        "pk": 1,
+        "model": "cart.discountcode"
+    }
+]
