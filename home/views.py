@@ -102,18 +102,18 @@ def subscribe(request):
     message to the User.
     """
     newsletter_subscription_form = NewsletterSubscriptionForm()
-    subscribe_redirect = request.POST.get('subscribe_redirect')
-    if request.method == 'POST':
+    subscribe_redirect = request.POST.get("subscribe_redirect")
+    if request.method == "POST":
         newsletter_subscription_form = NewsletterSubscriptionForm(request.POST)
         if NewsletterSubscription.objects.filter(
-            email_address=request.POST.get('email_address')
+            email_address=request.POST.get("email_address")
         ).exists():
             messages.info(
-                request, 'You are already subscribed to our newsletter.')
+                request, "You are already subscribed to our newsletter.")
             return redirect(subscribe_redirect)
         else:
             if newsletter_subscription_form.is_valid():
                 newsletter_subscription_form.save()
                 messages.success(
-                    request, 'You are now subscribed to our newsletter.')
+                    request, "You are now subscribed to our newsletter.")
     return redirect(subscribe_redirect)
