@@ -15,6 +15,7 @@
     - [Existing User](#tested-existing-user-stories)
     - [Site Owner](#tested-site-owner-stories)
 - [Manual Testing](#manual-testing)
+- [Automated Testing](#automated-testing)
 - [Bugs](#bugs)
     - [Pagination Issue](#pagination-issue)
     - [Multiple Destination Redirects](#multiple-destination-redirects)
@@ -123,6 +124,98 @@ Each website feature, including buttons, modals, external links, hover effects e
 
 ##### back to [top](#table-of-contents)
 ---
+
+## Automated testing
+
+Django's testing framework was used to create automated tests for the project.
+
+### Unit Testing
+A tests directory was added to each app.
+Within these directories individual files were created to test the app's views, models and forms,
+if they contained any.
+
+In order to run specific tests, the following command can be used:
+```
+python3 manage.py test <app_name>.tests.<test_name>
+```
+
+To run all the tests use the command:
+```
+python3 manage.py test
+```
+
+
+[Coverage](https://coverage.readthedocs.io/en/coverage-5.5/)
+was used to identify the percentage of code covered by the tests.
+
+#### [Coverage](https://coverage.readthedocs.io/en/coverage-5.5/) Installation and Setup
+
+Install the package using pip.
+```
+pip3 install coverage
+```
+
+Add this new dependency to your requirements.txt file.
+```
+pip3 freeze > requirements.txt
+```
+
+Run all the tests within in a specific app using the following command:
+```
+coverage run --source=<'app_name'> manage.py test
+```
+
+To generate a report of the results in the terminal use:
+```
+coverage report
+```
+
+Alternatively, a directory containing HTML versions of the report sections 
+can be created by typing:
+```
+coverage html
+```
+The report can then be viewed in a web browser using the command:
+```
+python3 -m http.server
+```
+and selecting the 'htmlcov/' directory.
+
+### Results
+|Test Files                                         |   Tests                                                   | Coverage |
+|---------------------------------------------------|-----------------------------------------------------------|----------|
+|[Blog Forms](blog/tests/test_forms.py)             |   BlogPostForm and BlogPostCommentForm validation.        |100%|
+|[Blog Models](blog/tests/test_models.py)           |   Topic, BlogPost, BlogPostTag and BlogPostComment Model creation and string methods. That BlogPost titles are slugified.|98%|
+|[Blog Views](blog/tests/test_views.py)             |   All blog posts and individual blogpost views.           |28%|
+|[Cart Forms](cart/tests/test_forms.py)             |   DiscountCodeForm creation.                              |100%|
+|[Cart Models](cart/tests/test_models.py)           |   DiscountCode Model creation and string method.          |100%|
+|[Cart Views](cart/tests/test_views.py)             |   Calculating cart subtotal, testing the cart view, add to cart functionality, and adjusting and removing items from the cart |21%|
+|[Checkout Forms](checkout/tests/test_forms.py)     |   Testing form creation and required fields               |100%|
+|[Checkout Models](checkout/tests/test_models.py)   |   Testing model creation.                                 |89%|
+|[Checkout Views](checkout/tests/test_views.py)     |   Testing checkout and checkout success view              |28%|
+|[Home Forms](home/tests/test_forms.py)             |   NewsletterSubscription and Contact form validation and required fields.            |100%|
+|[Home Models](home/tests/test_models.py)           |   NewsletterSubscription model creation and string method.|100%|
+|[Home Views](home/tests/test_views.py)             |   Testing index, our_story and  contact views.            |46%|
+|[Products Forms](products/tests/test_forms.py)     |   Testing form creation                                   |100%|
+|[Products Models](products/tests/test_models.py)   |   Testing model creation.                                 |89%|
+|[Products Views](products/tests/test_views.py)     |   Testing form fields, products, product detail, add product and edit product view, adding a product, and sort and filter functionality                       |28%|
+|[Profiles Forms](profiles/tests/test_forms.py)     |   Testing form creation                                   |100%|
+|[Profiles Models](profiles/tests/test_models.py)   |   Testing model creation.                                 |89%|
+|[Profiles Views](profiles/tests/test_views.py)     |   Testing profile view.                                   |28%|
+
+<br>
+
+### Overall Test Coverage
+
+|App Name           |Percentage of App Code covered by Tests     |
+|-------------------|-------------------|
+|Blog               |67%                |
+|Home               |55%                |
+|Home               |82%                |
+
+##### back to [top](#table-of-contents)
+---
+
 ## Bugs
 
 ### Pagination Issue

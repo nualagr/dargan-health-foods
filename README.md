@@ -908,6 +908,7 @@ They were then converted to json using [custom scripts](general_scripts/convert_
   * [Black](https://pypi.org/project/black/). Used to format the python code.
   * [Boto3](https://boto3.amazonaws.com/). A Python Software Development Kit (SDK) for AWS. 
   Used to provide direct CRUD functionality of AWS resources from the Python scripts.
+  * [Coverage](https://pypi.org/project/coverage/). Used to measure code coverage during automated-test execution.
   * [Dj_database_url](https://pypi.org/project/dj-database-url/) used to configure the Django application, swapping 
 the local database with one managed by a third party without changing the app’s code. 
   * [Gunicorn](https://gunicorn.org/). Used as a Web Server Gateway Interface (WSGI).
