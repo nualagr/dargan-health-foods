@@ -19,7 +19,7 @@ class TestBlogViews(TestCase):
         """
         blogpost = BlogPost.objects.create(title="My test blogpost")
         blogpost.save()
-        response = self.client.get('/blog/blog_post/{0}/'.format(
+        response = self.client.get("/blog/blog_post/{0}/".format(
             blogpost.slug))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "blog/blog_post.html")

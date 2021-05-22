@@ -1,5 +1,4 @@
 from django import forms
-from profiles.models import UserProfile
 from products.widgets import CustomClearableFileInput
 from .models import BlogPost, BlogPostTag, BlogPostComment
 
