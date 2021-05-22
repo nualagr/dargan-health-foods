@@ -196,9 +196,9 @@ and selecting the 'htmlcov/' directory.
 |[Home Forms](home/tests/test_forms.py)             |   NewsletterSubscription and Contact form validation and required fields.            |100%|
 |[Home Models](home/tests/test_models.py)           |   NewsletterSubscription model creation and string method.|100%|
 |[Home Views](home/tests/test_views.py)             |   Testing index, our_story and  contact views.            |46%|
-|[Products Forms](products/tests/test_forms.py)     |   Testing form creation                                   |100%|
-|[Products Models](products/tests/test_models.py)   |   Testing model creation.                                 |89%|
-|[Products Views](products/tests/test_views.py)     |   Testing form fields, products, product detail, add product and edit product view, adding a product, and sort and filter functionality                       |28%|
+|[Products Forms](products/tests/test_forms.py)     |   ProductForm and ProductReviewForm creation and validation.|100%|
+|[Products Models](products/tests/test_models.py)   |   Brand, Department, Category, Tag, Product, ProductImage, ProductTag and ProductReview model creation and string methods.|100%|
+|[Products Views](products/tests/test_views.py)     |   Testing form fields, products, product detail, add product and edit product view, adding a product, and sort and filter functionality|25%|
 |[Profiles Forms](profiles/tests/test_forms.py)     |   Testing form creation                                   |100%|
 |[Profiles Models](profiles/tests/test_models.py)   |   Testing model creation.                                 |89%|
 |[Profiles Views](profiles/tests/test_views.py)     |   Testing profile view.                                   |28%|
@@ -210,8 +210,9 @@ and selecting the 'htmlcov/' directory.
 |App Name           |Percentage of App Code covered by Tests     |
 |-------------------|-------------------|
 |Blog               |67%                |
-|Home               |55%                |
+|Cart               |55%                |
 |Home               |82%                |
+|Products           |70%                |
 
 ##### back to [top](#table-of-contents)
 ---
