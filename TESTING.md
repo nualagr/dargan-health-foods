@@ -190,9 +190,9 @@ and selecting the 'htmlcov/' directory.
 |[Cart Forms](cart/tests/test_forms.py)             |   DiscountCodeForm creation.                              |100%|
 |[Cart Models](cart/tests/test_models.py)           |   DiscountCode Model creation and string method.          |100%|
 |[Cart Views](cart/tests/test_views.py)             |   Calculating cart subtotal, testing the cart view, add to cart functionality, and adjusting and removing items from the cart |21%|
-|[Checkout Forms](checkout/tests/test_forms.py)     |   Testing form creation and required fields               |100%|
-|[Checkout Models](checkout/tests/test_models.py)   |   Testing model creation.                                 |89%|
-|[Checkout Views](checkout/tests/test_views.py)     |   Testing checkout and checkout success view              |28%|
+|[Checkout Forms](checkout/tests/test_forms.py)     |   OrderCorm creation and required fields                  |100%|
+|[Checkout Models](checkout/tests/test_models.py)   |   Order and OrderLineItem model creation and string methods. Also test the OrderLineItem get_total_lineitem_price method.|94%|
+|[Checkout Views](checkout/tests/test_views.py)     |   Testing checkout and checkout success view              |27%|
 |[Home Forms](home/tests/test_forms.py)             |   NewsletterSubscription and Contact form validation and required fields.            |100%|
 |[Home Models](home/tests/test_models.py)           |   NewsletterSubscription model creation and string method.|100%|
 |[Home Views](home/tests/test_views.py)             |   Testing index, our_story and  contact views.            |46%|
@@ -211,6 +211,7 @@ and selecting the 'htmlcov/' directory.
 |-------------------|-------------------|
 |Blog               |67%                |
 |Cart               |55%                |
+|Checkout           |58%                |
 |Home               |82%                |
 |Products           |70%                |
 |Profiles           |89%                |
