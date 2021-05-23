@@ -199,9 +199,9 @@ and selecting the 'htmlcov/' directory.
 |[Products Forms](products/tests/test_forms.py)     |   ProductForm and ProductReviewForm creation and validation.|100%|
 |[Products Models](products/tests/test_models.py)   |   Brand, Department, Category, Tag, Product, ProductImage, ProductTag and ProductReview model creation and string methods.|100%|
 |[Products Views](products/tests/test_views.py)     |   Testing form fields, products, product detail, add product and edit product view, adding a product, and sort and filter functionality|25%|
-|[Profiles Forms](profiles/tests/test_forms.py)     |   Testing form creation                                   |100%|
-|[Profiles Models](profiles/tests/test_models.py)   |   Testing model creation.                                 |89%|
-|[Profiles Views](profiles/tests/test_views.py)     |   Testing profile view.                                   |28%|
+|[Profiles Forms](profiles/tests/test_forms.py)     |   DargansCustomSignupForm and UserProfileForm creation and validation. |81%|
+|[Profiles Models](profiles/tests/test_models.py)   |   UserProfile and DiscountCode2User model creation and string methods.|100%|
+|[Profiles Views](profiles/tests/test_views.py)     |   Profile view when a user is logged in, and not logged in. If successful, check that the correct template was rendered. |68%|
 
 <br>
 
@@ -213,6 +213,7 @@ and selecting the 'htmlcov/' directory.
 |Cart               |55%                |
 |Home               |82%                |
 |Products           |70%                |
+|Profiles           |89%                |
 
 ##### back to [top](#table-of-contents)
 ---

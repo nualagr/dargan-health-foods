@@ -33,8 +33,6 @@ class UserProfile(models.Model):
         return self.user.username
 
 
-# Since there is only going to be one signal it will be kept
-# in the models.py file rather than in a separate signals file
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
