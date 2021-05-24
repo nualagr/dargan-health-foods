@@ -33,7 +33,12 @@
 ### **HTML**
 [W3C HTML Validation Service](https://validator.w3.org/) was used to validate the HTML code. 
 
+Each page was validated by URI or Direct Input.
+![alt text](documentation/readme-images/html-validator-index-results.png "W3C HTML Validator results for the index page, showing no errors.")
 
+<br>
+The following table shows the pages that were checked.
+No errors or warnings remain.
 <br>
 
 ### **CSS**

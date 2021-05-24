@@ -132,7 +132,7 @@
     <div class="row page-title-wapper">
         <div class="col-12 col-lg-9 mx-auto">
             <!-- Page Title -->
-            <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
+            <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading">
                 <span class="base" data-ui-id="page-title-wrapper">
                     {% if blog_search_term %}
                     Search Results For: "{{ blog_search_term }}"
@@ -238,7 +238,7 @@
 <!-- Append to block, don't overwrite -->
 {{ block.super }}
 <!-- Scroll-To-Top Button Functionality copied from Code Institute Boutique Ado walkthrough project: https://github.com/nualagr/boutique-ado-v1 -->
-<script type="text/javascript">
+<script>
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)
     })

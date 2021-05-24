@@ -51,12 +51,10 @@
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto text-end">
             {% if request.user.is_superuser %}
-            <p class="text-end">
-                <small class="text-end">
-                    <a class="blue-text-link" href="{% url 'edit_post' blogpost.id %}">Edit</a> |
-                    <!-- Delete Product Modal Trigger -->
-                    <a class="red-text-link" data-bs-toggle="modal" data-bs-target="#deleteBlogPostModal">Delete</a>
-                </small>
+            <p class="text-end fs-6">
+                <a class="blue-text-link" href="{% url 'edit_post' blogpost.id %}">Edit</a> |
+                <!-- Delete BlogPost Modal Trigger -->
+                <a class="red-text-link" data-bs-toggle="modal" data-bs-target="#deleteBlogPostModal">Delete</a>
             </p>
             {% endif %}
         </div>
@@ -202,12 +200,10 @@
                                             </div>
                                             <div class="modal-footer justify-content-center">
                                                 <a class="common-button btn-blue" 
-                                                    data-bs-dismiss="modal"
-                                                    aria-label="Cancel">
+                                                    data-bs-dismiss="modal">
                                                     <i class="fas fa-undo"></i>&nbsp;Cancel</a>
                                                 <a class="common-button btn-grey"
-                                                    href="{% url 'delete_comment' comment.pk %}"
-                                                    aria-label="Delete Comment">
+                                                    href="{% url 'delete_comment' comment.pk %}">
                                                     <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
                                             </div>
                                         </div>
@@ -282,13 +278,13 @@
             </div>
             <div class="modal-footer justify-content-center">
                 <a class="common-button btn-blue" 
-                    data-bs-dismiss="modal"
-                    arial-label="Cancel">
-                    <i class="fas fa-undo"></i>&nbsp;Cancel</a>
+                    data-bs-dismiss="modal">
+                    <i class="fas fa-undo"></i>&nbsp;Cancel
+                </a>
                 <a class="common-button btn-grey" 
-                    href="{% url 'delete_post' blogpost.pk %}"
-                    aria-label="Delete">
-                    <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+                    href="{% url 'delete_post' blogpost.pk %}">
+                    <i class="far fa-trash-alt"></i>&nbsp;Delete
+                </a>
             </div>
         </div>
     </div>
