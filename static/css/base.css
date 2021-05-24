@@ -151,18 +151,18 @@ a.white-text-link:focus {
     font-weight: bold;
 }
 
-.blogpost-details-container p.small a.tag,
-.product-details-container p.small a.tag {
+.blogpost-details-container p a.tag,
+.product-details-container p a.tag {
     text-decoration: none;
     color: #6C757D;
 }
 
-.blogpost-details-container p.small a.tag:hover,
-.blogpost-details-container p.small a.tag:active,
-.blogpost-details-container p.small a.tag:focus,
-.product-details-container p.small a.tag:hover,
-.product-details-container p.small a.tag:active,
-.product-details-container p.small a.tag:focus {
+.blogpost-details-container p a.tag:hover,
+.blogpost-details-container p a.tag:active,
+.blogpost-details-container p a.tag:focus,
+.product-details-container p a.tag:hover,
+.product-details-container p a.tag:active,
+.product-details-container p a.tag:focus {
     text-decoration: underline;
 }
 
@@ -1250,20 +1250,6 @@ input[name="q"]::placeholder,
     background-color: #DC3545;
     border-color: #DC3545;
     border-radius: 0;
-}
-
-.product-tag-field {
-    width: 100%;
-    display: block;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #333333;
-    background-color: #FFFFFF;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: none;
 }
 
 /* My Account Pills Formatting ---------------------------------------- */

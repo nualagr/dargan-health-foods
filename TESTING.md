@@ -49,7 +49,7 @@ No errors or warnings remain.
 
 ### **CSS**
 
-[W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/validator) was used to validate the CSS file.  
+[W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS file.  
 
 <br>
 
