@@ -9,7 +9,7 @@ class Department(models.Model):
     """
 
     class Meta:
-        ordering = ['name']
+        ordering = ["name"]
 
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
@@ -29,11 +29,10 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "Categories"
-        ordering = ['name']
+        ordering = ["name"]
 
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(
-        max_length=254, null=True, blank=True)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
     department = models.ForeignKey(
         Department,
         null=True,
@@ -56,11 +55,10 @@ class Brand(models.Model):
     """
 
     class Meta:
-        ordering = ['name']
+        ordering = ["name"]
 
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(
-        max_length=254, null=True, blank=True)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -75,8 +73,9 @@ class Tag(models.Model):
     commonly used to identify subcategories of
     products or blog posts.
     """
+
     class Meta:
-        ordering = ['name']
+        ordering = ["name"]
 
     name = models.CharField(max_length=80)
     friendly_name = models.CharField(max_length=80, null=True, blank=True)
@@ -93,6 +92,9 @@ class Product(models.Model):
     Creates a Product model containing data about each individual
     product
     """
+
+    class Meta:
+        ordering = ["sku"]
 
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
@@ -117,7 +119,8 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     on_offer = models.BooleanField(default=False, null=True, blank=True)
     discount_price = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
+        max_digits=6, decimal_places=2, null=True, blank=True
+    )
     vat_code = models.CharField(max_length=3, null=True, blank=True)
     information = models.TextField(null=True, blank=True)
     ingredients = models.TextField(null=True, blank=True)
@@ -158,6 +161,9 @@ class ProductImage(models.Model):
     the image and image url for each product.
     """
 
+    class Meta:
+        ordering = ["product"]
+
     product = models.ForeignKey(
         Product,
         null=True,
@@ -175,6 +181,9 @@ class ProductImage(models.Model):
 
 
 class ProductTag(models.Model):
+    class Meta:
+        ordering = ["product"]
+
     product = models.ForeignKey(
         Product,
         null=True,
@@ -195,6 +204,9 @@ class ProductTag(models.Model):
 
 
 class ProductReview(models.Model):
+    class Meta:
+        ordering = ["product"]
+
     STAR_RATING_CHOICES = (
         (1, "⭐"),
         (2, "⭐ ⭐"),
@@ -214,7 +226,7 @@ class ProductReview(models.Model):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='usersreviews',
+        related_name="usersreviews",
     )
     review_rating = models.IntegerField(choices=STAR_RATING_CHOICES)
     review_title = models.CharField(max_length=255)

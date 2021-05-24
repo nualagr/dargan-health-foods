@@ -5,7 +5,14 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Sum, Avg
 from django.db.models.functions import Lower
 
-from .models import Product, ProductTag, Category, Tag, ProductReview, ProductImage
+from .models import (
+    Product,
+    ProductTag,
+    Category,
+    Tag,
+    ProductReview,
+    ProductImage,
+)
 from .forms import ProductForm, ProductAndTagsInlineFormSet, ProductReviewForm
 from profiles.models import UserProfile
 
@@ -70,7 +77,7 @@ def all_products(request):
             else:
                 tagged_products = product_tag_objects.filter(
                     tag__name__in=tag
-                    ).values_list("product", flat=True)
+                ).values_list("product", flat=True)
             products = products.filter(id__in=tagged_products)
 
         if "q" in request.GET:
@@ -172,12 +179,13 @@ def product_detail(request, product_id):
         user = get_object_or_404(UserProfile, user=request.user)
         # Get a list of the products purchased by the user
         products_purchased = user.orders.values_list(
-            "lineitems__product", flat=True)
+            "lineitems__product", flat=True
+        )
         # Get a list of the people who have reviewed the product already
-        reviewers = reviews.values_list('user', flat=True)
+        reviewers = reviews.values_list("user", flat=True)
         # If the current user has purchased the product
         # AND has not already reviewed it
-        if (product_id in products_purchased and user.id not in reviewers):
+        if product_id in products_purchased and user.id not in reviewers:
             # Render the Leave a Review button
             can_review = True
         else:
@@ -349,11 +357,13 @@ def add_review(request, product_id):
             new_review_rating = new_review.review_rating
             # Work out the overall product rating
             if reviews:
-                total_score = reviews.all().aggregate(
-                    Sum('review_rating'))["review_rating__sum"]
+                total_score = reviews.all().aggregate(Sum("review_rating"))[
+                    "review_rating__sum"
+                ]
                 number_of_reviews = len(reviews) + 1
                 avg_rating = (
-                    total_score + new_review_rating) / number_of_reviews
+                    total_score + new_review_rating
+                ) / number_of_reviews
             else:
                 avg_rating = new_review_rating
 
@@ -362,7 +372,14 @@ def add_review(request, product_id):
 
             prform = ProductReviewForm()
             messages.success(request, "Successfully posted your review.")
-            return redirect(reverse('product_detail', args=[product.id, ]))
+            return redirect(
+                reverse(
+                    "product_detail",
+                    args=[
+                        product.id,
+                    ],
+                )
+            )
         else:
             # If the form is invalid send an error message
             messages.error(
@@ -397,8 +414,7 @@ def edit_review(request, review_id):
     if request.method == "POST":
         # Create an instance of the ProductReview form using
         # the posted data
-        prform = ProductReviewForm(
-            request.POST, instance=review)
+        prform = ProductReviewForm(request.POST, instance=review)
 
         if prform.is_valid():
 
@@ -407,8 +423,9 @@ def edit_review(request, review_id):
             previous_page_url = request.POST.get("previous_page_url")
             # Update average rating for the product
             reviews = ProductReview.objects.filter(product=product)
-            avg_rating = reviews.aggregate(
-                Avg('review_rating'))['review_rating__avg']
+            avg_rating = reviews.aggregate(Avg("review_rating"))[
+                "review_rating__avg"
+            ]
             if avg_rating:
                 product.avg_rating = int(avg_rating)
             # If all reviews for this product have been deleted
@@ -439,7 +456,8 @@ def edit_review(request, review_id):
         # If the request is a GET request
         messages.info(
             request,
-            f"You are editing your review of { product.friendly_name }")
+            f"You are editing your review of { product.friendly_name }",
+        )
 
     template = "products/edit_review.html"
     context = {
@@ -465,8 +483,9 @@ def delete_review(request, review_id):
 
         # Update average rating for the product
         reviews = ProductReview.objects.filter(product=product)
-        avg_rating = reviews.aggregate(
-            Avg('review_rating'))['review_rating__avg']
+        avg_rating = reviews.aggregate(Avg("review_rating"))[
+            "review_rating__avg"
+        ]
         if avg_rating:
             product.avg_rating = int(avg_rating)
         # If all reviews for this product have been deleted
@@ -476,11 +495,14 @@ def delete_review(request, review_id):
 
         product.save()
 
-        messages.success(request, 'Your review was deleted')
+        messages.success(request, "Your review was deleted")
 
     # If the review was not deleted return an error message
     except Exception as e:
-        messages.error(request, "We couldn't delete your review because "
-                                f" error:{e} occured. Please try again later.")
+        messages.error(
+            request,
+            "We couldn't delete your review because "
+            f" error:{e} occured. Please try again later.",
+        )
 
-    return redirect(reverse('product_detail', args=(product.id,)))
+    return redirect(reverse("product_detail", args=(product.id,)))
