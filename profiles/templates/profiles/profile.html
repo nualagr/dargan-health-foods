@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
+{% block extra_title %}My Account{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -206,15 +208,15 @@
                                         class="d-none d-xl-inline">|</span>
                                     <!-- Delete Review Modal Trigger -->
                                     <a class="red-text-link" data-bs-toggle="modal"
-                                        data-bs-target="#deleteReviewModal">Delete</a>
+                                        data-bs-target="#deleteReviewModal{{ review.id }}">Delete</a>
                                     <!-- Delete Review Modal -->
-                                    <div class="modal fade" id="deleteReviewModal" tabindex="-1"
-                                        aria-labelledby="deleteReviewModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="deleteReviewModal{{ review.id }}" tabindex="-1"
+                                        aria-labelledby="deleteReviewModal{{ review.id }}Label" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content rounded-0">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title text-danger text-center"
-                                                        id="deleteReviewModalLabel">
+                                                        id="deleteReviewModal{{ review.id }}Label">
                                                         Are you sure that you want to delete this review?</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
@@ -277,15 +279,15 @@
                                         class="d-none d-xl-inline">|</span>
                                     <!-- Delete BlogPostComment Modal Trigger -->
                                     <a class="red-text-link" data-bs-toggle="modal"
-                                        data-bs-target="#deleteCommentModal">Delete</a>
+                                        data-bs-target="#deleteCommentModal{{ comment.id }}">Delete</a>
                                     <!-- Delete BlogPostComment Modal -->
-                                    <div class="modal fade" id="deleteCommentModal" tabindex="-1"
-                                        aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="deleteCommentModal{{ comment.id }}" tabindex="-1"
+                                        aria-labelledby="deleteCommentModal{{ comment.id }}Label" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content rounded-0">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title text-danger text-center"
-                                                        id="deleteCommentModalLabel">
+                                                        id="deleteCommentModal{{ comment.id }}Label">
                                                         Are you sure that you want to delete this comment?</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
@@ -320,5 +322,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+<script src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

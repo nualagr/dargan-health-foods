@@ -162,7 +162,7 @@ a.white-text-link:focus {
 .blogpost-details-container p.small a.tag:focus,
 .product-details-container p.small a.tag:hover,
 .product-details-container p.small a.tag:active,
-.product-detaisl-container p.small a.tag:focus {
+.product-details-container p.small a.tag:focus {
     text-decoration: underline;
 }
 
@@ -324,6 +324,11 @@ a.disabled{
 }
 .opacity-2 {
   opacity:0.4!important;
+}
+
+.seedling-logo {
+    width: 100%;
+    height: auto;
 }
 
 /* Buttons ------------------------------------------------------------ */
@@ -704,6 +709,13 @@ a.disabled{
 
 #desktop-middle-nav button {
     font-size: inherit;
+}
+
+.dropdown-container {
+    position: relative;
+}
+.account-dropdown-menu {
+    position: absolute;
 }
 
 /* Footer ------------------------------------------------------------- */

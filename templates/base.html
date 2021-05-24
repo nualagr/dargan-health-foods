@@ -7,7 +7,7 @@
 <head>
     {% block meta %}
     <!-- Required meta tags -->
-    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="UTF-8">
     <meta name="author" content="Nuala Greenwood">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
         content="Dargan Health Foods is an independently-run health-food shop in Castletroy Shopping Centre, Limerick.">
     <meta name="keywords"
         content="Castletroy SC, Limerick, Organic, fresh, vibrant, SLS free, Nutritionists, family run business">
-    <title>Dargan Health Foods | Castletroy Shopping Centre, Limerick</title>
+    <title>Dargan Health Foods | Castletroy Shopping Centre, Limerick | {% block extra_title %}{% endblock%}</title>
     <link rel="icon" type="image/png" href="{{ MEDIA_URL }}favicon.png">
     {% endblock %}
 
@@ -54,8 +54,6 @@
 
     {% block extra_js %}
     {% endblock%}
-
-    <title>Dargan Health Foods {% block title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -68,9 +66,9 @@
                     <li><a href="{% url 'blog' %}" aria-label="Dargan's Blog link">Blog</a></li>
                     <li><a href="{% url 'contact' %}" aria-label="Contact Us link">Contact Us</a></li>
                     {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                        <li><a href="{% url 'add_product' %}" aria-label="Product Management link">Product Management</a></li>
-                        <li><a href="{% url 'add_post' %}" aria-label="Blog Management link">Blog Management</a></li>
+                    {% if request.user.is_superuser %}
+                    <li><a href="{% url 'add_product' %}" aria-label="Add Product link">Add Product</a></li>
+                    <li><a href="{% url 'add_post' %}" aria-label="Add BlogPost link">Add BlogPost</a></li>
                     {% endif %}
                     <li><a href="{% url 'profile' %}" aria-label="My Account link">My Account</a></li>
                     <li><a href="{% url 'account_logout' %}" aria-label="Logout link">Logout</a></li>
@@ -94,11 +92,11 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100">
-                        <input class="form-control rounded-0" type="text" name="q" placeholder="Search for products and brands">
+                        <input class="form-control rounded-0" type="text" name="q"
+                            placeholder="Search for products and brands">
                         <div class="input-group-append">
-                            <button class="form-control common-button btn-forest-green border-green rounded-0" 
-                                type="submit" 
-                                aria-label="Search Site">
+                            <button class="form-control common-button btn-forest-green border-green rounded-0"
+                                type="submit" aria-label="Search Site">
                                 <span>
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -113,8 +111,7 @@
                     <ul class="list-inline list-unstyled">
                         <li class="checkout-button list-inline-item">
                             <a class="btn btn-checkout rounded-0 {% if grand_total %} btn-orange {% else %} btn-cream disabled{% endif %}"
-                                href="{% url 'checkout' %}"
-                                aria-label="Checkout Link">
+                                href="{% url 'checkout' %}" aria-label="Checkout Link">
                                 Checkout
                             </a>
                         </li>
@@ -124,7 +121,8 @@
                             <a class="{% if grand_total %}text-black{% else %}text-grey disabled{% endif %}"
                                 href="{% url 'view_cart' %}">
                                 {% if grand_total %}
-                                <span class="hide-for-small-laptop">{{ product_count }} item{{ product_count|pluralize }} -
+                                <span class="hide-for-small-laptop">{{ product_count }}
+                                    item{{ product_count|pluralize }} -
                                 </span>€{{ grand_total|floatformat:2 }}
                                 {% else %}
                                 <span class="hide-for-small-laptop">0 items - </span>€0.00
@@ -135,20 +133,260 @@
                 </div>
             </div>
         </div>
-        <!-- Main Nav (Toggler on Tablet and Mobile) -->
+        <!-- Desktop Bottom Nav -->
         <div class="row bg-forest-green">
-            <nav class="navbar navbar-expand-lg navbar-dark w-100">
-                <button class="navbar-toggler" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#main-nav"
-                    aria-controls="main-nav" 
-                    aria-expanded="false" 
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {% include 'includes/mobile-top-header.html' %}
-                {% include 'includes/main-nav.html' %}
+            <nav class="navbar d-block d-lg-flex navbar-expand-lg navbar-dark w-100">
+                <div class="d-flex justify-content-between">
+                    <!-- Mobile Top - Menu Toggler -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Mobile Top - Icons -->
+                    <div class="dropdown-container">
+                        <a class="text-white nav-link d-block d-lg-none" href="#" id="user-options"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu account-dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'add_product' %}" class="dropdown-item" aria-label="Add Product link">Add
+                                Product</a>
+                            <a href="{% url 'add_post' %}" class="dropdown-item" aria-label="Add BlogPost link">Add
+                                BlogPost</a>
+                            {% endif %}
+                            <a href="{% url 'profile' %}" class="dropdown-item" aria-label="My Account link">My
+                                Account</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item"
+                                aria-label="Logout link">Logout</a>
+                            {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item"
+                                aria-label="Registration link">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item" aria-label="Login link">Login</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- Mobile Top - Button to open the Search Bar -->
+                    <a class="text-white nav-link d-block d-lg-none" href="#" id="mobile-search"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center">
+                            <div><i class="fas fa-search fa-lg"></i></div>
+                            <p class="my-0">Search</p>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
+                        <form class="form" method="GET" action="{% url 'products' %}">
+                            <div class="input-group w-100">
+                                <input class="form-control rounded-0" type="text" name="q"
+                                    placeholder="Search for products and brands">
+                                <div class="input-group-append">
+                                    <button class="form-control common-button btn-forest-green border-green"
+                                        type="submit">
+                                        <span>
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Mobile Top - Button to access the Shopping Cart -->
+                    <a class="text-white {% if grand_total %}font-weight-bold{% else %}font-weight-normal{% endif %} nav-link d-block d-lg-none"
+                        href="{% url 'view_cart' %}">
+                        <div class="text-center">
+                            <div class="lbl-cart-wrapper">
+                                <i class="fas fa-shopping-cart fa-lg"></i>
+                                {% if product_count > 0 %}
+                                <span>{{ product_count }}</span>
+                                {% endif %}
+                            </div>
+                            <p class="my-0">
+                                {% if grand_total %}
+                                €{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                €0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Mobile Dropdown Menu / Desktop Main Nav -->
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="navbar-nav w-auto mx-auto">
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link mr-5" href="{% url 'home' %}" id="home-link" title="Go to Home Page"
+                                aria-haspopup="true" aria-expanded="false">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mr-5" href="#" id="all-new-in-link" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                New In
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="all-new-in-link">
+                                <a href="{% url 'products' %}?department=vitamins_n_supplements&sort=-date_added&limit=10"
+                                    class="dropdown-item">Vitamins &amp; Supplements</a>
+                                <a href="{% url 'products' %}?department=food_n_drink&sort=-date_added&limit=10"
+                                    class="dropdown-item">Food &amp; Drink</a>
+                                <a href="{% url 'products' %}?department=hair_n_beauty&sort=-date_added&limit=10"
+                                    class="dropdown-item">Hair &amp; Beauty</a>
+                                <a href="{% url 'products' %}?department=mother_n_baby&sort=-date_added&limit=10"
+                                    class="dropdown-item">Mother &amp; Baby</a>
+                                <a href="{% url 'products' %}?department=house_n_home&sort=-date_added&limit=10"
+                                    class="dropdown-item">House &amp; Home</a>
+                                <a href="{% url 'products' %}?sort=-date_added&limit=30" class="dropdown-item">All New
+                                    In</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mr-5" href="#" id="vitamins-and-supplements-link"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Vitamins &amp; Supplements
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="vitamins-and-supplements-link">
+                                <a href="{% url 'products' %}?category=digestive_health" class="dropdown-item">Digestive
+                                    Health</a>
+                                <a href="{% url 'products' %}?category=herbal_n_homeopathic_remedies"
+                                    class="dropdown-item">Herbal &amp; Homeopathic Remedies</a>
+                                <a href="{% url 'products' %}?category=immune_health" class="dropdown-item">Immune
+                                    Health</a>
+                                <a href="{% url 'products' %}?category=minerals" class="dropdown-item">Minerals</a>
+                                <a href="{% url 'products' %}?category=supplements"
+                                    class="dropdown-item">Supplements</a>
+                                <a href="{% url 'products' %}?category=vitamins" class="dropdown-item">Vitamins</a>
+                                <a href="{% url 'products' %}?category=weight_management" class="dropdown-item">Weight
+                                    Management</a>
+                                <a href="{% url 'products' %}?department=vitamins_n_supplements"
+                                    class="dropdown-item">All Vitamins &amp; Supplements</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mr-5" href="#" id="food-and-drink-link" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Food &amp; Drink
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="food-and-drink-link">
+                                <a href="{% url 'products' %}?category=baking_n_cooking" class="dropdown-item">Baking
+                                    &amp; Cooking</a>
+                                <a href="{% url 'products' %}?category=bread_cereal_n_snacks"
+                                    class="dropdown-item">Bread, Cereal &amp; Snacks</a>
+                                <a href="{% url 'products' %}?category=chilled_n_frozen" class="dropdown-item">Chilled
+                                    &amp; Frozen</a>
+                                <a href="{% url 'products' %}?category=coffee_n_hot_chocolate"
+                                    class="dropdown-item">Coffee &amp; Hot Chocolate</a>
+                                <a href="{% url 'products' %}?category=grains_n_pulses" class="dropdown-item">Grains
+                                    &amp; Pulses</a>
+                                <a href="{% url 'products' %}?category=herbal_teas" class="dropdown-item">Herbal
+                                    Teas</a>
+                                <a href="{% url 'products' %}?category=juices_n_milks" class="dropdown-item">Juices
+                                    &amp; Milks</a>
+                                <a href="{% url 'products' %}?category=nuts_seeds_n_dried_fruit"
+                                    class="dropdown-item">Nuts, Seeds &amp; Dried Fruit</a>
+                                <a href="{% url 'products' %}?category=oils_n_vinegars" class="dropdown-item">Oils &amp;
+                                    Vinegars</a>
+                                <a href="{% url 'products' %}?category=pasta_rice_n_noodles"
+                                    class="dropdown-item">Pasta, Rice &amp; Noodles</a>
+                                <a href="{% url 'products' %}?category=spreads_sweetners_n_syrups"
+                                    class="dropdown-item">Spreads, Sweetners &amp; Syrups</a>
+                                <a href="{% url 'products' %}?category=superfoods_n_powders"
+                                    class="dropdown-item">Superfoods &amp; Powders</a>
+                                <a href="{% url 'products' %}?department=food_n_drink" class="dropdown-item">All Food
+                                    &amp; Drink</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mr-5" href="#" id="hair-and-beauty-link" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Hair &amp; Beauty
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="hair-and-beauty-link">
+                                <a href="{% url 'products' %}?category=bath_n_shower" class="dropdown-item">Bath &amp;
+                                    Shower</a>
+                                <a href="{% url 'products' %}?category=body_care" class="dropdown-item">Body Care</a>
+                                <a href="{% url 'products' %}?category=cosmetics" class="dropdown-item">Cosmetics</a>
+                                <a href="{% url 'products' %}?category=hair_n_beauty_supplements"
+                                    class="dropdown-item">Hair &amp; Beauty Supplements</a>
+                                <a href="{% url 'products' %}?category=hair_care" class="dropdown-item">Hair Care</a>
+                                <a href="{% url 'products' %}?category=skincare" class="dropdown-item">Skincare</a>
+                                <a href="{% url 'products' %}?department=hair_n_beauty" class="dropdown-item">All Hair
+                                    &amp; Beauty</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mr-5" href="#" id="mother-and-baby-link" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Mother &amp; Baby
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="mother-and-baby-link">
+                                <a href="{% url 'products' %}?category=baby_food" class="dropdown-item">Baby Food</a>
+                                <a href="{% url 'products' %}?category=childrens_health"
+                                    class="dropdown-item">Children's Health</a>
+                                <a href="{% url 'products' %}?category=pregnancy_support"
+                                    class="dropdown-item">Pregnancy Support</a>
+                                <a href="{% url 'products' %}?category=skincare_for_mum_n_baby"
+                                    class="dropdown-item">Skincare for Mum &amp; Baby</a>
+                                <a href="{% url 'products' %}?department=mother_n_baby" class="dropdown-item">All Mother
+                                    &amp; Baby</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mr-5" href="#" id="house-and-home-link" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                House &amp; Home
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="house-and-home-link">
+                                <a href="{% url 'products' %}?category=aromatherapy_n_accessories"
+                                    class="dropdown-item">Aromatherapy &amp; Accessories</a>
+                                <a href="{% url 'products' %}?category=candles_n_incense" class="dropdown-item">Candles
+                                    &amp; Incense</a>
+                                <a href="{% url 'products' %}?category=cleaning_products" class="dropdown-item">Cleaning
+                                    Products</a>
+                                <a href="{% url 'products' %}?category=eco_household_products" class="dropdown-item">Eco
+                                    Household Products</a>
+                                <a href="{% url 'products' %}?department=house_n_home" class="dropdown-item">All House
+                                    &amp; Home</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products' %}?tag=special_offers" id="special-offers-link">
+                                Special Offers
+                            </a>
+                        </li>
+
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link mr-5" href="{% url 'blog' %}" id="blog-link" aria-label="Blog link">
+                                Blog
+                            </a>
+                        </li>
+
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link mr-5" href="{% url 'our_story' %}" id="our-story-link"
+                                aria-label="Our Story link">
+                                Our Story
+                            </a>
+                        </li>
+
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link mr-5" href="{% url 'contact' %}" id="contact-us-link"
+                                aria-label="Contact Us link">
+                                Contact Us
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
             </nav>
         </div>
         <!-- Delivery Banner -->
@@ -161,8 +399,6 @@
             </div>
         </div>
     </header>
-
-
 
     {% block page_header %}
     {% endblock %}
@@ -219,22 +455,20 @@
                         <!-- Find Us Accordion -->
                         <div class="accordion-item" id="accordionFindUs">
                             <h5 class="accordion-header" id="headingFindUs">
-                                <button class="accordion-button collapsed" 
-                                    type="button" 
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFindUs" 
-                                    aria-expanded="false" 
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFindUs" aria-expanded="false"
                                     aria-controls="collapseFindUs">
                                     Find Us
                                 </button>
                             </h5>
                         </div>
-                        <div class="accordion-body collapse bg-white" id="collapseFindUs" aria-labelledby="headingFindUs">
+                        <div class="accordion-body collapse bg-white" id="collapseFindUs"
+                            aria-labelledby="headingFindUs">
                             <ul class="accordion-list list-unstyled">
                                 <li><img src="{{ MEDIA_URL }}seedling-logo-with-text.png"
-                                        alt="Dargan Health Foods brand logo" width="100%" height="auto"></li>
-                                <li class="address"><a href="https://goo.gl/maps/Ktuehd7RdoimKafC9"
-                                        target="_blank" rel="noopener">Castletroy Town Centre, <br>Limerick</a></li>
+                                        class="seedling-logo" alt="Dargan Health Foods brand logo"></li>
+                                <li class="address"><a href="https://goo.gl/maps/Ktuehd7RdoimKafC9" target="_blank"
+                                        rel="noopener">Castletroy Town Centre, <br>Limerick</a></li>
                                 <li class="phone"><a href="tel:061339506" aria-label="0 6 1. 3 3 9 5 0 6.">+353 (0)61
                                         339506</a></li>
                                 <li class="email"><a href="mailto:sales@dargan.ie" target="_blank"
@@ -271,17 +505,15 @@
                         <!-- Opening Hours Accordion -->
                         <div class="accordion-item" id="accordionOpeningHours">
                             <h5 class="accordion-header" id="headingOpeningHours">
-                                <button class="accordion-button collapsed" 
-                                    type="button" 
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOpeningHours" 
-                                    aria-expanded="false" 
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOpeningHours" aria-expanded="false"
                                     aria-controls="collapseOpeningHours">
                                     Opening Hours
                                 </button>
                             </h5>
                         </div>
-                        <div class="accordion-body collapse bg-white" id="collapseOpeningHours" aria-labelledby="headingOpeningHours">
+                        <div class="accordion-body collapse bg-white" id="collapseOpeningHours"
+                            aria-labelledby="headingOpeningHours">
                             <table class="table">
                                 <tbody>
                                     <tr>
@@ -326,34 +558,34 @@
                                 </a>
                             </li>
                             {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                <li>
-                                    <a href="{% url 'add_product' %}" aria-label="Product Management link">
-                                        Product Management
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'add_post' %}" aria-label="Blog Management link">
-                                        Blog Management
-                                    </a>
-                                </li>
-                                {% endif %}
-                                <li>
-                                    <a href="{% url 'profile' %}" aria-label="My Account link">
-                                        My Account
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'account_logout' %}" aria-label="Logout link">
-                                        Logout
-                                    </a>
-                                </li>
+                            {% if request.user.is_superuser %}
+                            <li>
+                                <a href="{% url 'add_product' %}" aria-label="Add Product link">
+                                    Add Product
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'add_post' %}" aria-label="Add BlogPost link">
+                                    Add BlogPost
+                                </a>
+                            </li>
+                            {% endif %}
+                            <li>
+                                <a href="{% url 'profile' %}" aria-label="My Account link">
+                                    My Account
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'account_logout' %}" aria-label="Logout link">
+                                    Logout
+                                </a>
+                            </li>
                             {% else %}
-                                <li>
-                                    <a href="{% url 'account_signup' %}" aria-label="Register link">
-                                        Sign Up
-                                    </a>
-                                </li>
+                            <li>
+                                <a href="{% url 'account_signup' %}" aria-label="Register link">
+                                    Sign Up
+                                </a>
+                            </li>
                             {% endif %}
                         </ul>
                     </div>
@@ -361,17 +593,15 @@
                         <!-- Quick Links Accordion -->
                         <div class="accordion-item" id="accordionQuickLinks">
                             <h5 class="accordion-header" id="headingQuickLinks">
-                                <button class="accordion-button collapsed" 
-                                    type="button" 
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#collapseQuickLinks" 
-                                    aria-expanded="false" 
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseQuickLinks" aria-expanded="false"
                                     aria-controls="collapseQuickLinks">
                                     Quick Links
                                 </button>
                             </h5>
                         </div>
-                        <div class="accordion-body collapse bg-white" id="collapseQuickLinks" aria-labelledby="headingQuickLinks">
+                        <div class="accordion-body collapse bg-white" id="collapseQuickLinks"
+                            aria-labelledby="headingQuickLinks">
                             <ul class="accordion-list list-unstyled">
                                 <li>
                                     <a href="{% anchor 'home' 'about' %}" aria-label="About Us link">
@@ -388,11 +618,36 @@
                                         Blog
                                     </a>
                                 </li>
+                                {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                <li>
+                                    <a href="{% url 'add_product' %}" aria-label="Add Product link">
+                                        Add Product
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'add_post' %}" aria-label="Add BlogPost link">
+                                        Add BlogPost
+                                    </a>
+                                </li>
+                                {% endif %}
                                 <li>
                                     <a href="{% url 'profile' %}" aria-label="My Account link">
                                         My Account
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{% url 'account_logout' %}" aria-label="Logout link">
+                                        Logout
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li>
+                                    <a href="{% url 'account_signup' %}" aria-label="Register link">
+                                        Sign Up
+                                    </a>
+                                </li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>

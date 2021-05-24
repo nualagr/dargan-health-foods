@@ -224,7 +224,7 @@ and selecting the 'htmlcov/' directory.
 ### Overall Automated Test Coverage
 
 |App Name           |Percentage of App Code covered by Tests     |
-|-------------------|-------------------|
+|:-------------------|:-------------------:|
 |Blog               |67%                |
 |Cart               |55%                |
 |Checkout           |58%                |
@@ -313,9 +313,9 @@ to the viewer that the page range does not reflect the total number of pages ret
 <br>
 
 ### Multiple Destination Redirects
-This issue arose in relation to two different pages.  The Edit Product Review 
+This issue arose in relation to two different pages, the Edit Product Review 
 page and the Edit BlogPost page.  Links to these pages exist in multiple locations within the site.
-Initially, the redirects upon submission of the forms were hardcoded to a single location. 
+Initially the redirects, upon submission of the forms, were hardcoded to a single location. 
 If the user edited their product review they were redirected to the product page, 
 even if they had clicked the 'Edit' button on their Profile page.
 This was less than satisfactory, from a user-experience point of view.
@@ -329,7 +329,7 @@ it was necessary to assign the referring url, with the GET request, to a hidden 
 ```
 The referring url is now posted along with the review to the edit_review view where an 'if' 'else'
 block checks for the existence of the substring "profile" within the url before redirecting to the 
-correct page.
+appropriate page.
 ``` {.python3}
 # If the user got to the edit review page from their profile
 # Redirect them back to their profile page.
