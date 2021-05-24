@@ -36,7 +36,7 @@ class TestOrderModels(TestCase):
 
     def test_order_creation(self):
         """
-        Test the creation of an Order model.
+        Test the creation of an Order.
         """
         o = self.create_order()
         self.assertTrue(isinstance(o, Order))
@@ -44,14 +44,14 @@ class TestOrderModels(TestCase):
 
     def test_order_string_method(self):
         """
-        Test that Order models return the correct string.
+        Test that Orders return the correct string.
         """
         o = self.create_order()
         self.assertEqual(str(o), o.order_number)
 
     def test_orderlineitem_creation(self):
         """
-        Test the creation of an OrderLineItem object.
+        Test the creation of an OrderLineItem.
         """
         p = self.create_product()
         o = self.create_order()
@@ -87,7 +87,8 @@ class TestOrderModels(TestCase):
 
     def test_orderlineitem_get_total_lineitem_price_method(self):
         """
-        Test that the OrderLineItem method get_total_lineitem_price
+        Test that the OrderLineItem method,
+        get_total_lineitem_price,
         returns the correct price.
         """
         p = self.create_product()

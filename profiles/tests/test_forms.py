@@ -5,7 +5,7 @@ from ..forms import DargansCustomSignupForm, UserProfileForm
 class TestDargansCustomSignupForm(TestCase):
     def test_valid_form(self):
         """
-        Test DargansCustomSignupForm creation.
+        Test DargansCustomSignupForm validation.
         """
         form = DargansCustomSignupForm({
             "email": "testytest@example.com",

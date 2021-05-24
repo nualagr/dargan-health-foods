@@ -3,7 +3,7 @@ from ..models import NewsletterSubscription
 from django.utils import timezone
 
 
-class NewsletterSubscriptionTest(TestCase):
+class TestNewsletterSubscriptionModel(TestCase):
     def create_newslettersubscription(
         self,
         email_address="testemailaddress@test.com"

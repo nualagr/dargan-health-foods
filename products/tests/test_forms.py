@@ -44,6 +44,8 @@ class TestProductForm(TestCase):
             form.errors["price"][0],
             "This field is required.")
 
+
+class TestProductReviewForm(TestCase):
     def test_valid_productreviewform(self):
         """
         Test ProductReviewForm validation.

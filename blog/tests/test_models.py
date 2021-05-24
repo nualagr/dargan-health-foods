@@ -88,7 +88,7 @@ class TestBlogPostModels(TestCase):
     def test_blogpostcomment_creation(self):
         """
         Test whether BlogPostComments are created using the correct model.
-        Test whether the comment is connected to the related blogpost.
+        Test whether the comment is linked to the related blogpost.
         """
         bp = self.create_blogpost()
         blogpostcomment = BlogPostComment.objects.create(

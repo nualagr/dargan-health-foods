@@ -71,7 +71,7 @@ class TestProductModels(TestCase):
 
     def test_brand_get_friendly_name_method(self):
         """
-        Test that Brands return the correct friendly name.
+        Test that Brands return the correct friendly_name.
         """
         b = Brand.objects.get(name="test_brand")
         self.assertEqual(b.get_friendly_name(), "Test Brand")
@@ -93,7 +93,7 @@ class TestProductModels(TestCase):
 
     def test_department_get_friendly_name_method(self):
         """
-        Test that Departments return the correct friendly name.
+        Test that Departments return the correct friendly_name.
         """
         d = Department.objects.get(name="test_department")
         self.assertEqual(d.get_friendly_name(), "Test Department")
@@ -115,7 +115,7 @@ class TestProductModels(TestCase):
 
     def test_category_get_friendly_name_method(self):
         """
-        Test that Categories return the correct friendly name.
+        Test that Categories return the correct friendly_name.
         """
         c = Category.objects.get(name="test_category")
         self.assertEqual(c.get_friendly_name(), "Test Category")
@@ -137,7 +137,7 @@ class TestProductModels(TestCase):
 
     def test_tag_get_friendly_name_method(self):
         """
-        Test that Tags return the correct friendly name.
+        Test that Tags return the correct friendly_name.
         """
         t = Tag.objects.get(name="test_tag")
         self.assertEqual(t.get_friendly_name(), "Test Tag")
@@ -159,7 +159,7 @@ class TestProductModels(TestCase):
 
     def test_product_get_friendly_name_method(self):
         """
-        Test that Tags return the correct friendly name.
+        Test that Tags return the correct friendly_name.
         """
         p = Product.objects.get(name="test_product")
         self.assertEqual(p.get_friendly_name(), "Test Product")
@@ -184,7 +184,7 @@ class TestProductModels(TestCase):
     def test_producttag_creation(self):
         """
         Test that ProductTag objects are created using the
-        ProductTagmodel.
+        ProductTag model.
         """
         p = Product.objects.get(name="test_product")
         t = Tag.objects.get(name="test_tag")

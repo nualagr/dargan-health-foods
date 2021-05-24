@@ -1021,11 +1021,11 @@ python3 manage.py createsuperuser
 ```
 
 15. In the settings.py file change 
-```
+``` {.python3}
 debug=False
 ```
 to 
-```
+``` {.python3}
 debug=True
 ```
 
@@ -1111,11 +1111,11 @@ pip3 install dj_database_url
 
 - In settings.py [dj_database_url](https://pypi.org/project/dj-database-url/) was imported.  
 The default database url was commented out and the Postgres database URL was passed to dj_database_url.
-```
+``` {.python3}
 import dj_database_url
 
 DATABASES = {
-        'default': dj_database_url.parse("<your Postrgres database URL>")
+        "default": dj_database_url.parse("<your Postrgres database URL>")
     }
 ```
 - This url can be located under the Config Variables heading on the Settings tab on Heroku.
@@ -1160,7 +1160,7 @@ python3 manage.py createsuperuser
 An 'if' 'else' block was added to check whether DATABASE_URL variable exists in the environment.
 If that is the case, as it is when the app is running on Heroku, 
 DATABASES points to the Postgres database, otherwise, the app connects to SQLite3.
-```
+``` {.python3}
 if "DATABASE_URL" in os.environ:
     DATABASES = {
         "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
@@ -1200,7 +1200,7 @@ heroku config:set DISABLE_COLLECTSTATIC=1 --app <app name>
 
 15. Within settings.py, the hostname of the Heroku app and the localhost were added 
 to the list of allowed hosts.
-```
+``` {.python3}
 ALLOWED_HOSTS = ["<app name>.herokuapp.com", "localhost"]
 ```
 
@@ -1250,14 +1250,14 @@ it would automatically deploy to Heroku as well.
 - Within settings.py the SECRET_KEY variable was replaced with a call to get it from the environment. 
 An empty string was set as the default value.
 
-```
+``` {.python3}
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
 ```
 
 - Also within settings.py DEBUG was set to TRUE if a variable, 'DEVELOPMENT', 
 is to be found within the environment variables.
 
-```
+``` {.python3}
 DEBUG = "DEVELOPMENT" in os.environ
 ```
 
@@ -1375,7 +1375,7 @@ pip3 freeze > requirements.txt
 - [Django-storages](https://django-storages.readthedocs.io/en/latest/) was 
 added to the list of INSTALLED_APPS within settings.py. This collection of 
 custom storage backends for Django includes Amazon S3.
-```
+``` {.python3}
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -1400,7 +1400,7 @@ INSTALLED_APPS = [
 ```
 - Configuration Variables, to direct Django to the correct AWS Bucket,
 were created in Heroku and referenced within settings.py.
-```
+``` 
 # Within Heroku Config Vars:
 
 USE_AWS => True
@@ -1408,7 +1408,7 @@ AWS_ACCESS_KEY_ID => (To be found in the 'new_user_credentials' file from AWS)
 AWS_SECRET_ACCESS_KEY => (To be found in the 'new_user_credentials' file from AWS)
 ```
 
-```
+``` {.python3}
 # Within settings.py:
 
 if "USE_AWS" in os.environ:
@@ -1431,7 +1431,7 @@ within Config Vars on Heroku, so that Django collects static files automatically
 and uploads them to the newly referenced Bucket.
 
 - Created a new file in the project root directory called 'custom_storages.py'.
-```
+``` {.python3}
 # Import the project settings
 from django.conf import settings
 
@@ -1446,10 +1446,12 @@ class StaticStorage(S3Boto3Storage):
 class MediaStorage(S3Boto3Storage):
     location = settings.MEDIAFILES_LOCATION
 ```
+
 - Within settings.py, these new storage classes were attached to new variables 
 within the 'if USE_AWS' block.  In production they direct Django to save the static
 files in a folder called 'static'.
-```
+
+``` {.python3}
 if "USE_AWS" in os.environ:
 
     # Bucket Config
@@ -1473,7 +1475,8 @@ if "USE_AWS" in os.environ:
 - In order to improve performance for the end user, an optional setting 
 was added to settings.py to tell the browser to cache static files for a 
 long time, as they are not changed very often.
-```
+
+``` {.python3}
 if "USE_AWS" in os.environ:
 
     # Cache control

@@ -16,6 +16,9 @@
     - [Site Owner](#tested-site-owner-stories)
 - [Manual Testing](#manual-testing)
 - [Automated Testing](#automated-testing)
+    - [Unittests](#unittests)
+    - [Coverage Installation and Setup](#coverage-installation-and-setup)
+    - [Automated Test Links and Coverage Results](#automated-test-links-and-coverage-results)
 - [Bugs](#bugs)
     - [Pagination Issue](#pagination-issue)
     - [Multiple Destination Redirects](#multiple-destination-redirects)
@@ -127,12 +130,12 @@ Each website feature, including buttons, modals, external links, hover effects e
 
 ## Automated testing
 
+### Unittests
+
 Django's testing framework was used to create automated tests for the project.
 
-### Unit Testing
 A tests directory was added to each app.
-Within these directories individual files were created to test the app's views, models and forms,
-if they contained any.
+Within these directories individual files were created to test the app's views, models and forms.
 
 In order to run specific tests, the following command can be used:
 ```
@@ -144,11 +147,15 @@ To run all the tests use the command:
 python3 manage.py test
 ```
 
-
 [Coverage](https://coverage.readthedocs.io/en/coverage-5.5/)
 was used to identify the percentage of code covered by the tests.
 
-#### [Coverage](https://coverage.readthedocs.io/en/coverage-5.5/) Installation and Setup
+<br>
+
+##### back to [top](#table-of-contents)
+---
+
+### Coverage Installation and Setup
 
 Install the package using pip.
 ```
@@ -181,8 +188,14 @@ python3 -m http.server
 ```
 and selecting the 'htmlcov/' directory.
 
-### Results
-|Test Files                                         |   Tests                                                   | Coverage |
+<br>
+
+##### back to [top](#table-of-contents)
+---
+
+### Automated Test Links and Coverage Results
+
+|Test Files                                         |   Tests                                                   | Coverage Result |
 |---------------------------------------------------|-----------------------------------------------------------|----------|
 |[Blog Forms](blog/tests/test_forms.py)             |   BlogPostForm and BlogPostCommentForm validation.        |100%|
 |[Blog Models](blog/tests/test_models.py)           |   Topic, BlogPost, BlogPostTag and BlogPostComment Model creation and string methods. That BlogPost titles are slugified.|98%|
@@ -190,10 +203,10 @@ and selecting the 'htmlcov/' directory.
 |[Cart Forms](cart/tests/test_forms.py)             |   DiscountCodeForm creation.                              |100%|
 |[Cart Models](cart/tests/test_models.py)           |   DiscountCode Model creation and string method.          |100%|
 |[Cart Views](cart/tests/test_views.py)             |   Calculating cart subtotal, testing the cart view, add to cart functionality, and adjusting and removing items from the cart |21%|
-|[Checkout Forms](checkout/tests/test_forms.py)     |   OrderCorm creation and required fields                  |100%|
+|[Checkout Forms](checkout/tests/test_forms.py)     |   OrderForm creation and required fields                  |100%|
 |[Checkout Models](checkout/tests/test_models.py)   |   Order and OrderLineItem model creation and string methods. Also test the OrderLineItem get_total_lineitem_price method.|94%|
 |[Checkout Views](checkout/tests/test_views.py)     |   Testing checkout and checkout success view              |27%|
-|[Home Forms](home/tests/test_forms.py)             |   NewsletterSubscription and Contact form validation and required fields.            |100%|
+|[Home Forms](home/tests/test_forms.py)             |   NewsletterSubscription and Contact form validation and required fields.|100%|
 |[Home Models](home/tests/test_models.py)           |   NewsletterSubscription model creation and string method.|100%|
 |[Home Views](home/tests/test_views.py)             |   Testing index, our_story and  contact views.            |46%|
 |[Products Forms](products/tests/test_forms.py)     |   ProductForm and ProductReviewForm creation and validation.|100%|
@@ -205,16 +218,21 @@ and selecting the 'htmlcov/' directory.
 
 <br>
 
-### Overall Test Coverage
+##### back to [top](#table-of-contents)
+---
+
+### Overall Automated Test Coverage
 
 |App Name           |Percentage of App Code covered by Tests     |
 |-------------------|-------------------|
 |Blog               |67%                |
 |Cart               |55%                |
 |Checkout           |58%                |
-|Home               |82%                |
+|Home               |81%                |
 |Products           |70%                |
 |Profiles           |89%                |
+
+<br>
 
 ##### back to [top](#table-of-contents)
 ---
@@ -246,7 +264,7 @@ keyword and the new page_number value. Then the encoded url is split into its co
 The page-number element is filtered out and the remaining query element(s) are reattached using an ampersand.
 Finally the query elements of the url are connected with the new page number element and returned to the template.
 
-```
+``` {.python3}
 @register.simple_tag
 def current_query_url(key, value, urlencode=None):
     # Isolate the page number in the format ?page=1
@@ -312,7 +330,7 @@ it was necessary to assign the referring url, with the GET request, to a hidden 
 The referring url is now posted along with the review to the edit_review view where an 'if' 'else'
 block checks for the existence of the substring "profile" within the url before redirecting to the 
 correct page.
-```
+``` {.python3}
 # If the user got to the edit review page from their profile
 # Redirect them back to their profile page.
 if "profile" in previous_page_url:

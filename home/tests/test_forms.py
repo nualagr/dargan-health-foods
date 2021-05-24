@@ -44,7 +44,7 @@ class NewsletterSubscriptionFormTest(TestCase):
 class ContactFormTest(TestCase):
     def test_valid_form(self):
         """
-        Test the ContactForm validation process.
+        Test ContactForm validation.
         """
         data = {
             "your_name": "Testy Test",
@@ -54,39 +54,20 @@ class ContactFormTest(TestCase):
         form = ContactForm(data=data)
         self.assertTrue(form.is_valid())
 
-    def test_name_is_required(self):
+    def test_required_fields(self):
         """
-        Test whether the name field is required
-        to successfully submit the ContactForm.
+        Test ContactForm required fields.
         """
-        form = ContactForm({"your_name": ""})
-        self.assertFalse(form.is_valid())
-        self.assertIn("your_name", form.errors.keys())
-        self.assertEqual(
-            form.errors["your_name"][0],
-            "This field is required."
-        )
+        form = ContactForm({
+            "your_name": "",
+            "your_email": "",
+            "your_message": "",
+        })
 
-    def test_email_is_required(self):
-        """
-        Test whether the your_email field is required
-        to successfully submit the ContactForm.
-        """
-        form = ContactForm({"your_email": ""})
         self.assertFalse(form.is_valid())
-        self.assertIn("your_email", form.errors.keys())
-        self.assertEqual(form.errors["your_email"][0],
-                         "This field is required.")
-
-    def test_message_is_required(self):
-        """
-        Test whether the message field is required
-        to successfully submit the ContactForm.
-        """
-        form = ContactForm({"your_message": ""})
-        self.assertFalse(form.is_valid())
-        self.assertIn("your_message", form.errors.keys())
         self.assertEqual(
-            form.errors["your_message"][0],
-            "This field is required."
-        )
+            form.errors["your_name"][0], "This field is required.")
+        self.assertEqual(
+            form.errors["your_email"][0], "This field is required.")
+        self.assertEqual(
+            form.errors["your_message"][0], "This field is required.")

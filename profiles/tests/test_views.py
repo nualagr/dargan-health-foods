@@ -23,7 +23,11 @@ class TestProfileViews(TestCase):
         )
 
     def test_profile_view(self):
-        """ Test profile view, with a logged-in user. """
+        """
+        Test for status code 200 response and correct
+        template rendered when getting the profile page
+        for a logged-in user.
+        """
         self.client.login(
             username="TestyTest",
             password="testerpassword"
@@ -33,6 +37,9 @@ class TestProfileViews(TestCase):
         self.assertTemplateUsed(response, "profiles/profile.html")
 
     def test_profile_view_not_logged_in(self):
-        """ Test profile view, when a user is not logged in."""
+        """
+        Test profile view redirects to the login page
+        when a user is not logged in.
+        """
         response = self.client.get("/profile/")
         self.assertRedirects(response, "/accounts/login/?next=/profile/")
