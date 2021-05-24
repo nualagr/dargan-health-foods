@@ -29,9 +29,9 @@
                 {% csrf_token %}
                 {% for field in bpform %}
                 {% if field.name != 'main_image' %}
-                <p>{{ field | as_crispy_field }}</p>
+                {{ field | as_crispy_field }}
                 {% else %}
-                <p>{{ field }}</p>
+                {{ field }}
                 {% endif %}
                 {% endfor %}
                 {% if bptformset %}
@@ -54,7 +54,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $('#new-image').change(function () {
         var file = $('#new-image')[0].files[0];
         $('#filename').text(`Image will be set to: ${file.name}`);

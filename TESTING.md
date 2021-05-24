@@ -37,8 +37,14 @@ Each page was validated by URI or Direct Input.
 ![alt text](documentation/readme-images/html-validator-index-results.png "W3C HTML Validator results for the index page, showing no errors.")
 
 <br>
+
 The following table shows the pages that were checked.
 No errors or warnings remain.
+
+<br>
+
+![alt text](documentation/readme-images/html-validator-pages-tested.png "Table of the site pages tested in the HTML Validator.")
+
 <br>
 
 ### **CSS**

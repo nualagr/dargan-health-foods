@@ -126,12 +126,10 @@
                         </label>
                         <input class="form-check-input me-0" type="checkbox" id="id-save-info" name="save-info" checked>
                         {% else %}
-                        <label class="form-check-label" for="id-save-info">
                             <small>
                                 <a class="blue-text-link" href="{% url 'account_signup' %}">Create an account</a> or
                                 <a class="blue-text-link" href="{% url 'account_login' %}">Login</a> to save this information
                             </small>
-                        </label>
                         {% endif %}
                     </div>
                 </fieldset>
@@ -169,11 +167,11 @@
 </div>
 <!-- Overlay and spinner icon to indicate that the payment is being processed -->
 <div id="loading-overlay">
-    <h1 class="text-light logo-font loading-spinner">
+    <div class="text-light loading-spinner fs-1">
         <span class="icon">
             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
         </span>
-    </h1>
+    </div>
 </div>
 {% endblock %}
 

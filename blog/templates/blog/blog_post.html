@@ -84,7 +84,7 @@
                             <div class="row">
                                 {% if tags %}
                                 <div class="col-12 col-md-6">
-                                    <p class="small">
+                                    <p class="fs-6">
                                         <i class="fas fa-tag mr-1"></i>
                                         {% for tag in tags %}
                                         <a class="tag" href="{% url 'blog' %}?tag={{ tag.tag.name }}">
@@ -96,7 +96,7 @@
                                 {% endif %}
                                 {% if comments %}
                                 <div class="col-12 col-md-6">
-                                    <p class="small text-end">
+                                    <p class="fs-6 text-end">
                                         <i class="fas fa-comment-alt"></i>&nbsp;
                                         <a href="{% url 'blog_post' blogpost.slug %}#collapseComments" class="tag"
                                             id="open-comments">
@@ -108,7 +108,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <p>{{ blogpost.intro|safe|linebreaks }}</p>
+                                    {{ blogpost.intro|safe|linebreaks }}
                                     {{ blogpost.content|safe|linebreaks }}
                                 </div>
                             </div>
@@ -157,15 +157,13 @@
                                 </a>
                             </div>
                             {% else %}
-                            <small>
-                                <p class="text-end text-muted">
+                                <p class="fs-6 text-end text-muted">
                                     Have a comment? Please
                                     <a class="blue-text-link" href="{% url 'account_login' %}" aria-label="Sign In Link">login</a>
                                     or
                                     <a class="blue-text-link" href="{% url 'account_signup' %}" aria-label="Register Link">register</a>
                                     to share your views on this topic.
                                 </p>
-                            </small>
                             {% endif %}
                             {% if comments %}
                             {% for comment in comments %}
