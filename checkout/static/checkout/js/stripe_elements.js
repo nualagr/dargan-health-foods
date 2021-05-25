@@ -7,6 +7,13 @@
     https://stripe.com/docs/stripe-js
 */
 
+/*  jshint esversion: 6 */
+/*  
+    Suggestion found on StackOverflow (https://stackoverflow.com/questions/8852765/jshint-and-jquery-is-not-defined)
+    to bypass replacing the $ with jquery when passing the code into jshint 
+*/
+/*  globals $:false */
+
 // Remove the quotation marks
 var stripePublicKey = $("#id_stripe_public_key").text().slice(1, -1);
 var clientSecret = $("#id_client_secret").text().slice(1, -1);
