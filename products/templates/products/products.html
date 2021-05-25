@@ -190,13 +190,13 @@
 {{ block.super }}
 <!-- Scroll-To-Top Button Functionality copied from Code Institute Boutique Ado walkthrough project: https://github.com/nualagr/boutique-ado-v1 -->
 <script>
-    $('.btt-link').click(function (e) {
-        window.scrollTo(0, 0)
-    })
+    $(".btt-link").click(function (e) {
+        window.scrollTo(0, 0);
+    });
 </script>
 <!-- Sort-By Dropdown Selector Functionality copied from Code Institute Boutique Ado walkthrough project: https://github.com/nualagr/boutique-ado-v1 -->
 <script>
-    $('#sort-selector').change(function () {
+    $("#sort-selector").change(function () {
         var selector = $(this);
         var currentUrl = new URL(window.location);
 
@@ -209,13 +209,12 @@
             currentUrl.searchParams.set("direction", direction);
 
             window.location.replace(currentUrl);
-        }
-        else {
+        } else {
             currentUrl.searchParams.delete("sort");
             currentUrl.searchParams.delete("direction");
 
             window.location.replace(currentUrl);
         }
-    })
+    });
 </script>
 {% endblock %}

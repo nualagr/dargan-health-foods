@@ -294,11 +294,11 @@
 <script>
     // Reveal Comments Accordion when Total Comments Count clicked
     $(document).ready(function () {
-        $('#open-comments').click(function () {
-            let accordion_body = $("#collapseComments")
-            let accordion_button = $("#headingComments").children("button")
+        $("#open-comments").click(function () {
+            let accordion_body = $("#collapseComments");
+            let accordion_button = $("#headingComments").children("button");
             // Check that the accordion body has not already been opened
-            if ((accordion_body.hasClass("collapse")) && (accordion_body.is(":not(.show)"))) {
+            if (accordion_body.hasClass("collapse") && accordion_body.is(":not(.show)")) {
                 // Toggle the 'collapse' class to reveal the Comments Accordion Body Content
                 accordion_body.toggleClass("collapse");
                 // Toggle the 'collapsed' class so that the accordion button styling mimics that of a clicked accordion button

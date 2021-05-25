@@ -888,6 +888,7 @@ They were then converted to json using [custom scripts](general_scripts/convert_
   * [TinyPNG](https://tinypng.com/). Used to compress the site logos and background-images to improve performance results.
   * [Unsplash](https://www.unsplash.com). Used to source the non-product site images.
   * [Vecteezy](https://www.vecteezy.com). Used to source the site logo, banner offer image and the custom 404 and 500 page backgrounds.
+  * [WebFormatter](https://webformatter.com/). Used to format the CSS, JavaScript and HTML files before submission.
   * [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator). Used to validate the CSS file.
   * [W3C HTML Validation Service](https://validator.w3.org/). Used to validate the HTML files.
 
