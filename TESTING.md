@@ -51,6 +51,18 @@ No errors or warnings remain.
 
 [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS file.  
 
+Sixteen warnings remain in total, fifteen of which are in the base.css file and one in the checkout.css file.
+All of these remaining warnings relate to vendor extensions which have been deliberately added to help support
+browser compatibility. 
+
+![alt text](documentation/readme-images/css-validator-warnings.png "CSS Validator Warnings.")
+
+<br>
+
+No errors remain in any of the CSS files.
+
+![alt text](documentation/readme-images/css-validator-results.png "CSS Validator Results.")
+
 <br>
 
 ### **JavaScript**
