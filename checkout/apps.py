@@ -2,7 +2,7 @@ from django.apps import AppConfig
 
 
 class CheckoutConfig(AppConfig):
-    name = 'checkout'
+    name = "checkout"
 
     # Override the ready method and import the signals module
     # so that update_on_save and update_on_delete will be called

@@ -70,12 +70,22 @@ No errors remain in any of the CSS files.
 
 <br>
 
-### **Python**
-[pep8online.com](http://pep8online.com/) was used to check whether the app.py Python file was PEP8 compliant.
+![alt text](documentation/readme-images/jshint-results.png "JSHint Results.")
 
 <br>
 
-[infoheap](https://infoheap.com/python-lint-online/) 
+### **Python**
+
+All *.py files were formatted with [black](https://pypi.org/project/black/) at the command line
+and then checked for PEP8 compliance using [PEP8 Online](http://pep8online.com/). 
+
+![alt text](documentation/readme-images/python-files-checked-in-pep8-online.png "Table showing the python files that were checked in PEP8 Online.")
+
+<br>
+
+No errors remain within these files.
+
+![alt text](documentation/readme-images/pep8-online-results.png "PEP8 Online Results.")
 
 <br>
 

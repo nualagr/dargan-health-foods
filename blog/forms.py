@@ -7,6 +7,7 @@ class BlogPostForm(forms.ModelForm):
     """
     Create a form for Super Users to add Blog Posts
     """
+
     class Meta:
         model = BlogPost
         exclude = ("slug", "created_on", "updated_on", "author")
@@ -31,7 +32,8 @@ class BlogPostAndTagsForm(forms.ModelForm):
 
 
 BlogPostAndTagsInlineFormSet = forms.inlineformset_factory(
-    BlogPost, BlogPostTag, form=BlogPostAndTagsForm, extra=3, can_delete=True)
+    BlogPost, BlogPostTag, form=BlogPostAndTagsForm, extra=3, can_delete=True
+)
 
 
 class BlogPostCommentForm(forms.ModelForm):
@@ -39,6 +41,7 @@ class BlogPostCommentForm(forms.ModelForm):
     Create a form for Dargan site members to add comments to Blog Posts.
     Add a placeholder and a css class and remove the auto-generated label.
     """
+
     class Meta:
         model = BlogPostComment
         exclude = ("blogpost", "user", "created_on")
@@ -54,5 +57,6 @@ class BlogPostCommentForm(forms.ModelForm):
                 field.widget = forms.Textarea(
                     attrs={
                         "placeholder": "Share your thoughts here...",
-                        "class": "rounded-0"}
+                        "class": "rounded-0",
+                    }
                 )

@@ -4,7 +4,7 @@ from .models import (
     Topic,
     BlogPostTag,
     BlogPostComment,
-    )
+)
 
 
 class TopicAdmin(admin.ModelAdmin):
@@ -14,7 +14,7 @@ class TopicAdmin(admin.ModelAdmin):
         "name",
     )
 
-    ordering = ('friendly_name',)
+    ordering = ("friendly_name",)
 
 
 class BlogPostTagInline(admin.TabularInline):

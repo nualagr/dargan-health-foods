@@ -77,12 +77,12 @@ class Order(models.Model):
         self.order_total = (
             self.lineitems.aggregate(Sum("lineitem_total"))[
                 "lineitem_total__sum"
-            ]
-            or 0
+            ] or 0
         )
         if self.discount_code:
             self.discount_amount = (
-                self.order_total * self.discount_code.percentage_discount) / 100
+                self.order_total * self.discount_code.percentage_discount
+            ) / 100
             self.order_total -= self.discount_amount
 
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
@@ -138,7 +138,10 @@ class OrderLineItem(models.Model):
         return self.quantity * self.product.discount_price
 
     def get_amount_saved(self):
-        return self.get_total_lineitem_price() - self.get_total_discount_lineitem_price()
+        return (
+            self.get_total_lineitem_price() -
+            self.get_total_discount_lineitem_price()
+        )
 
     def get_final_price(self):
         if self.product.discount_price:

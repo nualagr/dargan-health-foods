@@ -41,9 +41,9 @@ def all_posts(request):
 
         if "tag" in request.GET:
             tag = request.GET["tag"].split(",")
-            tagged_posts = blogposttags.filter(
-                tag__name__in=tag
-            ).values_list("blogpost", flat=True)
+            tagged_posts = blogposttags.filter(tag__name__in=tag).values_list(
+                "blogpost", flat=True
+            )
             blogs_list = blogs_list.filter(id__in=tagged_posts)
 
         if "bq" in request.GET:
@@ -66,11 +66,11 @@ def all_posts(request):
             # blogpost fields for the search term
             else:
                 queries = (
-                    Q(title__icontains=blogquery)
-                    | Q(subtitle__icontains=blogquery)
-                    | Q(intro__icontains=blogquery)
-                    | Q(content__icontains=blogquery)
-                    | Q(topic__name__icontains=blogquery)
+                    Q(title__icontains=blogquery) |
+                    Q(subtitle__icontains=blogquery) |
+                    Q(intro__icontains=blogquery) |
+                    Q(content__icontains=blogquery) |
+                    Q(topic__name__icontains=blogquery)
                 )
                 blogs_list = blogs_list.filter(queries)
 
@@ -239,7 +239,8 @@ def edit_post(request, blogpost_id):
         else:
             messages.error(
                 request,
-                "Failed to update blog post. Please ensure that the form is valid.",
+                "Failed to update blog post. \
+                           Please ensure that the form is valid.",
             )
 
     else:
@@ -354,8 +355,7 @@ def edit_comment(request, blogpostcomment_id):
     if request.method == "POST":
         # Create an instance of the BlogPostCommentForm using
         # the posted data
-        bpcform = BlogPostCommentForm(
-            request.POST, instance=blogpostcomment)
+        bpcform = BlogPostCommentForm(request.POST, instance=blogpostcomment)
 
         if bpcform.is_valid():
             bpcform.save()
@@ -372,7 +372,8 @@ def edit_comment(request, blogpostcomment_id):
         else:
             messages.error(
                 request,
-                "Failed to update your comment. Please ensure that the form is valid.",
+                "Failed to update your comment. \
+                    Please ensure that the form is valid.",
             )
 
     else:
@@ -382,7 +383,9 @@ def edit_comment(request, blogpostcomment_id):
         # If the request is a GET request
         messages.info(
             request,
-            f"You are editing your comment on the blog post { blogpost.title }")
+            f"You are editing your comment on the blog post \
+                { blogpost.title }",
+        )
 
     template = "blog/edit_comment.html"
     context = {
@@ -407,11 +410,14 @@ def delete_comment(request, blogpostcomment_id):
     try:
         blogpostcomment.delete()
 
-        messages.success(request, 'Your comment was deleted')
+        messages.success(request, "Your comment was deleted")
 
     # If the comment was not deleted return an error message
     except Exception as e:
-        messages.error(request, "We couldn't delete your comment because "
-                                f" error:{e} occured. Please try again later.")
+        messages.error(
+            request,
+            "We couldn't delete your comment because "
+            f" error:{e} occured. Please try again later.",
+        )
 
-    return redirect(reverse('blog_post', args=(blogpost.slug,)))
+    return redirect(reverse("blog_post", args=(blogpost.slug,)))

@@ -45,7 +45,7 @@ class StripeWH_Handler:
                 "order": order,
                 "discount_code": discount_code,
                 "discount_amount": discount_amount,
-                "contact_email": settings.DEFAULT_FROM_EMAIL
+                "contact_email": settings.DEFAULT_FROM_EMAIL,
             },
         )
         # The subject, body and from email are strings.
@@ -58,7 +58,8 @@ class StripeWH_Handler:
         """
         # Return a response indicating that it was received.
         return HttpResponse(
-            content=f'Unhandled webhook received: {event["type"]}', status=200,
+            content=f'Unhandled webhook received: {event["type"]}',
+            status=200,
         )
 
     def handle_payment_intent_succeeded(self, event):
@@ -142,17 +143,18 @@ class StripeWH_Handler:
                 if order.discount_code:
                     discount = order.discount_code
                     discount_code_object = get_object_or_404(
-                        DiscountCode,
-                        discount_code=discount.discount_code)
+                        DiscountCode, discount_code=discount.discount_code
+                    )
                     discount_code_2_user = DiscountCode2User.objects.get(
-                        user=profile,
-                        discount_code=discount_code_object)
+                        user=profile, discount_code=discount_code_object
+                    )
                     discount_code_2_user.active = False
                     discount_code_2_user.save()
             # Send the confirmation email
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=f'Webhook received: {event["type"]} | \
+                    SUCCESS: Verified order already in database',
                 status=200,
             )
         else:
@@ -167,7 +169,8 @@ class StripeWH_Handler:
                 discount_code_object = None
             else:
                 discount_code_object = DiscountCode.objects.get(
-                    pk=discount["discount_code_id"])
+                    pk=discount["discount_code_id"]
+                )
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
@@ -202,7 +205,8 @@ class StripeWH_Handler:
                 if order:
                     order.delete()
                     return HttpResponse(
-                        content=f'Webhook received: {event["type"]} | ERROR: {e}',
+                        content=f'Webhook received: {event["type"]} | \
+                            ERROR: {e}',
                         status=500,
                     )
 
@@ -214,17 +218,18 @@ class StripeWH_Handler:
             if order.discount_code:
                 discount = order.discount_code
                 discount_code_object = get_object_or_404(
-                    DiscountCode,
-                    discount_code=discount.discount_code)
+                    DiscountCode, discount_code=discount.discount_code
+                )
                 discount_code_2_user = DiscountCode2User.objects.get(
-                    user=profile,
-                    discount_code=discount_code_object)
+                    user=profile, discount_code=discount_code_object
+                )
                 discount_code_2_user.active = False
                 discount_code_2_user.save()
         # Send the confirmation email and send a response to Stripe.
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created the order in the webhook',
+            content=f'Webhook received: {event["type"]} | \
+                SUCCESS: Created the order in the webhook',
             status=200,
         )
 
@@ -234,5 +239,6 @@ class StripeWH_Handler:
         which is sent in the event of the user's payment failing.
         """
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}', status=200,
+            content=f'Webhook received: {event["type"]}',
+            status=200,
         )

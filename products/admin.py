@@ -18,7 +18,7 @@ class DepartmentAdmin(admin.ModelAdmin):
         "name",
     )
 
-    ordering = ('friendly_name',)
+    ordering = ("friendly_name",)
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -29,7 +29,7 @@ class CategoryAdmin(admin.ModelAdmin):
         "department",
     )
 
-    ordering = ('friendly_name',)
+    ordering = ("friendly_name",)
 
 
 class BrandAdmin(admin.ModelAdmin):
@@ -39,7 +39,7 @@ class BrandAdmin(admin.ModelAdmin):
         "name",
     )
 
-    ordering = ('friendly_name',)
+    ordering = ("friendly_name",)
 
 
 class TagAdmin(admin.ModelAdmin):

@@ -90,7 +90,8 @@ def checkout(request):
             order.original_cart = json.dumps(cart)
             if discount:
                 order.discount_code = DiscountCode.objects.get(
-                    pk=discount["discount_code_id"])
+                    pk=discount["discount_code_id"]
+                )
             # Now save the Order to the database
             order.save()
             # Iterate through the cart to create each OrderLineItem
@@ -156,17 +157,19 @@ def checkout(request):
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
-                order_form = OrderForm(initial={
-                    'full_name': profile.user.get_full_name(),
-                    'email': profile.user.email,  # From the User Account
-                    'phone_number': profile.default_phone_number,  # Profile
-                    'street_address1': profile.default_street_address1,
-                    'street_address2': profile.default_street_address2,
-                    'town_or_city': profile.default_town_or_city,
-                    'county': profile.default_county,
-                    'country': profile.default_country,
-                    'postcode': profile.default_postcode,
-                })
+                order_form = OrderForm(
+                    initial={
+                        "full_name": profile.user.get_full_name(),
+                        "email": profile.user.email,  # From the User Account
+                        "phone_number": profile.default_phone_number,
+                        "street_address1": profile.default_street_address1,
+                        "street_address2": profile.default_street_address2,
+                        "town_or_city": profile.default_town_or_city,
+                        "county": profile.default_county,
+                        "country": profile.default_country,
+                        "postcode": profile.default_postcode,
+                    }
+                )
             # If the User does not have saved info in their account
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
@@ -208,11 +211,11 @@ def checkout_success(request, order_number):
         if order.discount_code:
             discount = order.discount_code
             discount_code_object = get_object_or_404(
-                DiscountCode,
-                discount_code=discount.discount_code)
+                DiscountCode, discount_code=discount.discount_code
+            )
             discount_code_2_user = DiscountCode2User.objects.get(
-                user=profile,
-                discount_code=discount_code_object)
+                user=profile, discount_code=discount_code_object
+            )
             discount_code_2_user.active = False
             discount_code_2_user.save()
 
@@ -220,13 +223,13 @@ def checkout_success(request, order_number):
         if save_info:
             profile_data = {
                 # These dict keys match the fields on the user profile model
-                'default_phone_number': order.phone_number,
-                'default_street_address1': order.street_address1,
-                'default_street_address2': order.street_address2,
-                'default_town_or_city': order.town_or_city,
-                'default_county': order.county,
-                'default_country': order.country,
-                'default_postcode': order.postcode,
+                "default_phone_number": order.phone_number,
+                "default_street_address1": order.street_address1,
+                "default_street_address2": order.street_address2,
+                "default_town_or_city": order.town_or_city,
+                "default_county": order.county,
+                "default_country": order.country,
+                "default_postcode": order.postcode,
             }
             # Create an instance of the User Profile Form using the data
             # and update the Profile we obtained above

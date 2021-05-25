@@ -6,4 +6,5 @@ class DiscountCode(models.Model):
     percentage_discount = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
-        return f"PromoCode: {self.discount_code}, {self.percentage_discount}% Discount"
+        return f"PromoCode: {self.discount_code}, \
+            {self.percentage_discount}% Discount"

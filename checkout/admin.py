@@ -8,11 +8,14 @@ from .models import Order, OrderLineItem
 
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
-    readonly_fields = ("product_price_paid", "lineitem_total",)
+    readonly_fields = (
+        "product_price_paid",
+        "lineitem_total",
+    )
 
 
 class OrderAdmin(admin.ModelAdmin):
-    inlines = (OrderLineItemAdminInline, )
+    inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = (
         "order_number",

@@ -99,12 +99,12 @@ def all_products(request):
                 tagged_products = []
 
             queries = (
-                Q(name__icontains=query)
-                | Q(information__icontains=query)
-                | Q(ingredients__icontains=query)
-                | Q(category__name__icontains=query)
-                | Q(brand__name__icontains=query)
-                | Q(id__in=tagged_products)
+                Q(name__icontains=query) |
+                Q(information__icontains=query) |
+                Q(ingredients__icontains=query) |
+                Q(category__name__icontains=query) |
+                Q(brand__name__icontains=query) |
+                Q(id__in=tagged_products)
             )
             products = products.filter(queries)
 
@@ -290,7 +290,8 @@ def edit_product(request, product_id):
         else:
             messages.error(
                 request,
-                "Failed to update product. Please ensure that the form is valid.",
+                "Failed to update product. \
+                    Please ensure that the form is valid.",
             )
 
     else:
@@ -446,7 +447,8 @@ def edit_review(request, review_id):
         else:
             messages.error(
                 request,
-                "Failed to update your review. Please ensure that the form is valid.",
+                "Failed to update your review. \
+                    Please ensure that the form is valid.",
             )
 
     else:

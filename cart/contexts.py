@@ -1,7 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from django.core.exceptions import ObjectDoesNotExist
 from products.models import Product
 from profiles.models import UserProfile, DiscountCode2User
 from cart.models import DiscountCode
@@ -51,9 +50,9 @@ def cart_contents(request):
             # if not delete it from the user's session
             # (Condensing of 'if' statements suggested by Mr. Reuben Ferrante)
             if (
-                discount_code_object
-                and user_discount_code
-                and user_discount_code.active
+                discount_code_object and
+                user_discount_code and
+                user_discount_code.active
             ):
                 total_before_discount = total
                 # Calculate the discount to be applied

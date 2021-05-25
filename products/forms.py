@@ -34,13 +34,15 @@ class ProductAndTagsForm(forms.ModelForm):
 
 
 ProductAndTagsInlineFormSet = forms.inlineformset_factory(
-    Product, ProductTag, form=ProductAndTagsForm, extra=3, can_delete=True)
+    Product, ProductTag, form=ProductAndTagsForm, extra=3, can_delete=True
+)
 
 
 class ProductReviewForm(forms.ModelForm):
     """
     Create a form for logged in users to add product reviews
     """
+
     class Meta:
         model = ProductReview
         exclude = (
@@ -67,12 +69,11 @@ class ProductReviewForm(forms.ModelForm):
         }
 
         # Add placeholders and classes to input fields
-        self.fields["review_title"].widget.attrs['autofocus'] = True
+        self.fields["review_title"].widget.attrs["autofocus"] = True
         for field in self.fields:
             if field != "review_rating":
                 placeholder = placeholders[field]
                 self.fields[field].widget.attrs["placeholder"] = placeholder
                 self.fields[field].label = False
 
-            self.fields[field].widget.attrs["class"] = (
-                "review-form")
+            self.fields[field].widget.attrs["class"] = "review-form"

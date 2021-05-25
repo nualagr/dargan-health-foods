@@ -12,8 +12,11 @@ class UserProfile(models.Model):
     A User Profile model for maintaining default
     shipping information and Order histories.
     """
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
+    default_phone_number = models.CharField(
+        max_length=20, null=True, blank=True
+    )
     default_street_address1 = models.CharField(
         max_length=80, null=True, blank=True
     )
@@ -44,9 +47,11 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         new_user = UserProfile.objects.create(user=instance)
         new_user_discount_code = DiscountCode.objects.get(
-            discount_code="NEW10")
+            discount_code="NEW10"
+        )
         DiscountCode2User.objects.create(
-            user=new_user, discount_code=new_user_discount_code)
+            user=new_user, discount_code=new_user_discount_code
+        )
     # Existing user - so save the profile to update it
     instance.userprofile.save()
 

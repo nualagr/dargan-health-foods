@@ -79,7 +79,9 @@ def contact(request):
                 )
                 messages.success(
                     request,
-                    "Thanks for contacting us. A member of the Dargan Health Foods team will be in touch within 48 hours.",
+                    "Thanks for contacting us. \
+                        A member of the Dargan Health Foods \
+                            team will be in touch within 48 hours.",
                 )
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
@@ -109,11 +111,13 @@ def subscribe(request):
             email_address=request.POST.get("email_address")
         ).exists():
             messages.info(
-                request, "You are already subscribed to our newsletter.")
+                request, "You are already subscribed to our newsletter."
+            )
             return redirect(subscribe_redirect)
         else:
             if newsletter_subscription_form.is_valid():
                 newsletter_subscription_form.save()
                 messages.success(
-                    request, "You are now subscribed to our newsletter.")
+                    request, "You are now subscribed to our newsletter."
+                )
     return redirect(subscribe_redirect)

@@ -31,7 +31,8 @@ def view_cart(request):
                     ).first()
                     # Get the DiscountCode2User object or set variable to None
                     discount_code_2_user = DiscountCode2User.objects.filter(
-                        discount_code=discount_code_object, user=user).first()
+                        discount_code=discount_code_object, user=user
+                    ).first()
                     # If the DiscountCode2User object exists & is still active
                     if discount_code_2_user and discount_code_2_user.active:
                         discount["discount_code_id"] = discount_code_object.id
@@ -219,8 +220,8 @@ def remove_discount_code(request):
     if "discount" in request.session:
         del request.session["discount"]
         messages.success(
-                request,
-                "Promo Code removed.",
-            )
+            request,
+            "Promo Code removed.",
+        )
 
     return redirect(reverse("view_cart"))
