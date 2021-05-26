@@ -83,6 +83,10 @@ and then checked for PEP8 compliance using [PEP8 Online](http://pep8online.com/)
 
 <br>
 
+![alt text](documentation/readme-images/automated-test-files-checked-in-pep8-online.png "PEP8 Online Test File Results.")
+
+<br>
+
 No errors remain within these files.
 
 ![alt text](documentation/readme-images/pep8-online-results.png "PEP8 Online Results.")
