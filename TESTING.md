@@ -142,13 +142,21 @@ throughout the development process and after project completion using the [Googl
 function and [Mozilla Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools).  
 
 **Mobile Devices Tested**
+
+![alt text](documentation/readme-images/responsiveness-mobile-devices-tested.png "Table of Mobile devices used for testing responsiveness.")
+
 <br>
 
 **Tablet Devices Tested**
 
+![alt text](documentation/readme-images/responsiveness-tablet-devices-tested.png "Table of Tablet devices used for testing responsiveness.")
+
 <br>
 
 **Laptop and Desktop Dimensions Tested:**
+
+![alt text](documentation/readme-images/responsiveness-laptop-desktop-dimensions-tested.png "Table of the laptop and desktop dimensions tested for responsiveness.")
+
 <br>
 
 Each website feature, including buttons, modals, external links, hover effects etc. was manually checked within the following web browsers:
@@ -160,6 +168,55 @@ Each website feature, including buttons, modals, external links, hover effects e
 
 <br>
 
+#### Logged-Out User
+
+**Home Page**
+
+![alt text](documentation/readme-images/browser-home-functions-tested.png "Grid showing the different Home page functions tests on each browser.")
+
+<br>
+
+**Contact Us Page**
+
+![alt text](documentation/readme-images/browser-contact-functions-tested.png "Grid showing the different Contact page functions tests on each browser.")
+
+<br>
+
+**Our Story Page**
+
+![alt text](documentation/readme-images/browser-our-story-functions-tested.png "Grid showing the different Our Story page functions tests on each browser.")
+
+<br>
+
+**Registration Page**
+
+![alt text](documentation/readme-images/browser-sign-up-functions-tested.png "Grid showing the different Registration page functions tests on each browser.")
+
+<br>
+
+**Login Page**
+
+![alt text](documentation/readme-images/browser-login-functions-tested.png "Grid showing the different Login page functions tests on each browser.")
+
+<br>
+
+**All Products Page**
+
+![alt text](documentation/readme-images/browser-products-functions-tested.png "Grid showing the different All Products Page functions tests on each browser.")
+
+<br>
+
+**Product Details Page**
+
+![alt text](documentation/readme-images/browser-product-details-functions-tested.png "Grid showing the different Product Details Page functions tests on each browser.")
+
+<br>
+
+**Cart Page**
+
+![alt text](documentation/readme-images/browser-cart-functions-tested.png "Grid showing the different Cart Page functions tests on each browser.")
+
+<br>
 
 ##### back to [top](#table-of-contents)
 ---

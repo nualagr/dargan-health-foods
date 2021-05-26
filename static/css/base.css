@@ -745,6 +745,7 @@ a.disabled {
 .social-row {
     text-align: center;
     padding-top: 10px;
+    border: none;
 }
 
 .social-row li a i {
@@ -1395,7 +1396,8 @@ input[name="q"]::placeholder,
     small,
     .btn,
     th,
-    td {
+    td,
+    .product-ingredients {
         font-size: 0.7em !important;
     }
 
