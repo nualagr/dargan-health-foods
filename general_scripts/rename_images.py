@@ -19,7 +19,7 @@ def main():
 
 
 # Driver Code
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     # Calling main() function
     main()

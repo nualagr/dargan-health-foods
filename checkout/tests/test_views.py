@@ -9,6 +9,7 @@ class TestCheckoutSuccessView(TestCase):
     Test checkout_success view status response
     and template used.
     """
+
     def test_checkout_success_view(self):
         order = Order.objects.create(
             full_name="Testy Test",
@@ -26,6 +27,7 @@ class TestCheckoutSuccessView(TestCase):
         )
         order.save()
         response = self.client.get(
-            reverse(("checkout_success"), args=(order.order_number,)))
+            reverse(("checkout_success"), args=(order.order_number,))
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "checkout/checkout_success.html")

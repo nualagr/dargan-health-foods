@@ -7,12 +7,14 @@ class TestBlogPostForm(TestCase):
         """
         Test BlogPostForm validation.
         """
-        form = BlogPostForm({
-            "title": "Blog Post Test title",
-            "subtitle": "Blog Post Test subtitle",
-            "intro": "Blog Post Test introduction",
-            "content": "Blog Post Test content",
-        })
+        form = BlogPostForm(
+            {
+                "title": "Blog Post Test title",
+                "subtitle": "Blog Post Test subtitle",
+                "intro": "Blog Post Test introduction",
+                "content": "Blog Post Test content",
+            }
+        )
         self.assertTrue(form.is_valid())
 
 
@@ -21,9 +23,7 @@ class TestBlogPostCommentForm(TestCase):
         """
         Test BlogPostCommentForm validation.
         """
-        form = BlogPostCommentForm(
-            {"content": "This is a test comment."}
-        )
+        form = BlogPostCommentForm({"content": "This is a test comment."})
         self.assertTrue(form.is_valid())
 
     def test_content_is_required(self):
@@ -34,6 +34,4 @@ class TestBlogPostCommentForm(TestCase):
         form = BlogPostCommentForm({"content": ""})
         self.assertFalse(form.is_valid())
         self.assertIn("content", form.errors.keys())
-        self.assertEqual(
-            form.errors["content"][0],
-            "This field is required.")
+        self.assertEqual(form.errors["content"][0], "This field is required.")

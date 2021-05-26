@@ -36,8 +36,7 @@ class NewsletterSubscriptionFormTest(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn("email_address", form.errors.keys())
         self.assertEqual(
-            form.errors["email_address"][0],
-            "This field is required."
+            form.errors["email_address"][0], "This field is required."
         )
 
 
@@ -58,16 +57,21 @@ class ContactFormTest(TestCase):
         """
         Test ContactForm required fields.
         """
-        form = ContactForm({
-            "your_name": "",
-            "your_email": "",
-            "your_message": "",
-        })
+        form = ContactForm(
+            {
+                "your_name": "",
+                "your_email": "",
+                "your_message": "",
+            }
+        )
 
         self.assertFalse(form.is_valid())
         self.assertEqual(
-            form.errors["your_name"][0], "This field is required.")
+            form.errors["your_name"][0], "This field is required."
+        )
         self.assertEqual(
-            form.errors["your_email"][0], "This field is required.")
+            form.errors["your_email"][0], "This field is required."
+        )
         self.assertEqual(
-            form.errors["your_message"][0], "This field is required.")
+            form.errors["your_message"][0], "This field is required."
+        )

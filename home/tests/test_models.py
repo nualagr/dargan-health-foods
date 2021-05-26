@@ -5,8 +5,7 @@ from django.utils import timezone
 
 class TestNewsletterSubscriptionModel(TestCase):
     def create_newslettersubscription(
-        self,
-        email_address="testemailaddress@test.com"
+        self, email_address="testemailaddress@test.com"
     ):
         """
         Function to create NewsletterSubscription for testing.

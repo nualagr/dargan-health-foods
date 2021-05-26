@@ -27,10 +27,7 @@ def csv_to_json(csvFilePath, jsonFilePath):
             for key, value in row.items():
                 # Add 'name' and 'friendly_name' key value pairs
                 # to the new subset dict
-                if (
-                    key == "name"
-                    or key == "friendly_name"
-                ):
+                if key == "name" or key == "friendly_name":
                     outRow["fields"][key] = value
                 elif key == "pk":
                     outRow[key] = int(value)

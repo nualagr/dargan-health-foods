@@ -12,8 +12,7 @@ class TestProfilesModels(TestCase):
         testing purposes.
         """
         self.dc = DiscountCode.objects.create(
-            discount_code="NEW10",
-            percentage_discount=10
+            discount_code="NEW10", percentage_discount=10
         )
         self.client = Client()
         self.user = User.objects.create_user(
@@ -44,8 +43,7 @@ class TestProfilesModels(TestCase):
         the related DiscountCode.
         """
         dc2u = DiscountCode2User.objects.create(
-            user=self.up,
-            discount_code=self.dc
+            user=self.up, discount_code=self.dc
         )
         self.assertTrue(isinstance(dc2u, DiscountCode2User))
         self.assertEqual("NEW10", dc2u.discount_code.discount_code)
@@ -55,10 +53,9 @@ class TestProfilesModels(TestCase):
         Test that DiscountCode2User objects return the correct string.
         """
         dc2u = DiscountCode2User.objects.create(
-            user=self.up,
-            discount_code=self.dc
+            user=self.up, discount_code=self.dc
         )
         self.assertEqual(
             str(dc2u),
-            "TestyTest's PromoCode: NEW10, 10% Discount, Valid: True"
+            "TestyTest's PromoCode: NEW10, 10% Discount, Valid: True",
         )

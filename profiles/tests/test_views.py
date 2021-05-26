@@ -5,7 +5,6 @@ from django.test.client import Client
 
 
 class TestProfileViews(TestCase):
-
     def setUp(self):
         """ Create a DiscountCode and User for the purposes of testing."""
         # Create the DiscountCode that is automatically assigned to new users
@@ -28,10 +27,7 @@ class TestProfileViews(TestCase):
         template rendered when getting the profile page
         for a logged-in user.
         """
-        self.client.login(
-            username="TestyTest",
-            password="testerpassword"
-        )
+        self.client.login(username="TestyTest", password="testerpassword")
         response = self.client.get("/profile/")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "profiles/profile.html")

@@ -7,8 +7,10 @@ class TestDiscountCodeForm(TestCase):
         """
         Test DiscountCodeForm validation.
         """
-        form = DiscountCodeForm({
-            "discount_code": "TESTCODE",
-            "percentage_discount": 25,
-        })
+        form = DiscountCodeForm(
+            {
+                "discount_code": "TESTCODE",
+                "percentage_discount": 25,
+            }
+        )
         self.assertTrue(form.is_valid())

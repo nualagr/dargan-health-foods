@@ -25,11 +25,13 @@ class TestProductForm(TestCase):
         """
         Test ProductForm validation.
         """
-        form = ProductForm({
-            "name": "test_product",
-            "friendly_name": "Test Product",
-            "price": 0.00,
-        })
+        form = ProductForm(
+            {
+                "name": "test_product",
+                "friendly_name": "Test Product",
+                "price": 0.00,
+            }
+        )
         self.assertTrue(form.is_valid())
 
     def test_price_is_required(self):
@@ -40,9 +42,7 @@ class TestProductForm(TestCase):
         form = ProductForm({"price": ""})
         self.assertFalse(form.is_valid())
         self.assertIn("price", form.errors.keys())
-        self.assertEqual(
-            form.errors["price"][0],
-            "This field is required.")
+        self.assertEqual(form.errors["price"][0], "This field is required.")
 
 
 class TestProductReviewForm(TestCase):
@@ -50,27 +50,34 @@ class TestProductReviewForm(TestCase):
         """
         Test ProductReviewForm validation.
         """
-        form = ProductReviewForm({
-            "review_rating": int(5),
-            "review_title": "Wonderful Product",
-            "review_content": "I will definitely buy this again.",
-        })
+        form = ProductReviewForm(
+            {
+                "review_rating": int(5),
+                "review_title": "Wonderful Product",
+                "review_content": "I will definitely buy this again.",
+            }
+        )
         self.assertTrue(form.is_valid())
 
     def test_productreviewform_required_fields(self):
         """
         Test ProductReviewForm required fields.
         """
-        form = ProductReviewForm({
-            "review_rating": "",
-            "review_title": "",
-            "review_content": "",
-        })
+        form = ProductReviewForm(
+            {
+                "review_rating": "",
+                "review_title": "",
+                "review_content": "",
+            }
+        )
 
         self.assertFalse(form.is_valid())
         self.assertEqual(
-            form.errors["review_rating"][0], "This field is required.")
+            form.errors["review_rating"][0], "This field is required."
+        )
         self.assertEqual(
-            form.errors["review_title"][0], "This field is required.")
+            form.errors["review_title"][0], "This field is required."
+        )
         self.assertEqual(
-            form.errors["review_content"][0], "This field is required.")
+            form.errors["review_content"][0], "This field is required."
+        )

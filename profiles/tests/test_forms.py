@@ -7,15 +7,17 @@ class TestDargansCustomSignupForm(TestCase):
         """
         Test DargansCustomSignupForm validation.
         """
-        form = DargansCustomSignupForm({
-            "email": "testytest@example.com",
-            "email2": "testytest@example.com",
-            "username": "TestyTest",
-            "first_name": "Testy",
-            "last_name": "Test",
-            "password1": "testpassword",
-            "password2": "testpassword",
-        })
+        form = DargansCustomSignupForm(
+            {
+                "email": "testytest@example.com",
+                "email2": "testytest@example.com",
+                "username": "TestyTest",
+                "first_name": "Testy",
+                "last_name": "Test",
+                "password1": "testpassword",
+                "password2": "testpassword",
+            }
+        )
         self.assertTrue(form.is_valid())
 
     def test_fields_are_required(self):
@@ -23,30 +25,33 @@ class TestDargansCustomSignupForm(TestCase):
         Test that every field within the
         DargansCustomSignupForm is required.
         """
-        form = DargansCustomSignupForm({
-            "email": "",
-            "email2": "",
-            "username": "",
-            "first_name": "",
-            "last_name": "",
-            "password1": "",
-            "password2": "",
-        })
+        form = DargansCustomSignupForm(
+            {
+                "email": "",
+                "email2": "",
+                "username": "",
+                "first_name": "",
+                "last_name": "",
+                "password1": "",
+                "password2": "",
+            }
+        )
         self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors["email"][0], "This field is required.")
+        self.assertEqual(form.errors["email2"][0], "This field is required.")
+        self.assertEqual(form.errors["username"][0], "This field is required.")
         self.assertEqual(
-            form.errors["email"][0], "This field is required.")
+            form.errors["first_name"][0], "This field is required."
+        )
         self.assertEqual(
-            form.errors["email2"][0], "This field is required.")
+            form.errors["last_name"][0], "This field is required."
+        )
         self.assertEqual(
-            form.errors["username"][0], "This field is required.")
+            form.errors["password1"][0], "This field is required."
+        )
         self.assertEqual(
-            form.errors["first_name"][0], "This field is required.")
-        self.assertEqual(
-            form.errors["last_name"][0], "This field is required.")
-        self.assertEqual(
-            form.errors["password1"][0], "This field is required.")
-        self.assertEqual(
-            form.errors["password2"][0], "This field is required.")
+            form.errors["password2"][0], "This field is required."
+        )
 
 
 class TestUserProfileForm(TestCase):
@@ -54,7 +59,5 @@ class TestUserProfileForm(TestCase):
         """
         Test UserProfileForm validation.
         """
-        form = UserProfileForm(
-            {"default_phone_number": "01555555"}
-        )
+        form = UserProfileForm({"default_phone_number": "01555555"})
         self.assertTrue(form.is_valid())

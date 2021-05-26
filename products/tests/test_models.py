@@ -22,30 +22,24 @@ class TestProductModels(TestCase):
         testing purposes.
         """
         discount_code = DiscountCode.objects.create(
-            discount_code="NEW10",
-            percentage_discount=10
+            discount_code="NEW10", percentage_discount=10
         )
         self.client = Client()
         self.user = User.objects.create_superuser(
             "admin", "admin@darganhealthfoods.com", "adminpassword"
         )
         brand = Brand.objects.create(
-            name="test_brand",
-            friendly_name="Test Brand"
+            name="test_brand", friendly_name="Test Brand"
         )
         department = Department.objects.create(
-            name="test_department",
-            friendly_name="Test Department"
+            name="test_department", friendly_name="Test Department"
         )
         category = Category.objects.create(
             name="test_category",
             friendly_name="Test Category",
-            department=department
+            department=department,
         )
-        tag = Tag.objects.create(
-            name="test_tag",
-            friendly_name="Test Tag"
-        )
+        tag = Tag.objects.create(name="test_tag", friendly_name="Test Tag")
         product = Product.objects.create(
             name="test_product",
             friendly_name="Test Product",
@@ -210,7 +204,7 @@ class TestProductModels(TestCase):
             product=p,
             review_rating=int(5),
             review_title="Test Review Title",
-            review_content="Test Review Content"
+            review_content="Test Review Content",
         )
         self.assertTrue(isinstance(pr, ProductReview))
 
@@ -223,6 +217,6 @@ class TestProductModels(TestCase):
             product=p,
             review_rating=int(5),
             review_title="Test Review Title",
-            review_content="Test Review Content"
+            review_content="Test Review Content",
         )
         self.assertEqual(str(pr), "5 stars, Test Review Title")

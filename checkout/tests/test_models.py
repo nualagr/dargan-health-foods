@@ -10,9 +10,7 @@ class TestOrderModels(TestCase):
         Function to create a Product for testing purposes.
         """
         return Product.objects.create(
-            name="test_product",
-            price=9.99,
-            sku="test_sku"
+            name="test_product", price=9.99, sku="test_sku"
         )
 
     def create_order(self):
@@ -82,8 +80,8 @@ class TestOrderModels(TestCase):
         )
         orderlineitem.save()
         self.assertEqual(
-            str(orderlineitem),
-            f"SKU {p.sku} on order {o.order_number}")
+            str(orderlineitem), f"SKU {p.sku} on order {o.order_number}"
+        )
 
     def test_orderlineitem_get_total_lineitem_price_method(self):
         """

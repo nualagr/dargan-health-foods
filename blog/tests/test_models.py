@@ -13,9 +13,7 @@ class TestBlogPostModels(TestCase):
         """
         Function to create a Topic for testing purposes.
         """
-        return Topic.objects.create(
-            name=name, friendly_name=friendly_name
-        )
+        return Topic.objects.create(name=name, friendly_name=friendly_name)
 
     def create_blogpost(
         self,
@@ -24,9 +22,7 @@ class TestBlogPostModels(TestCase):
         """
         Function to create a BlogPost for testing purposes.
         """
-        return BlogPost.objects.create(
-            title=title
-        )
+        return BlogPost.objects.create(title=title)
 
     def test_topic_creation(self):
         """

@@ -13,7 +13,7 @@ class TestDiscountCodeModel(TestCase):
         """
         return DiscountCode.objects.create(
             discount_code=discount_code,
-            percentage_discount=percentage_discount
+            percentage_discount=percentage_discount,
         )
 
     def test_discount_code_creation(self):

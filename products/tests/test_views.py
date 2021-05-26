@@ -4,7 +4,6 @@ from ..models import Product
 
 
 class TestProductsView(TestCase):
-
     def test_all_products_view(self):
         """
         Test for status code 200 response and correct
