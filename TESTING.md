@@ -93,13 +93,42 @@ No errors remain within these files.
 
 <br>
 
-
 ##### back to [top](#table-of-contents)
 ---
 
 ## Performance
 [Google Chrome Developer Tools Lighthouse test](https://developers.google.com/web/tools/lighthouse) was used to test the website with regard to Performance, 
 Accessibility, Best Practices and Search Engine Optimization. 
+
+<br>
+
+**Lighhouse Mobile Test Results for index.html**
+
+![alt text](documentation/readme-images/lighthouse-home-mobile-results.png "Lighthouse home page mobile results.")
+
+<br>
+
+**Lighhouse Desktop Test Results for index.html**
+
+![alt text](documentation/readme-images/lighthouse-home-desktop-results.png "Lighthouse home page desktop results.")
+
+<br>
+
+Lighthouse suggestions for improving the site's score include eliminating 3rd party 
+render-blocking resources from Bootstrap, Google Fonts, Fontawesome and JQuery.
+It was deemed beyond the scope of the current project to serve these critical resources inline.
+
+![alt text](documentation/readme-images/lighthouse-eliminate-render-blocking-resources.png "Lighthouse Eliminate Render-blocking Resources suggestions.")
+
+<br>
+
+The remaining Lighthouse results are contained in the following tables:
+
+![alt text](documentation/readme-images/lighthouse-all-mobile-test-results.png "Table of Lighthouse Mobile Test Results.")
+
+<br>
+
+![alt text](documentation/readme-images/lighthouse-all-desktop-test-results.png "Table of Lighthouse Desktop Test Results.")
 
 <br>
 
