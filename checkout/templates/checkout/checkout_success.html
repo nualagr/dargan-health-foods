@@ -200,14 +200,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-8 mx-auto text-start">
+        <div class="col-12 col-lg-8 mx-auto {% if from_profile %} text-end {% else %} text-start {% endif %}">
             {% if from_profile %}
-            <a href="{% url 'profile' %}" class="common-button btn-green-outline my-2">
-                <span class="text-uppercase">Back to Profile</span>
+            <a href="{% url 'profile' %}" class="common-button btn-orange-outline my-2">
+                <span>Back To Profile</span>
             </a>
             {% else %}
-            <a href="{% url 'products' %}?sort=-date_added" class="common-button btn-apple-green my-2">
-                <span class="text-uppercase"><i class="fas fa-gifts"></i>&nbsp;Now check out the latest products!</span>
+            <a href="{% url 'products' %}?sort=-date_added" class="common-button btn-orange my-2">
+                <span><i class="fas fa-store"></i>&nbsp;Now check out the latest products!</span>
             </a>
             {% endif %}
         </div>

@@ -168,7 +168,7 @@ Each website feature, including buttons, modals, external links, hover effects e
 
 <br>
 
-#### Logged-Out User
+#### Functions Tested As A Logged-Out User
 
 **Home Page**
 
@@ -215,6 +215,39 @@ Each website feature, including buttons, modals, external links, hover effects e
 **Cart Page**
 
 ![alt text](documentation/readme-images/browser-cart-functions-tested.png "Grid showing the different Cart Page functions tests on each browser.")
+
+<br>
+
+**Checkout Page**
+
+![alt text](documentation/readme-images/browser-checkout-functions-tested.png "Grid showing the different Checkout Page functions tests on each browser.")
+
+<br>
+
+**Checkout Success Page**
+
+![alt text](documentation/readme-images/browser-checkout-success-functions-tested.png "Grid showing the different Checkout Success Page functions tests on each browser.")
+
+<br>
+
+**Blog Page**
+
+![alt text](documentation/readme-images/browser-blog-functions-tested.png "Grid showing the different Blog Page functions tests on each browser.")
+
+<br>
+
+**BlogPost Page**
+
+![alt text](documentation/readme-images/browser-blogpost-functions-tested.png "Grid showing the different BlogPost Page functions tests on each browser.")
+
+<br>
+
+
+#### Functions Tested As A Logged-In User
+
+**Home Page**
+
+![alt text](documentation/readme-images/browser-home-functions-tested-logged-in.png "Grid showing the different Home page functions tests on each browser as a logged-in user.")
 
 <br>
 
