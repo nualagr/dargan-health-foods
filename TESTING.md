@@ -9,6 +9,8 @@
     - [Python](#python)
 - [Performance](#performance)
 - [Responsiveness](#responsiveness)
+    - [Device Responsiveness](#device-responsiveness)
+    - [Browser Responsiveness](#browser-responsiveness)
 - [Defensive Design Testing](#defensive-design-testing)
 - [Tested User Stories](#tested-user-stories)
     - [Prospective User](#tested-prospective-user-stories)
@@ -141,6 +143,8 @@ The Dargan Health Foods site was designed using the mobile-first approach, but i
 throughout the development process and after project completion using the [Google Chrome Developer Tools Toggle Device](https://developers.google.com/web/updates/2016/03/device-mode-v2) 
 function and [Mozilla Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools).  
 
+### Device Responsiveness
+
 **Mobile Devices Tested**
 
 ![alt text](documentation/readme-images/responsiveness-mobile-devices-tested.png "Table of Mobile devices used for testing responsiveness.")
@@ -157,9 +161,14 @@ function and [Mozilla Firefox Developer Tools](https://developer.mozilla.org/en-
 
 ![alt text](documentation/readme-images/responsiveness-laptop-desktop-dimensions-tested.png "Table of the laptop and desktop dimensions tested for responsiveness.")
 
+##### back to [top](#table-of-contents)
+---
+
 <br>
 
-Each website feature, including buttons, modals, external links, hover effects etc. was manually checked within the following web browsers:
+### Browser Responsiveness
+
+Each website feature, including accordions, buttons, modals, external links, hover effects etc. was manually checked within the following web browsers:
 - Google Chrome
 - Microsoft Edge
 - Microsoft Opera
@@ -240,14 +249,108 @@ Each website feature, including buttons, modals, external links, hover effects e
 
 ![alt text](documentation/readme-images/browser-blogpost-functions-tested.png "Grid showing the different BlogPost Page functions tests on each browser.")
 
+
+
+##### back to [top](#table-of-contents)
+---
+
 <br>
 
-
-#### Functions Tested As A Logged-In User
+#### Functions Tested as a Logged-In User
 
 **Home Page**
 
 ![alt text](documentation/readme-images/browser-home-functions-tested-logged-in.png "Grid showing the different Home page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Contact Us Page**
+
+![alt text](documentation/readme-images/browser-contact-functions-tested-logged-in.png "Grid showing the different Contact page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Our Story Page**
+
+![alt text](documentation/readme-images/browser-our-story-functions-tested-logged-in.png "Grid showing the different Our Story page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Sign Out Page**
+
+![alt text](documentation/readme-images/browser-sign-out-functions-tested-logged-in.png "Grid showing the different Sign Out page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**My Account Page**
+
+![alt text](documentation/readme-images/browser-account-functions-tested-logged-in.png "Grid showing the different Account page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**All Products Page**
+
+![alt text](documentation/readme-images/browser-products-functions-tested-logged-in.png "Grid showing the different All Products Page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Product Details Page**
+
+![alt text](documentation/readme-images/browser-product-details-functions-tested-logged-in.png "Grid showing the different Product Details Page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Add Product Review Page**
+
+![alt text](documentation/readme-images/browser-add-review-functions-tested-logged-in.png "Grid showing the different Add Review Page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Edit Product Review Page**
+
+![alt text](documentation/readme-images/browser-edit-review-functions-tested-logged-in.png "Grid showing the different Edit Review Page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Cart Page**
+
+![alt text](documentation/readme-images/browser-cart-functions-tested-logged-in.png "Grid showing the different Cart Page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Checkout Page**
+
+![alt text](documentation/readme-images/browser-checkout-functions-tested-logged-in.png "Grid showing the different Checkout Page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Checkout Success Page**
+
+![alt text](documentation/readme-images/browser-checkout-success-functions-tested-logged-in.png "Grid showing the different Checkout Success Page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Blog Page**
+
+![alt text](documentation/readme-images/browser-blog-functions-tested-logged-in.png "Grid showing the different Blog Page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**BlogPost Page**
+
+![alt text](documentation/readme-images/browser-blogpost-functions-tested-logged-in.png "Grid showing the different BlogPost Page functions tests on each browseras a logged-in user.")
+
+<br>
+
+**Add Blog Comment Page**
+
+![alt text](documentation/readme-images/browser-add-comment-functions-tested-logged-in.png "Grid showing the different Add Comment Page functions tests on each browser as a logged-in user.")
+
+<br>
+
+**Edit Blog Comment Page**
+
+![alt text](documentation/readme-images/browser-edit-comment-functions-tested-logged-in.png "Grid showing the different Edit Comment Page functions tests on each browser as a logged-in user.")
 
 <br>
 
