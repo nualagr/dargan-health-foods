@@ -356,12 +356,75 @@ Each website feature, including accordions, buttons, modals, external links, hov
 
 ##### back to [top](#table-of-contents)
 ---
-## Defensive Design Testing
+
+## Defensive Design
+
+As a Logged-Out User it was attempted to access a Dargan Health Food member's account and associated pages as well as the SuperUser's Admin, Blog and Product management pages using the following urls:
+
+A **Profile** page: http://dargan-health-foods.herokuapp.com/profile/
+
+&#9745; redirects to the Login page.
+
+A member's **Order History** page: http://dargan-health-foods.herokuapp.com/profile/order_history/D9AC156EA79B4BDD86CA53C3D6DF077C
+
+&#9745; redirects to the Login page.
+
+A member's **Add Product Review** page: http://dargan-health-foods.herokuapp.com/products/add_review/11
+
+&#9745; redirects to the Login page.
+
+A member's **Edit Product Review** page: http://dargan-health-foods.herokuapp.com/products/edit_review/1
+
+&#9745; redirects to the Login page.
+
+A member's **Delete Product Review** link: http://dargan-health-foods.herokuapp.com/products/delete_review/2
+
+&#9745; redirects to the Login page.
+
+A member's **Edit BlogComment** page: http://dargan-health-foods.herokuapp.com/blog/edit_comment/11
+
+&#9745; redirects to the Login page.
+
+A member's **Delete BlogComment** link: http://dargan-health-foods.herokuapp.com/blog/delete_comment/2
+
+&#9745; redirects to the Login page.
+
+A member's **Change Password** page: http://dargan-health-foods.herokuapp.com/accounts/password/change/
+
+&#9745; redirects to the Login page.
+
+* The site **Admin** page: http://dargan-health-foods.herokuapp.com/admin
+
+&#9745; redirects to the Administrative Login page.* 
+  
+A superuser's **Add Product** page: http://dargan-health-foods.herokuapp.com/products/add/
+
+&#9745; redirects to the Login page.
+
+A superuser's **Edit Product** page: http://dargan-health-foods.herokuapp.com/products/edit/13
+
+&#9745; redirects to the Login page.
+
+A superuser's **Delete Product** link: http://dargan-health-foods.herokuapp.com/products/delete/12
+
+&#9745; redirects to the Login page.
+
+* A superuser's **Add Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/add_post/
+
+&#9745; redirects to the Login page. 
+
+* A superuser's **Edit Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/edit_post/3
+
+&#9745; redirects to the Login page. 
+
+* A superuser's **Delete Blogpost** link: http://dargan-health-foods.herokuapp.com/blog/delete_post/1
+
+&#9745; redirects to the Login page. 
 
 <br>
 
+
 ##### back to [top](#table-of-contents)
----
 
 ## Tested User Stories
 
