@@ -361,65 +361,65 @@ Each website feature, including accordions, buttons, modals, external links, hov
 
 As a Logged-Out User it was attempted to access a Dargan Health Food member's account and associated pages as well as the SuperUser's Admin, Blog and Product management pages using the following urls:
 
-A **Profile** page: http://dargan-health-foods.herokuapp.com/profile/
+* A **Profile** page: http://dargan-health-foods.herokuapp.com/profile/
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
-A member's **Order History** page: http://dargan-health-foods.herokuapp.com/profile/order_history/D9AC156EA79B4BDD86CA53C3D6DF077C
+* A member's **Order History** page: http://dargan-health-foods.herokuapp.com/profile/order_history/D9AC156EA79B4BDD86CA53C3D6DF077C
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
-A member's **Add Product Review** page: http://dargan-health-foods.herokuapp.com/products/add_review/11
+* A member's **Add Product Review** page: http://dargan-health-foods.herokuapp.com/products/add_review/11
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
-A member's **Edit Product Review** page: http://dargan-health-foods.herokuapp.com/products/edit_review/1
+* A member's **Edit Product Review** page: http://dargan-health-foods.herokuapp.com/products/edit_review/1
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
-A member's **Delete Product Review** link: http://dargan-health-foods.herokuapp.com/products/delete_review/2
+* A member's **Delete Product Review** link: http://dargan-health-foods.herokuapp.com/products/delete_review/2
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
-A member's **Edit BlogComment** page: http://dargan-health-foods.herokuapp.com/blog/edit_comment/11
+* A member's **Edit BlogComment** page: http://dargan-health-foods.herokuapp.com/blog/edit_comment/11
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
-A member's **Delete BlogComment** link: http://dargan-health-foods.herokuapp.com/blog/delete_comment/2
+* A member's **Delete BlogComment** link: http://dargan-health-foods.herokuapp.com/blog/delete_comment/2
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
-A member's **Change Password** page: http://dargan-health-foods.herokuapp.com/accounts/password/change/
+* A member's **Change Password** page: http://dargan-health-foods.herokuapp.com/accounts/password/change/
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
 * The site **Admin** page: http://dargan-health-foods.herokuapp.com/admin
 
-&#9745; redirects to the Administrative Login page.* 
+  &#9745; redirects to the Administrative Login page.* 
   
-A superuser's **Add Product** page: http://dargan-health-foods.herokuapp.com/products/add/
+* A superuser's **Add Product** page: http://dargan-health-foods.herokuapp.com/products/add/
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
-A superuser's **Edit Product** page: http://dargan-health-foods.herokuapp.com/products/edit/13
+* A superuser's **Edit Product** page: http://dargan-health-foods.herokuapp.com/products/edit/13
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
-A superuser's **Delete Product** link: http://dargan-health-foods.herokuapp.com/products/delete/12
+* A superuser's **Delete Product** link: http://dargan-health-foods.herokuapp.com/products/delete/12
 
-&#9745; redirects to the Login page.
+  &#9745; redirects to the Login page.
 
 * A superuser's **Add Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/add_post/
 
-&#9745; redirects to the Login page. 
+  &#9745; redirects to the Login page. 
 
 * A superuser's **Edit Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/edit_post/3
 
-&#9745; redirects to the Login page. 
+  &#9745; redirects to the Login page. 
 
 * A superuser's **Delete Blogpost** link: http://dargan-health-foods.herokuapp.com/blog/delete_post/1
 
-&#9745; redirects to the Login page. 
+  &#9745; redirects to the Login page. 
 
 <br>
 
@@ -431,6 +431,180 @@ A superuser's **Delete Product** link: http://dargan-health-foods.herokuapp.com/
 <br>
 
 #### Tested Prospective User Stories
+
+I am a prospective Dargan Health Foods site member I want to be able to:
+
+&#9745;	Immediately comprehend the purpose behind the Dargan Health Foods site.
+
+Upon opening the homepage the user is presented with the Dargan Health Foods logo and brand heading
+which identifies the site as an e-commerce store which sells health foods. 
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-home-page-sale-banner-desktop-device.png "Screenshot of Dargan Health Foods homepage on a desktop device.")
+
+<br>
+
+Beneath the Sale banner the user is presented with images and links to the Latest Products,
+showing them a selection of the items on offer in the store.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-home-page-mobile-device.png "Screenshot of the Home Page on a mobile device.")
+
+<br>
+
+Further down the same page the About Us section further clarifies what the store sells.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-about-us-mobile-device.png "Screenshot of the About Us section of the Home Page on a mobile device.")
+
+<br>
+
+&#9745; Identify where the physical store is located.
+
+Within the footer on each page the user is presented with the shop's business address 
+which is also a link which brings the user to the shop's location on 
+[Google Maps](https://www.google.com/maps/place/Dargan+Health+Foods/@52.6663666,-8.5551142,17z/data=!3m1!4b1!4m5!3m4!1s0x485b5c109808a3ed:0x872b2c8c38046fe5!8m2!3d52.6663666!4d-8.5529255).
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the Find Us accordion of the Footer on a mobile device.")
+
+<br>
+
+This same information is contained within a dropdown-accordion, entitled 'Find Us', on mobile and portrait tablet devices.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion of the Footer on a mobile device.")
+
+<br>
+
+
+&#9745; Easily see what products are available.
+
+On the Home Page, site visitors, are presented with the four latest products to be added to the site.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-latest-products-desktop-device.png "Screenshot of the New Arrivals section of the Home Page on a desktop device.")
+
+<br>
+
+Beneath these products there is a link which takes the user to a page of All New Products added to the site.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-latest-products-mobile-device.png "Screenshot of the New Arrivals section of the Home Page on a mobile device.")
+
+<br>
+
+Alternatively, visitors can access site products by choosing one of the Departmental Titles, and their desired Category choice from those displayed on the Main Navbar.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-latest-products-desktop-device.png "Screenshot of the main navbar on a desktop device.")
+
+<br>
+
+These options are contained within the dropdown menu, accessed using the Hamburger icon on mobile devices.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-main-menu-submenu-expanded-mobile-device.png "Screenshot of the hamburger icon menu when expanded on a mobile device.")
+
+<br>
+
+&#9745; Search for specific products by name or category.
+
+As well as using the aforementioned Department and Category links, users can access specific products 
+by entering a brand name, product-title, tag or ingredient into the search bar on the navbar.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-navbar-desktop-device.png "Screenshot of the search bar on the navbar on a desktop device.")
+
+<br>
+
+This input box and button appear when the magnifying-glass logo on the mobile navbar is selected.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-search-bar-expanded-mobile-device.png "Screenshot of the search bar expanded on a mobile device.")
+
+<br>
+
+&#9745; Sort products by category, price or alphabetically.
+
+Users can sort the site products by category by simply choosing the desired category from the main
+navigational menu or by searching for that category using the search bar.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-navbar-dropdown-expanded-desktop-device.png "Screenshot of a main nav departmental dropdown expanded on a desktop device.")
+
+<br>
+
+The products returned can be sorted by rating, alphabetically or by price, regardless of whether the search was 
+conducted using the search bar or by selecting one of the main navigation department or category options.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sort-dropdown-expanded-desktop-device.png "Screenshot of sort products dropdown expanded on a desktop device.")
+
+<br>
+
+&#9745; Be presented with an image of the product itself.
+
+When the viewer searches for a product, department, category etc. they are presented with a range
+of relevant results which show a small image of the individual products, if an image is available.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-special-offers-tablet-device.png "Screenshot of products on offer on a tablet device.")
+
+<br>
+
+If they viewer chooses to examine a product in more detail they can click on the product image, 
+or the product title to be brought to that specific product page.  If more than one image 
+exists for that product they are contained within an image carousel.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-image-carousel-tablet-device.png "Screenshot of a product image carousel on a tablet device.")
+
+<br>
+
+&#9745; Be able to read a description of a each product.
+
+A user can read a product description on each product detail page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-description-mobile-device.png "Screenshot of a product's description as shown on a mobile device.")
+
+<br>
+
+&#9745; Be presented with nutritional information or ingredients where applicable.
+
+On the Product Details pages for each product, if an ingredients list is available it is to be 
+found within the Details Accordion.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-details-accordion-expanded-mobile-device.png "Screenshot of a product's Details accordion as shown on a mobile device.")
+
+<br>
+
+Further information regarding allergens is to be found within the More Information accordion.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-more-information-accordion-expanded-tablet-device.png "Screenshot of a product's More Information accordion as shown on a tablet device.")
+
+<br>
+
+&#9745; Read site members’ product reviews.
+
+Other customer's reviews of individual products can be found within the Customer Reviews accordion
+on each Product Detail page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-customer-reviews-accordion-expanded-tablet-device.png "Screenshot of a product's Customer Reviews accordion as shown on a tablet device.")
+
+<br>
+
+The accordion can be accessed directly or by clicking on the Review Count link next to the product's 
+star rating.
+
+&#9745; Add products to my shopping cart with ease.
+
+&#9745; Be presented with a constant visual reminder of my shopping cart total and number of items already added.
+
+&#9745; Be able to edit my shopping cart, increasing or decreasing the quantity of a specific item or deleting it altogether, at will.
+
+&#9745; Pay for my items using a secure credit-card payment system.
+
+&#9745; Receive immediate visual feedback when my payment has been accepted.
+
+&#9745; Receive an email confirming my purchase, order details and date of delivery.
+
+&#9745; Read Dargan Health Foods' blog posts.
+
+&#9745; Easily get in contact with the store if I have any questions.
+
+&#9745; Easily locate any social media accounts connected to the site.
+
+&#9745; Navigate through the site with ease.
+
+&#9745; Easily find information outlining the features that membership of the site offers to its registered users.
+
+&#9745; Easily register to become a site member.
 
 ##### back to [top](#table-of-contents)
 ---

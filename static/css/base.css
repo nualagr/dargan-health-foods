@@ -38,6 +38,10 @@ body {
     color: #29873c;
 }
 
+.text-orange {
+    color: #ef9606 !important;
+}
+
 .text-red {
     color: #f8463f;
 }
@@ -947,7 +951,7 @@ a.anchor {
 /* Solution to making card images the same height found on 
 Stack Overflow: https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width */
 .card .product-link .card-img-top {
-    width: 100%;
+    width: 80%;
     height: 30vh;
     object-fit: contain;
     padding: 5px;
