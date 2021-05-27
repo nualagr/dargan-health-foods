@@ -437,7 +437,7 @@ I am a prospective Dargan Health Foods site member I want to be able to:
 &#9745;	Immediately comprehend the purpose behind the Dargan Health Foods site.
 
 Upon opening the homepage the user is presented with the Dargan Health Foods logo and brand heading
-which identifies the site as an e-commerce store which sells health foods. 
+which identifies the site as an e-commerce store which sells health food. 
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-home-page-sale-banner-desktop-device.png "Screenshot of Dargan Health Foods homepage on a desktop device.")
 
@@ -459,7 +459,7 @@ Further down the same page the About Us section further clarifies what the store
 &#9745; Identify where the physical store is located.
 
 Within the footer on each page the user is presented with the shop's business address 
-which is also a link which brings the user to the shop's location on 
+which is also a link bringing the user to the shop's location on 
 [Google Maps](https://www.google.com/maps/place/Dargan+Health+Foods/@52.6663666,-8.5551142,17z/data=!3m1!4b1!4m5!3m4!1s0x485b5c109808a3ed:0x872b2c8c38046fe5!8m2!3d52.6663666!4d-8.5529255).
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the Find Us accordion of the Footer on a mobile device.")
@@ -557,7 +557,7 @@ A user can read a product description on each product detail page.
 
 &#9745; Be presented with nutritional information or ingredients where applicable.
 
-On the Product Details pages for each product, if an ingredients list is available it is to be 
+On the Product Details pages for each product, if an ingredients list is available, it is to be 
 found within the Details Accordion.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-details-accordion-expanded-mobile-device.png "Screenshot of a product's Details accordion as shown on a mobile device.")
@@ -572,7 +572,7 @@ Further information regarding allergens is to be found within the More Informati
 
 &#9745; Read site members’ product reviews.
 
-Other customer's reviews of individual products can be found within the Customer Reviews accordion
+Other customers' reviews of individual products can be found within the Customer Reviews accordion
 on each Product Detail page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-customer-reviews-accordion-expanded-tablet-device.png "Screenshot of a product's Customer Reviews accordion as shown on a tablet device.")
@@ -584,9 +584,50 @@ star rating.
 
 &#9745; Add products to my shopping cart with ease.
 
+Users can use the Add to Cart buttons on any Product Card to add a single unit of that 
+product to their cart, without having to open that product's Details page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-products-add-to-cart-buttons-mobile-device.png "Screenshot of products with Add to Cart buttons as shown on a mobile device.")
+
+<br>
+
+A specified quantity of any item can be added to a user's cart using the Quantity Form and Add to Cart button on the
+product's Details page.  
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-quantity-form-product-details-page-desktop-device.png "Screenshot of the Quantity form and Add to Cart buttons as shown on a desktop device.")
+
+<br>
+
+
+
 &#9745; Be presented with a constant visual reminder of my shopping cart total and number of items already added.
 
+The number of products within a user's cart and the cart total are displayed on the navbar at all times.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-navbar-items-in-cart-mobile-device.png "Screenshot of the Cart symbol displaying the number of items and Cart total as shown on a mobile device.")
+
+<br>
+
+This information is displayed within the mini-cart on the desktop navbar.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-navbar-items-in-cart-desktop-device.png "Screenshot of the Mini Cart displaying the number of items and Cart total as shown on a desktop device.")
+
+<br>
+
+The updated cart information is also communicated to the user using Toast messages. 
+With each item added to the cart, a Success Toast appears with images of the products in the cart, their titles, and the
+quantity as well as a Cart total.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-success-toast-items-in-cart-mobile-device.png "Screenshot of the Success Toast displaying the number of items and Cart total as shown on a mobile device.")
+
+<br>
+
+
 &#9745; Be able to edit my shopping cart, increasing or decreasing the quantity of a specific item or deleting it altogether, at will.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-with-items-desktop-device.png "Screenshot of the Cart with items as shown on a desktop device.")
+
+<br>
 
 &#9745; Pay for my items using a secure credit-card payment system.
 
@@ -602,9 +643,39 @@ star rating.
 
 &#9745; Navigate through the site with ease.
 
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-navbar-desktop-device.png "Screenshot of the Navbar on a desktop device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the Footer on a desktop device.")
+
+<br>
+
 &#9745; Easily find information outlining the features that membership of the site offers to its registered users.
 
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-members-get-more-mobile-device.png "Screenshot of the Member Get More section of the Home Page on a desktop device.")
+
+<br>
+
+Within the Shopping Cart page, user's are provided with a link to be able to apply their Promo Code
+and receive their discount.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-with-items-sign-in-link-desktop-device.png "Screenshot of the Cart with Sign In link on a desktop device.")
+
+<br>
+
+On the Checkout Page user's are encouraged to Sign In or to Sign Up for future checkout convenience.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-sign-up-link-mobile-device.png "Screenshot of the Checkout with Sign Up link on a mobile device.")
+
+<br>
+
+
 &#9745; Easily register to become a site member.
+
+Site visitors are presented with numerous opportunities to become site members.
+
+
 
 ##### back to [top](#table-of-contents)
 ---
