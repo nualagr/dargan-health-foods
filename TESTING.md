@@ -887,6 +887,288 @@ The user is then redirected to the 'Login' page with a Success Toast message.
 
 #### Tested Existing User Stories
 
+I am an existing Dargan Health Foods site member I want to be able to:
+
+&#9745; Log in to the site.
+
+Links to the 'Login' page are provided at numerous points throughout the site, however, 
+they are most clearly visible on the topnav on a desktop device or within the
+'Account' dropdown on a mobile device or within the 'Quick Links' section of the footer.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-navbar-desktop-device.png "Screenshot of the Sign In link on the desktop topnav.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-menu-logged-out-user-expanded-mobile-device.png "Screenshot of the Account dropdown menu with Register link on a mobile device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the footer on a desktop device.")
+
+<br>
+
+All of these links bring the user directly to the 'Login' page.  Here the user is presented
+with a clearly labelled form.  They can log into the site
+by entering their username or email address and their password and pressing the 'Sign In' button.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-login-mobile-device.png "Screenshot of the Login page on a mobile device.")
+
+<br>
+
+&#9745; Navigate through the site with ease.
+
+For the logged-in user, site navigation is 
+
+&#9745; Log out of the site.
+
+Users can log out of the site using the 'Logout' links provided in the site navbar and footer.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-dropdown-logged-in-mobile-device.png "Screenshot of the Log Out link within the Account dropdown on a mobile device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-quick-links-accordion-logged-in-mobile-device.png "Screenshot of the Log Out link within the Quick Links accordion on a mobile device.")
+
+<br>
+
+These links bring the user to the 'Sign Out' page, where they can complete the process by pressing the 
+'Sign Out' button.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sign-out-mobile-device.png "Screenshot of the Sign Out page on a mobile device.")
+
+<br>
+
+A toast message is used to comfirm that the user has been logged out.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sign-out-toast-tablet-device.png "Screenshot of the Sign Out Success toast on a tablet device.")
+
+<br>
+
+&#9745; Edit my account information.
+
+Site members have access to their Profile/My Account page through the links provided in the navbar and in the footer
+'Quick Links' section.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-dropdown-logged-in-mobile-device.png "Screenshot of the Log Out link within the Account dropdown on a mobile device.")
+
+<br>
+
+These links brings the site member to their personal Account page where they have access
+to their Account Details, Address Book, Order History, Product Reviews and Blog Comments.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-details-tablet-device.png "Screenshot of the My Account page on a tablet device.")
+
+<br>
+
+On this page, within the first tabbed navigational pane, the user can choose to change their password.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-change-password-tablet-device.png "Screenshot of the Change Password page on a tablet device.")
+
+<br>
+
+The second tabbed navigational pane offers the user the chance to edit their default delivery address
+and telephone number.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-address-book-tablet-device.png "Screenshot of the Account My Address Book tab on a tablet device.")
+
+<br>
+
+
+&#9745; Take advantage of my site membership by applying discount codes.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-logged-in-mobile-device.png "Screenshot of the Cart for a logged-in user on a mobile device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-promo-code-applied-tablet-device.png "Screenshot of the Cart with Promo Code on a tablet device.")
+
+<br>
+
+&#9745; Purchase my desired products using a secure online payment system.
+
+&#9745; Receive an order confirmation email.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-success-with-promo-code-tablet-device.png "Screenshot of the Checkout Success page with Promo Code on a tablet device.")
+
+<br>
+
+&#9745; View my order history.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-order-history-desktop-device.png "Screenshot of the Order History page on a desktop device.")
+
+<br>
+
+
+&#9745; Search for a product by entering a brand name or product name into a search box within the site.
+
+&#9745; Search for a product by department, e.g. Hair & Beauty, Vitamins & Supplements, Special Offers.
+
+&#9745; Sort search results, by price, alphabetically or by rating.
+
+&#9745; Filter search results by allergen or other pertinent tags.
+
+&#9745; See images of the product packaging.
+
+&#9745; Read detailed descriptions of products.
+
+&#9745; Read reviews of products written by site members.
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-details-reviews-tablet-device.png "Screenshot of a Product Details page with reviews on a tablet device.")
+
+<br>
+
+&#9745; Leave a review of a product that I have previously purchased through the site.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-button-mobile-device.png "Screenshot of the Leave a Review button on a mobile device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-tablet-device.png "Screenshot of the Leave a Review form on a tablet device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-star-rating-dropdown-desktop-device.png "Screenshot of the Leave a Review form star rating dropdown on a desktop device.")
+
+<br>
+
+&#9745; Input my review easily into a user-friendly form that is straightforward to use.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-desktop-device.png "Screenshot of the Leave a Review form on a desktop device.")
+
+<br>
+
+
+&#9745; Edit or delete my own reviews.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-product-reviews-tablet-device.png "Screenshot of the My Account My Product Reviews tab on a tablet device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-review-desktop-device.png "Screenshot of the Edit Review Form on a desktop device.")
+
+<br>
+
+
+
+&#9745; Be secure in the knowledge that no other user can edit or delete my reviews.
+
+&#9745; Be secure in the knowledge that measures have been put in place to prevent me from accidentally deleting one of my own reviews.
+
+&#9745; Contact the store owner.
+
+Site members can easily contact the Dargan Health Foods team by filling out and submitting the
+Contact Us form.  Links to this page are provided on the desktop topnav, the mobile main dropdown 
+menu and within the Footer Quick Links.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-contact-us-mobile-device.png "Screenshot of the Contact Us page on a mobile device.")
+
+<br>
+
+The Dargan Health Foods shop address, business email address and phone number are to be found within the Footer
+'Find Us' section/accordion in the footer on each page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion in the Footer on a mobile device.")
+
+<br>
+ 
+Site members are provided with the shop's Opening Hours within the section/accordion of the same
+name in the footer.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-opening-hours-mobile-device.png "Screenshot of the Opening Hours accordion in the Footer on a mobile device.")
+
+<br>
+
+&#9745; Easily locate any social media accounts connected to the site.
+
+Links to the Dargan Health Foods Facebook and Instagram accounts are to be found in the footer on every page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of social link in the footer on a desktop device.")
+
+<br>
+
+&#9745; Navigate with ease to the site's blog.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-desktop-device.png "Screenshot of the Blog on a desktop device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-filter-dropdown-mobile-device.png "Screenshot of the Blog Filter dropdown on a mobile device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-breadcrumbs-navigation-desktop-device.png "Screenshot of the Blog breadcrumbs navigation on a desktop device.")
+
+<br>
+
+&#9745; Search for a blog post by title or keyword.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-search-bar-mobile-device.png "Screenshot of the Blog search bar on a mobile device.")
+
+<br>
+
+Ease of navigation has been further assisted through the inclusion of the Blog Search Bar
+within the Search Blog accordion on each BlogPost page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-search-accordion-mobile-device.png "Screenshot of the Blog Search Accordion on a mobile device.")
+
+<br>
+
+
+&#9745; Comment on a blog post.
+
+Beneath each blog post, within the 'Comments' accordion, there is a 'Leave a Comment' button.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-blog-comment-button-mobile-device.png "Screenshot of the Leave a Comment button mobile device.")
+
+<br>
+
+This brings users to the Blog Comment form, which allows them to simply input their comment
+into a text field and 'Upload' it.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-comments-form-tablet-device.png "Screenshot of the Add Blog Comment form on a tablet device.")
+
+<br>
+
+When the user uploads their comment successfuly they are given feedback in the form of a 
+Success Toast message.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-success-toast-blog-comment-tablet-device.png "Screenshot of success toast when submitting blog comment on a tablet device.")
+
+<br>
+
+&#9745; Edit or delete my own comments.
+
+Each site member has the ability to Edit or Delete their own Blog Comments.
+
+Edit and Delete links are to be found next to the individual comments beneath the BlogPost.
+These are visible solely to the creator of the comment in question.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-comments-mobile-device.png "Screenshot of Blog Comments on a mobile device.")
+
+<br>
+
+Alternatively members can access all of their Blog Comments and the associated Edit and Delete links
+from within their My Account page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-blog-comments-tablet-device.png "Screenshot of My Blog Comments section of the Account page on a tablet device.")
+
+<br>
+
+The Edit link brings the user to the Edit Comment form where they can change their comment.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-blog-comment-tablet-device.png "Screenshot of Edit Blog Comment page on a tablet device.")
+
+<br>
+
+The Delete link opens a Delete Modal asking the user to confirm their decision to delete their
+comment.  If they choose to continue with the action by pressing the Delete button, 
+the comment is deleted from the database.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-delete-blog-comment-modal-mobile-device.png "Screenshot of Delete Blog Comment modal on a mobile device.")
+
+<br>
+
+
+
 ##### back to [top](#table-of-contents)
 ---
 

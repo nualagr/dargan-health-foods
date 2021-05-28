@@ -137,7 +137,7 @@ I am a prospective Dargan Health Foods site member I want to be able to:
 -   Be able to edit my shopping cart, increasing or decreasing the quantity of a specific item or deleting it altogether, at will.
 -   Pay for my items using a secure credit-card payment system.
 -   Receive immediate visual feedback when my payment has been accepted.
--   Receive an email confirming my purchase, order details and date of delivery.
+-   Receive an email confirming my purchase, order and delivery details.
 -	Read Dargan Health Foods' blog posts.
 -	Easily get in contact with the store if I have any questions.
 -	Easily locate any social media accounts connected to the site.
