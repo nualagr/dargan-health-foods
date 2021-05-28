@@ -450,16 +450,27 @@ showing them a selection of the items on offer in the store.
 
 <br>
 
-Further down the same page the About Us section further clarifies what the store sells.
+Further down the same page the 'About Us' section further clarifies what the store sells.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-about-us-mobile-device.png "Screenshot of the About Us section of the Home Page on a mobile device.")
+
+<br>
+
+This 'About Us' section can be reached easily from any page on the site through the links provided
+in the top navbar on the desktop, within the toggle dropdown navigation menu on a mobile or from
+the 'Quick Links' link provided in the Footer.
+
+Beneath the 'About Us' text is a link which brings the user to the 'Our Story' page
+ where they can read about the origins of the business and its ethos.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-our-story-mobile-device.png "Screenshot of the Our Story page as it displays on a mobile device.")
 
 <br>
 
 &#9745; Identify where the physical store is located.
 
 Within the footer on each page the user is presented with the shop's business address 
-which is also a link bringing the user to the shop's location on 
+which is also a link bringing the user directly to the shop's location on 
 [Google Maps](https://www.google.com/maps/place/Dargan+Health+Foods/@52.6663666,-8.5551142,17z/data=!3m1!4b1!4m5!3m4!1s0x485b5c109808a3ed:0x872b2c8c38046fe5!8m2!3d52.6663666!4d-8.5529255).
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the Find Us accordion of the Footer on a mobile device.")
@@ -487,13 +498,13 @@ Beneath these products there is a link which takes the user to a page of All New
 
 <br>
 
-Alternatively, visitors can access site products by choosing one of the Departmental Titles, and their desired Category choice from those displayed on the Main Navbar.
+Alternatively, visitors can access site products by choosing one of the departmental titles, and their desired 'Category' choice from those displayed on the main Navbar.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-latest-products-desktop-device.png "Screenshot of the main navbar on a desktop device.")
 
 <br>
 
-These options are contained within the dropdown menu, accessed using the Hamburger icon on mobile devices.
+These options are contained within the dropdown menu, accessed using the Hamburger icon, on mobile devices.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-main-menu-submenu-expanded-mobile-device.png "Screenshot of the hamburger icon menu when expanded on a mobile device.")
 
@@ -501,7 +512,7 @@ These options are contained within the dropdown menu, accessed using the Hamburg
 
 &#9745; Search for specific products by name or category.
 
-As well as using the aforementioned Department and Category links, users can access specific products 
+As well as using the aforementioned 'Department' and 'Category' links, users can access specific products 
 by entering a brand name, product-title, tag or ingredient into the search bar on the navbar.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-navbar-desktop-device.png "Screenshot of the search bar on the navbar on a desktop device.")
@@ -584,14 +595,14 @@ star rating.
 
 &#9745; Add products to my shopping cart with ease.
 
-Users can use the Add to Cart buttons on any Product Card to add a single unit of that 
+Users can use the 'Add to Cart' buttons on any Product Card to add a single unit of that 
 product to their cart, without having to open that product's Details page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-products-add-to-cart-buttons-mobile-device.png "Screenshot of products with Add to Cart buttons as shown on a mobile device.")
 
 <br>
 
-A specified quantity of any item can be added to a user's cart using the Quantity Form and Add to Cart button on the
+A specific quantity of any item can be added to a user's cart using the Quantity Form and 'Add to Cart' button on the
 product's Details page.  
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-quantity-form-product-details-page-desktop-device.png "Screenshot of the Quantity form and Add to Cart buttons as shown on a desktop device.")
@@ -625,46 +636,196 @@ quantity as well as a Cart total.
 
 &#9745; Be able to edit my shopping cart, increasing or decreasing the quantity of a specific item or deleting it altogether, at will.
 
+When the user opens the Cart page they are presented with a table of the items in their cart.
+Each item row has a Quantity form allowing the user to increase or decrease the quantity as needed.
+If they decrease the quantity to zero, the item is removed from the cart.
+Alternatively, they can delete any item from the cart in one click using the individual trash-can icons
+at the end of the product row.
+With each adjustment of the cart the user is given feedback, the quantity updates, the line-item subtotal is
+updated, as is the Cart Total and Order Total within the Summary table.
+Further feedback is provided with textual messages, in green for success or in red for errors, 
+which specify which item has been removed etc.
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-with-items-desktop-device.png "Screenshot of the Cart with items as shown on a desktop device.")
 
 <br>
 
 &#9745; Pay for my items using a secure credit-card payment system.
 
+When a user is ready to pay for their items they can do so on the Checkout page.
+An order summary, displaying all the items the user has in their cart, ready to purchase,
+is displayed in a helpful summary table.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-desktop-device.png "Screenshot of the Checkout page as shown on a desktop device.")
+
+<br>
+
+Once the Billing Details form and Credit Card input has been filled out the credit card payment is handled securely by [Stripe](www.stripe.com).
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-payment-input-tablet-device.png "Screenshot of the Checkout page payment input as shown on a tablet device.")
+
+<br>
+
+A loading overlay and spinning icon provide visual assurance to the user that a process is taking place.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-loading-overlay-spinner-tablet-device.png "Screenshot of the loading overlay and spinning icon on a tablet device.")
+
+<br>
+
 &#9745; Receive immediate visual feedback when my payment has been accepted.
 
-&#9745; Receive an email confirming my purchase, order details and date of delivery.
+Upon successful processing of the payment the user is brought to the Checkout Success page.
+This displays the Order details and provides the user with reassurance that their purchase has gone through.
+A toast message re-affirms that a Confirmation Email is being sent to the email address provided.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-success-tablet-device.png "Screenshot of the Checkout Success page on a tablet device.")
+
+<br>
+
+&#9745; Receive an email confirming my purchase, order details and delivery information.
+
+A Confirmation Email is sent to the email address provided by the customer.
+This gives the customer a record of their order number and date of purchase as well as
+the price paid and the delivery cost and the address the order will be shipped to. 
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-order-confirmation-email.png "Screenshot of the Order Confirmation email.")
+
+<br>
 
 &#9745; Read Dargan Health Foods' blog posts.
 
+The Dargan Health Foods Blog can be accessed from any page using the link in the top navbar on the
+desktop, the main dropdown menu on a mobile or from within the Quick Links in the Footer.
+Additional links to the latest blog posts are provided on the Home Page.
+The BlogPost card images and the BlogPost titles operate as direct links to the featured posts.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-latest-posts-desktop-device.png "Screenshot of the Latest Posts section of the home page as displayed on a desktop device.")
+
+<br>
+
+The main blog links bring the user to the Blog page where the user can filter posts by topic or search
+the Blog for a post by keyword(s).
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-tablet-device.png "Screenshot of the Blog page on a tablet device.")
+
+<br>
+
+A snippet of the BlogPost introductory paragraphs provides the user with further insight as to 
+the contents of each before they make the final decision as to whether they want to read the full post.
+For consistency, these BlogPost card images and titles also operate as links to the individual BlogPost
+pages.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blogpost-desktop-device.png "Screenshot of a BlogPost on a desktop device.")
+
+<br>
+
+Breadcrumbs navigation has been provided at the top of each Post to facilitate navigation within the Blog.
+
+Keywords assigned to the BlogPost have been rendered as Tag links below the subheading. The user can
+browse other posts which share the Tag classification by clicking on the tags.
+
+Ease of navigation has been further assisted through the inclusion of the Blog Search Bar
+within the Search Blog accordion on each BlogPost page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-search-accordion-mobile-device.png "Screenshot of the Blog Search Accordion on a mobile device.")
+
+<br>
+
+
 &#9745; Easily get in contact with the store if I have any questions.
+
+Site visitors can easily contact the Dargan Health Foods team by filling out and submitting the
+Contact Us form, links to which are provided on the desktop topnav, the mobile main dropdown 
+menu and within the Footer Quick Links.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-contact-us-mobile-device.png "Screenshot of the Contact Us page on a mobile device.")
+
+<br>
+
+Alternatively, the store's address, email address and phone number are to be found within the Footer
+'Find Us' section.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion in the Footer on a mobile device.")
+
+<br>
+ 
+Users can see the most appropriate hours to contact the team by phone, or in person, by
+looking at the Opening Hours provided in the Footer on every page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-opening-hours-mobile-device.png "Screenshot of the Opening Hours accordion in the Footer on a mobile device.")
+
+<br>
 
 &#9745; Easily locate any social media accounts connected to the site.
 
+Social links are located in the Footer providing the user with direct access to
+the company's Facebook and Instagram account pages.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-mobile-device.png "Screenshot of the social links in the footer as displayed on a mobile device.")
+
+When these links are clicked a new tab opens and the relevant page is displayed without closing the Dargan Health Foods site itself.
+<br>
+
 &#9745; Navigate through the site with ease.
+
+A simple design structure with a fixed navbar with dropdown menus, accessible from every page of the site, provides
+easy access to any page within the website. A brand logo, displayed in the top left of the screen on a desktop device,
+operates as a direct link to the homepage.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-navbar-desktop-device.png "Screenshot of the Navbar on a desktop device.")
 
 <br>
 
+The site Footer is divided into three separate sections, which are rendered neatly as collapsed accordions on mobile devices. 
+The first section/accordion provides links to the homepage, in the form of the brand header, a link to the home page,
+and links to facilitate ease of contact by email or by phone. 
+There is also a helpful link, which opens an external tab, showing the shop's physical location on Google Maps.
+
+Within the third section/accordion, links to commonly required site pages are 
+rendered for convenience.  This provides the user with easy navigation across the site 
+both at the top and bottom of the page.
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the Footer on a desktop device.")
+
+<br>
+
+Breadcrumbs navigation links, within the products pages and the blog pages, 
+operate as a kind of secondary navigation scheme, revealing the user's location within 
+that section of the website and also allowing them to jump directly to related pages along the 
+path.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-breadcrumbs-navigation-links-desktop-device.png "Screenshot of the Breadcrumbs navigation links on a desktop device.")
 
 <br>
 
 &#9745; Easily find information outlining the features that membership of the site offers to its registered users.
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-members-get-more-mobile-device.png "Screenshot of the Member Get More section of the Home Page on a desktop device.")
+A section of the Home Page is devoted to encouraging new users to become a site member.
+This 'Members Get More' section outlines some benefits such as membership discounts and access
+to exclusive events. A call-to-action button brings to the user straight to the registration page
+where they can sign up and use their new member discount code immediately to get 10% off their order.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-members-get-more-mobile-device.png "Screenshot of the Member Get More section of the Home Page on a mobile device.")
 
 <br>
 
-Within the Shopping Cart page, user's are provided with a link to be able to apply their Promo Code
-and receive their discount.
+This information is reiterated on the registration page itself.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sign-up-mobile-device.png "Screenshot of the new member promo code above the Sign Up form on a mobile device.")
+
+<br>
+
+Within the Shopping Cart page, non-logged-in user's are provided with a link to the Sign In page
+so that they can apply their Promo Code and receive their discount.  This operates as a reminder to
+non-registered users as to the financial benefits of becoming a Dargan's member.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-with-items-sign-in-link-desktop-device.png "Screenshot of the Cart with Sign In link on a desktop device.")
 
 <br>
 
-On the Checkout Page user's are encouraged to Sign In or to Sign Up for future checkout convenience.
+On the Checkout Page, the Dargan members' smoother checkout experience is emphasised. 
+Non-site members are encouraged to Sign In or to Sign Up so that they too can avoid
+the time-consuming form-filling process on subsequent visits.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-sign-up-link-mobile-device.png "Screenshot of the Checkout with Sign Up link on a mobile device.")
 
@@ -674,8 +835,52 @@ On the Checkout Page user's are encouraged to Sign In or to Sign Up for future c
 &#9745; Easily register to become a site member.
 
 Site visitors are presented with numerous opportunities to become site members.
+On the desktop top navbar, the 'Join' link is always visible.  It brings the user directly to
+the 'Sign Up' page. The 'Register' link can be found on mobile devices when the 'Account' user icon is clicked.
 
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-menu-logged-out-user-expanded-mobile-device.png "Screenshot of the Account dropdown menu with Register link on a mobile device.")
 
+<br>
+
+Users can also access the registration page using the call-to-action button in the
+'Members Get More' section of the Home Page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-members-get-more-mobile-device.png "Screenshot of the Member Get More section of the Home Page on a mobile device.")
+
+<br>
+
+Another 'Sign Up' link is to be found within the 'Quick Links' section/accordion in the Footer on each page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-quick-links-accordion-mobile-device.png "Screenshot of the Quick Links accordion in the Footer on a mobile device.")
+
+<br>
+
+Each of these registration links brings the user to the 'Sign Up' page where they can easily 
+become site members by filling in the clearly labelled form and pressing the eye-catching 'Sign Up' button.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sign-up-tablet-device.png "Screenshot of the Sign Up form on a tablet device.")
+
+<br>
+
+Successful submission of the form brings the user to the next stage in the registration process, email verification.
+They are brought to page where they are informed that an email verification link has been sent to the address they provided.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-verify-your-email-address-message-mobile-device.png "Screenshot of the Verify Your Email Address message on a mobile device.")
+
+<br>
+
+Clicking the link sent in that email brings the user back to site to the following page
+where they can confirm the address connected to their account and finish the registration process.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-confirm-email-address-mobile-device.png "Screenshot of the Confirm Your Email Address message on a mobile device.")
+
+<br>
+
+The user is then redirected to the 'Login' page with a Success Toast message.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-confirm-email-address-toast-tablet-device.png "Screenshot of the successful email confirmation toast message on a tablet device.")
+
+<br>
 
 ##### back to [top](#table-of-contents)
 ---

@@ -8,8 +8,8 @@
     border-radius: 0px;
     background-color: #ffffff;
     box-shadow: 0 1px 3px 0 #e6ebf1;
-    -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
+    -webkit-transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
@@ -20,7 +20,6 @@
 
 .StripeElement--webkit-autofill {
     background-color: #fefde5 !important;
-    /* background-color: rgb(232, 240, 254) !important; */
 }
 
 .stripe-style-input::placeholder {

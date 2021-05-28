@@ -438,7 +438,9 @@
             <div class="row">
                 <div class="col-12 col-md-4">
                     <div class="footer-box d-none d-sm-block">
-                        <h5 class="footer-box-brand-header">Dargan Health Foods</h5>
+                        <h5 class="footer-box-brand-header">
+                            <a href="{% url 'home' %}" title="Dargan Health Foods Home Link">Dargan Health Foods</a>
+                        </h5>
                         <ul class="footer-box-list-contact-details list-unstyled">
                             <li class="address">
                                 <a href="https://goo.gl/maps/Ktuehd7RdoimKafC9" target="_blank" rel="noopener">
@@ -465,8 +467,11 @@
                         <div class="accordion-body collapse bg-white" id="collapseFindUs"
                             aria-labelledby="headingFindUs">
                             <ul class="accordion-list list-unstyled">
-                                <li><img src="{{ MEDIA_URL }}seedling-logo-with-text.png"
-                                        class="responsive-img" alt="Dargan Health Foods brand logo"></li>
+                                <li><a href="{% url 'home' %}" title="Dargan Health Foods Home Link">
+                                    <img src="{{ MEDIA_URL }}seedling-logo-with-text.png"
+                                        class="responsive-img" alt="Dargan Health Foods brand logo">
+                                    </a>
+                                </li>
                                 <li class="address"><a href="https://goo.gl/maps/Ktuehd7RdoimKafC9" target="_blank"
                                         rel="noopener">Castletroy Town Centre, <br>Limerick</a></li>
                                 <li class="phone"><a href="tel:061339506" aria-label="0 6 1. 3 3 9 5 0 6.">+353 (0)61
