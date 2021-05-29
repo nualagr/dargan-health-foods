@@ -728,14 +728,14 @@ Breadcrumbs navigation has been provided at the top of each Post to facilitate n
 Keywords assigned to the BlogPost have been rendered as Tag links below the subheading. The user can
 browse other posts which share the Tag classification by clicking on the tags.
 
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-gluten-free-posts-tablet-device.png "Screenshot of posts tagged as gluten free on a tablet device.")
+
+<br>
+
 Ease of navigation has been further assisted through the inclusion of the Blog Search Bar
 within the Search Blog accordion on each BlogPost page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-search-accordion-mobile-device.png "Screenshot of the Blog Search Accordion on a mobile device.")
-
-<br>
-
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-comments-plural-mobile-device.png "Screenshot of the Blog Comments accordion on a mobile device.")
 
 <br>
 
@@ -831,7 +831,7 @@ This information is reiterated on the registration page itself.
 
 <br>
 
-Within the Shopping Cart page, non-logged-in user's are provided with a link to the Sign In page
+Within the Shopping Cart page, non-logged-in users are provided with a link to the 'Sign In' page
 so that they can apply their Promo Code and receive their discount.  This operates as a reminder to
 non-registered users as to the financial benefits of becoming a Dargan's member.
 
@@ -933,8 +933,8 @@ by entering their username or email address and their password and pressing the 
 
 &#9745; Navigate through the site with ease.
 
-For the logged-in user an extra navigation link to their My Account page has been provided
-with the links in the topnav on the desktop, within the Accound dropdown on a mobile device
+For the logged-in user an extra navigation link to their 'My Account' page has been provided
+with the links in the topnav on the desktop, within the 'Account' dropdown on a mobile device
 and in the 'Quick Links' footer section/accordion.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-vitamins-page-tablet-device.png "Screenshot of the navbar as it appears on a tablet device.")
@@ -968,7 +968,7 @@ These links bring the user to the 'Sign Out' page, where they can complete the p
 
 <br>
 
-A toast message is used to comfirm that the user has been logged out.
+A toast message is used to confirm that the user has been logged out.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sign-out-toast-tablet-device.png "Screenshot of the Sign Out Success toast on a tablet device.")
 
@@ -976,15 +976,15 @@ A toast message is used to comfirm that the user has been logged out.
 
 &#9745; Edit my account information.
 
-Site members have access to their Profile/My Account page through the links provided in the navbar and in the footer
+Site members have access to their 'My Account' page through the links provided in the navbar and in the footer
 'Quick Links' section.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-dropdown-logged-in-mobile-device.png "Screenshot of the Log Out link within the Account dropdown on a mobile device.")
 
 <br>
 
-These links bring a site member to their personal My Account page where they have access
-to their Account Details, Address Book, Order History, Product Reviews and Blog Comments.
+These links bring a site member to their personal 'My Account' page where they have access
+to their 'Account Details', 'Address Book', 'Order History', 'Product Reviews' and 'Blog Comments'.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-details-tablet-device.png "Screenshot of the My Account page on a tablet device.")
 
@@ -1212,7 +1212,7 @@ the dropdown select box.
 
 <br>
 
-Once all three fiels have been filled the form can be posted. 
+Once all three fields have been filled the form can be posted. 
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leaving-a-review-form-tablet-device.png "Screenshot of the a filled in review form on a tablet device.")
 
@@ -1226,7 +1226,7 @@ A Success Toast message provides feedback on the successful submission.
 
 &#9745; Edit or delete my own reviews.
 
-Logged-in users can edit and delete their own product reviews using the 'Edit' and 'Delete' links
+Logged-in users can edit and delete their own product review using the 'Edit' and 'Delete' links
 rendered next to their review on the relevant Product Details page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-delete-review-buttons-mobile-device.png "Screenshot of the Edit and Delete Review buttons on a mobile device.")
@@ -1321,7 +1321,7 @@ the term into the search bar on the main Blog page.
 <br>
 
 Ease of navigation within the Blog has been further assisted through the inclusion of the Blog Search Bar
-within the Search Blog accordion on each BlogPost page.
+within the 'Search Blog' accordion on each BlogPost page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-search-accordion-mobile-device.png "Screenshot of the Blog Search Accordion on a mobile device.")
 
@@ -1364,7 +1364,7 @@ Success Toast message.
 
 &#9745; Edit or delete my own comments.
 
-Each site member has the ability to Edit or Delete their own Blog Comments.
+Each site member has the ability to edit or delete their own Blog Comments.
 
 'Edit' and 'Delete' links are to be found next to the individual comments beneath 
 the related BlogPost. These are visible solely to the creator of the comment in question.
@@ -1373,21 +1373,21 @@ the related BlogPost. These are visible solely to the creator of the comment in 
 
 <br>
 
-Alternatively members can access all of their Blog Comments and the associated Edit and Delete links
-from within their My Account page.
+Alternatively members can access all of their Blog Comments and the associated 'Edit' and 'Delete' links
+from within their 'My Account' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-blog-comments-tablet-device.png "Screenshot of My Blog Comments section of the Account page on a tablet device.")
 
 <br>
 
-The Edit link brings the user to the Edit Comment form where they can change their comment.
+The 'Edit' link brings the user to the Edit Comment form where they can change their comment.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-blog-comment-tablet-device.png "Screenshot of Edit Blog Comment page on a tablet device.")
 
 <br>
 
-The Delete link opens a Delete Modal asking the user to confirm their decision to delete their
-comment.  If they choose to continue with the action by pressing the Delete button, 
+The 'Delete' link opens a Delete Modal asking the user to confirm their decision to delete their
+comment.  If they choose to continue with the action by pressing the 'Delete' button, 
 the comment is deleted from the database.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-delete-blog-comment-modal-mobile-device.png "Screenshot of Delete Blog Comment modal on a mobile device.")

@@ -1601,6 +1601,7 @@ The following [Bootstrap](https://getbootstrap.com/) components were used and mo
 - Sliced Kiwi Fruit Photo from Lesly Juarez on [Unsplash](https://unsplash.com/photos/1rafrfyrsZw) was used for the Heart Health Blog Post image.
 - Vegan Salad Bowl by Anna Pelzer on [Unsplash](https://unsplash.com/photos/IGfIGP5ONV0) was used for the Easy Vegan Swaps Blog Post image.
 - Hot Cross Buns by Jasmine Waheed on [Unsplash](https://unsplash.com/photos/dRJGQAu6x8U) was used for the Cinnamon Hot Cross Buns Blog Post image.
+- Christmas Cake by Brett Jordan on [Unsplash](https://unsplash.com/@brett_jordan) was used for the Gluten Free Christmas Cake Blog Post image.
 - Shopping Cart Trolley Icon by icon0.com on [Unsplash](https://www.vecteezy.com/vector-art/575187-shopping-cart-trolley-icon) was used on the Shopping Cart page when no items were to be found in the user's cart.
 - Product images were provided by [Viridian Nutrition](https://www.viridian-nutrition.com/).
 <br>
