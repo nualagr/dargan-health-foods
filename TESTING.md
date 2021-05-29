@@ -1401,6 +1401,32 @@ the comment is deleted from the database.
 
 #### Tested Site Owner Stories
 
+As the owner of Dargan Health Foods website I would like to:
+
+&#9745;	Provide users with an effective and user-friendly platform where they can see what products Dargan's have to offer.
+&#9745; Provide site users with a straight-forward online shopping experience.
+&#9745; Provide visitors with visually appealing images of the products on offer.
+&#9745; Provide visitors with information about the products, such as their ingredients/nutritional information 
+(where applicable), so that they can make more informed choices when choosing their products.
+&#9745; Provide site users with an easy way to add their desired product to their cart.
+&#9745; Provide users with a visual representation of their cart total and the number of products already added, visible on all screens.
+&#9745; Provide users with an updated total when they add or remove products from their cart.
+&#9745; Provide users with an easy-to-use and secure online payment process.
+&#9745; Provide site users with product reviews written by site members.
+&#9745; Provide site members with a user-friendly way to share their own reviews of products, edit those reviews or delete them as they see fit.
+&#9745; Present the reviews in a visually appealing format.
+&#9745; Provide site members with the ability to search the site for a specific product by entering the name or the brand into a search box within the site.
+&#9745; Enable filtering of search results by allergen or other pertinent tags.
+&#9745; Encourage more users to sign up to become members of the Dargan community by creating a professional-looking website that is intuitive to use. 
+&#9745; Provide prospective members with the ability to sign-up easily.
+&#9745; Encourage more visitors to follow the site on social media and thereby raise the profile of the store.
+&#9745; Provide visible contact details so that all site visitors can contact the store with ease.
+&#9745; Be able to add new products to the online website with ease.
+&#9745; Edit existing product information with ease.
+&#9745; Indicate to customers when a product is out of stock.
+&#9745; Delete and/or discontinue products that are no longer available, removing their images and information from the website.
+&#9745; Easily add a new blog post to the site blog.
+
 ##### back to [top](#table-of-contents)
 ---
 

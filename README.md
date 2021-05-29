@@ -177,7 +177,7 @@ I am an existing Dargan Health Foods site member I want to be able to:
 -   Edit or delete my own comments.
 
 
-#### Store Owner
+#### Site Owner
 As the owner of Dargan Health Foods website I would like to:
 
 -	Provide users with an effective and user-friendly platform where they can see what products Dargan's have to offer.
