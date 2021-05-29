@@ -1449,6 +1449,10 @@ input[name="q"]::placeholder,
     .blog-header-container {
         padding-top: 170px !important;
     }
+
+    .header-container {
+        padding-top: 190px !important;
+    }
 }
 
 /* Desktop */

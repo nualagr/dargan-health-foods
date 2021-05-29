@@ -157,10 +157,10 @@ I am an existing Dargan Health Foods site member I want to be able to:
 -   Purchase my desired products using a secure online payment system.
 -   Receive an order confirmation email.
 -   View my order history.
--   Search for a product by entering a brand name or product name into a search box within the site.
+-   Search for a product by entering a brand name, product name, allergen or other pertinent keyword into a search box within the site.
 -   Search for a product by department, e.g. Hair & Beauty, Vitamins & Supplements, Special Offers.
 -   Sort search results, by price, alphabetically or by rating.
--   Filter search results by allergen or other pertinent tags.
+-   Filter products by allergen or other pertinent tags.
 -   See images of the product packaging.
 -   Read detailed descriptions of products.
 -   Read reviews of products written by site members.

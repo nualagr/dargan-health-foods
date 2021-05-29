@@ -805,6 +805,15 @@ path.
 
 <br>
 
+Products and BlogPost pages are paginated for a structured browsing experience.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-pagination-mobile-device.png "Screenshot of pagination buttons on a mobile device.")
+
+<br>
+
+A Back-To-Top button has also been provided on these pages to allow the user to quickly return to the top of the screen
+with minimal effort.
+
 &#9745; Easily find information outlining the features that membership of the site offers to its registered users.
 
 A section of the Home Page is devoted to encouraging new users to become a site member.
@@ -924,7 +933,21 @@ by entering their username or email address and their password and pressing the 
 
 &#9745; Navigate through the site with ease.
 
-For the logged-in user, site navigation is 
+For the logged-in user an extra navigation link to their My Account page has been provided
+with the links in the topnav on the desktop, within the Accound dropdown on a mobile device
+and in the 'Quick Links' footer section/accordion.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-vitamins-page-tablet-device.png "Screenshot of the navbar as it appears on a tablet device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-dropdown-logged-in-mobile-device.png "Screenshot of the Log Out link within the Account dropdown on a mobile device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-quick-links-accordion-logged-in-mobile-device.png "Screenshot of the Log Out link within the Quick Links accordion on a mobile device.")
+
+<br>
 
 &#9745; Log out of the site.
 
@@ -960,7 +983,7 @@ Site members have access to their Profile/My Account page through the links prov
 
 <br>
 
-These links brings the site member to their personal Account page where they have access
+These links bring a site member to their personal My Account page where they have access
 to their Account Details, Address Book, Order History, Product Reviews and Blog Comments.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-details-tablet-device.png "Screenshot of the My Account page on a tablet device.")
@@ -983,51 +1006,191 @@ and telephone number.
 
 &#9745; Take advantage of my site membership by applying discount codes.
 
+Site members, when logged-in, can see the special Promo Code input within their shopping cart.
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-logged-in-mobile-device.png "Screenshot of the Cart for a logged-in user on a mobile device.")
 
 <br>
+
+When the code has been successfully applied the user can see the discount that they
+will receive rendered within the Cart Summary table. The discount code is rendered
+as a Bootstrap badge with a small 'x' that changes when hovered over. This alerts
+the user that they can remove the discount code if they wish.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-promo-code-applied-tablet-device.png "Screenshot of the Cart with Promo Code on a tablet device.")
 
 <br>
 
+The Promo Code and discount being applied are also rendered within the Checkout Summary.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-tablet-device.png "Screenshot of the Checkout Page with Discount Code on a tablet device.")
+
+<br>
+
+
+
 &#9745; Purchase my desired products using a secure online payment system.
+
+By entering their credit card details within the Card input on the Checkout page
+users can purchase their desired items.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-credit-card-input-tablet-device.png "Screenshot of the credit card input on a tablet device.")
+
+<br>
+
+The payment is handled securely by [Stripe](www.stripe.com).
+
+A loading overlay and spinning icon provide visual feedback that their payment is being processed.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-loading-overlay-spinner-mobile-device.png "Screenshot of the loading overlay on a mobile device.")
+
+<br>
+
+Upon successful processing of the order and payment the user is redirected to the Checkout Success page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-order-confirmation-page-mobile-device.png "Screenshot of the order confirmation on a mobile device.")
+
+<br>
 
 &#9745; Receive an order confirmation email.
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-success-with-promo-code-tablet-device.png "Screenshot of the Checkout Success page with Promo Code on a tablet device.")
+A Success Toast and the loading of Checkout Success page informs the user that their
+payment has been processed and that their order has been accepted.  It also confirms
+the email address to which the Order Confirmation email is being sent.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-order-confirmation-mobile-device.png "Screenshot of the Success toast and order confirmation on a mobile device.")
 
 <br>
 
 &#9745; View my order history.
 
+A logged-in user can see a table of their past orders within the 'My Order History' tabbed pane
+on their 'My Account' page.
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-order-history-desktop-device.png "Screenshot of the Order History page on a desktop device.")
 
 <br>
 
+The order numbers on each row have been rendered in the same blue hue as other text links
+within the site. This alerts the user to the fact that these numbers operate a links.
+By clicking on them, the user is brought to the Order Confirmation page for that order.
 
-&#9745; Search for a product by entering a brand name or product name into a search box within the site.
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-past-order-confirmation-toast-mobile-device.png "Screenshot of the Past Order Confirmation toast on a mobile device.")
+
+<br>
+
+&#9745; Search for a product by entering a brand name, product name, allergen or other pertinent keyword into a search box within the site.
+
+A search box is visible on the desktop navbar at all times.  The search input on a mobile appears when the magnifying-glass icon is clicked.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-search-bar-expanded-logged-in-mobile-device.png "Screenshot of a search bar on a mobile device.")
+
+<br>
+
+Users can search the for a product by entering a specific brand or product title into the input, or
+by searching for an ingredient, tag or keyword instead.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-search-results-tablet-device.png "Screenshot of a search results on a desktop device.")
+
+<br>
 
 &#9745; Search for a product by department, e.g. Hair & Beauty, Vitamins & Supplements, Special Offers.
 
+Alternatively users can use the departmental titles within the main nav to search for a broad category of products.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-department-dropdown-desktop-device.png "Screenshot of a departmental dropdown on a desktop device.")
+
+<br>
+
+To return all products within a Department the user can choose the relevant dropdown link,
+for example, the 'All Vitamins & Minerals' option returns all of the products within the 
+Vitamins & Minerals department.
+
 &#9745; Sort search results, by price, alphabetically or by rating.
 
-&#9745; Filter search results by allergen or other pertinent tags.
+Users are able to sort the search results returned by rating, price or alphabetically.
+This can be done by chosing the desired ordering system from the sorting dropdown select box.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sorting-search-results-desktop-device.png "Screenshot of the sorting dropdown select on a desktop device.")
+
+<br>
+
+&#9745; Filter products by allergen or other pertinent tags.
+
+Keywords/tags associated with a specific product are 
+rendered as links on the Product Details page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-tags-desktop-device.png "Screenshot of product tags on a product details page on a desktop device.")
+
+<br>
+
+The user can choose to find other products associated with the 
+same keyword/tag by clicking on the desired link.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-kosher-products-tablet-device.png "Screenshot of products returned as being tagged as kosher on a desktop device.")
+
+<br>
 
 &#9745; See images of the product packaging.
 
+Users are presented with an image of each product, where available, on the product cards and within the
+Product Details page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-no-image-placeholder-mobile-device.png "Screenshot of a product image and the no image placeholder on a mobile device.")
+
+<br>
+
+Where more than one image of a product is available these are displayed within an image
+carousel on the product details page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-image-carousel-desktop-device.png "Screenshot of a product image carousel on a desktop device.")
+
+<br>
+
+
 &#9745; Read detailed descriptions of products.
 
+Descriptions of the products can be found on the Product Details page for each product.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-details-tablet-device.png "Screenshot of a Product Details page on a tablet device.")
+
+<br>
+
+Further information, product ingredients and directions for usage are to be found
+within the 'Details' accordion on the same page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-ingredients-tablet-device.png "Screenshot of the Details accordion on a Product Details page on a tablet device.")
+
+<br>
+
 &#9745; Read reviews of products written by site members.
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-details-reviews-tablet-device.png "Screenshot of a Product Details page with reviews on a tablet device.")
+
+Products that have been reviewed by Dargan's site members have an average star rating, rendered pictorially in 
+partially or fully filled in yellow stars and the total number of reviews written so far.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-with-2-reviews-mobile-device.png "Screenshot of a Product Details page with reviews on a mobile device.")
+
+<br>
+
+The Review Count is a link that brings the user to the 'Customer Reviews' accordion where 
+they can read the actual reviews.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-with-2-reviews-desktop-device.png "Screenshot of a Product Details page with reviews on a desktop device.")
 
 <br>
 
 &#9745; Leave a review of a product that I have previously purchased through the site.
 
+Customers who have purchased a product through the site can leave a review
+by navigating to the product details page for that product.
+Within the 'Customer Reviews' accordion they can select the 'Leave a Review' button.
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-button-mobile-device.png "Screenshot of the Leave a Review button on a mobile device.")
 
 <br>
+
+The customer is brought to a page with a clearly labelled form
+where they can enter and submit their review.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-tablet-device.png "Screenshot of the Leave a Review form on a tablet device.")
 
@@ -1036,17 +1199,26 @@ and telephone number.
 
 &#9745; Input my review easily into a user-friendly form that is straightforward to use.
 
+The Product Review Form has a helpful label and placeholder text to instruct the user.
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-desktop-device.png "Screenshot of the Leave a Review form on a desktop device.")
 
 <br>
+
+The product rating simply requires the user to choose the correct number of stars from 
+the dropdown select box.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-star-rating-dropdown-desktop-device.png "Screenshot of the Leave a Review form star rating dropdown on a desktop device.")
 
 <br>
 
+Once all three fiels have been filled the form can be posted. 
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leaving-a-review-form-tablet-device.png "Screenshot of the a filled in review form on a tablet device.")
 
 <br>
+
+A Success Toast message provides feedback on the successful submission. 
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leaving-a-review-success-toast-desktop-device.png "Screenshot of the success toast when a review is successfully posted on a desktop device.")
 
@@ -1054,28 +1226,44 @@ and telephone number.
 
 &#9745; Edit or delete my own reviews.
 
+Logged-in users can edit and delete their own product reviews using the 'Edit' and 'Delete' links
+rendered next to their review on the relevant Product Details page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-delete-review-buttons-mobile-device.png "Screenshot of the Edit and Delete Review buttons on a mobile device.")
 
 <br>
 
+Site members also have access to these links on their 'My Account' page within the
+'Product Reviews' tabbed pane. 
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-product-reviews-tablet-device.png "Screenshot of the My Account My Product Reviews tab on a tablet device.")
 
 <br>
+
+Clicking the 'Edit' link brings the user to the 'Edit Review' form, which has been
+prefilled with the current review. The user can then alter the content as needed before
+submitting the form and updating their review.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-review-desktop-device.png "Screenshot of the Edit Review Form on a desktop device.")
 
 <br>
 
-
-
 &#9745; Be secure in the knowledge that no other user can edit or delete my reviews.
+
+Within the 'Customer Reviews' accordion users can see that the 'Edit' and 'Delete' links are
+only visible next to reviews that they themselves have submitted. Customers cannot 
+alter content submitted by others.
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-delete-review-buttons-2-reviews-mobile-device.png "Screenshot of the Edit and Delete review buttons on a mobile device.")
 
 <br>
 
 
 &#9745; Be secure in the knowledge that measures have been put in place to prevent me from accidentally deleting one of my own reviews.
+
+In order to prevent users from accidentally deleting their reviews, the 'Delete' link
+opens a 'Delete Modal' in which the site member can 'Cancel' the action, or confirm 
+that they wish to proceed by choosing the relevant button. 
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-delete-review-modal-mobile-device.png "Screenshot of the Delete Review modal on a mobile device.")
 
@@ -1098,13 +1286,6 @@ The Dargan Health Foods shop address, business email address and phone number ar
 
 <br>
  
-Site members are provided with the shop's Opening Hours within the section/accordion of the same
-name in the footer.
-
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-opening-hours-mobile-device.png "Screenshot of the Opening Hours accordion in the Footer on a mobile device.")
-
-<br>
-
 &#9745; Easily locate any social media accounts connected to the site.
 
 Links to the Dargan Health Foods Facebook and Instagram accounts are to be found in the footer on every page.
@@ -1115,42 +1296,60 @@ Links to the Dargan Health Foods Facebook and Instagram accounts are to be found
 
 &#9745; Navigate with ease to the site's blog.
 
+Links to the Dargan's Blog are provided on the topnav of the desktop navbar,
+within the main dropdown menu on the mobile navbar and within the 'Quick Links'
+section/accordion of the Footer.
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-desktop-device.png "Screenshot of the Blog on a desktop device.")
-
-<br>
-
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-filter-dropdown-mobile-device.png "Screenshot of the Blog Filter dropdown on a mobile device.")
-
-<br>
-
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-breadcrumbs-navigation-desktop-device.png "Screenshot of the Blog breadcrumbs navigation on a desktop device.")
 
 <br>
 
 &#9745; Search for a blog post by title or keyword.
 
+User's can search for a relevant BlogPost by choosing the desired topic from the
+dropdown filter provided near the top of the Blog page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-filter-dropdown-mobile-device.png "Screenshot of the Blog Filter dropdown on a mobile device.")
+
+<br>
+
+If a user wishes to search the Blog by keyword instead they can do this by entering
+the term into the search bar on the main Blog page.
+
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-search-bar-mobile-device.png "Screenshot of the Blog search bar on a mobile device.")
 
 <br>
 
-Ease of navigation has been further assisted through the inclusion of the Blog Search Bar
+Ease of navigation within the Blog has been further assisted through the inclusion of the Blog Search Bar
 within the Search Blog accordion on each BlogPost page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-search-accordion-mobile-device.png "Screenshot of the Blog Search Accordion on a mobile device.")
 
 <br>
 
+In a similar fashion to the keyword tags on the products pages, users can click on
+the BlogPost tags to find other posts which share that classification
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-gluten-free-posts-desktop-device.png "Screenshot of the blog posts tagged as gluten free on a desktop device.")
+
+<br>
+
+Breadcrumbs links allow users to jump to the related topic page or the main Blog page directly from a BlogPost.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-breadcrumbs-navigation-desktop-device.png "Screenshot of the Blog breadcrumbs navigation on a desktop device.")
+
+<br>
 
 &#9745; Comment on a blog post.
 
 Beneath each blog post, within the 'Comments' accordion, there is a 'Leave a Comment' button.
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-blog-comment-button-mobile-device.png "Screenshot of the Leave a Comment button mobile device.")
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-leave-a-comment-button-mobile-device.png "Screenshot of the Leave a Comment button mobile device.")
 
 <br>
 
-This brings users to the Blog Comment form, which allows them to simply input their comment
-into a text field and 'Upload' it.
+This brings users to the Blog Comment form, which allows them to input their comment
+into a simple text field and 'Upload' it.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-comments-form-tablet-device.png "Screenshot of the Add Blog Comment form on a tablet device.")
 
@@ -1167,8 +1366,8 @@ Success Toast message.
 
 Each site member has the ability to Edit or Delete their own Blog Comments.
 
-Edit and Delete links are to be found next to the individual comments beneath the BlogPost.
-These are visible solely to the creator of the comment in question.
+'Edit' and 'Delete' links are to be found next to the individual comments beneath 
+the related BlogPost. These are visible solely to the creator of the comment in question.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-comments-mobile-device.png "Screenshot of Blog Comments on a mobile device.")
 
