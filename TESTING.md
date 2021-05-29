@@ -721,6 +721,10 @@ pages.
 
 Breadcrumbs navigation has been provided at the top of each Post to facilitate navigation within the Blog.
 
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-breadcrumbs-navigation-mobile-device.png "Screenshot of a BlogPost on a mobile device.")
+
+<br>
+
 Keywords assigned to the BlogPost have been rendered as Tag links below the subheading. The user can
 browse other posts which share the Tag classification by clicking on the tags.
 
@@ -731,6 +735,9 @@ within the Search Blog accordion on each BlogPost page.
 
 <br>
 
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-comments-plural-mobile-device.png "Screenshot of the Blog Comments accordion on a mobile device.")
+
+<br>
 
 &#9745; Easily get in contact with the store if I have any questions.
 
@@ -1026,9 +1033,6 @@ and telephone number.
 
 <br>
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-star-rating-dropdown-desktop-device.png "Screenshot of the Leave a Review form star rating dropdown on a desktop device.")
-
-<br>
 
 &#9745; Input my review easily into a user-friendly form that is straightforward to use.
 
@@ -1036,8 +1040,24 @@ and telephone number.
 
 <br>
 
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-star-rating-dropdown-desktop-device.png "Screenshot of the Leave a Review form star rating dropdown on a desktop device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leaving-a-review-form-tablet-device.png "Screenshot of the a filled in review form on a tablet device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leaving-a-review-success-toast-desktop-device.png "Screenshot of the success toast when a review is successfully posted on a desktop device.")
+
+<br>
 
 &#9745; Edit or delete my own reviews.
+
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-delete-review-buttons-mobile-device.png "Screenshot of the Edit and Delete Review buttons on a mobile device.")
+
+<br>
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-product-reviews-tablet-device.png "Screenshot of the My Account My Product Reviews tab on a tablet device.")
 
@@ -1050,8 +1070,16 @@ and telephone number.
 
 
 &#9745; Be secure in the knowledge that no other user can edit or delete my reviews.
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-delete-review-buttons-2-reviews-mobile-device.png "Screenshot of the Edit and Delete review buttons on a mobile device.")
+
+<br>
+
 
 &#9745; Be secure in the knowledge that measures have been put in place to prevent me from accidentally deleting one of my own reviews.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-delete-review-modal-mobile-device.png "Screenshot of the Delete Review modal on a mobile device.")
+
+<br>
 
 &#9745; Contact the store owner.
 

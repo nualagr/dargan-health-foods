@@ -389,15 +389,8 @@
                 </div>
             </nav>
         </div>
-        <!-- Delivery Banner -->
-        <div id="delivery-banner" class="row text-center">
-            <div class="col bg-apple-green text-white">
-                <h4 class="my-1">
-                    <i class="fas fa-truck"></i>
-                    Free delivery on orders over €{{ free_delivery_threshold }}!
-                </h4>
-            </div>
-        </div>
+        {% block extra_header %}
+        {% endblock %}
     </header>
 
     {% block page_header %}

@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_header %}
+    {% include 'includes/delivery_banner.html' %}
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -17,7 +21,7 @@
         <div class="col-12 col-lg-9 mx-auto">
             <h3 class="page-title text-muted" id="page-title-heading" aria-labelledby="page-title-heading">
                 You are editing your review of: </h3>
-            <h4 class="my-1 text-green text-center">{{ product.brand.friendly_name }}'s <strong>{{ product.friendly_name }}</strong></h4>
+            <h4 class="my-3 text-green text-center">{{ product.brand.friendly_name }}'s <strong>{{ product.friendly_name }}</strong></h4>
         </div>
     </div>
     <!-- Edit Product Review Form Row -->

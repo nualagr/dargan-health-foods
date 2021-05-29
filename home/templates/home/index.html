@@ -4,6 +4,10 @@
 
 {% block extra_title %}Home{% endblock %}
 
+{% block extra_header %}
+    {% include 'includes/delivery_banner.html' %}
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -46,16 +50,16 @@
                         <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
                         <div class="card text-center">
                             {% if product.main_image %}
-                                <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                    <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
-                                        alt="{{ product.abbreviated_friendly_name }}">
-                                </a>
-                                {% else %}
-                                <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                    <img src="{{ MEDIA_URL }}product_images/no-image-placeholder.svg" class="card-img-top"
-                                        alt="{{ product.abbreviated_friendly_name }}">
-                                </a>
-                                {% endif %}
+                            <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
+                                    alt="{{ product.abbreviated_friendly_name }}">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                <img src="{{ MEDIA_URL }}product_images/no-image-placeholder.svg" class="card-img-top"
+                                    alt="{{ product.abbreviated_friendly_name }}">
+                            </a>
+                            {% endif %}
                             <div class="card-body">
                                 <p class="card-text brand-name">{{ product.brand }}</p>
                                 <a href="{% url 'product_detail' product.id %}" class="product-link">
@@ -71,9 +75,12 @@
                                             {% csrf_token %}
                                             <div class="col">
                                                 <div class="input-group">
-                                                    <input class="form-control qty-input rounded-0" type="hidden" name="quantity" value="1">
+                                                    <input class="form-control qty-input rounded-0" type="hidden"
+                                                        name="quantity" value="1">
                                                 </div>
-                                                <input type="submit" class="common-button btn-orange quick-add-to-cart-btn" value="Add to Cart">
+                                                <input type="submit"
+                                                    class="common-button btn-orange quick-add-to-cart-btn"
+                                                    value="Add to Cart">
                                             </div>
                                             <!-- Submit the current url with the form so that we can redirect the user back to the same page once the item has been added to the Cart -->
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -87,7 +94,8 @@
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
-                        <a class="page-link-with-arrow" href="{% url 'products' %}?sort=-date_added&limit=30" title="View All New In link">
+                        <a class="page-link-with-arrow" href="{% url 'products' %}?sort=-date_added&limit=30"
+                            title="View All New In link">
                             <span class="link">View All New Products</span>
                         </a>
                     </div>
@@ -165,7 +173,8 @@
                 <p>
                     Promo Code: <strong>NEW10</strong>
                 </p>
-                <a href="{% url 'account_signup' %}" class="common-button btn-orange" aria-label="Registration link">Sign Up to Claim Your Discount</a>
+                <a href="{% url 'account_signup' %}" class="common-button btn-orange"
+                    aria-label="Registration link">Sign Up to Claim Your Discount</a>
             </div>
         </div>
     </div>

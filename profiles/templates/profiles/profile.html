@@ -7,6 +7,10 @@
 
 {% block extra_title %}My Account{% endblock %}
 
+{% block extra_header %}
+    {% include 'includes/delivery_banner.html' %}
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -82,14 +86,24 @@
                         <tbody>
                             <tr>
                                 <th scope="col">Username</th>
-                                <td>{{ user.username }}</td>
+                                <td class="d-none d-md-block">{{ user.username }}</td>
+                            </tr>
+                            <tr class="d-block d-md-none">
+                                <td colspan="2">
+                                    {{ user.username }}
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="col">Email address</th>
-                                <td>{{ user.email }}</td>
+                                <td class="d-none d-md-block">{{ user.email }}</td>
+                            </tr>
+                            <tr class="d-block d-md-none">
+                                <td colspan="2">
+                                    {{ user.email }}
+                                </td>
                             </tr>
                             <tr>
-                                <td colspan="2" class="text-end">
+                                <td colspan="2" class="text-end pt-3">
                                     <a class="common-button btn-apple-green" href="{% url 'account_change_password' %}">
                                         <i class="fas fa-unlock-alt"></i>&nbsp;Change Password
                                     </a>
