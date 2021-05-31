@@ -1418,13 +1418,13 @@ As the owner of Dargan Health Foods website I would like to:
 Site visitors can see images of the products on the site within the product cards displayed
 in the 'New In' section of the homepage and on the different 'Products' pages,
 whether they choose to browse the store by department, category, tag or to search 
-for by keyword or by brand. 
+for a keyword or by brand. 
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-organic-products-store-owner-desktop-device.png "Screenshot of a the Organic search results page on a desktop device.")
 
 <br>
 
-&#9745; Provide site users with a straight-forward online shopping experience.
+&#9745; Provide site users with a straightforward online shopping experience.
 
 The high-quality images provided, where available, allow the user to quickly visually identify the products.
 If they recognise them as the product they require, an 'Add to Cart' button allows
@@ -1456,14 +1456,14 @@ allowing the user to see at a glance the value of the potential saving.
 &#9745; Provide visitors with information about the products, such as their ingredients/nutritional information 
 (where applicable), so that they can make more informed choices when choosing their products.
 
-Each 'Product Details' page provides site visitors with a general description of the product.
+Each 'Product Details' page provides site visitors with a general description of that product.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-description-store-owner-mobile-device.png "Screenshot of a product description on a mobile device.")
 
 <br>
 
-If they user wishes to access more details, including the product ingredients and 
-directions for consumption they have been rendered within the 'Details' accordion
+If they user wishes to access more information, including the product ingredients and 
+directions for consumption they can do so by opening the 'Details' accordion
 on the same page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-ingredients-store-owner-tablet-device.png "Screenshot of a product ingredients list on a tablet device.")
@@ -1481,13 +1481,13 @@ page.
 <br>
 
 If the user wishes to add more than one unit of the item to their cart they can 
-do so on the 'Product Details' page using the quanity input and the 'Add to Cart' button.
+do so on the 'Product Details' page using the quantity input and the 'Add to Cart' button.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-details-quantity-input-store-owner-tablet-device.png "Screenshot of the quantity input on a tablet device.")
 
 <br>
 
-Users can also increase or decrease they quantity of any item in their shopping cart
+Users can also increase or decrease the quantity of any item in their shopping cart
 using the quantity controls within the 'Cart' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-quantity-controls-store-owner-tablet-device.png "Screenshot of the quantity controls in the Cart on a tablet device.")
@@ -1587,10 +1587,11 @@ rating in stars which allow users to see each customer's score at a glance.
 
 <br>
 
-Each individual star rating is also rendered on a 
-site member's 'My Product Reviews' tabbed navigational pane within their 
-'My Account' page.  This provides users with a quick visual reminder of 
-their own product ratings.
+A member's star ratings are also rendered within the
+'My Product Reviews' tabbed navigational pane on their 'My Account' page.
+This table provides users with a quick overview of their reviews and 
+product ratings as well as providing them with links to those reviews
+and the ability to edit or delete their own content.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-my-account-product-reviews-tablet-device.png "Screenshot of the 'My Product Reviews' tabbed pane on a tablet device.")
 
@@ -1659,10 +1660,9 @@ every page.
 <br>
 In addition to these very visible reminders, further links have been provided
 within other site pages at strategic points in order to facilitate ease of registration.
-
 For example, when a user is on the 'Checkout' page they are
 provided with multiple opportunities to sign up in order to 
-facilitate a faster checkout process in the future.
+take advantage of a faster checkout process in the future.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-sign-up-links-tablet-device.png "Screenshot of the 'Sign Up' links in the Checkout on a tablet device.")
 
@@ -1675,7 +1675,8 @@ Any 'Sign Up' link brings the user to the clearly labelled 'Sign Up Form'.
 <br>
 
 Once the form has been filled out and submitted the user is informed that they
-have been sent an email in order to confirm their email address is legitimate.
+have been sent an email in order to confirm that the email address they
+provided is legitimate.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-verify-your-email-desktop-device.png "Screenshot of the 'Verify Your Email Address' page on a desktop device.")
 
@@ -1783,7 +1784,7 @@ they can edit the current information before saving their alterations.
 
 &#9745; Delete and/or discontinue products that are no longer available, removing their images and information from the website.
 
-Delete fucntionality is provided to Superusers through the provision
+Delete functionality is provided to Superusers through the provision
 of 'Delete' links which are to be found on each 'Product Detail' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-delete-product-link-desktop-device.png "Screenshot of the superuser 'Delete' product link on a desktop device.")
@@ -1820,7 +1821,8 @@ in the site footer on every page.
 
 <br>
 
-A new blog post can be added by filling out the clearly labelled form.
+A new blog post can be added by filling out the clearly labelled form
+and pressing the 'Add Blog Post' button.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-add-blog-post-form-mobile-device.png "Screenshot of the superuser 'Add Blog Post Form' on a mobile device.")
 
