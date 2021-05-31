@@ -16,7 +16,6 @@
     - [Prospective User](#tested-prospective-user-stories)
     - [Existing User](#tested-existing-user-stories)
     - [Site Owner](#tested-site-owner-stories)
-- [Manual Testing](#manual-testing)
 - [Automated Testing](#automated-testing)
     - [Unittests](#unittests)
     - [Coverage Installation and Setup](#coverage-installation-and-setup)
@@ -357,7 +356,7 @@ Each website feature, including accordions, buttons, modals, external links, hov
 ##### back to [top](#table-of-contents)
 ---
 
-## Defensive Design
+## Defensive Design Testing
 
 As a Logged-Out User it was attempted to access a Dargan Health Food member's account and associated pages as well as the SuperUser's Admin, Blog and Product management pages using the following urls:
 
