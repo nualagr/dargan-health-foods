@@ -784,9 +784,9 @@ operates as a direct link to the homepage.
 <br>
 
 The site Footer is divided into three separate sections, which are rendered neatly as collapsed accordions on mobile devices. 
-The first section/accordion provides links to the homepage, in the form of the brand header, a link to the home page,
-and links to facilitate ease of contact by email or by phone. 
-There is also a helpful link, which opens an external tab, showing the shop's physical location on Google Maps.
+The first section/accordion provides links to the homepage, in the form of the brand header and links to 
+facilitate easy contact with the Dargan's team by email or by phone. 
+There is also a helpful link, which opens an external tab, showing the shop's physical location on [Google Maps](https://www.google.com/maps/place/Dargan+Health+Foods+%26+Therapy+Centre/@52.6663698,-8.5551142,17z/data=!3m1!4b1!4m5!3m4!1s0x485b5c109808a3ed:0x872b2c8c38046fe5!8m2!3d52.6663666!4d-8.5529255?shorturl=1).
 
 Within the third section/accordion, links to commonly required site pages are 
 rendered for convenience.  This provides the user with easy navigation across the site 
@@ -1015,7 +1015,7 @@ Site members, when logged-in, can see the special Promo Code input within their 
 When the code has been successfully applied the user can see the discount that they
 will receive rendered within the Cart Summary table. The discount code is rendered
 as a Bootstrap badge with a small 'x' that changes when hovered over. This alerts
-the user that they can remove the discount code if they wish.
+the user to the fact that they can remove the discount code if they so wish.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-promo-code-applied-tablet-device.png "Screenshot of the Cart with Promo Code on a tablet device.")
 
@@ -1046,7 +1046,7 @@ A loading overlay and spinning icon provide visual feedback that their payment i
 
 <br>
 
-Upon successful processing of the order and payment the user is redirected to the Checkout Success page.
+Upon successful processing of the order and payment the user is redirected to the 'Checkout Success' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-order-confirmation-page-mobile-device.png "Screenshot of the order confirmation on a mobile device.")
 
@@ -1054,9 +1054,9 @@ Upon successful processing of the order and payment the user is redirected to th
 
 &#9745; Receive an order confirmation email.
 
-A Success Toast and the loading of Checkout Success page informs the user that their
-payment has been processed and that their order has been accepted.  It also confirms
-the email address to which the Order Confirmation email is being sent.
+The redirection to the 'Checkout Success' page and a Success Toast message inform the user that their
+payment has been processed and that their order has been accepted. Text within the page
+and the toast confirm the email address to which the Order Confirmation email is being sent.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-order-confirmation-mobile-device.png "Screenshot of the Success toast and order confirmation on a mobile device.")
 
@@ -1073,7 +1073,7 @@ on their 'My Account' page.
 
 The order numbers on each row have been rendered in the same blue hue as other text links
 within the site. This alerts the user to the fact that these numbers operate a links.
-By clicking on them, the user is brought to the Order Confirmation page for that order.
+By clicking on them, the user is brought to the 'Order Confirmation' page for that order.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-past-order-confirmation-toast-mobile-device.png "Screenshot of the Past Order Confirmation toast on a mobile device.")
 
@@ -1104,7 +1104,7 @@ Alternatively users can use the departmental titles within the main nav to searc
 
 To return all products within a Department the user can choose the relevant dropdown link,
 for example, the 'All Vitamins & Minerals' option returns all of the products within the 
-Vitamins & Minerals department.
+'Vitamins & Minerals' department.
 
 &#9745; Sort search results, by price, alphabetically or by rating.
 
@@ -1126,6 +1126,8 @@ rendered as links on the Product Details page.
 
 The user can choose to find other products associated with the 
 same keyword/tag by clicking on the desired link.
+They will be redirected to a page displaying those products, which
+can then be sorted alphabetically, by rating or by price.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-kosher-products-tablet-device.png "Screenshot of products returned as being tagged as kosher on a desktop device.")
 
@@ -1135,13 +1137,15 @@ same keyword/tag by clicking on the desired link.
 
 Users are presented with an image of each product, where available, on the product cards and within the
 Product Details page.
+If no image is available, the user is made aware of this through the 
+rendering of the 'no-image-placeholder.svg'.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-no-image-placeholder-mobile-device.png "Screenshot of a product image and the no image placeholder on a mobile device.")
 
 <br>
 
-Where more than one image of a product is available these are displayed within an image
-carousel on the product details page.
+Where more than one image of a product is available these are displayed, for browsing convenience,
+within an image carousel on the product details page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-image-carousel-desktop-device.png "Screenshot of a product image carousel on a desktop device.")
 
@@ -1166,13 +1170,14 @@ within the 'Details' accordion on the same page.
 &#9745; Read reviews of products written by site members.
 
 Products that have been reviewed by Dargan's site members have an average star rating, rendered pictorially in 
-partially or fully filled in yellow stars and the total number of reviews written so far.
+partially or fully filled in yellow stars. Next to the stars, a Review Count shows the total number of 
+customer reviews submitted so far.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-with-2-reviews-mobile-device.png "Screenshot of a Product Details page with reviews on a mobile device.")
 
 <br>
 
-The Review Count is a link that brings the user to the 'Customer Reviews' accordion where 
+This Review Count is a link that brings the user to the 'Customer Reviews' accordion where 
 they can read the actual reviews.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-with-2-reviews-desktop-device.png "Screenshot of a Product Details page with reviews on a desktop device.")
@@ -1184,6 +1189,7 @@ they can read the actual reviews.
 Customers who have purchased a product through the site can leave a review
 by navigating to the product details page for that product.
 Within the 'Customer Reviews' accordion they can select the 'Leave a Review' button.
+This button is only displayed if they current user has previously purchased this item.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-button-mobile-device.png "Screenshot of the Leave a Review button on a mobile device.")
 
@@ -1306,7 +1312,7 @@ section/accordion of the Footer.
 
 &#9745; Search for a blog post by title or keyword.
 
-User's can search for a relevant BlogPost by choosing the desired topic from the
+Users can search for a BlogPost by choosing the desired topic from the
 dropdown filter provided near the top of the Blog page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-filter-dropdown-mobile-device.png "Screenshot of the Blog Filter dropdown on a mobile device.")
@@ -1329,6 +1335,10 @@ within the 'Search Blog' accordion on each BlogPost page.
 
 In a similar fashion to the keyword tags on the products pages, users can click on
 the BlogPost tags to find other posts which share that classification
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-post-with-tags-tablet-device.png "Screenshot of a blog post with tags on a tablet device.")
+
+<br>
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-gluten-free-posts-desktop-device.png "Screenshot of the blog posts tagged as gluten free on a desktop device.")
 
@@ -1404,33 +1414,418 @@ the comment is deleted from the database.
 As the owner of Dargan Health Foods website I would like to:
 
 &#9745;	Provide users with an effective and user-friendly platform where they can see what products Dargan's have to offer.
+
+Site visitors can see images of the products on the site within the product cards displayed
+in the 'New In' section of the homepage and on the different 'Products' pages,
+whether they choose to browse the store by department, category, tag or to search 
+for by keyword or by brand. 
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-organic-products-store-owner-desktop-device.png "Screenshot of a the Organic search results page on a desktop device.")
+
+<br>
+
 &#9745; Provide site users with a straight-forward online shopping experience.
+
+The high-quality images provided, where available, allow the user to quickly visually identify the products.
+If they recognise them as the product they require, an 'Add to Cart' button allows
+them to add a single unit of that product to their shopping cart immeditately 
+without the need to opening the individual 'Product Details' page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-all-products-store-owner-desktop-device.png "Screenshot of a the All Products page on a desktop device.")
+
+<br>
+
 &#9745; Provide visitors with visually appealing images of the products on offer.
+
+Where more than one image is available the user can easily scroll through them using the
+previous and next controls on the image carousel.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-image-carousel-store-owner-desktop-device.png "Screenshot of a product image carousel on a desktop device.")
+
+<br>
+
+Ribbons on certain product cards alert the user to products which are currently on offer.
+The regular product price is displayed in muted strikethrough text alongside the sale price
+allowing the user to see at a glance the value of the potential saving.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-products-store-owner-desktop-device.png "Screenshot of the products page on a desktop device.")
+
+<br>
+
+
 &#9745; Provide visitors with information about the products, such as their ingredients/nutritional information 
 (where applicable), so that they can make more informed choices when choosing their products.
+
+Each 'Product Details' page provides site visitors with a general description of the product.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-description-store-owner-mobile-device.png "Screenshot of a product description on a mobile device.")
+
+<br>
+
+If they user wishes to access more details, including the product ingredients and 
+directions for consumption they have been rendered within the 'Details' accordion
+on the same page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-ingredients-store-owner-tablet-device.png "Screenshot of a product ingredients list on a tablet device.")
+
+<br>
+
 &#9745; Provide site users with an easy way to add their desired product to their cart.
+
+The eye-catching 'Add to Cart' buttons on the product cards allow users to add a single
+unit of the desired item to their cart immediately without having to open the 'Product Details' 
+page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-add-to-cart-buttons-store-owner-mobile-device.png "Screenshot of the 'Add to Cart' buttons on a mobile device.")
+
+<br>
+
+If the user wishes to add more than one unit of the item to their cart they can 
+do so on the 'Product Details' page using the quanity input and the 'Add to Cart' button.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-details-quantity-input-store-owner-tablet-device.png "Screenshot of the quantity input on a tablet device.")
+
+<br>
+
+Users can also increase or decrease they quantity of any item in their shopping cart
+using the quantity controls within the 'Cart' page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-quantity-controls-store-owner-tablet-device.png "Screenshot of the quantity controls in the Cart on a tablet device.")
+
+<br>
+
+
 &#9745; Provide users with a visual representation of their cart total and the number of products already added, visible on all screens.
+
+Users can see the number of items currently in their cart and the current cart total
+on the site navbar at all times.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-icon-with-items-mobile-device.png "Screenshot of the cart icon with items on a mobile device.")
+
+<br>
+
+On desktop devices this has been rendered as a 'Mini Cart'.  The cart icon and total allow
+the user to navigate to the 'Cart' page. The 'Checkout' button allows them to skip this 
+step and go directly to the 'Checkout' page if they wish.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-icon-with-items-desktop-device.png "Screenshot of the cart icon with items on a desktop device.")
+
+<br>
+
+
 &#9745; Provide users with an updated total when they add or remove products from their cart.
+
+When users add items to their cart the cart total and number of items within their cart
+are updated on the navbar.  Further confirmation of the addition is provided in the 
+form of a Success Toast message.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-success-toast-items-mobile-device.png "Screenshot of the success toast message on a mobile device.")
+
+<br>
+
+If a user removes or updates the quantity of an item from within the 'Cart' page the 
+navbar total and number of items is updated, the lineitem subtotal is changed and 
+the cart 'Summary' table is updated.  A textual message is displayed on screen 
+providing further visual confirmation of the action performed.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-update-cart-message-mobile-device.png "Screenshot of the cart update message on a mobile device.")
+
+<br>
+
+
 &#9745; Provide users with an easy-to-use and secure online payment process.
+
+Dargan Health Foods secure payment system is provided by [Stripe](www.stripe.com).
+Users can purchase their desired products by completing the clearly labelled
+'Billing Details' form and entering their credit card details into the Stripe input.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-stripe-input-filled-mobile-device.png "Screenshot of the Stripe input on a mobile device.")
+
+<br>
+
 &#9745; Provide site users with product reviews written by site members.
+
+Product reviews left by Dargan Health Foods members can be read by any site visitor.
+The average score for a product is displayed pictorially in partially or fully 
+filled-in stars on the 'Product Details' page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-star-rating-desktop-device.png "Screenshot of a product's star rating on a desktop device.")
+
+<br>
+
+The 'Review Count' not only lets the user know how many reviews the rating is out of, but
+it also operates as a link, opening the 'Customer Reviews' accordion and bringing the 
+user to that part of the page so that they can read the reviews.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-customer-reviews-accordion-desktop-device.png "Screenshot of the 'Customer Reviews' accordion on a desktop device.")
+
+<br>
+
 &#9745; Provide site members with a user-friendly way to share their own reviews of products, edit those reviews or delete them as they see fit.
+
+Dargan Health Foods site members can leave reviews of products that they have purchased
+by clicking on the 'Leave a Review' button which is visible at the 
+top of the 'Customer Reviews' accordion on the 'Product Detail' page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-button-desktop-device.png "Screenshot of the 'Leave a Review' button on a desktop device.")
+
+<br>
+
+This brings the user to a well-labelled, easy-to-fill-out form.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-review-form-desktop-device.png "Screenshot of the 'Product Review Form' on a desktop device.")
+
+<br>
+
+
 &#9745; Present the reviews in a visually appealing format.
-&#9745; Provide site members with the ability to search the site for a specific product by entering the name or the brand into a search box within the site.
-&#9745; Enable filtering of search results by allergen or other pertinent tags.
+
+Product review titles are prefixed with a pictorial representation of the product 
+rating in stars which allow users to see each customer's score at a glance.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-customer-reviews-tablet-device.png "Screenshot of the 'Customer Reviews' accordion on a tablet device.")
+
+<br>
+
+Each individual star rating is also rendered on a 
+site member's 'My Product Reviews' tabbed navigational pane within their 
+'My Account' page.  This provides users with a quick visual reminder of 
+their own product ratings.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-my-account-product-reviews-tablet-device.png "Screenshot of the 'My Product Reviews' tabbed pane on a tablet device.")
+
+<br>
+
+
+&#9745; Provide site members with the ability to search the site for a 
+specific product by entering the name or the brand into a search box within the site.
+
+Users can use the search bar on the navbar to search for a product by 
+title, brand or keyword.  This search bar is visible at all times on the 
+desktop navbar.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-search-bar-and-results-tablet-device.png "Screenshot of a search for a product brand on a tablet device.")
+
+<br>
+
+This search bar appears once the magnifying-glass icon on the mobile
+navbar has been clicked.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-search-bar-and-results-mobile-device.png "Screenshot of a search for a keyword on a mobile device.")
+
+<br>
+
+&#9745; Enable sorting of search results.
+
+Search results, whether conducted using the search bar or using the departmental and 
+category links, can be sorted alphabetically or by price or rating using the 
+'Sort by...' dropdown select box.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sort-dropdown-desktop-device.png "Screenshot of the 'Sort' dropdown on a desktop device.")
+
+<br>
+
+
 &#9745; Encourage more users to sign up to become members of the Dargan community by creating a professional-looking website that is intuitive to use. 
+
+Site visitors are encouraged to become site members. 
+There is a section of the homepage, entitled 'Members Get More'
+which outlines some of the benefits of joining the site.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-members-get-more-desktop-device.png "Screenshot of the 'Members Get More' section on a desktop device.")
+
+<br>
+
+The financial benefits of being a Dargan's member is emphasised 
+on the 'Cart' page with the inclusion of a 'Sign In' link and
+reminder to visitors that site members can avail of discounts 
+by applying Promo Codes to their Cart.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-sign-in-link-tablet-device.png "Screenshot of the 'Sign In' link on a tablet device.")
+
+<br>
+
 &#9745; Provide prospective members with the ability to sign-up easily.
+
+Links to the site registration page are found within the navbar and footer on 
+every page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-logged-out-navbar-desktop-device.png "Screenshot of the navbar on a desktop device.")
+
+<br>
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-logged-out-footer-desktop-device.png "Screenshot of the footer on a desktop device.")
+
+<br>
+In addition to these very visible reminders, further links have been provided
+within other site pages at strategic points in order to facilitate ease of registration.
+
+For example, when a user is on the 'Checkout' page they are
+provided with multiple opportunities to sign up in order to 
+facilitate a faster checkout process in the future.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-sign-up-links-tablet-device.png "Screenshot of the 'Sign Up' links in the Checkout on a tablet device.")
+
+<br>
+
+Any 'Sign Up' link brings the user to the clearly labelled 'Sign Up Form'.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sign-up-tablet-device.png "Screenshot of the 'Sign Up Form' on a tablet device.")
+
+<br>
+
+Once the form has been filled out and submitted the user is informed that they
+have been sent an email in order to confirm their email address is legitimate.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-verify-your-email-desktop-device.png "Screenshot of the 'Verify Your Email Address' page on a desktop device.")
+
+<br>
+
+When the user follows the link sent to their email address they simply
+have to press a button to confirm that their address to complete the sign-up process.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-confirm-your-email-desktop-device.png "Screenshot of the 'Confirm Your Email Address' page on a desktop device.")
+
+<br>
+
+
 &#9745; Encourage more visitors to follow the site on social media and thereby raise the profile of the store.
+
+Dargan's have an active social media presence on Facebook and on Instagram.
+Visitors to the website are alerted to this presence through the inclusion
+of the aforementioned platform's icons in the footer on every page.
+Clicking on these icons opens a new tab within the user's browser and 
+brings them to the Dargan's account page on the selected social media platform.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-tablet-device.png "Screenshot of the footer on a tablet device.")
+
+<br>
+
+
+
 &#9745; Provide visible contact details so that all site visitors can contact the store with ease.
+
+The Dargan Health Foods email address, phone number and postal address are provided
+on every page within the footer. 
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-logged-out-footer-desktop-device.png "Screenshot of the footer on a desktop device.")
+
+<br>
+
+Store opening times are also displayed here for convenience.
+
+If the user however, wishes to contact the store from within the website they can
+do so using the 'Contact Us Form' which is found by following the links provided in the
+footer or within the navbar.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-logged-out-navbar-desktop-device.png "Screenshot of the navbar on a desktop device.")
+
+<br>
+
+The form itself has helpful placeholder text which clarifies what each field is for.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-contact-us-form-tablet-device.png "Screenshot of the 'Contact Us Form' on a tablet device.")
+
+<br>
+
 &#9745; Be able to add new products to the online website with ease.
+
+The Store Owner can add a new product to the website using the 'Add Product'
+link within the specially extended Superuser's navbar.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-account-dropdown-tablet-device.png "Screenshot of the superuser 'Account' dropdown on a tablet device.")
+
+<br>
+
+Alternatively the 'Add Product' link can be found within the 'Quick Links' section/accordion
+in the Superuser's footer.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-footer-tablet-device.png "Screenshot of the superuser footer on a tablet device.")
+
+<br>
+
+These links bring the Superuser to a clearly labelled form
+where they can add in the relevant product details before uploading 
+the new product to the site.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-add-product-form-tablet-device.png "Screenshot of the superuser 'Add a Product' form on a tablet device.")
+
+<br>
+
+To make the process as straightforward as possible,
+the 'Category' 'Brand' and product 'Tag' fields are presented
+as dropdown select boxes.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-add-product-category-dropdown-desktop-device.png "Screenshot of the superuser category dropdown on the 'Add a Product' form on a desktop device.")
+
+<br>
+
 &#9745; Edit existing product information with ease.
+
+When it comes to editing a product's details the Superuser
+has access to this functionality through the 'Edit' links
+which are rendered on each 'Product Details' page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-edit-product-link-desktop-device.png "Screenshot of the superuser 'Edit' product link on a desktop device.")
+
+<br>
+
+This brings the Superuser to a pre-filled form where
+they can edit the current information before saving their alterations.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-edit-product-form-desktop-device.png "Screenshot of the superuser 'Edit Product Form' on a desktop device.")
+
+<br>
+
+
+
 &#9745; Indicate to customers when a product is out of stock.
+
 &#9745; Delete and/or discontinue products that are no longer available, removing their images and information from the website.
+
+Delete fucntionality is provided to Superusers through the provision
+of 'Delete' links which are to be found on each 'Product Detail' page.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-delete-product-link-desktop-device.png "Screenshot of the superuser 'Delete' product link on a desktop device.")
+
+<br>
+
+A 'Delete Modal' ensures that products are not accidentally deleted in this manner.
+In order to remove the product from the database the Superuser must confirm their
+decision by choosing the 'Delete' button.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-delete-product-modal-desktop-device.png "Screenshot of the superuser 'Edit Product Form' on a desktop device.")
+
+<br>
+
+If a product has been discontinued, rather than deleting if from the 
+database, a 'Discontinued' field has been provided.  This allows the
+Superuser to remove a product from view within the site by selecting
+the 'Yes' option in the 'Discontinued' dropdown on the 'Edit Product
+Form'.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-discontinued-dropdown-desktop-device.png "Screenshot of the superuser 'Edit Product Form' on a desktop device.")
+
+<br>
+
+
 &#9745; Easily add a new blog post to the site blog.
 
-##### back to [top](#table-of-contents)
----
+The link to the Superuser's 'Add Blog Post' form is also to be
+found within the 'Account' dropdown on a mobile device, within the top 
+navbar on a desktop device and within the 'Quick Links' section/accordion
+in the site footer on every page.
 
-## Manual Testing
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-quick-links-accordion-mobile-device.png "Screenshot of the superuser 'Quick Links Accordion' on a mobile device.")
+
+<br>
+
+A new blog post can be added by filling out the clearly labelled form.
+
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-add-blog-post-form-mobile-device.png "Screenshot of the superuser 'Add Blog Post Form' on a mobile device.")
+
+<br>
+
 
 ##### back to [top](#table-of-contents)
 ---
