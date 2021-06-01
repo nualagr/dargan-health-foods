@@ -2106,6 +2106,9 @@ Now Orders, with or without discount codes, are successfully created within the 
 
 ## Unresolved Issues
 
+Choosing the price options from the dropdown 'Sort by...' select does not take the 
+discount price of a product into account.
+
 
 ##### back to [top](#table-of-contents)
 ---

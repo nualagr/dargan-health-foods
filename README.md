@@ -44,7 +44,17 @@ Click <a href="https://dargan-health-foods.herokuapp.com/">here</a> to visit the
     - [1) The Strategy Plane](#1-strategy-plane)
     - [2) The Scope Plane](#2-scope-plane)
     - [3) The Structure Plane](#3-structure-plane)
-         - [Features](#features)
+        - [Planning](#planning)
+        - [Existing Features](#existing-features)
+            - [Favicon](#favicon)
+            - [Title](#title)
+            - [Navbar](#navbar)
+            - [Toast Messages](#toast-messages)
+            - [Free Delivery Banner](#free-delivery-banner)
+            - [Newsletter Subscription Form](#newsletter-subscription-form)
+            - [Footer](#footer)
+            - [Home Page Features](#home-page-features)
+        - [Features Left to Implement](#features-left-to-implement)
     - [4) The Skeleton Plane](#4-skeleton-plane)
         - [Wireframes](#wireframes)
     - [5) The Surface Plane](#5-surface-plane) 
@@ -320,6 +330,9 @@ Users should be able to do the following on the website:
 ---
 
 ### 3 Structure Plane
+
+#### Planning
+
 Research of competing online health-food stores including 
 [Full Of Beans](https://www.fullofbeans.ie/), 
 [Health Matters](https://healthmatters.ie/), 
@@ -359,8 +372,7 @@ the **Contact Us** page, which were deemed important in the User Stories section
 ![alt text](documentation/readme-images/mobile-navbar-dropdown-menu-chevron.png "Mobile Navbar Dropdown Menu.")
 
 In order to make navigation easier for the user, particularly on pages with content
-that requires the user to scroll, a **'back-to-top' button** was used. This 
-appears once the user has scrolled below the fold.
+that requires the user to scroll, a **'back-to-top' button** was chosen. 
 
 ![alt text](documentation/readme-images/back-to-top-chevron.png "Back to Top Chevron.")
 
@@ -384,7 +396,7 @@ identifies the site as a health-foods website.
 
 <br>
 
-There is a common **footer** on each page with 
+A common **footer** was laid out with 
 **social media links**, 
 **store location**, 
 **opening hours** and 
@@ -395,19 +407,249 @@ There is a common **footer** on each page with
 
 <br>
 
-### Features
+##### back to [top](#table-of-contents)
+---
 
-This is a multi-page site.  
+#### Existing Features
+
+Changes in Design
+
+The implemented mobile navbar differs from the planned version
+in that there is no brand heading above the icons.
+As the navbar is fixed this would have used up valuable screen
+real estate. 
+
+The implemented footer does not contain the planned
+Google Maps iframe. Instead it was decided to 
+use the postal address as an external link to the shop's
+location on the Google Maps website. This provides a cleaner,
+more consistent design across the footer as a whole, without 
+compromising on fulfilling site users' needs.
 
 <br>
 
-### Existing Features
 Consistent features across all pages:
 
+##### Favicon
+A **seedling favicon**, displayed on the web browser's tab 
+allows the desktop user to identify the website by sight.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Title
+The **Title**, displayed on the web browser's tab at all times, 
+contains the business' title, the shop's location and the current page title.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Navbar
+
+The navbar is fixed so that it is accessible at all times for improved 
+UX and site navigation.
+
+Mobile Navbar
+
+- The **navbar toggler hamburger icon** opens a dropdown menu with links
+to other pages within the website.
+
+- A border appears around the navbar toggler when it is active.
+
+- Within the dropdown menu **chevron down** icons appear 
+next to those **departmental links** which contain 
+**category submenus**.
+
+- Dropdown menu links change colour when active.
+
+- The **Account user icon** opens a dropdown menu with links related
+to site membership.  This list differs depending on whether the site
+visitor is logged out, logged in or a superuser.
+
+    | Logged-Out User   |Logged-In User |Superuser      |
+    | :------------     |:------------  | :------------ |
+    | Register          | My Account    | Add Product   |
+    | Login             | Logout        | Add BlogPost  |
+    |                   |               | My Account    |
+    |                   |               | Logout        |
+
+- The **Search magnifying-glass icon** opens the **search bar**
+below the navbar, ensuring that it does not impede navigational functionality. 
+Using this input box, the user can search for products by brand name,
+title, ingredient, keyword or tag.
+
+- The **Cart icon** links to the 'Cart' page. The current **Cart Total** 
+is displayed below the icon. When items are placed in the cart 
+an orange circular **item count indicator** appears on the top 
+left of the cart icon and the Cart Total is updated.
+
+---
+Desktop Navbar
+
+- Link styling on the navbar alters when links are hovered over
+in order to alert the user to their interactive functionality.
+
+- Small navigational links, to frequently needed pages, are rendered on the
+desktop **topnav**. These differ depending on the status of the user.
+
+    | Logged-Out User   |Logged-In User |Superuser      |
+    | :------------     |:------------  | :------------ |
+    | Our Story         | Our Story     | Our Story     |
+    | Blog              | Blog          | Blog          |
+    | Contact Us        | Contact Us    | Contact Us    |
+    | Sign In           | My Account    | Add Product   |
+    | Join              | Logout        | Add BlogPost  |
+    |                   |               | My Account    |
+    |                   |               | Logout        |
+
+- The website **brand logo**, on the left of the middle nav,
+fulfils user expectations as it operates as a **homepage link**.
+
+- The **search bar** is visible at all times. It allows the user
+to search for a product by brand name, title, ingredient, keyword
+or tag.
+
+- The **minicart** functions as a link to the 'Cart' page when
+there are items in the cart. The **cart icon**, 
+**item count** and **cart total** are disabled and appear in muted colours 
+when the cart is empty.
+
+- The vibrant orange **Checkout button** operates as a link to the 'Checkout' page
+when there are items within the user's cart. Otherwise it is disabled
+and rendered in a muted cream colour.
+
+- The **main navbar** contains the **departmental dropdown menu links**. 
+When clicked, the dropdown menu displayed shows the related **category links**.
 
 <br> 
 
-### Features Left to Implement
+##### back to [top](#table-of-contents)
+---
+
+##### Toast Messages
+**Toast message boxes** have been used throughout the site to display 
+alert messages to the user, to provide feedback and to assist them in 
+achieving their aims. These messages are colour coded for ease of 
+understanding with **toast cappers** in red for error messages, blue for
+informative messages, yellow for warnings and green for success messages.
+The universal **times icon** in the top-right-hand-corner of the box 
+allows the user to close the toast.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Free Delivery Banner
+This bright apple-green banner appears directly underneath the navbar on all screen sizes.
+It informs and reminds customers of the site's free delivery policy.
+It has been included on all site pages relating to products or site membership.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Newsletter Subscription Form
+This form appears on the 'Home', 'Our Story' and 'Products' pages, where
+it was deemed to have been of potential interest to site visitors.
+A self-explanatory heading states the purpose of the form.
+Subheading text outlines the potential financial benefits to the user of 
+receiving the newsletter. 
+The form itself consists of a single **input field** and **'Subscribe' button**
+with helpful placeholder text which instructs the user to enter their email address.
+Successful submission of the form is communicated to the user in the form of
+of a **Toast message box**.
+ 
+##### back to [top](#table-of-contents)
+---
+
+##### Footer
+
+Mobile Footer
+
+The mobile footer consists of three **accordion elements** which appear automatically
+in their collapsed state. The **down chevron icon**
+indicates the hidden contents.
+Each accordion title operates as a button to 
+reveal and hide that accordion section's contents. The accordion button's
+font colour and background colour change when the accordion is active.
+In that state the **up chevron icon** is used to show that the button 
+now functions to close the accordion.
+
+- The 'Find Us' accordion contains the **brand logo** which operates as a 
+**link to the homepage**.  Beneath that the shop's **postal address** is 
+displayed.  This is opens an external tab displaying **the shop's location
+on Google Maps**. The shop **phone number** and **email address**
+are both links which will open the associated app on the user's phone.
+
+- The 'Opening Hours' accordion contains the shop's **opening hours** 
+displayed in an easy to read table. 
+
+- The 'Quick Links' accordion contains **links to frequently needed site
+pages**. These links differ depending on the status of the site visitor.
+
+    | Logged-Out User   |Logged-In User |Superuser      |
+    | :------------     |:------------  | :------------ |
+    | Our Story         | Our Story     | Our Story     |
+    | Blog              | Blog          | Blog          |
+    | Contact Us        | Contact Us    | Contact Us    |
+    | Sign In           | My Account    | Add Product   |
+    | Join              | Logout        | Add BlogPost  |
+    |                   |               | My Account    |
+    |                   |               | Logout        |
+
+
+- Beneath the footer accordion is a row containing **social media icons**
+which are links which open the Dargan Health Foods pages on the related
+social media platform. 
+
+- Small text containing **copyright** information also links to the current
+business website.
+
+<br>
+
+Desktop Footer
+
+The desktop footer is identical to the mobile footer in that it consists
+of three sections, 'Find Us', 'Opening Hours' and 'Quick Links', 
+displayed horizontally in a row rather than in an 
+accordion, with the exact same links and functionality.  
+
+##### back to [top](#table-of-contents)
+---
+
+##### Home Page Features
+
+- A large **Sale Banner** advertises the marketing strategy. It
+calls the user to take action and 'Shop Now'. The banner fulfills user 
+expectations as, when clicked, it brings them to the items on offer. Currently
+this is also the 'Special Offers' page.
+
+- The **New Arrivals** section displays the four latest products to be added to
+the website. Each **product image** and **product title** operates as a **link to the
+associated 'Product Details' page**. On larger-screen devices hover effects change
+the opacity of the image and the weight of the font to convey that functionality 
+to the user. The **product price** is clearly displayed
+for the user. An **'Add to Cart' button** allows the user
+to add a single unit of the desired product to their cart immediately without 
+having to open the individual product's page. 
+The **'View All New Products' text link and animated right-angle character** 
+brings users to a page displaying the latest products in each department.
+
+- The **About Us** section provides a quick overview of the what the shop sells,
+its located and its ethos. The **'Our Story' text link and animated icon**
+bring interested users to the 'Our Story' page where they can read about the 
+business' history, owner and staff in more detail.
+
+- The **Latest Posts** section displays cards containing the two latest blog post
+images, topics, dates uploaded and post titles. As with the product cards, the 
+images and titles function as links to the associated blog post. For consistency
+the same hover effects have been used to convey the interactive nature of these elements.
+The **'View Our Blog' text and animated icon**
+link to the main 'Blog' page.
+
+
+##### back to [top](#table-of-contents)
+---
+
+#### Features Left to Implement
 
 <br>
 
@@ -427,6 +669,9 @@ beginning with the product design from the mobile end, which has more restrictio
 then expanding its features to create a tablet and desktop version.
 
 <br>
+
+##### back to [top](#table-of-contents)
+---
 
 #### Wireframes
 
@@ -1609,12 +1854,12 @@ The following [Bootstrap](https://getbootstrap.com/) components were used and mo
 
 ### Acknowledgements
 - [Code Institute](https://codeinstitute.net/) and their helpful tutors.
-- Thank you to my project mentor [Reuben Ferrante](https://uk.linkedin.com/in/reuben-ferrante).
-- The [Code Institue](https://codeinstitute.net/) community on [Slack](code-institute-room.slack.com) for their support.
+- Many thanks to my project mentor [Reuben Ferrante](https://uk.linkedin.com/in/reuben-ferrante) for his help and guidance.
+- The [Code Institute](https://codeinstitute.net/) community on [Slack](code-institute-room.slack.com) for their support.
 - A very special thank you to my partner Kevin for his unfailing patience and support throughout this project.
 - Thank you to my family and my friends who were so willing and helpful when it came to testing the site.
 - I received inspiration for this project from:
-    - The [Code Institue](https://codeinstitute.net/) 'Boutique Ado' project.
+    - The [Code Institute](https://codeinstitute.net/) 'Boutique Ado' project.
     - [Full Of Beans](https://www.fullofbeans.ie/), 
     - [Health Matters](https://healthmatters.ie/), 
     - [Holland & Barrett](https://www.hollandandbarrett.ie/), 
