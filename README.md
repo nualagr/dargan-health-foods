@@ -50,10 +50,17 @@ Click <a href="https://dargan-health-foods.herokuapp.com/">here</a> to visit the
             - [Title](#title)
             - [Navbar](#navbar)
             - [Toast Messages](#toast-messages)
+            - [Breadcrumbs Navigational Links](#breadcrumbs-navigational-links)
+            - [Pagination Links](#pagination-links)
+            - [Product and BlogPost Cards](#product-and-blogpost-cards)
             - [Free Delivery Banner](#free-delivery-banner)
             - [Newsletter Subscription Form](#newsletter-subscription-form)
             - [Footer](#footer)
             - [Home Page Features](#home-page-features)
+            - [Our Story Page Features](#our-story-page-features)
+            - [Contact Us Page Features](#contact-us-page-features)
+            - [Products Page Features](#products-page-features)
+            - [Product Detail Page Features](#product-detail-page-features)
         - [Features Left to Implement](#features-left-to-implement)
     - [4) The Skeleton Plane](#4-skeleton-plane)
         - [Wireframes](#wireframes)
@@ -538,6 +545,83 @@ allows the user to close the toast.
 ##### back to [top](#table-of-contents)
 ---
 
+##### Breadcrumbs Navigational Links
+To improve the UX **breadcrumbs navigational links** have been provided at 
+the top of many pages throughout the website. They operate as a kind of 
+secondary navigation system, indicating to users where they are within 
+the structure of the site and allowing them to quickly jump to related 
+pages along the path. Hover effects have been added to the links. 
+The final 'breadcrumb' in the trail, which indicates the current location, 
+is not a link. 
+
+##### back to [top](#table-of-contents)
+---
+
+##### Pagination Links
+**Pagination** has been implemented on the 'Products'
+and 'Blog' pages as the amount of content on these pages 
+varies considerably from request to request. 
+The items returned are broken into discrete pages
+which can be accessed using the **pagination links**
+rendered at the bottom of the subset being displayed.
+The **left-angle character** brings the user to the 'previous page', 
+**page numbers** allow users to jump to a numbered page and
+the **right-angle character** links to the 'next page' in the series.
+The number of links rendered has been capped at three, either
+side of the current page. To make the user's current position
+explicit, the current page link is styled with a square
+green background and white text.  
+
+##### back to [top](#table-of-contents)
+---
+
+##### Product and BlogPost Cards
+[Bootstrap card components](https://getbootstrap.com/docs/5.0/components/card/) 
+have been used to display the contents on the 
+'Products' and 'Blog' pages. For consistency the images and titles on
+each card operate as 
+**links to the associated 'Product Detail' or 'BlogPost' page**. 
+Hover effects, which change the opacity of the card image 
+and increase the weight of the title font, alert the user to this functionality.
+The content on each card has been kept to a minimum. 
+
+Product Cards
+
+- Each Product card displays a **high-quality image of the product itself**.
+A 'no-image-placeholder.svg' is used when no product image is available.
+
+- The **brand name** and **abbreviated product title** are 
+printed below the image. 
+
+- The **product price** is clearly displayed on each card. If the price has been discounted, the full price
+is rendered in a muted, strikethrough font next to the new discounted price. 
+This allows users to see the potential saving at a glance.
+
+- An attractive **offer ribbon**, on the top-right-hand-corner of specific cards 
+draws attention to those products which are currently on offer. 
+
+- An eye-catching orange **'Add to Cart'** button allows users to add a single unit
+of that item to their shopping cart immediately, negating the need to open the 
+associated 'Product Detail' page.
+
+BlogPost Cards
+
+- Each BlogPost card contains a **colourful photograph** related to the blogpost 
+topic. This helps to grab the viewer's attention and to visually communicate the
+content contained within.
+
+- The blogpost **topic**, **date posted** and **title** are printed beneath the image. 
+
+- BlogPost cards on the 'Blog' page contain more information than those on the
+'Home' page.  Here the first sixty words of the **introductory paragraph** are 
+printed in order to give the user a better idea of what the post contains.
+
+- A **'Read Post' text link and animated right-angle character** bring the user to the
+related 'BlogPost' page.
+
+##### back to [top](#table-of-contents)
+---
+
 ##### Free Delivery Banner
 This bright apple-green banner appears directly underneath the navbar on all screen sizes.
 It informs and reminds customers of the site's free delivery policy.
@@ -550,10 +634,9 @@ It has been included on all site pages relating to products or site membership.
 This form appears on the 'Home', 'Our Story' and 'Products' pages, where
 it was deemed to have been of potential interest to site visitors.
 A self-explanatory heading states the purpose of the form.
-Subheading text outlines the potential financial benefits to the user of 
-receiving the newsletter. 
-The form itself consists of a single **input field** and **'Subscribe' button**
-with helpful placeholder text which instructs the user to enter their email address.
+Subheading text outlines the potential financial benefits to newsletter subscribers. 
+The form itself consists of a single **input field** with helpful placeholder text 
+which instructs the user to enter their email address and a **'Subscribe' button**.
 Successful submission of the form is communicated to the user in the form of
 of a **Toast message box**.
  
@@ -623,28 +706,119 @@ expectations as, when clicked, it brings them to the items on offer. Currently
 this is also the 'Special Offers' page.
 
 - The **New Arrivals** section displays the four latest products to be added to
-the website. Each **product image** and **product title** operates as a **link to the
-associated 'Product Details' page**. On larger-screen devices hover effects change
-the opacity of the image and the weight of the font to convey that functionality 
-to the user. The **product price** is clearly displayed
-for the user. An **'Add to Cart' button** allows the user
-to add a single unit of the desired product to their cart immediately without 
-having to open the individual product's page. 
+the website. Each product is displayed in a **product card**. 
 The **'View All New Products' text link and animated right-angle character** 
-brings users to a page displaying the latest products in each department.
+bring users to a page displaying the latest products in each department.
 
 - The **About Us** section provides a quick overview of the what the shop sells,
 its located and its ethos. The **'Our Story' text link and animated icon**
 bring interested users to the 'Our Story' page where they can read about the 
 business' history, owner and staff in more detail.
 
-- The **Latest Posts** section displays cards containing the two latest blog post
-images, topics, dates uploaded and post titles. As with the product cards, the 
-images and titles function as links to the associated blog post. For consistency
-the same hover effects have been used to convey the interactive nature of these elements.
+- The **Latest Posts** section displays two **blogpost cards** 
+containing the two latest blog post images, topics, dates and titles. 
 The **'View Our Blog' text and animated icon**
 link to the main 'Blog' page.
 
+
+##### back to [top](#table-of-contents)
+---
+
+##### Our Story Page Features
+
+- **Breadcrumbs navigation links**.
+
+- The article is informative and hopes to entice potential customers 
+by humanizing the brand and emphasising Dargan's ethos 
+of providing high-quality products and good customer service.
+
+- **Newsletter Subscription Form**.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Contact Us Page Features
+
+- **Breadcrumbs navigation links**.
+
+- The **Contact Us Form** has an informative subheading which outlines the
+purpose of the form. The form itself consists of three fields, with helpful
+placeholder text, which are all required for successful submission. 
+The **Your name** and **Your email** inputs are prefilled for logged-in users.
+When the users submits a valid form using the **Send button** 
+an email communicating the user's message is sent to the site administrator.
+A **toast message** lets the user know that the message has been sent
+and when to expect a reply.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Products Page Features
+
+- **Breadcrumbs navigation links**.
+
+- A **page title** makes the current selection or categorisation of products explicit.
+
+- The **Item Count** informs the user as to how many products are being displayed
+and the total number of products in the current selection. 
+
+- The **Sort by... dropdown select box** allows the user to sort the items 
+alphabetically, by rating or by price.
+
+- **Product Cards**.
+
+- **Pagination links**.
+
+- **Newsletter Subscription Form**
+
+##### back to [top](#table-of-contents)
+---
+
+##### Product Detail Page Features
+
+- **Breadcrumbs navigation links**.
+
+- A high-quality **product image**, where available, is displayed on each 'Product Detail'
+page.  Where more than one image exists for a given
+product, they are rendered in an **image carousel**. **Previous and Next** controls
+allow users to browse between the images.
+
+- The **product name** is displayed in a green heading font. 
+
+- The **product's average rating** out of five is displayed pictorially in partially, 
+or fully filled-in yellow stars. 
+
+- The **review rating count** is displayed beside the current star rating.
+This text is a jump-link. When clicked, it opens the 'Customer Reviews' accordion 
+and brings the user to that part of the page where they can read the reviews left so far.
+
+- Product **tags**, where they exist, are rendered beneath the **product price**.
+Each tag, if clicked, brings the user to a page of similarly tagged products.
+
+- A **quantity input** allows users to add a specific quantity of the item to
+their cart by inputting the number required and clicking on the **'Add to Cart' button**.
+
+- A general **product description** is visible by default. **Ingredients**, 
+**directions for usage**, **product weight** and **allergen information**
+are contained within the **'Details' and 'More Information accordions** further
+down the page.
+
+- Within the **'Disclaimer' accordion** users are reminded 
+that the information being displayed may be incorrect.
+
+- The **Customer Reviews accordion** contains any product reviews currently linked
+to that product. Each review shows the **star rating** awarded, the **review title**,
+the **reviewer's username**, the **review date** and the **review content**. Any 
+site visitor who is logged in, has previously purchased the item through
+the Dargan Health Foods website and has not yet left a review
+can see the **'Leave a Review' button**. Author's of reviews can see 'Edit'
+and 'Delete' links next to their own review.
+
+- The 'Delete' link next to a review opens a **Delete Modal** in which the user can
+confirm their decision to remove their content from the site or they can cancel 
+the action.
+
+- **Newsletter Subscription Form**
 
 ##### back to [top](#table-of-contents)
 ---
