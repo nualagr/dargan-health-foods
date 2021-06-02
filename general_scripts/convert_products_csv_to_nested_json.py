@@ -59,10 +59,10 @@ def csv_to_json(csvFilePath, jsonFilePath):
                     key == "abbreviated_friendly_name" or
                     key == "size_unit" or
                     key == "vat_code" or
-                    key == "information"or
-                    key == "ingredients"or
-                    key == "allergens"or
-                    key == "usage"or
+                    key == "information" or
+                    key == "ingredients" or
+                    key == "allergens" or
+                    key == "usage" or
                     key == "barcode"
                 ):
                     if value != "":
@@ -77,7 +77,7 @@ def csv_to_json(csvFilePath, jsonFilePath):
                     if value != "":
                         outRow["fields"][key] = int(value.strip())
                 elif (
-                    key == "price"or
+                    key == "price" or
                     key == "discount_price" or
                     key == "avg_rating"
                 ):
