@@ -61,6 +61,21 @@ Click <a href="https://dargan-health-foods.herokuapp.com/">here</a> to visit the
             - [Contact Us Page Features](#contact-us-page-features)
             - [Products Page Features](#products-page-features)
             - [Product Detail Page Features](#product-detail-page-features)
+            - [Add Product Page Features](#add-product-page-features)
+            - [Edit Product Page Features](#edit-product-page-features)
+            - [Add Product Review Page Features](#add-product-review-page-features)
+            - [Edit Product Review Page Features](#edit-product-review-page-features)
+            - [Cart Page Features](#cart-page-features)
+            - [Checkout Page Features](#checkout-page-features)
+            - [Checkout Success Page Features](#checkout-page-features)
+            - [My Account Page Features](#my-account-page-features)
+            - [Blog Page Features](#blog-page-features)
+            - [BlogPost Page Features](#blogpost-page-features)
+            - [Add BlogPost Page Features](#add-blogpost-page-features)
+            - [Edit BLogPost Page Features](#edit-blogpost-page-features)
+            - [Add BlogComment Page Features](#add-blogpost-comment-page-features)
+            - [Edit BlogComment Page Features](#edit-blogpost-comment-page-features)
+            - [Authorisation Pages Features](#authorisation-pages-features)
         - [Features Left to Implement](#features-left-to-implement)
     - [4) The Skeleton Plane](#4-skeleton-plane)
         - [Wireframes](#wireframes)
@@ -835,7 +850,429 @@ the action by clicking on the **'Cancel'** button or the modal **'Close'** butto
 ##### back to [top](#table-of-contents)
 ---
 
+##### Add Product Page Features
+
+- Each input and dropdown select box is clearly labelled on
+the **Add Product Form**. An **asterisk symbol** has been used 
+to indicate which fields are required. 
+Dropdown select boxes, which greatly speed up the form-filling
+process, have been provided for the 'Brand',
+'On Offer', 'Free From', 'Category', 'Discontinued', and 'Tag' fields.
+The **image field** has been styled as a button which opens
+a dialog box where the user browse to, and select, their desired image. 
+A valid form can be submitted using the **'Add Product' button**.
+The **'Cancel' button** redirects the Superuser to the 'All Products' page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Edit Product Page Features
+
+- The **Edit Product Form** opens prepopulated
+with the information currently in the database.
+Checkboxes next to the 'Current Image' thumbnail
+and each beneath each product 'Tag' allow the Superuser to select
+these items for deletion upon submission of the form.
+Clicking the **'Edit Product' button** submits the
+ammendments to the database.
+The **'Cancel' button** returns the Superuser to
+the 'Product Details' page for that product.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Add Product Review Page Features
+
+- The **Add Review Form** has a **title** to 
+remind the user which product they are reviewing.
+The **star rating dropdown** allows them to choose
+their rating by selecting the number of stars to be 
+awarded. Placeholder text informs the user as to what is
+required in each field for successful form 
+submission. A valid form can be submitted using 
+the **'Post Review' button**.
+The **'To Product Page' button** links back to
+the 'Product Detail' page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Edit Product Review Page Features
+
+- The **Edit Review Form**, entitled
+with the product name, is pre-filled
+with the user's previous submission.
+The **'Update Review' button** 
+submits the new review to the database.
+The **'To Product Page' button** links back to
+the related 'Product Detail' page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Cart Page Features
+
+- The 'Cart' presents the user with a table
+containing the **product image**,
+**product name**, **SKU**, **price** and **quantity** of 
+each item within the cart.
+
+- Discounted items display both the full and discounted
+price. The former is presented in strikethrough font to
+remind the user of their saving and to reassure them 
+that they are receiving the discounted price.
+
+- **Minus and Plus symbols**
+either side of the quantity displayed allow the user to
+increase or decrease the quantity of that item.
+The **lineitem subtotal** is adjusted accordingly.
+If the quantity is decreased to zero the item is
+removed from the cart. 
+
+- Alternatively users can click on 
+the **trash can icon** on the end of a product row 
+to delete the product from their cart.
+
+- Logged-in users can see the **Promo Code input** and
+**'Apply'** button. When a valid code is submitted
+the promo code is rendered as a 
+**[Bootstrap badge](https://getbootstrap.com/docs/5.0/components/badge/)**
+within the cart 'Summary' table. Hover effects and the
+'times' symbol indicate to the user that the code badge, 
+and associated discount, can be removed.
+
+- The **'Continue Shopping'** button takes the user to
+'Products' page.
+
+- The cart 'Summary' table displays the **Cart Total**,
+any **discount code and associated value** that has been applied, 
+and the **'Shipping' cost**. The **'Order Total'** appears 
+in bold text for emphasis. Text, in same blue hue as that used for 
+informative toast message cappers, informs the user
+of the current **delivery delta**. 
+
+- The **'Secure Checkout' button** brings the user to
+the next step in the checkout process by opening the 'Checkout' page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Checkout Page Features
+
+- An **order summary** displays a table of the items the user 
+has in their cart ready to purchase. The **product image**,
+**name**, **quantity** and **lineitem subtotal** show
+the user exactly what they are purchasing.
+The **'Order Total'**, **discount code and discount amount** 
+if applied, the **'Delivery' cost** and the **'Grand Total'** 
+provide the user with an overview of their entire order.
+
+- Links to the **Log in** and **Sign Up** pages 
+have been provided to encourage the user to sign in or sign up
+to take advantage of a faster checkout process.  
+
+- The **Checkout Form** is clearly labelled with placeholder
+text to guide the user. 
+
+- Logged-in users can save the
+delivery information to their profile by selecting the 
+**checkbox** provided. If information already exists in their
+profile the associated form fields will have been prefilled.
+
+- The **'Adjust Cart'** button directs the user back 
+to their 'Cart'.
+
+- The **'Confirm and Pay Now'** button submits the form.
+
+- **[Stripe payments](www.stripe.com)** has been implemented to
+securely manage the credit card transaction.
+
+- A **loading overlay** and **animated spinning icon** 
+provide the user with visual feedback that a process is taking
+place.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Checkout Success Page Features
+
+The Checkout Success page provides reassurance to the user that their 
+purchase has been processed. 
+
+- A **toast message** informs the user that
+an 'Order Confirmation Email' has been sent to the email address provided.
+and displays all their order details.
+
+- A **summary of the order, delivery and billing information** is displayed 
+on the page.
+
+- The **'Now check out the latest products!'** button links to the
+'All New In' products page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### My Account Page Features
+
+- **Breadcrumbs navigational links**.
+
+- A **tabbed navigational interface** and **navigational pills** 
+allow the logged-in user to navigate between their 
+'Details', 'Address Book', 'Order History',
+'Product Reviews' and 'Blog Comments' within a single webpage.
+
+- On the 'My Details' pane the user can see their profile information, 
+their **username** and **email address**. The **'Change Password'**
+button brings them to the 'Change Password' page.
+
+- The 'My Address Book' pane contains the 
+**'Default Delivey Information' table/form**,
+prefilled for users who have previously chosen to save this
+iformation during the checkout process.
+Users can add this information to their account by
+filling out this form and using the **'Update Information' button.**
+
+- The 'My Order History' pane displays a table of the user's previous 
+orders, if any exist. The truncated **order number**, **date**, 
+**items purchased** and **Order Total** are displayed in rows. 
+The blue **Order Number** is a link that brings the user to the 
+'Checkout Success' page for that order.
+
+- The 'My Product Reviews' pane contains a table displaying
+each **product reviewed**, the **review date**, 
+a pictorial representation of the
+**review rating** in stars out of five and the **review title**.  
+**'Edit'** and **'Delete'** links next to each review provide the 
+user with easy access to that functionality (outlined previously).
+The **product name**, presented in green text, is a link to the
+associated 'Product Detail' page.
+
+- The 'My Blog Comments' pane contains a table displaying
+the **blogpost title**, **comment date**, 
+a truncated **opening sentence**.  
+**'Edit'** and **'Delete'** links on each table row provide the 
+user with easy access to that functionality (outlined above).
+The **blog title**, displayed in green, is a link to the
+associated 'BlogPost' page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Blog Page Features
+
+- **Breadcrumbs navigation links**.
+
+- A **page title** makes the current selection or categorisation of blogposts explicit.
+
+- The **'Filter Blog By Topic' dropdown select box** allows the user 
+to access all blog posts or to selections of blog posts which share a similar topic.
+
+- The **Search input** and **maginifying-glass icon button**
+allow the user to search all blogposts for specific keywords.
+
+- The **Item Count** informs the user as to how many blogposts are being displayed
+on the page and the total number of blogposts in the current selection. 
+
+- **BlogPost Cards**.
+
+- **Pagination links**.
+
+##### back to [top](#table-of-contents)
+---
+
+##### BlogPost Page Features
+
+- **Breadcrumbs navigation links**.
+
+- Superusers have been provided with **'Edit' and 'Delete' links**
+on each 'BlogPost' page. The **'Edit' link** opens the 'Edit Post' 
+page. The **'Delete' link** opens the **'Delete Modal'** where the 
+Superuser is asked to confirm their decision by selecting 
+the **'Delete' button**.  Alternatively they can choose to 
+cancel the action by clicking on the **'Retain' button** or by
+dismissing the modal with the **close button**. 
+This modal has been included in order to 
+prevent accidental deletion of blogposts.
+
+- A brightly-coloured **photograph**,
+related to the blogpost content, is displayed underneath
+the **title**.
+
+- Metadata, the **author**, **date** and **topic** category, are
+printed above the blogpost **subheading**.
+
+- BlogPost **tags**, where they exist, are rendered after the **tag icon**.
+Each word is a link to bring the user to a page of similarly tagged blogposts.
+
+- The **comment icon** draws attention to the **comment counter**.
+This number is a **jump-link**. When clicked, it opens the 'Comments' accordion 
+and brings the user to that part of the page where they can read the 
+comments that have been left so far.
+
+- The **'Comments' accordion** contains any blog comments left by site
+members. Each comment shows the **site member's username**, 
+the **comment date** and the **comment**. 
+
+- Site members, who are logged in, have access to the **'Leave a Comment' button**,
+which has been placed for ease of access at the top of the 'Comments' accordion.
+
+- Visitor's who are not logged in but wish to leave a comment 
+are provided with **login** and **register** text links to start the
+process that will enable them to do so.
+
+- Author's of comments can see **'Edit' and 'Delete' links** 
+next to their own comment. The **'Edit link'** opens the 'Edit Review' page.
+The **'Delete' link** opens a **Delete Modal** in which the user can
+confirm their decision to remove their comment from the site or they can cancel 
+the action by clicking on the **'Cancel'** button or the modal **close button**.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Add BlogPost Page Features
+
+- Each input and dropdown select box is clearly labelled on
+the **Add BlogPost Form**. 
+
+- **Asterisk symbols** have been used 
+to indicate to the Superuser which fields are required. 
+
+- The blogpost 'Topic' and 'Tag' fields have been included as
+**dropdown select boxes**, for a quicker form-filling
+experience.
+
+- The **image field** has been styled as a button which opens
+a dialog box where the user browse to, and select, their desired image. 
+
+- A valid form can be submitted using the **'Add BlogPost' button**.
+
+- The **'Cancel' button** redirects the Superuser to the 'Blog' page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Edit BlogPost Page Features
+
+- The **Edit BlogPost Form** is prefilled with 
+the information currently in the database.
+
+- **Checkboxes** next to the 'Current Image' thumbnail
+and each beneath each product 'Tag' allow the Superuser to select
+these items for deletion upon submission of the form.
+
+- Clicking the **'Update BlogPost' button** submits the
+ammended form data to the database.
+
+- The **'Cancel' button** returns the Superuser to
+the 'BlogPost' page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Add BlogPost Comment Page Features
+
+- The **Add Comment form** displays
+the **title** of the related BlogPost to 
+remind the user what they are commenting on.
+
+- The single text field has **placeholder** text
+instructing the user to share their thoughts.
+
+- A valid form can be submitted using 
+the **'Upload Comment' button**.
+
+- The **'To Blog Post' button** links back to
+the 'BlogPost' page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Edit BlogPost Comment Page Features
+
+- The **Edit Comment Form** **title**
+reminds the user of the related BlogPost title. 
+
+- The form opens prepopulated with the 
+user's comment.
+
+The **'Update Comment' button** 
+allows the user to submit their
+edited comment to the database.
+
+- The **'To Blog Post' button** opens 
+the related 'BlogPost' page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Authorisation Pages Features
+
+All authorisation pages including 'Sign Up', 
+'Login', 'Logout', 'Change Password', 'Reset Password',
+'Verify Password' and 'Verification Email Sent' have been 
+implemented using [Django allauth](https://django-allauth.readthedocs.io/en/latest/installation.html).
+
+- User's can sign up to become members of the site by 
+clicking the **'Sign Up'** button on the **Sign Up Form**
+after providing their **email address**, **username**, 
+**first name**, **last name**, and **password**.  Alternatively 
+they can navigate to the 'Login' page using the
+**'Back to Login' button**. 
+
+- Clicking the link sent to the submitted email address on 
+sign up, brings the user back to the site to the 'Confirm E-Mail Address' page
+where users can confirm the address connected to their account 
+and finish the registration process using the **'Confirm' button**.
+
+- Site members can log in by filling out 
+the **Username or E-mail** and **Password**
+fields on the **Login Form** and pressing the
+**'Sign In' button**. Alternatively 
+they can navigate to the 'Home' page using the
+**'Home' button** or the 'Sign Up' page using the
+**'Create an Account'** link. 
+
+- Non-logged in site members can reset their
+password by entering their **email address** into
+the **Password Reset Form** and clicking the 
+**'Reset my Password' button**. This sends an 
+email with a reset link to the email address provided.
+Alternatively 
+users can navigate to the 'Login' page using the
+**'Back to Login' button** provided. 
+
+- Logged-in users can change their password 
+using the **'Change Password' button** on their
+'My Account' page. This opens the 'Change Password'
+page where they can alter their password by
+inputting their **current password** and then 
+entering their **new password** into the clearly labelled
+fields and pressing the **'Change Password'** button.
+A **'My Account' button** links back to their individual
+'Account' page.
+
+- The 'Sign Out' page asks the user to 
+confirm their wish to sign out by choosing the 
+**'Sign Out' button**. The **'Cancel button**
+redirects to the 'Home' page.
+
+##### back to [top](#table-of-contents)
+---
+
 #### Features Left to Implement
+
+- Reduce a Product's 'Num in Stock' field in the
+database when an order has been processed.
+- Add 'Out of Stock' ribbons that will be automatically 
+applied to products when the 'Num in Stock' field is reduced to zero.
+- Add more payment options, including 'Paypal' to improve 
+the user experience.
+- Add a full checkout system with separate 'Shipping Address' 
+and 'Billing Address' forms.
+- Add a 'Free Instore Pickup' option on the new 'Shipping Address' page.
+- Remove the 'ZIP Code' from the Stripe card input and 
+attach the postal code to the customer's order using JavaScript.
+- Add the ability for users to filter blogpost search results.
 
 <br>
 
