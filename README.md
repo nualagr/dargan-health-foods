@@ -649,11 +649,11 @@ Mobile Footer
 
 The mobile footer consists of three **accordion elements** which appear automatically
 in their collapsed state. The **down chevron icon**
-indicates the hidden contents.
+signals that there is hidden content.
 Each accordion title operates as a button to 
 reveal and hide that accordion section's contents. The accordion button's
 font colour and background colour change when the accordion is active.
-In that state the **up chevron icon** is used to show that the button 
+Once open the **up chevron icon** is used to indicate that the button 
 now functions to close the accordion.
 
 - The 'Find Us' accordion contains the **brand logo** which operates as a 
@@ -680,7 +680,7 @@ pages**. These links differ depending on the status of the site visitor.
 
 
 - Beneath the footer accordion is a row containing **social media icons**
-which are links which open the Dargan Health Foods pages on the related
+which are links that open the Dargan Health Foods pages on the related
 social media platform. 
 
 - Small text containing **copyright** information also links to the current
@@ -693,16 +693,16 @@ Desktop Footer
 The desktop footer is identical to the mobile footer in that it consists
 of three sections, 'Find Us', 'Opening Hours' and 'Quick Links', 
 displayed horizontally in a row rather than in an 
-accordion, with the exact same links and functionality.  
+accordion, with the same links and functionality outlined above.  
 
 ##### back to [top](#table-of-contents)
 ---
 
 ##### Home Page Features
 
-- A large **Sale Banner** advertises the marketing strategy. It
+- A large **Sale Banner** advertises the current marketing strategy. It
 calls the user to take action and 'Shop Now'. The banner fulfills user 
-expectations as, when clicked, it brings them to the items on offer. Currently
+expectations as, when clicked, it brings them to the items on offer. Presently
 this is also the 'Special Offers' page.
 
 - The **New Arrivals** section displays the four latest products to be added to
@@ -711,7 +711,7 @@ The **'View All New Products' text link and animated right-angle character**
 bring users to a page displaying the latest products in each department.
 
 - The **About Us** section provides a quick overview of the what the shop sells,
-its located and its ethos. The **'Our Story' text link and animated icon**
+its location and its ethos. The **'Our Story' text link and animated icon**
 bring interested users to the 'Our Story' page where they can read about the 
 business' history, owner and staff in more detail.
 
@@ -760,9 +760,9 @@ and when to expect a reply.
 - A **page title** makes the current selection or categorisation of products explicit.
 
 - The **Item Count** informs the user as to how many products are being displayed
-and the total number of products in the current selection. 
+on the page and the total number of products in the current selection. 
 
-- The **Sort by... dropdown select box** allows the user to sort the items 
+- The **'Sort by...' dropdown select box** allows the user to sort the items 
 alphabetically, by rating or by price.
 
 - **Product Cards**.
@@ -778,9 +778,19 @@ alphabetically, by rating or by price.
 
 - **Breadcrumbs navigation links**.
 
+- Superusers have been provided with **'Edit' and 'Delete' links**
+on each 'Product Detail' page. The **'Edit' link** opens the 'Edit Product' 
+page. The **'Delete' link** opens the **'Delete Modal'** where the 
+Superuser is asked to confirm their decision by selecting 
+the **'Delete' button**.  Alternatively they can choose to 
+cancel the action by clicking on the **'Retain' button** or by
+dismissing the modal with the **close button**. 
+This modal has been included in order to 
+prevent accidental deletion of products.
+
 - A high-quality **product image**, where available, is displayed on each 'Product Detail'
 page.  Where more than one image exists for a given
-product, they are rendered in an **image carousel**. **Previous and Next** controls
+product, they are rendered in an **image carousel**. **Previous and Next controls**
 allow users to browse between the images.
 
 - The **product name** is displayed in a green heading font. 
@@ -806,17 +816,19 @@ down the page.
 - Within the **'Disclaimer' accordion** users are reminded 
 that the information being displayed may be incorrect.
 
-- The **Customer Reviews accordion** contains any product reviews currently linked
+- The **'Customer Reviews' accordion** contains product reviews currently linked
 to that product. Each review shows the **star rating** awarded, the **review title**,
 the **reviewer's username**, the **review date** and the **review content**. Any 
 site visitor who is logged in, has previously purchased the item through
 the Dargan Health Foods website and has not yet left a review
-can see the **'Leave a Review' button**. Author's of reviews can see 'Edit'
-and 'Delete' links next to their own review.
+can see the **'Leave a Review' button**. Author's of reviews can see 
+**'Edit' and 'Delete' links** next to their own review.
 
-- The 'Delete' link next to a review opens a **Delete Modal** in which the user can
+- The **'Edit link'** opens the 'Edit Review' page.
+
+- The **'Delete' link** next to a review opens a **Delete Modal** in which the user can
 confirm their decision to remove their content from the site or they can cancel 
-the action.
+the action by clicking on the **'Cancel'** button or the modal **'Close'** button.
 
 - **Newsletter Subscription Form**
 
