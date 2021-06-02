@@ -15,6 +15,7 @@
     </div>
 </div>
 {% endblock %}
+
 {% block content %}
 <!-- Banner Image -->
 <div class="container-fluid banner-image-container">
@@ -46,50 +47,50 @@
             <div class="col-12 col-lg-9 mx-auto">
                 <div class="row">
                     {% for product in latest_products %}
-                    <div class="col-6 col-md-3">
-                        <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                        <div class="card text-center">
-                            {% if product.main_image %}
-                            <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
-                                    alt="{{ product.abbreviated_friendly_name }}">
-                            </a>
-                            {% else %}
-                            <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                <img src="{{ MEDIA_URL }}product_images/no-image-placeholder.svg" class="card-img-top"
-                                    alt="{{ product.abbreviated_friendly_name }}">
-                            </a>
-                            {% endif %}
-                            <div class="card-body">
-                                <p class="card-text brand-name">{{ product.brand }}</p>
-                                <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                    <h4 class="card-title">{{ product.abbreviated_friendly_name }}</h4>
-                                </a>
-                                <p class="card-text product-price pt-2">€{{ product.price }}</p>
-                            </div>
-                            <div class="card-footer bg-white border-0">
-                                <div class="row">
-                                    <div class="col">
-                                        <!-- Form with Quick-Add-to-Cart button and hidden Quantity Input -->
-                                        <form class="row" action="{% url 'add_to_cart' product.id %}" method="POST">
-                                            {% csrf_token %}
-                                            <div class="col">
-                                                <div class="input-group">
-                                                    <input class="form-control qty-input rounded-0" type="hidden"
-                                                        name="quantity" value="1">
+                        <div class="col-6 col-md-3">
+                            <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                            <div class="card text-center">
+                                {% if product.main_image %}
+                                    <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                        <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
+                                            alt="{{ product.abbreviated_friendly_name }}">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                        <img src="{{ MEDIA_URL }}product_images/no-image-placeholder.svg" class="card-img-top"
+                                            alt="{{ product.abbreviated_friendly_name }}">
+                                    </a>
+                                {% endif %}
+                                <div class="card-body">
+                                    <p class="card-text brand-name">{{ product.brand }}</p>
+                                    <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                        <h4 class="card-title">{{ product.abbreviated_friendly_name }}</h4>
+                                    </a>
+                                    <p class="card-text product-price pt-2">€{{ product.price }}</p>
+                                </div>
+                                <div class="card-footer bg-white border-0">
+                                    <div class="row">
+                                        <div class="col">
+                                            <!-- Form with Quick-Add-to-Cart button and hidden Quantity Input -->
+                                            <form class="row" action="{% url 'add_to_cart' product.id %}" method="POST">
+                                                {% csrf_token %}
+                                                <div class="col">
+                                                    <div class="input-group">
+                                                        <input class="form-control qty-input rounded-0" type="hidden"
+                                                            name="quantity" value="1">
+                                                    </div>
+                                                    <input type="submit"
+                                                        class="common-button btn-orange quick-add-to-cart-btn"
+                                                        value="Add to Cart">
                                                 </div>
-                                                <input type="submit"
-                                                    class="common-button btn-orange quick-add-to-cart-btn"
-                                                    value="Add to Cart">
-                                            </div>
-                                            <!-- Submit the current url with the form so that we can redirect the user back to the same page once the item has been added to the Cart -->
-                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                        </form>
+                                                <!-- Submit the current url with the form so that we can redirect the user back to the same page once the item has been added to the Cart -->
+                                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
                 </div>
                 <div class="row">
@@ -146,39 +147,38 @@
         </div>
     </div>
 </div>
-{% if request.user.is_authenticated %}
-{% else %}
-<!-- Join Us -->
-<div class="container-fluid section-container join-now-container">
-    <div class="section-title-container">
-        <div class="row">
-            <div class="col-12 col-lg-9 mx-auto">
-                <h2 class="logo-font-heading text-center text-orange">
-                    <span class="section-title-main">
-                        Members Get More!
-                    </span>
-                </h2>
+{% if not request.user.is_authenticated %}
+    <!-- Join Us -->
+    <div class="container-fluid section-container join-now-container">
+        <div class="section-title-container">
+            <div class="row">
+                <div class="col-12 col-lg-9 mx-auto">
+                    <h2 class="logo-font-heading text-center text-orange">
+                        <span class="section-title-main">
+                            Members Get More!
+                        </span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="section-content-container">
+            <div class="row">
+                <div class="col-12 col-lg-9 mx-auto text-center">
+                    <p>
+                        Enjoy exclusive discounts, rewards and events.
+                    </p>
+                    <p>
+                        Join today and get 10% off your next purchase!
+                    </p>
+                    <p>
+                        Promo Code: <strong>NEW10</strong>
+                    </p>
+                    <a href="{% url 'account_signup' %}" class="common-button btn-orange"
+                        aria-label="Registration link">Sign Up to Claim Your Discount</a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="section-content-container">
-        <div class="row">
-            <div class="col-12 col-lg-9 mx-auto text-center">
-                <p>
-                    Enjoy exclusive discounts, rewards and events.
-                </p>
-                <p>
-                    Join today and get 10% off your next purchase!
-                </p>
-                <p>
-                    Promo Code: <strong>NEW10</strong>
-                </p>
-                <a href="{% url 'account_signup' %}" class="common-button btn-orange"
-                    aria-label="Registration link">Sign Up to Claim Your Discount</a>
-            </div>
-        </div>
-    </div>
-</div>
 {% endif %}
 <!-- Latest Blog Posts -->
 <div class="container-fluid section-container">
@@ -200,26 +200,26 @@
             <div class="col-12 col-lg-9 mx-auto">
                 <div class="row">
                     {% for post in latest_posts %}
-                    <div class="col-12 col-md-6">
-                        <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                        <div class="card text-center">
-                            <a href="{% url 'blog_post' post.slug %}" class="blog-post-link">
-                                {% if post.main_image %}
-                                <img src="{{ MEDIA_URL }}{{ post.main_image }}" class="card-img-top"
-                                    alt="{{ post.title }}">
-                                {% else %}
-                                <img src="{{ MEDIA_URL }}product_images/no-image-placeholder.svg" class="card-img-top"
-                                    alt="{{ post.title }}">
-                                {% endif %}
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">{{ post.topic.friendly_name }} | {{ post.created_on }}</p>
+                        <div class="col-12 col-md-6">
+                            <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                            <div class="card text-center">
                                 <a href="{% url 'blog_post' post.slug %}" class="blog-post-link">
-                                    <h4 class="card-title">{{ post.title }}</h4>
+                                    {% if post.main_image %}
+                                        <img src="{{ MEDIA_URL }}{{ post.main_image }}" class="card-img-top"
+                                            alt="{{ post.title }}">
+                                    {% else %}
+                                        <img src="{{ MEDIA_URL }}product_images/no-image-placeholder.svg" class="card-img-top"
+                                            alt="{{ post.title }}">
+                                    {% endif %}
                                 </a>
+                                <div class="card-body">
+                                    <p class="card-text">{{ post.topic.friendly_name }} | {{ post.created_on }}</p>
+                                    <a href="{% url 'blog_post' post.slug %}" class="blog-post-link">
+                                        <h4 class="card-title">{{ post.title }}</h4>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
                 </div>
                 <div class="row">
