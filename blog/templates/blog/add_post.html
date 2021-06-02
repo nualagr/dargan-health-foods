@@ -30,11 +30,11 @@
             <form method="POST" action="{% url 'add_post' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in bpform %}
-                {% if field.name != 'main_image' %}
-                <p>{{ field | as_crispy_field }}</p>
-                {% else %}
-                <p>{{ field }}</p>
-                {% endif %}
+                    {% if field.name != 'main_image' %}
+                        <p>{{ field | as_crispy_field }}</p>
+                    {% else %}
+                        <p>{{ field }}</p>
+                    {% endif %}
                 {% endfor %}
                 {% if bptformset %}
                 {{ bptformset.management_form }}

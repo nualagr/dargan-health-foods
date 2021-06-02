@@ -26,35 +26,35 @@
                         </a>
                     </li>
                     {% if current_blog_topic or current_blog_tag or blog_search_term %}
-                    <!-- All Blog Posts Breadcrumb -->
-                    <li class="item blog">
-                        <a href="{% url 'blog' %}" title="Go to Blog Plage">
-                            Blog
-                        </a>
-                    </li>
-                    <!-- Blog Topic Breadcrumb -->
-                    {% if current_blog_topic %}
-                    <li class="item topic">
-                        <strong>
-                            {{ current_blog_topic|first|title|to_ampersand }}
-                        </strong>
-                    </li>
-                    <!-- Blog Tag Breadcrumb-->
-                    {% elif current_blog_tag %}
-                    <li class="item tag">
-                        <strong>{{ current_blog_tag|first|title|to_ampersand }}</strong>
-                    </li>
-                    <!-- Blog Search Term Breadcrumb -->
-                    {% elif blog_search_term %}
-                    <li class="item search_term">
-                        <strong>Search Results For: "{{ blog_search_term|truncatechars:25 }}"</strong>
-                    </li>
+                        <!-- All Blog Posts Breadcrumb -->
+                        <li class="item blog">
+                            <a href="{% url 'blog' %}" title="Go to Blog Plage">
+                                Blog
+                            </a>
+                        </li>
+                        {% if current_blog_topic %}
+                            <!-- Blog Topic Breadcrumb -->
+                            <li class="item topic">
+                                <strong>
+                                    {{ current_blog_topic|first|title|to_ampersand }}
+                                </strong>
+                            </li>
+                        {% elif current_blog_tag %}
+                            <!-- Blog Tag Breadcrumb-->
+                            <li class="item tag">
+                                <strong>{{ current_blog_tag|first|title|to_ampersand }}</strong>
+                            </li>
+                        {% elif blog_search_term %}
+                            <!-- Blog Search Term Breadcrumb -->
+                            <li class="item search_term">
+                                <strong>Search Results For: "{{ blog_search_term|truncatechars:25 }}"</strong>
+                            </li>
+                        {% else %}
+                        {% endif %}
                     {% else %}
-                    {% endif %}
-                    {% else %}
-                    <li class="item blog">
-                        <strong>Blog</strong>
-                    </li>
+                        <li class="item blog">
+                            <strong>Blog</strong>
+                        </li>
                     {% endif %}
                 </ul>
             </div>
@@ -136,32 +136,32 @@
             <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading">
                 <span class="base" data-ui-id="page-title-wrapper">
                     {% if blog_search_term %}
-                    Search Results For: "{{ blog_search_term }}"
+                        Search Results For: "{{ blog_search_term }}"
                     {% elif current_blog_topic %}
-                    {{ current_blog_topic|first|title|to_ampersand }}
+                        {{ current_blog_topic|first|title|to_ampersand }}
                     {% elif current_blog_tag %}
-                    {{ current_blog_tag|first|title|to_ampersand }}
+                        {{ current_blog_tag|first|title|to_ampersand }}
                     {% else %}
-                    All Posts
+                        All Posts
                     {% endif %}
                 </span>
             </h1>
         </div>
     </div>
     {% if page_obj.paginator.count > 0 %}
-    <div class="row">
-        <div class="col-12 col-lg-9 mx-auto">
-            <div class="row">
-                <!-- Search Result Counter -->
-                <div class="col-12">
-                    <p class="text-muted">
-                        Post{{ page_obj.paginator.count|pluralize }} {{ page_obj.start_index }} -
-                        {{ page_obj.end_index }} of {{ page_obj.paginator.count }}
-                    </p>
+        <div class="row">
+            <div class="col-12 col-lg-9 mx-auto">
+                <div class="row">
+                    <!-- Search Result Counter -->
+                    <div class="col-12">
+                        <p class="text-muted">
+                            Post{{ page_obj.paginator.count|pluralize }} {{ page_obj.start_index }} -
+                            {{ page_obj.end_index }} of {{ page_obj.paginator.count }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     {% endif %}
 </div>
 <div class="container-fluid blogposts-list-container">
@@ -169,38 +169,38 @@
         <div class="col-12 col-lg-9 mx-auto">
             <div class="row">
                 {% if blogs_list %}
-                {% for blogpost in blogs_list %}
-                <div class="col-12 col-md-6">
-                    <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                    <div class="card text-center blog-card">
-                        <a href="{% url 'blog_post' blogpost.slug %}" class="blog-post-link">
-                            {% if blogpost.main_image %}
-                            <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class=" card-img-top"
-                                alt="{{ blogpost.title }}">
-                            {% else %}
-                            <img src="{{ MEDIA_URL }}no-image-placeholder.svg" class="card-img-top"
-                                alt="{{ blogpost.title }}">
-                            {% endif %}
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text text-start">{{ blogpost.topic.friendly_name }} |
-                                {{ blogpost.created_on }}</p>
+                    {% for blogpost in blogs_list %}
+                    <div class="col-12 col-md-6">
+                        <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                        <div class="card text-center blog-card">
                             <a href="{% url 'blog_post' blogpost.slug %}" class="blog-post-link">
-                                <h5 class="card-title">{{ blogpost.title }}</h5>
+                                {% if blogpost.main_image %}
+                                    <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class=" card-img-top"
+                                        alt="{{ blogpost.title }}">
+                                {% else %}
+                                    <img src="{{ MEDIA_URL }}no-image-placeholder.svg" class="card-img-top"
+                                        alt="{{ blogpost.title }}">
+                                {% endif %}
                             </a>
-                            <p class="card-text text-start blog-intro">{{ blogpost.intro|truncatewords:60 }}</p>
-                            <a class="page-link-with-arrow" href="{% url 'blog_post' blogpost.slug %}"
-                                title="Link to full blog post {{ blogpost.title }}">
-                                <span class="link">
-                                    Read Post
-                                </span>
-                            </a>
+                            <div class="card-body">
+                                <p class="card-text text-start">{{ blogpost.topic.friendly_name }} |
+                                    {{ blogpost.created_on }}</p>
+                                <a href="{% url 'blog_post' blogpost.slug %}" class="blog-post-link">
+                                    <h5 class="card-title">{{ blogpost.title }}</h5>
+                                </a>
+                                <p class="card-text text-start blog-intro">{{ blogpost.intro|truncatewords:60 }}</p>
+                                <a class="page-link-with-arrow" href="{% url 'blog_post' blogpost.slug %}"
+                                    title="Link to full blog post {{ blogpost.title }}">
+                                    <span class="link">
+                                        Read Post
+                                    </span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 {% else %}
-                <div class="col-12">
+                    <div class="col-12">
                         Sorry, no results returned...
                     </div>
                     <div class="col-8 mx-auto col-lg-4 mx-auto pt-3">

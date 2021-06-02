@@ -51,11 +51,11 @@
     <div class="row">
         <div class="col-12 col-lg-9 mx-auto text-end">
             {% if request.user.is_superuser %}
-            <p class="text-end fs-6">
-                <a class="blue-text-link" href="{% url 'edit_post' blogpost.id %}">Edit</a> |
-                <!-- Delete BlogPost Modal Trigger -->
-                <a class="red-text-link" data-bs-toggle="modal" data-bs-target="#deleteBlogPostModal">Delete</a>
-            </p>
+                <p class="text-end fs-6">
+                    <a class="blue-text-link" href="{% url 'edit_post' blogpost.id %}">Edit</a> |
+                    <!-- Delete BlogPost Modal Trigger -->
+                    <a class="red-text-link" data-bs-toggle="modal" data-bs-target="#deleteBlogPostModal">Delete</a>
+                </p>
             {% endif %}
         </div>
     </div>
@@ -66,11 +66,11 @@
                     <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
                     <div class="card">
                         {% if blogpost.main_image %}
-                        <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class="card-img-top blog-photo"
-                            alt="{{ blogpost.title }}">
+                            <img src="{{ MEDIA_URL }}{{ blogpost.main_image }}" class="card-img-top blog-photo"
+                                alt="{{ blogpost.title }}">
                         {% else %}
-                        <img src="{{ MEDIA_URL }}no-image-placeholder.svg"
-                            class="card-img-top blog-photo" alt="{{ blogpost.title }}">
+                            <img src="{{ MEDIA_URL }}no-image-placeholder.svg"
+                                class="card-img-top blog-photo" alt="{{ blogpost.title }}">
                         {% endif %}
                         <div class="card-body">
                             <div class="row">
@@ -83,27 +83,27 @@
                             </div>
                             <div class="row">
                                 {% if tags %}
-                                <div class="col-12 col-md-6">
-                                    <p class="fs-6">
-                                        <i class="fas fa-tag mr-1"></i>
-                                        {% for tag in tags %}
-                                        <a class="tag" href="{% url 'blog' %}?tag={{ tag.tag.name }}">
-                                            {{ tag.tag.friendly_name }}
-                                        </a>&nbsp;
-                                        {% endfor %}
-                                    </p>
-                                </div>
+                                    <div class="col-12 col-md-6">
+                                        <p class="fs-6">
+                                            <i class="fas fa-tag mr-1"></i>
+                                            {% for tag in tags %}
+                                            <a class="tag" href="{% url 'blog' %}?tag={{ tag.tag.name }}">
+                                                {{ tag.tag.friendly_name }}
+                                            </a>&nbsp;
+                                            {% endfor %}
+                                        </p>
+                                    </div>
                                 {% endif %}
                                 {% if comments %}
-                                <div class="col-12 col-md-6">
-                                    <p class="fs-6 text-end">
-                                        <i class="fas fa-comment-alt"></i>&nbsp;
-                                        <a href="{% url 'blog_post' blogpost.slug %}#collapseComments" class="tag"
-                                            id="open-comments">
-                                            {{ comments|length }}
-                                        </a>
-                                    </p>
-                                </div>
+                                    <div class="col-12 col-md-6">
+                                        <p class="fs-6 text-end">
+                                            <i class="fas fa-comment-alt"></i>&nbsp;
+                                            <a href="{% url 'blog_post' blogpost.slug %}#collapseComments" class="tag"
+                                                id="open-comments">
+                                                {{ comments|length }}
+                                            </a>
+                                        </p>
+                                    </div>
                                 {% endif %}
                             </div>
                             <div class="row">
@@ -148,14 +148,14 @@
                         </div>
                         <div class="accordion-body collapse" id="collapseComments" aria-labelledby="headingComments">
                             {% if request.user.is_authenticated %}
-                            <!-- Open BlogPostComment Form button -->
-                            <div class="my-3 text-end">
-                                <a class="common-button btn-forest-green" 
-                                    href="{% url 'add_comment' blogpost.id %}"
-                                    aria-label="Leave a Comment">
-                                    <i class="fas fa-user-edit"></i>&nbsp;Leave a Comment
-                                </a>
-                            </div>
+                                <!-- Open BlogPostComment Form button -->
+                                <div class="my-3 text-end">
+                                    <a class="common-button btn-forest-green" 
+                                        href="{% url 'add_comment' blogpost.id %}"
+                                        aria-label="Leave a Comment">
+                                        <i class="fas fa-user-edit"></i>&nbsp;Leave a Comment
+                                    </a>
+                                </div>
                             {% else %}
                                 <p class="fs-6 text-end text-muted">
                                     Have a comment? Please
@@ -166,59 +166,59 @@
                                 </p>
                             {% endif %}
                             {% if comments %}
-                            {% for comment in comments %}
-                            <div class="my-1">
-                                <small class="text-muted">{{ comment.user }} on {{ comment.created_on }}</small>
-                                {% if request.user.is_authenticated %}
-                                {% if user.id == comment.user.id %}
-                                <small>
-                                    <a class="blue-text-link" 
-                                        href="{% url 'edit_comment' comment.pk %}">Edit</a> |
-                                    <!-- Delete Comment Modal Trigger -->
-                                    <a class="red-text-link" 
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#deleteCommentModal{{ comment.pk }}">Delete</a>
-                                </small>
-                                <!-- Delete Comment Modal -->
-                                <div class="modal fade" id="deleteCommentModal{{ comment.pk }}" tabindex="-1"
-                                    aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content rounded-0">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title text-red text-center"
-                                                    id="deleteCommentModalLabel">
-                                                    Are you sure that you want to delete this comment?</h5>
-                                                <button type="button" 
-                                                    class="btn-close" 
-                                                    data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                {% for comment in comments %}
+                                    <div class="my-1">
+                                        <small class="text-muted">{{ comment.user }} on {{ comment.created_on }}</small>
+                                        {% if request.user.is_authenticated %}
+                                            {% if user.id == comment.user.id %}
+                                            <small>
+                                                <a class="blue-text-link" 
+                                                    href="{% url 'edit_comment' comment.pk %}">Edit</a> |
+                                                <!-- Delete Comment Modal Trigger -->
+                                                <a class="red-text-link" 
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#deleteCommentModal{{ comment.pk }}">Delete</a>
+                                            </small>
+                                            <!-- Delete Comment Modal -->
+                                            <div class="modal fade" id="deleteCommentModal{{ comment.pk }}" tabindex="-1"
+                                                aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content rounded-0">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title text-red text-center"
+                                                                id="deleteCommentModalLabel">
+                                                                Are you sure that you want to delete this comment?</h5>
+                                                            <button type="button" 
+                                                                class="btn-close" 
+                                                                data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body text-center">
+                                                            Your comments are valued.
+                                                        </div>
+                                                        <div class="modal-footer justify-content-center">
+                                                            <a class="common-button btn-blue" 
+                                                                data-bs-dismiss="modal">
+                                                                <i class="fas fa-undo"></i>&nbsp;Cancel</a>
+                                                            <a class="common-button btn-grey"
+                                                                href="{% url 'delete_comment' comment.pk %}">
+                                                                <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="modal-body text-center">
-                                                Your comments are valued.
-                                            </div>
-                                            <div class="modal-footer justify-content-center">
-                                                <a class="common-button btn-blue" 
-                                                    data-bs-dismiss="modal">
-                                                    <i class="fas fa-undo"></i>&nbsp;Cancel</a>
-                                                <a class="common-button btn-grey"
-                                                    href="{% url 'delete_comment' comment.pk %}">
-                                                    <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
-                                            </div>
-                                        </div>
+                                        {% endif %}
+                                    {% endif %}
                                     </div>
-                                </div>
-                                {% endif %}
-                                {% endif %}
-                            </div>
-                            <div class="pt-2">
-                                {{ comment.content|linebreaks }}
-                            </div>
-                            <hr>
-                            {% endfor %}
+                                    <div class="pt-2">
+                                        {{ comment.content|linebreaks }}
+                                    </div>
+                                    <hr>
+                                {% endfor %}
                             {% else %}
-                            <div>
-                                <p>Be the first to comment on this post.</p>
-                            </div>
+                                <div>
+                                    <p>Be the first to comment on this post.</p>
+                                </div>
                             {% endif %}
                         </div>
                         <!-- Search Accordion -->

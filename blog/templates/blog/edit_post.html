@@ -30,11 +30,11 @@
             <form method="POST" action="{% url 'edit_post' blogpost.pk %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in bpform %}
-                {% if field.name != 'main_image' %}
-                {{ field | as_crispy_field }}
-                {% else %}
-                {{ field }}
-                {% endif %}
+                    {% if field.name != 'main_image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
                 {% endfor %}
                 {% if bptformset %}
                     {{ bptformset.management_form }}
