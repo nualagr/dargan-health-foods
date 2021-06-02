@@ -1926,8 +1926,11 @@ and selecting the 'htmlcov/' directory.
 
 ### Overall Automated Test Coverage
 
-|App Name           |Percentage of App Code covered by Tests     |
-|:-------------------|:-------------------:|
+For the purposes of a MVP at least 55% of each app is covered by automated tests.
+It is hoped to continue to increase the test coverage to as close to 100% as possible.
+
+|App Name           |Percentage of App Code Currently Covered by Tests     |
+|:------------------|:-------------------:|
 |Blog               |67%                |
 |Cart               |55%                |
 |Checkout           |58%                |
@@ -2106,9 +2109,12 @@ Now Orders, with or without discount codes, are successfully created within the 
 
 ## Unresolved Issues
 
-Choosing the price options from the dropdown 'Sort by...' select does not take the 
+- Choosing the price options, 'Price High to Low' or 'Price Low to High' from the 
+dropdown 'Sort by...' select on the 'Products' page does not take the 
 discount price of a product into account.
 
+- The pagination buttons rendered, especially on page one, do not make it obvious
+to the viewer that the page range displayed does not reflect the total number of pages returned.
 
 ##### back to [top](#table-of-contents)
 ---
