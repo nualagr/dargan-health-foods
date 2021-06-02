@@ -173,7 +173,6 @@ Each website feature, including accordions, buttons, modals, external links, hov
 - Microsoft Opera
 - Mozilla Firefox
 
-
 <br>
 
 #### Functions Tested As A Logged-Out User

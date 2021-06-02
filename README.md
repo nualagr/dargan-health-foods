@@ -75,6 +75,7 @@ Click <a href="https://dargan-health-foods.herokuapp.com/">here</a> to visit the
             - [Edit BLogPost Page Features](#edit-blogpost-page-features)
             - [Add BlogComment Page Features](#add-blogpost-comment-page-features)
             - [Edit BlogComment Page Features](#edit-blogpost-comment-page-features)
+            - [Custom 404 and 500 Page Features](#custom-404-and-500-page-features)
             - [Authorisation Pages Features](#authorisation-pages-features)
         - [Features Left to Implement](#features-left-to-implement)
     - [4) The Skeleton Plane](#4-skeleton-plane)
@@ -853,15 +854,21 @@ the action by clicking on the **'Cancel'** button or the modal **'Close'** butto
 ##### Add Product Page Features
 
 - Each input and dropdown select box is clearly labelled on
-the **Add Product Form**. An **asterisk symbol** has been used 
+the **Add Product Form**. 
+
+- An **asterisk symbol** has been used 
 to indicate which fields are required. 
-Dropdown select boxes, which greatly speed up the form-filling
+
+- **Dropdown select boxes**, which greatly speed up the form-filling
 process, have been provided for the 'Brand',
 'On Offer', 'Free From', 'Category', 'Discontinued', and 'Tag' fields.
-The **image field** has been styled as a button which opens
+
+- The **image field** has been styled as a button which opens
 a dialog box where the user browse to, and select, their desired image. 
-A valid form can be submitted using the **'Add Product' button**.
-The **'Cancel' button** redirects the Superuser to the 'All Products' page.
+
+- A valid form can be submitted using the **'Add Product' button**.
+
+- The **'Cancel' button** redirects the Superuser to the 'All Products' page.
 
 ##### back to [top](#table-of-contents)
 ---
@@ -870,12 +877,15 @@ The **'Cancel' button** redirects the Superuser to the 'All Products' page.
 
 - The **Edit Product Form** opens prepopulated
 with the information currently in the database.
-Checkboxes next to the 'Current Image' thumbnail
+
+- Checkboxes next to the 'Current Image' thumbnail
 and each beneath each product 'Tag' allow the Superuser to select
 these items for deletion upon submission of the form.
-Clicking the **'Edit Product' button** submits the
+
+- Clicking the **'Edit Product' button** submits the
 ammendments to the database.
-The **'Cancel' button** returns the Superuser to
+
+- The **'Cancel' button** returns the Superuser to
 the 'Product Details' page for that product.
 
 ##### back to [top](#table-of-contents)
@@ -885,13 +895,19 @@ the 'Product Details' page for that product.
 
 - The **Add Review Form** has a **title** to 
 remind the user which product they are reviewing.
-The **star rating dropdown** allows them to choose
+
+- The **star rating dropdown** allows them to choose
 their rating by selecting the number of stars to be 
-awarded. Placeholder text informs the user as to what is
+awarded. 
+
+- **Placeholder text** informs the user as to what is
 required in each field for successful form 
-submission. A valid form can be submitted using 
+submission. 
+
+- A valid form can be submitted using 
 the **'Post Review' button**.
-The **'To Product Page' button** links back to
+
+- The **'To Product Page' button** links back to
 the 'Product Detail' page.
 
 ##### back to [top](#table-of-contents)
@@ -1201,6 +1217,14 @@ edited comment to the database.
 
 - The **'To Blog Post' button** opens 
 the related 'BlogPost' page.
+
+##### back to [top](#table-of-contents)
+---
+
+##### Custom 404 and 500 Page Features
+
+- Both pages have an **in-text link** to bring the user 
+back to the **'Home' page**.
 
 ##### back to [top](#table-of-contents)
 ---

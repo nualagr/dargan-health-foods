@@ -542,6 +542,11 @@ a.disabled {
     outline: transparent;
 }
 
+/* Show the MainNav category dropdown menu on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 /* Containers --------------------------------------------------------- */
 .nav-container {
     background-color: #fffafa;
@@ -1122,6 +1127,10 @@ p.card-text.brand-name {
 }
 
 /* Allauth, Newsletter, ProductReview and Contact Us Form Formatting -------------------------------------------- */
+.form-control {
+    border-radius: 0 !important;
+}
+
 .contact-form p:not(.invalid-feedback),
 .allauth-form-inner-content p {
     margin: 1.5rem 0 2.5rem 0;
