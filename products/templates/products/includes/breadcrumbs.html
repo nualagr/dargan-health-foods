@@ -15,8 +15,8 @@
                     Products
                 </a>
             </li>
-            <!-- Department Breadcrumb -->
             {% if current_department %}
+                <!-- Department Breadcrumb -->
                 <li class="item department">
                     <strong>
                         {% if current_sorting == "-date_added_None" %}
@@ -27,23 +27,23 @@
                         {{ current_department|first|title|to_ampersand }}
                     </strong>
                 </li>
-            <!-- Category Breadcrumb-->
             {% elif current_category %}
+                <!-- Category Breadcrumb-->
                 <li class="item category">
                     <strong>{{ current_category|first|title|to_ampersand }}</strong>
                 </li>
-            <!-- Search Term Breadcrumb -->
             {% elif search_term %}
+                <!-- Search Term Breadcrumb -->
                 <li class="item search_term">
                     <strong>Search Results For: "{{ search_term|truncatechars:25 }}"</strong>
                 </li>
-            <!-- Product Tag Breadcrumb -->
             {% elif current_tag %}
+                <!-- Product Tag Breadcrumb -->
                 <li class="item tag">
                     <strong>{{ current_tag|first|title|to_ampersand }}</strong>
                 </li>
-            <!-- All New In Breadcrumb -->
             {% elif current_sorting == "-date_added_None" %}
+                <!-- All New In Breadcrumb -->
                 <li class="item new_in">
                     <strong>New In</strong>
                 </li>

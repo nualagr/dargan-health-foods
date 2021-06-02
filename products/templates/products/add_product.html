@@ -28,14 +28,14 @@
             <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in pform %}
-                {% if field.name != 'main_image' %}
-                <p>{{ field | as_crispy_field }}</p>
-                {% else %}
-                <p>{{ field }}</p>
-                {% endif %}
+                    {% if field.name != 'main_image' %}
+                        <p>{{ field | as_crispy_field }}</p>
+                    {% else %}
+                        <p>{{ field }}</p>
+                    {% endif %}
                 {% endfor %}
                 {% if ptformset %}
-                {{ ptformset.management_form }}
+                    {{ ptformset.management_form }}
                     {% for form in ptformset %}
                         {{ form | crispy }}
                     {% endfor %}

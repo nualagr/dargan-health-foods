@@ -56,42 +56,42 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-1 col-xl-4">
                 <div class="product-image-container my-5 ribbon-wrapper">
                     {% if images|length >= 1 %}
-                    <!-- Product Images Carousel -->
-                    <div id="carouselImageControls" class="carousel carousel-dark slide" data-bs-interval="false">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="product-details-image"
-                                    alt="{{ product.abbreviated_friendly_name }}">
+                        <!-- Product Images Carousel -->
+                        <div id="carouselImageControls" class="carousel carousel-dark slide" data-bs-interval="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="product-details-image"
+                                        alt="{{ product.abbreviated_friendly_name }}">
+                                </div>
+                                {% for image in images %}
+                                <div class="carousel-item">
+                                    <img src="{{ MEDIA_URL }}{{ image }}" class="product-details-image"
+                                        alt="{{ product.abbreviated_friendly_name }}">
+                                </div>
+                                {% endfor %}
                             </div>
-                            {% for image in images %}
-                            <div class="carousel-item">
-                                <img src="{{ MEDIA_URL }}{{ image }}" class="product-details-image"
-                                    alt="{{ product.abbreviated_friendly_name }}">
-                            </div>
-                            {% endfor %}
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselImageControls"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselImageControls"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselImageControls"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselImageControls"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
                     {% elif product.main_image %}
-                    <img class="product-details-image" src="{{ MEDIA_URL }}{{ product.main_image }}"
-                        alt="{{ product.abbreviated_friendly_name }}">
+                        <img class="product-details-image" src="{{ MEDIA_URL }}{{ product.main_image }}"
+                            alt="{{ product.abbreviated_friendly_name }}">
                     {% else %}
-                    <img class="product-details-image" src="{{ MEDIA_URL }}no-image-placeholder.svg"
-                        alt="{{ product.abbreviated_friendly_name }}">
+                        <img class="product-details-image" src="{{ MEDIA_URL }}no-image-placeholder.svg"
+                            alt="{{ product.abbreviated_friendly_name }}">
                     {% endif %}
                     {% if product.on_offer and product.discount_price %}
-                    <span class="ribbon1">
-                        <span>SAVE</span>
-                    </span>
+                        <span class="ribbon1">
+                            <span>SAVE</span>
+                        </span>
                     {% endif %}
                 </div>
             </div>
@@ -106,37 +106,37 @@
                         <span class="text-muted">
                             {{ product.avg_rating|floatformat:1 }}&nbsp;&nbsp;
                             {% if reviews %}
-                            <a href="{% url 'product_detail' product.id %}#collapseReviews" class="green-text-link"
-                                id="open-product-reviews">
-                                ({{ reviews|length }} review{{ reviews|length|pluralize }})
-                            </a>
+                                <a href="{% url 'product_detail' product.id %}#collapseReviews" class="green-text-link"
+                                    id="open-product-reviews">
+                                    ({{ reviews|length }} review{{ reviews|length|pluralize }})
+                                </a>
                             {% endif %}
                         </span>
                     </p>
                     <p class="lead">
                         {% if product.on_offer and product.discount_price %}
-                        now €{{ product.discount_price }}
-                        <span class="small text-muted text-decoration-line-through">was €{{ product.price }}</span>
-                        {% else %}
-                        €{{ product.price }}
+                            now €{{ product.discount_price }}
+                            <span class="small text-muted text-decoration-line-through">was €{{ product.price }}</span>
+                            {% else %}
+                            €{{ product.price }}
                         {% endif %}
                     </p>
                     {% if tags %}
-                    <p class="small">
-                        <i class="fas fa-tag mr-1"></i>
-                        {% for tag in tags %}
-                        <a class="tag" href="{% url 'products' %}?tag={{ tag.tag.name }}">
-                            {{ tag.tag.friendly_name }}
-                        </a>&nbsp;
-                        {% endfor %}
-                    </p>
+                        <p class="small">
+                            <i class="fas fa-tag mr-1"></i>
+                            {% for tag in tags %}
+                            <a class="tag" href="{% url 'products' %}?tag={{ tag.tag.name }}">
+                                {{ tag.tag.friendly_name }}
+                            </a>&nbsp;
+                            {% endfor %}
+                        </p>
                     {% endif %}
                     {% if request.user.is_superuser %}
-                    <small class="ml-3">
-                        <a class="blue-text-link" href="{% url 'edit_product' product.id %}">Edit</a> |
-                        <!-- Delete Product Modal Trigger -->
-                        <a class="red-text-link" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
-                    </small>
+                        <small class="ml-3">
+                            <a class="blue-text-link" href="{% url 'edit_product' product.id %}">Edit</a> |
+                            <!-- Delete Product Modal Trigger -->
+                            <a class="red-text-link" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                        </small>
                     {% endif %}
                     <p class="mt-3">
                         {{ product.information }}
@@ -174,33 +174,33 @@
                         </h4>
                     </div>
                     <div class="accordion-body collapse" id="collapseDetails" aria-labelledby="headingDetails">
-                        <!-- Ingredients -->
                         {% if product.ingredients %}
-                        <p>
-                            <strong>
-                                Ingredients:
-                            </strong>
-                        </p>
-                        <ul class="product-ingredients">
-                            {% for ingredient in product.ingredients|split:"," %}
-                            <li>
-                                {{ ingredient }}
-                            </li>
-                            {% endfor %}
-                        </ul>
-                        <br>
+                            <!-- Ingredients -->
+                            <p>
+                                <strong>
+                                    Ingredients:
+                                </strong>
+                            </p>
+                            <ul class="product-ingredients">
+                                {% for ingredient in product.ingredients|split:"," %}
+                                <li>
+                                    {{ ingredient }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            <br>
                         {% endif %}
-                        <!-- Directions for Usage -->
                         {% if product.usage %}
-                        <p>
-                            <strong>
-                                Usage:
-                            </strong>
-                        </p>
-                        <p>
-                            {{ product.usage }}
-                        </p>
-                        <br>
+                            <!-- Directions for Usage -->
+                            <p>
+                                <strong>
+                                    Usage:
+                                </strong>
+                            </p>
+                            <p>
+                                {{ product.usage }}
+                            </p>
+                            <br>
                         {% endif %}
                     </div>
                 </div>
@@ -217,31 +217,31 @@
                 <div class="accordion-body collapse" id="collapseMoreInformation"
                     aria-labelledby="headingMoreInformation">
                     {% if product.weight_g %}
-                    <p>
-                        <strong>
-                            Weight:
-                        </strong>
-                        {{ product.weight_g }}g
-                    </p>
-                    <br>
+                        <p>
+                            <strong>
+                                Weight:
+                            </strong>
+                            {{ product.weight_g }}g
+                        </p>
+                        <br>
                     {% endif %}
                     {% if product.free_from %}
-                    <p>
-                        <strong>
-                            Free From:
-                        </strong>
-                        {{ product.free_from }}
-                    </p>
-                    <br>
+                        <p>
+                            <strong>
+                                Free From:
+                            </strong>
+                            {{ product.free_from }}
+                        </p>
+                        <br>
                     {% endif %}
                     {% if product.allergens %}
-                    <p>
-                        <strong>
-                            Allergens:
-                        </strong>
-                        {{ product.allergens }}
-                    </p>
-                    <br>
+                        <p>
+                            <strong>
+                                Allergens:
+                            </strong>
+                            {{ product.allergens }}
+                        </p>
+                        <br>
                     {% endif %}
                 </div>
                 <!-- Disclaimer Accordion -->
@@ -275,14 +275,14 @@
                 </div>
                 <div class="accordion-body collapse" id="collapseReviews" aria-labelledby="headingReviews">
                     {% if request.user.is_authenticated %}
-                    {% if can_review %}
-                    <!-- Open ProductReview Form button -->
-                    <div class="my-3 text-end">
-                        <a class="common-button btn-forest-green" href="{% url 'add_review' product.id %}">
-                            <i class="fas fa-user-edit"></i>&nbsp;Leave a Review
-                        </a>
-                    </div>
-                    {% endif %}
+                        {% if can_review %}
+                            <!-- Open ProductReview Form button -->
+                            <div class="my-3 text-end">
+                                <a class="common-button btn-forest-green" href="{% url 'add_review' product.id %}">
+                                    <i class="fas fa-user-edit"></i>&nbsp;Leave a Review
+                                </a>
+                            </div>
+                        {% endif %}
                     {% else %}
                         <p class="small text-end text-muted">
                             Have you purchased this product? Please
@@ -293,63 +293,63 @@
                         </p>
                     {% endif %}
                     {% if reviews %}
-                    {% for review in reviews %}
-                    <div>
-                        <span class="stars-outer">
-                            <span class="stars-inner" style="width:{% widthratio review.review_rating 5 100 %}%;">
-                            </span>
-                        </span>
-                        <span>
-                            <strong>&nbsp;{{ review.review_title }}</strong>
-                        </span>
-                    </div>
-                    <div class="my-1 text-muted">
-                        <small>Reviewed by {{ review.user }} on {{ review.created }}</small>
-                        {% if request.user.is_authenticated %}
-                        {% if user.id == review.user.id %}
-                        <small>
-                            <a class="blue-text-link" href="{% url 'edit_review' review.id %}">Edit</a> |
-                            <!-- Delete Review Modal Trigger -->
-                            <a class="red-text-link" data-bs-toggle="modal"
-                                data-bs-target="#deleteReviewModal">Delete</a>
-                        </small>
-                        <!-- Delete Review Modal -->
-                        <div class="modal fade" id="deleteReviewModal" tabindex="-1"
-                            aria-labelledby="deleteReviewModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content rounded-0">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title text-danger text-center" id="deleteReviewModalLabel">
-                                            Are you sure that you want to delete this review?</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body text-center">
-                                        Your product review really helps other shoppers get a clearer idea of the
-                                        product before purchasing it.
-                                    </div>
-                                    <div class="modal-footer justify-content-center">
-                                        <a class="common-button btn-blue" data-bs-dismiss="modal"><i
-                                                class="fas fa-undo"></i>&nbsp;Cancel</a>
-                                        <a class="common-button btn-grey" href="{% url 'delete_review' review.id %}">
-                                            <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
-                                    </div>
-                                </div>
+                        {% for review in reviews %}
+                            <div>
+                                <span class="stars-outer">
+                                    <span class="stars-inner" style="width:{% widthratio review.review_rating 5 100 %}%;">
+                                    </span>
+                                </span>
+                                <span>
+                                    <strong>&nbsp;{{ review.review_title }}</strong>
+                                </span>
                             </div>
-                        </div>
-                        {% else %}
-                        {% endif %}
-                        {% endif %}
-                    </div>
-                    <div>
-                        {{ review.review_content|linebreaks }}
-                    </div>
-                    <hr>
-                    {% endfor %}
+                            <div class="my-1 text-muted">
+                                <small>Reviewed by {{ review.user }} on {{ review.created }}</small>
+                                {% if request.user.is_authenticated %}
+                                    {% if user.id == review.user.id %}
+                                        <small>
+                                            <a class="blue-text-link" href="{% url 'edit_review' review.id %}">Edit</a> |
+                                            <!-- Delete Review Modal Trigger -->
+                                            <a class="red-text-link" data-bs-toggle="modal"
+                                                data-bs-target="#deleteReviewModal">Delete</a>
+                                        </small>
+                                        <!-- Delete Review Modal -->
+                                        <div class="modal fade" id="deleteReviewModal" tabindex="-1"
+                                            aria-labelledby="deleteReviewModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content rounded-0">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title text-danger text-center" id="deleteReviewModalLabel">
+                                                            Are you sure that you want to delete this review?</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        Your product review really helps other shoppers get a clearer idea of the
+                                                        product before purchasing it.
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <a class="common-button btn-blue" data-bs-dismiss="modal"><i
+                                                                class="fas fa-undo"></i>&nbsp;Cancel</a>
+                                                        <a class="common-button btn-grey" href="{% url 'delete_review' review.id %}">
+                                                            <i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                            <div>
+                                {{ review.review_content|linebreaks }}
+                            </div>
+                            <hr>
+                        {% endfor %}
                     {% else %}
-                    <div>
-                        <p>No customer reviews currently exist for this product.</p>
-                    </div>
+                        <div>
+                            <p>No customer reviews currently exist for this product.</p>
+                        </div>
                     {% endif %}
                 </div>
             </div>

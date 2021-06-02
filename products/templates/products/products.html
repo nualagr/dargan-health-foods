@@ -33,59 +33,59 @@
             <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading">
                 <span class="base" data-ui-id="page-title-wrapper">
                     {% if search_term %}
-                    Search Results For: "{{ search_term }}"
+                        Search Results For: "{{ search_term }}"
                     {% elif current_department %}
-                    {% if current_sorting == "-date_added_None" %}
-                    New In {{ current_department|first|title|to_ampersand }}
-                    {% else %}
-                    All {{ current_department|first|title|to_ampersand }}
-                    {% endif %}
+                        {% if current_sorting == "-date_added_None" %}
+                            New In {{ current_department|first|title|to_ampersand }}
+                        {% else %}
+                            All {{ current_department|first|title|to_ampersand }}
+                        {% endif %}
                     {% elif current_category %}
-                    {{ current_category|first|title|to_ampersand }}
+                        {{ current_category|first|title|to_ampersand }}
                     {% elif current_tag %}
-                    {{ current_tag|first|title|to_ampersand }}
+                        {{ current_tag|first|title|to_ampersand }}
                     {% elif current_sorting == "-date_added_None" %}
-                    All New In
+                        All New In
                     {% else %}
-                    All Products
+                        All Products
                     {% endif %}
                 </span>
             </h1>
         </div>
     </div>
     {% if page_obj.paginator.count > 0 %}
-    <div class="row">
-        <div class="col-12 col-lg-9 mx-auto">
-            <div class="row">
-                <!-- Result Counter -->
-                <div class="col-12 col-sm-6">
-                    <p class="text-muted">
-                        Item{{ page_obj.paginator.count|pluralize }} {{ page_obj.start_index }} -
-                        {{ page_obj.end_index }} of {{ page_obj.paginator.count }}
-                    </p>
-                </div>
-                <!-- Sort Options Dropdown -->
-                <div class="col-12 col-sm-6">
-                    <div class="dropdown-sort-products">
-                        <select id="sort-selector" class="rounded-0">
-                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
-                            </option>
-                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
-                                Rating</option>
-                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Title A-Z
-                            </option>
-                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Title
-                                Z-A</option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
-                                High to Low</option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
-                                Low to High</option>
-                        </select>
+        <div class="row">
+            <div class="col-12 col-lg-9 mx-auto">
+                <div class="row">
+                    <!-- Result Counter -->
+                    <div class="col-12 col-sm-6">
+                        <p class="text-muted">
+                            Item{{ page_obj.paginator.count|pluralize }} {{ page_obj.start_index }} -
+                            {{ page_obj.end_index }} of {{ page_obj.paginator.count }}
+                        </p>
+                    </div>
+                    <!-- Sort Options Dropdown -->
+                    <div class="col-12 col-sm-6">
+                        <div class="dropdown-sort-products">
+                            <select id="sort-selector" class="rounded-0">
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                                </option>
+                                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
+                                    Rating</option>
+                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Title A-Z
+                                </option>
+                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Title
+                                    Z-A</option>
+                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+                                    High to Low</option>
+                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+                                    Low to High</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     {% endif %}
     <div class="products-container">
         <div class="row">
@@ -93,78 +93,78 @@
                 <!-- Display Products Row -->
                 <div class="row">
                     {% if products %}
-                    {% for product in page_obj %}
-                    <div class="col-6 col-md-3">
-                        <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
-                        <div class="card text-center">
-                            {% if product.main_image %}
-                            <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
-                                    alt="{{ product.abbreviated_friendly_name }}">
-                            </a>
-                            {% else %}
-                            <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                <img src="{{ MEDIA_URL }}no-image-placeholder.svg" class="card-img-top"
-                                    alt="{{ product.abbreviated_friendly_name }}">
-                            </a>
-                            {% endif %}
-                            <div class="card-body">
-                                <p class="card-text brand-name">{{ product.brand }}</p>
-                                <a href="{% url 'product_detail' product.id %}" class="product-link">
-                                    <h4 class="card-title">{{ product.abbreviated_friendly_name}}</h4>
-                                </a>
-                                <p class="card-text product-price pt-2">
-                                    {% if product.on_offer and product.discount_price %}
-                                    <span class="small text-muted text-decoration-line-through d-none d-xl-inline">was €{{ product.price }}</span>
-                                    now €{{ product.discount_price }}
+                        {% for product in page_obj %}
+                            <div class="col-6 col-md-3">
+                                <!-- Bootstrap Card copied from https://getbootstrap.com/docs/5.0/components/card/ and then modified -->
+                                <div class="card text-center">
+                                    {% if product.main_image %}
+                                        <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                            <img src="{{ MEDIA_URL }}{{ product.main_image }}" class="card-img-top"
+                                                alt="{{ product.abbreviated_friendly_name }}">
+                                        </a>
                                     {% else %}
-                                    €{{ product.price }}
+                                        <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                            <img src="{{ MEDIA_URL }}no-image-placeholder.svg" class="card-img-top"
+                                                alt="{{ product.abbreviated_friendly_name }}">
+                                        </a>
                                     {% endif %}
-                                </p>
-                            </div>
-                            <div class="card-footer bg-white border-0">
-                                <div class="row">
-                                    <div class="col">
-                                        <!-- Form with Quick-Add-to-Cart button and hidden Quantity Input -->
-                                        <form class="row" action="{% url 'add_to_cart' product.id %}" method="POST">
-                                            {% csrf_token %}
-                                            <div class="col">
-                                                <div class="input-group">
-                                                    <input class="form-control qty-input rounded-0" type="hidden"
-                                                        name="quantity" value="1">
-                                                </div>
-                                                <input type="submit"
-                                                    class="common-button btn-orange quick-add-to-cart-btn"
-                                                    value="Add to Cart">
-                                            </div>
-                                            <!-- Submit the current url with the form so that we can redirect the user back to the same page once the item has been added to the Cart -->
-                                            <input type="hidden" name="redirect_url"
-                                                value="{{ request.get_full_path }}">
-                                        </form>
+                                    <div class="card-body">
+                                        <p class="card-text brand-name">{{ product.brand }}</p>
+                                        <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                            <h4 class="card-title">{{ product.abbreviated_friendly_name}}</h4>
+                                        </a>
+                                        <p class="card-text product-price pt-2">
+                                            {% if product.on_offer and product.discount_price %}
+                                                <span class="small text-muted text-decoration-line-through d-none d-xl-inline">was €{{ product.price }}</span>
+                                                now €{{ product.discount_price }}
+                                            {% else %}
+                                                €{{ product.price }}
+                                            {% endif %}
+                                        </p>
                                     </div>
+                                    <div class="card-footer bg-white border-0">
+                                        <div class="row">
+                                            <div class="col">
+                                                <!-- Form with Quick-Add-to-Cart button and hidden Quantity Input -->
+                                                <form class="row" action="{% url 'add_to_cart' product.id %}" method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="col">
+                                                        <div class="input-group">
+                                                            <input class="form-control qty-input rounded-0" type="hidden"
+                                                                name="quantity" value="1">
+                                                        </div>
+                                                        <input type="submit"
+                                                            class="common-button btn-orange quick-add-to-cart-btn"
+                                                            value="Add to Cart">
+                                                    </div>
+                                                    <!-- Submit the current url with the form so that we can redirect the user back to the same page once the item has been added to the Cart -->
+                                                    <input type="hidden" name="redirect_url"
+                                                        value="{{ request.get_full_path }}">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% if product.on_offer and product.discount_price %}
+                                        <div class="ribbon-wrapper-2">
+                                            <div class="ribbon-2">On Offer</div>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>
-                            {% if product.on_offer and product.discount_price %}
-                            <div class="ribbon-wrapper-2">
-                                <div class="ribbon-2">On Offer</div>
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endfor %}
+                        {% endfor %}
                     {% else %}
-                    <div class="col-12">
-                        Sorry, no results returned...
-                    </div>
-                    <div class="col-8 mx-auto col-lg-4 mx-auto pt-3">
-                        <img src="{{ MEDIA_URL }}magnifying-glass.jpg" class="card-img-top opacity-2"
-                            alt="Magnifying Glass">
-                    </div>
-                    <div class="col-12">
-                        <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping-btn">
-                            Continue Shopping
-                        </a>
-                    </div>
+                        <div class="col-12">
+                            Sorry, no results returned...
+                        </div>
+                        <div class="col-8 mx-auto col-lg-4 mx-auto pt-3">
+                            <img src="{{ MEDIA_URL }}magnifying-glass.jpg" class="card-img-top opacity-2"
+                                alt="Magnifying Glass">
+                        </div>
+                        <div class="col-12">
+                            <a href="{% url 'products' %}" class="common-button btn-green-outline continue-shopping-btn">
+                                Continue Shopping
+                            </a>
+                        </div>
                     {% endif %}
                 </div>
             </div>
