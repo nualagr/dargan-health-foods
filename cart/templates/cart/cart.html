@@ -18,34 +18,34 @@
 
 {% block messages %}
 {% if messages %}
-<!-- Message Container -->
-<div class="container-fluid messages-container">
-    <div class="row">
-        <div class="col-12 col-lg-10 offset-lg-1">
-            {% for message in messages %}
-            {% with message.level as level %}
-            {% if level == 40 %}
-            <p class="text-danger">
-                <i class="fas fa-times"></i> {{ message }}
-            </p>
-            {% elif level == 30 %}
-            <p class="text-warning">
-                <i class="fas fa-exclamation-circle"></i> {{ message }}
-            </p>
-            {% elif level == 25 %}
-            <p class="text-success">
-                <i class="fas fa-check"></i> {{ message }}
-            </p>
-            {% else %}
-            <p class="text-info">
-                <i class="fas fa-info-circle"></i> {{ message }}
-            </p>
-            {% endif %}
-            {% endwith %}
-            {% endfor %}
+    <!-- Message Container -->
+    <div class="container-fluid messages-container">
+        <div class="row">
+            <div class="col-12 col-lg-10 offset-lg-1">
+                {% for message in messages %}
+                    {% with message.level as level %}
+                        {% if level == 40 %}
+                            <p class="text-danger">
+                                <i class="fas fa-times"></i> {{ message }}
+                            </p>
+                        {% elif level == 30 %}
+                            <p class="text-warning">
+                                <i class="fas fa-exclamation-circle"></i> {{ message }}
+                            </p>
+                        {% elif level == 25 %}
+                            <p class="text-success">
+                                <i class="fas fa-check"></i> {{ message }}
+                            </p>
+                        {% else %}
+                            <p class="text-info">
+                                <i class="fas fa-info-circle"></i> {{ message }}
+                            </p>
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
 {% endif %}
 {% endblock %}
 
@@ -64,246 +64,246 @@
     </div>
     <!-- Shopping Cart Table of Items -->
     {% if cart_items %}
-    <div class="row cart-wrapper">
-        <div class="col-12 col-lg-6 offset-lg-1">
-            <div class="table-responsive">
-                <table class="table table-sm table-borderless cart-items">
-                    <thead class="text-black">
-                        <tr>
-                            <th class="col item" scope="col"><span>Item</span></th>
-                            <th class="col" scope="col"></th>
-                            <th class="col price" scope="col"><span>Price</span></th>
-                            <th class="col qty w-25 text-center" scope="col"><span>Qty</span></th>
-                            <th class="col subtotal" scope="col"><span>Subtotal</span></th>
-                            <th class="col remove" scope="col"><span><i class="fas fa-trash-alt"></i></span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in cart_items %}
-                        <tr>
-                            <td class="item-img py-4">
-                                {% if item.product.main_image %}
-                                <img src="{{ MEDIA_URL }}{{ item.product.main_image }}" class="product-image-photo"
-                                    alt="{{ item.product.abbreviated_friendly_name }}">
+        <div class="row cart-wrapper">
+            <div class="col-12 col-lg-6 offset-lg-1">
+                <div class="table-responsive">
+                    <table class="table table-sm table-borderless cart-items">
+                        <thead class="text-black">
+                            <tr>
+                                <th class="col item" scope="col"><span>Item</span></th>
+                                <th class="col" scope="col"></th>
+                                <th class="col price" scope="col"><span>Price</span></th>
+                                <th class="col qty w-25 text-center" scope="col"><span>Qty</span></th>
+                                <th class="col subtotal" scope="col"><span>Subtotal</span></th>
+                                <th class="col remove" scope="col"><span><i class="fas fa-trash-alt"></i></span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart_items %}
+                                <tr>
+                                    <td class="item-img py-4">
+                                        {% if item.product.main_image %}
+                                            <img src="{{ MEDIA_URL }}{{ item.product.main_image }}" class="product-image-photo"
+                                                alt="{{ item.product.abbreviated_friendly_name }}">
+                                        {% else %}
+                                            <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg"
+                                                class="product-image-photo" alt="{{ product.abbreviated_friendly_name }}">
+                                        {% endif %}
+                                    </td>
+                                    <td class="item-info py-4">
+                                        <a href="{% url 'product_detail' item.product.id %}" class="product-link">
+                                            <p class="my-0">
+                                                {{ item.product.friendly_name }}
+                                            </p>
+                                        </a>
+                                        <p class="my-1 small text-muted">
+                                            SKU: {{ item.product.sku|upper }}
+                                        </p>
+                                    </td>
+                                    <td class="item-price py-4">
+                                        <p>
+                                            {% if item.product.on_offer and item.product.discount_price %}
+                                                <s class="text-muted">€{{ item.product.price }}</s>
+                                                €{{ item.product.discount_price }}
+                                            {% else %}
+                                                €{{ item.product.price }}
+                                            {% endif %}
+                                        </p>
+                                    </td>
+                                    <td class="item-qty py-4 text-center">
+                                        <div class="quantity-control">
+                                            <form class="d-block d-sm-inline" method="POST"
+                                                action="{% url 'decrease_quantity_by_one' item.product.id %}">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-sm p-0 text-muted" aria-label="Decrease Product Quantity by One Button">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                            </form>
+                                            <span class="p-0">{{ item.quantity }}</span>
+                                            <form class="d-block d-sm-inline" method="POST"
+                                                action="{% url 'increase_quantity_by_one' item.product.id %}">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-sm p-0 text-muted" aria-label="Increase Product Quantity by One Button">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                    <td class="item-subtotal py-4">
+                                        <p>
+                                            {% if item.product.on_offer and item.product.discount_price %}
+                                                €{{ item.product.discount_price | calc_subtotal:item.quantity }}
+                                            {% else %}
+                                                €{{ item.product.price | calc_subtotal:item.quantity }}
+                                            {% endif %}
+                                        </p>
+                                    </td>
+                                    <td class="item-remove py-4">
+                                        <form method="POST" action="{% url 'remove_from_cart' item.product.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn" aria-label="Remove Item from Cart Button">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            {% if request.user.is_authenticated %}
+                                <!-- Discount Code Form Row for site members to apply discount codes -->
+                                <tr>
+                                    <td colspan="6">
+                                        <form id="discount-code-form" method="POST" action="{% url 'view_cart' %}">
+                                            {% csrf_token %}
+                                            <div class="input-group">
+                                                {{ dcform.discount_code }}
+                                                <button type="submit"
+                                                    class="common-button btn-grey-outline input-group-append apply-promo-code-btn"
+                                                    aria-label="Apply Discount Code Button">
+                                                    Apply
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="py-4 text-start" colspan="6">
+                                    {% if not request.user.is_authenticated %}
+                                        <p class="text-end text-muted small">Have a promo code? 
+                                            <a href="{% url 'account_login' %}" class="blue-text-link" aria-label="Sign In link">
+                                                Sign In</a> to apply it and receive your discount.
+                                        </p>
+                                    {% endif %}
+                                    <a href="{% url 'products' %}"
+                                        class="common-button btn-green-outline continue-shopping-btn"
+                                        title="Continue Shopping"
+                                        aria-label="Continue Shopping Button">
+                                        Continue Shopping
+                                    </a>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- Shopping Cart Summary Table -->
+            <div class="col-12 col-lg-4 mb-3">
+                <div class="cart-summary bg-light-orange">
+                    <table class="table table-borderless table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="2">
+                                    <h3>Summary</h3>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if request.user.is_authenticated %}
+                                {% if discount_amount > 0 %}
+                                    <tr class="cart-totals">
+                                        <th scope="row" class="lighter-heading">
+                                            Cart Total:
+                                        </th>
+                                        <td class="amount">
+                                            €{{ total_before_discount|floatformat:2 }}
+                                        </td>
+                                    </tr>
+                                    <tr class="cart-discount">
+                                        <th scope="row" class="lighter-heading">
+                                            <a href="{% url 'remove_discount_code' %}" 
+                                                role="button" 
+                                                class="badge rounded-pill bg-forest-green white-text-link"
+                                                aria-label="Remove Discount Code">
+                                                {{ discount_code.discount_code }}&nbsp;<i class="fas fa-tags"></i>
+                                                &nbsp;<i class="fas fa-times"></i>
+                                            </a>
+                                        </th>
+                                        <td class="amount">
+                                            -&nbsp;€{{ discount_amount|floatformat:2 }}
+                                        </td>
+                                    </tr>
                                 {% else %}
-                                <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg"
-                                    class="product-image-photo" alt="{{ product.abbreviated_friendly_name }}">
+                                    <tr class="cart-totals">
+                                        <th scope="row" class="lighter-heading">
+                                            Cart Total:
+                                        </th>
+                                        <td class="amount">
+                                            €{{ total|floatformat:2 }}
+                                        </td>
+                                    </tr>
                                 {% endif %}
-                            </td>
-                            <td class="item-info py-4">
-                                <a href="{% url 'product_detail' item.product.id %}" class="product-link">
-                                    <p class="my-0">
-                                        {{ item.product.friendly_name }}
-                                    </p>
-                                </a>
-                                <p class="my-1 small text-muted">
-                                    SKU: {{ item.product.sku|upper }}
-                                </p>
-                            </td>
-                            <td class="item-price py-4">
-                                <p>
-                                    {% if item.product.on_offer and item.product.discount_price %}
-                                    <s class="text-muted">€{{ item.product.price }}</s>
-                                    €{{ item.product.discount_price }}
-                                    {% else %}
-                                    €{{ item.product.price }}
-                                    {% endif %}
-                                </p>
-                            </td>
-                            <td class="item-qty py-4 text-center">
-                                <div class="quantity-control">
-                                    <form class="d-block d-sm-inline" method="POST"
-                                        action="{% url 'decrease_quantity_by_one' item.product.id %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="btn btn-sm p-0 text-muted" aria-label="Decrease Product Quantity by One Button">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                    </form>
-                                    <span class="p-0">{{ item.quantity }}</span>
-                                    <form class="d-block d-sm-inline" method="POST"
-                                        action="{% url 'increase_quantity_by_one' item.product.id %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="btn btn-sm p-0 text-muted" aria-label="Increase Product Quantity by One Button">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                            <td class="item-subtotal py-4">
-                                <p>
-                                    {% if item.product.on_offer and item.product.discount_price %}
-                                    €{{ item.product.discount_price | calc_subtotal:item.quantity }}
-                                    {% else %}
-                                    €{{ item.product.price | calc_subtotal:item.quantity }}
-                                    {% endif %}
-                                </p>
-                            </td>
-                            <td class="item-remove py-4">
-                                <form method="POST" action="{% url 'remove_from_cart' item.product.id %}">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn" aria-label="Remove Item from Cart Button">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        {% if request.user.is_authenticated %}
-                        <!-- Discount Code Form Row for site members to apply discount codes -->
-                        <tr>
-                            <td colspan="6">
-                                <form id="discount-code-form" method="POST" action="{% url 'view_cart' %}">
-                                    {% csrf_token %}
-                                    <div class="input-group">
-                                        {{ dcform.discount_code }}
-                                        <button type="submit"
-                                            class="common-button btn-grey-outline input-group-append apply-promo-code-btn"
-                                            aria-label="Apply Discount Code Button">
-                                            Apply
-                                        </button>
-                                    </div>
-                                </form>
-                            </td>
-                        </tr>
-                        {% endif %}
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td class="py-4 text-start" colspan="6">
-                                {% if not request.user.is_authenticated %}
-                                    <p class="text-end text-muted small">Have a promo code? 
-                                        <a href="{% url 'account_login' %}" class="blue-text-link" aria-label="Sign In link">
-                                            Sign In</a> to apply it and receive your discount.
-                                    </p>
-                                {% endif %}
-                                <a href="{% url 'products' %}"
-                                    class="common-button btn-green-outline continue-shopping-btn"
-                                    title="Continue Shopping"
-                                    aria-label="Continue Shopping Button">
-                                    Continue Shopping
-                                </a>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
+                            {% else %}
+                                <tr class="cart-totals">
+                                    <th scope="row" class="lighter-heading">
+                                        Cart Total:
+                                    </th>
+                                    <td class="amount">
+                                        €{{ total|floatformat:2 }}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            <tr>
+                                <th scope="row" class="lighter-heading">
+                                    Shipping:
+                                </th>
+                                <td class="amount">
+                                    €{{ delivery|floatformat:2 }}
+                                </td>
+                            </tr>
+                            <tr class="grand">
+                                <th scope="row">
+                                    Order Total:
+                                </th>
+                                <td class="amount">
+                                    <strong>€ {{ grand_total|floatformat:2 }}</strong>
+                                </td>
+                            </tr>
+                            {% if free_delivery_delta > 0 %}
+                                <tr class="text-blue">
+                                    <td colspan="2">
+                                        <p class="small"><i class="fas fa-info-circle"></i> You could get free delivery by
+                                            spending just
+                                            <strong>€{{ free_delivery_delta|floatformat:2 }}</strong>
+                                            more!
+                                        </p>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    <a href="{% url 'checkout' %}" 
+                                        class="common-button btn-proceed-to-checkout btn-orange"
+                                        title="Proceed to Checkout"
+                                        aria-label="Proceed to Checkout Button">
+                                        <span class="text-uppercase"><i class="fas fa-lock"></i>&nbsp;Secure Checkout</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
-        <!-- Shopping Cart Summary Table -->
-        <div class="col-12 col-lg-4 mb-3">
-            <div class="cart-summary bg-light-orange">
-                <table class="table table-borderless table-responsive">
-                    <thead>
-                        <tr>
-                            <th scope="col" colspan="2">
-                                <h3>Summary</h3>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% if request.user.is_authenticated %}
-                        {% if discount_amount > 0 %}
-                        <tr class="cart-totals">
-                            <th scope="row" class="lighter-heading">
-                                Cart Total:
-                            </th>
-                            <td class="amount">
-                                €{{ total_before_discount|floatformat:2 }}
-                            </td>
-                        </tr>
-                        <tr class="cart-discount">
-                            <th scope="row" class="lighter-heading">
-                                <a href="{% url 'remove_discount_code' %}" 
-                                    role="button" 
-                                    class="badge rounded-pill bg-forest-green white-text-link"
-                                    aria-label="Remove Discount Code">
-                                    {{ discount_code.discount_code }}&nbsp;<i class="fas fa-tags"></i>
-                                    &nbsp;<i class="fas fa-times"></i>
-                                </a>
-                            </th>
-                            <td class="amount">
-                                -&nbsp;€{{ discount_amount|floatformat:2 }}
-                            </td>
-                        </tr>
-                        {% else %}
-                        <tr class="cart-totals">
-                            <th scope="row" class="lighter-heading">
-                                Cart Total:
-                            </th>
-                            <td class="amount">
-                                €{{ total|floatformat:2 }}
-                            </td>
-                        </tr>
-                        {% endif %}
-                    {% else %}
-                        <tr class="cart-totals">
-                            <th scope="row" class="lighter-heading">
-                                Cart Total:
-                            </th>
-                            <td class="amount">
-                                €{{ total|floatformat:2 }}
-                            </td>
-                        </tr>
-                    {% endif %}
-                        <tr>
-                            <th scope="row" class="lighter-heading">
-                                Shipping:
-                            </th>
-                            <td class="amount">
-                                €{{ delivery|floatformat:2 }}
-                            </td>
-                        </tr>
-                        <tr class="grand">
-                            <th scope="row">
-                                Order Total:
-                            </th>
-                            <td class="amount">
-                                <strong>€ {{ grand_total|floatformat:2 }}</strong>
-                            </td>
-                        </tr>
-                        {% if free_delivery_delta > 0 %}
-                        <tr class="text-blue">
-                            <td colspan="2">
-                                <p class="small"><i class="fas fa-info-circle"></i> You could get free delivery by
-                                    spending just
-                                    <strong>€{{ free_delivery_delta|floatformat:2 }}</strong>
-                                    more!
-                                </p>
-                            </td>
-                        </tr>
-                        {% endif %}
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2" class="text-center">
-                                <a href="{% url 'checkout' %}" 
-                                    class="common-button btn-proceed-to-checkout btn-orange"
-                                    title="Proceed to Checkout"
-                                    aria-label="Proceed to Checkout Button">
-                                    <span class="text-uppercase"><i class="fas fa-lock"></i>&nbsp;Secure Checkout</span>
-                                </a>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
-    </div>
     {% else %}
-    <div class="row">
-        <div class="col-12 col-lg-10 offset-lg-1">
-            <h3 class="my-4">
-                Your shopping cart is currently empty.
-            </h3>
-            <a href="{% url 'products' %}" 
-                class="common-button btn-green-outline continue-shopping-btn"
-                aria-label="Continue Shopping Button">
-                Continue Shopping
-            </a>
+        <div class="row">
+            <div class="col-12 col-lg-10 offset-lg-1">
+                <h3 class="my-4">
+                    Your shopping cart is currently empty.
+                </h3>
+                <a href="{% url 'products' %}" 
+                    class="common-button btn-green-outline continue-shopping-btn"
+                    aria-label="Continue Shopping Button">
+                    Continue Shopping
+                </a>
+            </div>
+            <div class="col-12 col-lg-3 mx-auto">
+                <img src="{{ MEDIA_URL }}empty-cart.jpg" class="card-img-top opacity-1" alt="Empty Shopping Cart">
+            </div>
         </div>
-        <div class="col-12 col-lg-3 mx-auto">
-            <img src="{{ MEDIA_URL }}empty-cart.jpg" class="card-img-top opacity-1" alt="Empty Shopping Cart">
-        </div>
-    </div>
     {% endif %}
 </div>
 {% endblock %}
