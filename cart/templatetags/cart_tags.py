@@ -6,7 +6,7 @@ register = template.Library()
 
 
 # Use the register filter decorator to register
-# our function as a template filter
-@register.filter(name='calc_subtotal')
+# the function as a template filter
+@register.filter(name="calc_subtotal")
 def calc_subtotal(price, quantity):
     return price * quantity

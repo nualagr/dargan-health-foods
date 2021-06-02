@@ -1289,13 +1289,14 @@ redirects to the 'Home' page.
 database when an order has been processed.
 - Add 'Out of Stock' ribbons that will be automatically 
 applied to products when the 'Num in Stock' field is reduced to zero.
-- Add more payment options, including 'Paypal' to improve 
-the user experience.
 - Add a full checkout system with separate 'Shipping Address' 
 and 'Billing Address' forms.
 - Add a 'Free Instore Pickup' option on the new 'Shipping Address' page.
 - Remove the 'ZIP Code' from the Stripe card input and 
 attach the postal code to the customer's order using JavaScript.
+- Add more payment options, including 'Paypal' to improve 
+the user experience.
+- Add an Order History template rather than reusing the Checkout Success page.
 - Add the ability for users to filter blogpost search results.
 
 <br>

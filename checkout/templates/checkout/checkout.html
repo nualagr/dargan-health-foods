@@ -45,50 +45,50 @@
                 </div>
             </div>
             {% for item in cart_items %}
-            <div class="row">
-                <div class="col-2 mb-2">
-                    {% if item.product.main_image %}
-                        <a href="{% url 'product_detail' item.product.id %}" class="product-link">
-                            <img src="{{ MEDIA_URL }}{{ item.product.main_image }}" class="w-100"
-                                alt="{{ item.product.abbreviated_friendly_name }}">
-                        </a>
+                <div class="row">
+                    <div class="col-2 mb-2">
+                        {% if item.product.main_image %}
+                            <a href="{% url 'product_detail' item.product.id %}" class="product-link">
+                                <img src="{{ MEDIA_URL }}{{ item.product.main_image }}" class="w-100"
+                                    alt="{{ item.product.abbreviated_friendly_name }}">
+                            </a>
                         {% else %}
-                        <a href="{% url 'product_detail' item.product.id %}" class="product-link">
-                            <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="w-100"
-                                alt="{{ item.product.abbreviated_friendly_name }}">
-                        </a>
-                    {% endif %}
+                            <a href="{% url 'product_detail' item.product.id %}" class="product-link">
+                                <img src="{{ MEDIA_URL }}/product_images/no-image-placeholder.svg" class="w-100"
+                                    alt="{{ item.product.abbreviated_friendly_name }}">
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-7">
+                        <p class="my-0"><strong>{{ item.product.abbreviated_friendly_name }}</strong></p>
+                        <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                    </div>
+                    <div class="col-3 text-end">
+                        {% if item.product.on_offer and item.product.discount_price %}
+                            <p class="my-0 small text-muted"><s>€{{ item.product.price | calc_subtotal:item.quantity }}</s>
+                            €{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
+                        {% else %}
+                            <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="col-7">
-                    <p class="my-0"><strong>{{ item.product.abbreviated_friendly_name }}</strong></p>
-                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                </div>
-                <div class="col-3 text-end">
-                    {% if item.product.on_offer and item.product.discount_price %}
-                    <p class="my-0 small text-muted"><s>€{{ item.product.price | calc_subtotal:item.quantity }}</s>
-                        €{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
-                    {% else %}
-                    <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                    {% endif %}
-                </div>
-            </div>
             {% endfor %}
             <hr class="my-0">
             <div class="row text-end">
                 <div class="col-7 offset-2">
                     <p class="my-0">Order Total:</p>
                     {% if discount_amount > 0 %}
-                    <p class="my-0">{{ discount_code.discount_code }} <i class="fas fa-tags"></i></p>
+                        <p class="my-0">{{ discount_code.discount_code }} <i class="fas fa-tags"></i></p>
                     {% endif %}
                     <p class="my-0">Delivery:</p>
                     <p class="my-0">Grand Total:</p>
                 </div>
                 <div class="col-3">
                     {% if discount_amount > 0 %}
-                    <p class="my-0">€{{ total_before_discount | floatformat:2 }}</p>
-                    <p class="my-0">-&nbsp;€{{ discount_amount | floatformat:2 }}</p>
+                        <p class="my-0">€{{ total_before_discount | floatformat:2 }}</p>
+                        <p class="my-0">-&nbsp;€{{ discount_amount | floatformat:2 }}</p>
                     {% else %}
-                    <p class="my-0">€{{ total | floatformat:2 }}</p>
+                        <p class="my-0">€{{ total | floatformat:2 }}</p>
                     {% endif %}
                     <p class="my-0">€{{ delivery | floatformat:2 }}</p>
                     <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
@@ -104,12 +104,12 @@
                     <legend class="fieldset-label px-2 w-auto">Contact Information</legend>
                     {% if user.is_authenticated %}
                     {% else %}
-                    <div class="text-muted form-subtitle">
-                        <small>Already have an account? 
-                            <a href="{% url 'account_login' %}" class="blue-text-link">Log in</a> or 
-                            <a href="{% url 'account_signup' %}" class="blue-text-link">Sign up</a> for future checkout convenience!
-                        </small>
-                    </div>
+                        <div class="text-muted form-subtitle">
+                            <small>Already have an account? 
+                                <a href="{% url 'account_login' %}" class="blue-text-link">Log in</a> or 
+                                <a href="{% url 'account_signup' %}" class="blue-text-link">Sign up</a> for future checkout convenience!
+                            </small>
+                        </div>
                     {% endif %}
                     {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
@@ -125,10 +125,10 @@
                     {{ order_form.phone_number | as_crispy_field }}
                     <div class="form-check form-check-inline float-end me-0 pt-2">
                         {% if user.is_authenticated %}
-                        <label class="form-check-label" for="id-save-info">
-                            Save this delivery information to my profile
-                        </label>
-                        <input class="form-check-input me-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                            <label class="form-check-label" for="id-save-info">
+                                Save this delivery information to my profile
+                            </label>
+                            <input class="form-check-input me-0" type="checkbox" id="id-save-info" name="save-info" checked>
                         {% else %}
                             <small>
                                 <a class="blue-text-link" href="{% url 'account_signup' %}">Create an account</a> or
