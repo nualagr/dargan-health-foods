@@ -21,6 +21,9 @@ payment system and control of a centrally-owned dataset, was constructed using
 [Django](https://www.djangoproject.com/), [Heroku Postgre](https://www.heroku.com/postgres) database
 and the [Stripe](https://stripe.com/) payment platform.
 
+The website products are currently restricted to Viridian brand
+products, to be found predominantly in the 'Vitamins & Supplements' department,
+and its associated categories.
 To test the site's checkout process please use the test credit card number provided in
 the [Stripe Documentation](https://stripe.com/docs/testing):
 
@@ -123,12 +126,14 @@ purchase their desired goods. The store also publishes blog posts about
 nutrition, healthy-lifestyle tips, recipes, superfood trends and other
 items of interest to health-conscious consumers.
 
-Membership of the site provides users with the ability to access their order history,
-billing and delivery details. These details are then used to facilitate a faster
+Membership of the site provides users with the ability to access
+their order history and delivery details. These details are
+then used to facilitate a faster
 and more convenient checkout process for the site member, by
-prefilling the necessary forms for them on the Checkout Page.
+prefilling the necessary 'Contact Information' and 'Billing Details'
+forms for them on the Checkout Page.
 Members also have the ability to contribute to the site, writing
-reviews of products and commenting on the site’s blog posts.
+reviews of products they have purchased and commenting on the site’s blog posts.
 These reviews and comments can subsequently be edited or deleted by their creators.
 
 Dargan's owners see a need to provide their customer base with a
@@ -138,6 +143,8 @@ and enable the company to connect with customers
 they wouldn’t normally reach, increasing the business’ profitability.  
 This website has been designed to work in tandem with the retailer's
 physical store and advance their business goals.
+
+<br>
 
 ### Project Goals
 
@@ -152,6 +159,8 @@ The goals of this project are to:
 - Create an interactive website where a community of engaged consumers can share their product reviews and blog comments on the site.
 - Provide users with the functionality so that they can create, read, update and delete their own content.
 - Store the users’ data, if they permit, so that it is can be accessed when required.
+
+<br>
 
 ##### back to [top](#table-of-contents)
 
@@ -168,7 +177,6 @@ I am a prospective Dargan Health Foods site member I want to be able to:
 - Easily see what products are available.
 - Search for specific products by name or category.
 - Sort products by category, price or alphabetically.
-- Filter search results by allergen or other tag, e.g. organic, vegan.
 - Be presented with an image of the product itself.
 - Be able to read a description of a each product.
 - Be presented with nutritional information or ingredients where applicable.
@@ -185,6 +193,8 @@ I am a prospective Dargan Health Foods site member I want to be able to:
 - Navigate through the site with ease.
 - Easily find information outlining the features that membership of the site offers to its registered users.
 - Easily register to become a site member.
+
+<br>
 
 #### Existing User
 
@@ -297,9 +307,7 @@ detailed information about the item and making it easier for them to purchase
 the product if they so wish.
 
 Dargan's website aims to provide the company with a robust ordering system that
-can be updated in real time. With uncertain supply chains, automatic 'Out of Stock'
-labels and disabled purchasing buttons are helpful to both customers and administrators
-alike so that customers can’t place an order that can’t be fulfilled. Dargan's website
+can be updated in real time. Dargan's website
 superusers can easily add or remove products so that their website accurately
 reflects the products available.
 
@@ -310,9 +318,11 @@ Facebook and Instagram links in the Footer on each page.
 
 With more consumers shopping online and an increasing number of those seeking to
 shop locally and support Irish businesses the local and personal nature of the
-service in Dargans is communicated through the About Us section on the Home Page, the
-Our Story page and through the Blog. It is hoped that the site will help Dargan's
+service in Dargans is communicated through the 'About Us' section on the 'Home' Page, the
+'Our Story' page and through the 'Blog'. It is hoped that the site will help Dargan's
 reach a wider audience and develop a long-term relationship with their membership.
+
+<br>
 
 ##### back to [top](#table-of-contents)
 
@@ -336,7 +346,7 @@ Users should be able to do the following on the website:
 - Log out of the site.
 - Search the site for a product by name, brand or category.
 - Sort search results by rating, price or alphabetically.
-- Filter search results by allergen or other relevant tag.
+- Filter products by allergen or other relevant tag.
 - See an image of the product packaging.
 - Read a description of the product.
 - Read the ingredient list or nutritional information relating to a specific food product.
@@ -352,7 +362,7 @@ Users should be able to do the following on the website:
 - Receive an email confirming their order.
 - See their order history.
 - Read the site blog.
-- Search for a blog entry of interest by title, keyword or date.
+- Search for a blog entry of interest by title or keyword.
 - Upload a comment on a site blog post.
 - Edit or delete their own blog post comments.
 
@@ -388,7 +398,7 @@ at all times, were the
 - the **Search icon or bar** and
 - the **Shopping Cart**.
 
-These links were therefore given priority on the mobile navbar.
+These links were therefore given priority on the mobile navbar design.
 
 ![alt text](documentation/readme-images/mobile-navbar.png "Mobile Navbar.")
 
@@ -400,8 +410,8 @@ identified by the company. These departmental links, in turn, open **submenus**
 revealing the different **categories** – Bath & Shower, Body Care, Skincare, etc.,
 providing the user with a quick means of narrowing their choice.
 **Chevron-down icons** are used to alert the user to the presence of the sub-menu.
-The remaining links provide access to the site **Blog**, **About Us** section and
-the **Contact Us** page, which were deemed important in the User Stories section above.
+The remaining links provide access to the site **'Blog'**, **'About Us'** section and
+the **'Contact Us'** page, which were deemed important in the User Stories section above.
 
 ![alt text](documentation/readme-images/mobile-navbar-dropdown-menu-chevron.png "Mobile Navbar Dropdown Menu.")
 
@@ -580,7 +590,7 @@ alert messages to the user, to provide feedback and to assist them in
 achieving their aims. These messages are colour coded for ease of
 understanding with **toast cappers** in red for error messages, blue for
 informative messages, yellow for warnings and green for success messages.
-The universal **times icon** in the top-right-hand-corner of the box
+The **times icon button** in the top-right-hand-corner of the box
 allows the user to close the toast.
 
 <br>
@@ -669,7 +679,7 @@ BlogPost Cards
 
 - BlogPost cards on the 'Blog' page contain more information than those on the
   'Home' page. Here the first sixty words of the **introductory paragraph** are
-  printed in order to give the user a better idea of what the post contains.
+  printed in order to give the user a better idea of what each post contains.
 
 - A **'Read Post' text link and animated right-angle character** bring the user to the
   related 'BlogPost' page.
@@ -719,36 +729,38 @@ signals that there is hidden content.
 Each accordion title operates as a button to
 reveal and hide that accordion section's contents. The accordion button's
 font colour and background colour change when the accordion is active.
-Once open the **up chevron icon** is used to indicate that the button
+Once open, the **up chevron icon** is used to indicate that the button
 now functions to close the accordion.
 
 - The 'Find Us' accordion contains the **brand logo** which operates as a
   **link to the homepage**. Beneath that the shop's **postal address** is
-  displayed. This is opens an external tab displaying **the shop's location
-  on Google Maps**. The shop **phone number** and **email address**
+  displayed. This opens an external tab displaying
+  **the shop's location on Google Maps**.
+  The shop **phone number** and **email address**
   are both links which will open the associated app on the user's phone.
 
 - The 'Opening Hours' accordion contains the shop's **opening hours**
   displayed in an easy to read table.
 
-- The 'Quick Links' accordion contains **links to frequently needed site
-  pages**. These links differ depending on the status of the site visitor.
+- The 'Quick Links' accordion contains
+  **links to frequently needed site pages**.
+  These links differ depending on the status of the site visitor.
 
-      | Logged-Out User   |Logged-In User |Superuser      |
-      | :------------     |:------------  | :------------ |
-      | Our Story         | Our Story     | Our Story     |
-      | Blog              | Blog          | Blog          |
-      | Contact Us        | Contact Us    | Contact Us    |
-      | Sign In           | My Account    | Add Product   |
-      | Join              | Logout        | Add BlogPost  |
-      |                   |               | My Account    |
-      |                   |               | Logout        |
+        | Logged-Out User   |Logged-In User |Superuser      |
+        | :------------     |:------------  | :------------ |
+        | Our Story         | Our Story     | Our Story     |
+        | Blog              | Blog          | Blog          |
+        | Contact Us        | Contact Us    | Contact Us    |
+        | Sign In           | My Account    | Add Product   |
+        | Join              | Logout        | Add BlogPost  |
+        |                   |               | My Account    |
+        |                   |               | Logout        |
 
 - Beneath the footer accordion is a row containing **social media icons**
-  which are links that open the Dargan Health Foods pages on the related
+  which, when clicked, open the Dargan Health Foods page on the related
   social media platform.
 
-- Small text containing **copyright** information also links to the current
+- Small text containing **copyright** information links to the current
   business website.
 
 <br>
@@ -878,7 +890,7 @@ accordion, with the same links and functionality outlined above.
   or fully filled-in yellow stars.
 
 - The **review rating count** is displayed beside the current star rating.
-  This text is a jump-link. When clicked, it opens the 'Customer Reviews' accordion
+  This text is a **jump-link**. When clicked, it opens the 'Customer Reviews' accordion
   and brings the user to that part of the page where they can read the reviews left so far.
 
 - Product **tags**, where they exist, are rendered beneath the **product price**.
@@ -930,7 +942,7 @@ accordion, with the same links and functionality outlined above.
   'On Offer', 'Free From', 'Category', 'Discontinued', and 'Tag' fields.
 
 - The **image field** has been styled as a button which opens
-  a dialog box where the user browse to, and select, their desired image.
+  a dialog box where the user can browse to, and select, their desired image.
 
 - A valid form can be submitted using the **'Add Product' button**.
 
@@ -947,8 +959,8 @@ accordion, with the same links and functionality outlined above.
 - The **Edit Product Form** opens prepopulated
   with the information currently in the database.
 
-- Checkboxes next to the 'Current Image' thumbnail
-  and each beneath each product 'Tag' allow the Superuser to select
+- Checkboxes, next to the 'Current Image' thumbnail
+  and beneath each product 'Tag', allow the Superuser to select
   these items for deletion upon submission of the form.
 
 - Clicking the **'Edit Product' button** submits the
@@ -993,9 +1005,10 @@ accordion, with the same links and functionality outlined above.
 - The **Edit Review Form**, entitled
   with the product name, is pre-filled
   with the user's previous submission.
-  The **'Update Review' button**
+- The **'Update Review' button**
   submits the new review to the database.
-  The **'To Product Page' button** links back to
+
+- The **'To Product Page' button** links back to
   the related 'Product Detail' page.
 
 <br>
@@ -1016,16 +1029,16 @@ accordion, with the same links and functionality outlined above.
   remind the user of their saving and to reassure them
   that they are receiving the discounted price.
 
-- **Minus and Plus symbols**
-  either side of the quantity displayed allow the user to
+- **Minus and Plus symbols**,
+  either side of the quantity displayed, allow the user to
   increase or decrease the quantity of that item.
   The **lineitem subtotal** is adjusted accordingly.
   If the quantity is decreased to zero the item is
   removed from the cart.
 
 - Alternatively users can click on
-  the **trash can icon** on the end of a product row
-  to delete the product from their cart.
+  the **trash can icon** at the end of each product row
+  to delete that product from their cart.
 
 - Logged-in users can see the **Promo Code input** and
   **'Apply'** button. When a valid code is submitted
@@ -1131,7 +1144,7 @@ purchase has been processed.
 - The 'My Address Book' pane contains the
   **'Default Delivey Information' table/form**,
   prefilled for users who have previously chosen to save this
-  iformation during the checkout process.
+  information during the checkout process.
   Users can add this information to their account by
   filling out this form and using the **'Update Information' button.**
 
@@ -1171,9 +1184,9 @@ purchase has been processed.
 - A **page title** makes the current selection or categorisation of blogposts explicit.
 
 - The **'Filter Blog By Topic' dropdown select box** allows the user
-  to access all blog posts or to selections of blog posts which share a similar topic.
+  to access all blog posts or selections of blog posts which share a similar topic.
 
-- The **Search input** and **maginifying-glass icon button**
+- The **Search input** and **magnifying-glass icon button**
   allow the user to search all blogposts for specific keywords.
 
 - The **Item Count** informs the user as to how many blogposts are being displayed
@@ -1210,7 +1223,7 @@ purchase has been processed.
 - Metadata, the **author**, **date** and **topic** category, are
   printed above the blogpost **subheading**.
 
-- BlogPost **tags**, where they exist, are rendered after the **tag icon**.
+- BlogPost **tags**, where any exist, are rendered after the **tag icon**.
   Each word is a link to bring the user to a page of similarly tagged blogposts.
 
 - The **comment icon** draws attention to the **comment counter**.
@@ -1223,7 +1236,7 @@ purchase has been processed.
   the **comment date** and the **comment**.
 
 - Site members, who are logged in, have access to the **'Leave a Comment' button**,
-  which has been placed for ease of access at the top of the 'Comments' accordion.
+  which has been placed, for ease of access, at the top of the 'Comments' accordion.
 
 - Visitor's who are not logged in but wish to leave a comment
   are provided with **login** and **register** text links to start the
@@ -1254,7 +1267,8 @@ purchase has been processed.
   experience.
 
 - The **image field** has been styled as a button which opens
-  a dialog box where the user browse to, and select, their desired image.
+  a dialog box where the user can browse to the location of
+  their desired image.
 
 - A valid form can be submitted using the **'Add BlogPost' button**.
 
@@ -1271,8 +1285,8 @@ purchase has been processed.
 - The **Edit BlogPost Form** is prefilled with
   the information currently in the database.
 
-- **Checkboxes** next to the 'Current Image' thumbnail
-  and each beneath each product 'Tag' allow the Superuser to select
+- **Checkboxes**, next to the 'Current Image' thumbnail
+  and beneath each product 'Tag', allow the Superuser to select
   these items for deletion upon submission of the form.
 
 - Clicking the **'Update BlogPost' button** submits the
@@ -1316,9 +1330,9 @@ purchase has been processed.
 - The form opens prepopulated with the
   user's comment.
 
-The **'Update Comment' button**
-allows the user to submit their
-edited comment to the database.
+- The **'Update Comment' button**
+  allows the user to submit their
+  edited comment to the database.
 
 - The **'To Blog Post' button** opens
   the related 'BlogPost' page.
@@ -1356,7 +1370,7 @@ implemented using [Django allauth](https://django-allauth.readthedocs.io/en/late
 
 - Clicking the link sent to the submitted email address on
   sign up, brings the user back to the site to the 'Confirm E-Mail Address' page
-  where users can confirm the address connected to their account
+  where they can confirm the address connected to their account
   and finish the registration process using the **'Confirm' button**.
 
 - Site members can log in by filling out
@@ -1401,11 +1415,14 @@ implemented using [Django allauth](https://django-allauth.readthedocs.io/en/late
 
 - Reduce a Product's 'Num in Stock' field in the
   database when an order has been processed.
-- Add 'Out of Stock' ribbons that will be automatically
-  applied to products when the 'Num in Stock' field is reduced to zero.
+- Automatically apply 'Out of Stock' ribbons
+  to products when the 'Num in Stock' field is reduced to zero.
+  With uncertain supply chains, automatic 'Out of Stock'
+  labels and disabled purchasing buttons will be helpful to both customers and administrators
+  alike so that customers can’t place an order that can’t be fulfilled.
 - Add a full checkout system with separate 'Shipping Address'
   and 'Billing Address' forms.
-- Add a 'Free Instore Pickup' option on the new 'Shipping Address' page.
+- Add a 'Free In-Store Pickup' option on the new 'Shipping Address' page.
 - Remove the 'ZIP Code' from the Stripe card input and
   attach the postal code to the customer's order using JavaScript.
 - Add more payment options, including 'Paypal' to improve
@@ -1425,7 +1442,7 @@ The UI wireframing tool, [Balsamiq](https://balsamiq.com/) was used to create wi
 for each page as they will appear on mobile, tablet and desktop devices.
 Main content areas on each page were designed for functionality and consistency.
 
-To cater to for increasing number of consumers shopping from mobile devices, the site
+To cater for the increasing number of consumers shopping from mobile devices, the site
 uses responsive web design.
 Dargan Health Foods was designed with a mobile-first design philosophy,
 beginning with the product design from the mobile end, which has more restrictions and
@@ -1912,11 +1929,9 @@ They were then converted to json using [custom scripts](general_scripts/convert_
   - [Github](https://github.com/). Used as a respository for the different versions of the build produced throughout development.
   - [Gitpod](https://www.gitpod.io/). An online IDE used to build and develop the website.
   - [Heroku](https://www.heroku.com/). The cloud platform used to host the deployed site.
-  - [Infoheap](https://infoheap.com/python-lint-online/). Used to validate the Python app.py code.
   - [jQuery](https://jquery.com/). This JavaScript library was used to traverse the DOM and used for dynamic event handling.
-  - [JSON-CSV](https://json-csv.com/reverse). Used to convert the .csv fixture files to JSON so that they could be uploaded to the database.
-  - [Pep8online](http://pep8online.com/). Used to check the app.py file for PEP8 compliance.
-  - [RandomKeyGen](https://randomkeygen.com/). Used to generate the Secret Key.
+  - [Pep8online](http://pep8online.com/). Used to check the python files for PEP8 compliance.
+  - [RandomKeyGen](https://randomkeygen.com/). Used to generate the Secret Keys.
   - [Slack](code-institute-room.slack.com). Used during development and testing to find the solutions to problems enountered.
   - [Stack Overflow](https://stackoverflow.com/). Used to search for the answers to problems encountered during the development and testing of the website.
   - [Stripe](www.stripe.com). Payment processing platform used to validate and authenticate payments and, potentially, to receive payments made over the internet.
@@ -1925,7 +1940,7 @@ They were then converted to json using [custom scripts](general_scripts/convert_
   - [Unsplash](https://www.unsplash.com). Used to source the non-product site images.
   - [Vecteezy](https://www.vecteezy.com). Used to source the site logo, banner offer image and the custom 404 and 500 page backgrounds.
   - [WebFormatter](https://webformatter.com/). Used to format the CSS, JavaScript and HTML files before submission.
-  - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator). Used to validate the CSS file.
+  - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator). Used to validate the CSS files.
   - [W3C HTML Validation Service](https://validator.w3.org/). Used to validate the HTML files.
 
 - Frameworks
