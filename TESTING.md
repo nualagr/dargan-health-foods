@@ -2125,6 +2125,8 @@ Now Orders, with or without discount codes, are successfully created within the 
 - The pagination buttons rendered, especially on page one, do not make it obvious
   to the viewer that the page range displayed does not reflect the total number of pages returned.
 
+- The Order timestamp does not take Daylight Savings Time into account.
+
 ##### back to [top](#table-of-contents)
 
 ---
