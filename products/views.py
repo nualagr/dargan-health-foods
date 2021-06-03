@@ -2,6 +2,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_GET
 from django.db.models import Q, Sum, Avg
 from django.db.models.functions import Lower
 
@@ -17,6 +18,7 @@ from .forms import ProductForm, ProductAndTagsInlineFormSet, ProductReviewForm
 from profiles.models import UserProfile
 
 
+@require_GET
 def all_products(request):
     """
     A view to show all products,
@@ -36,86 +38,85 @@ def all_products(request):
     direction = None
     tag = None
 
-    if request.GET:
-        if "sort" in request.GET:
-            sortkey = request.GET["sort"]
-            sort = sortkey
-            if sortkey == "name":
-                sortkey = "lower_name"
-                products = products.annotate(lower_name=Lower("name"))
-            if sortkey == "rating":
-                sortkey = "avg_rating"
-            if "direction" in request.GET:
-                direction = request.GET["direction"]
-                if direction == "desc":
-                    sortkey = f"-{sortkey}"
-            products = products.order_by(sortkey)
+    if "sort" in request.GET:
+        sortkey = request.GET["sort"]
+        sort = sortkey
+        if sortkey == "name":
+            sortkey = "lower_name"
+            products = products.annotate(lower_name=Lower("name"))
+        if sortkey == "rating":
+            sortkey = "avg_rating"
+        if "direction" in request.GET:
+            direction = request.GET["direction"]
+            if direction == "desc":
+                sortkey = f"-{sortkey}"
+        products = products.order_by(sortkey)
 
-        if "department" in request.GET:
-            department = request.GET["department"].split(",")
-            all_categories = Category.objects.all()
-            # Find a list of the names of the categories
-            # associated with the department chosen
-            department_categories = all_categories.filter(
-                department__name__in=department
-            ).values_list("name", flat=True)
-            products = products.filter(
-                category__name__in=department_categories
+    if "department" in request.GET:
+        department = request.GET["department"].split(",")
+        all_categories = Category.objects.all()
+        # Find a list of the names of the categories
+        # associated with the department chosen
+        department_categories = all_categories.filter(
+            department__name__in=department
+        ).values_list("name", flat=True)
+        products = products.filter(
+            category__name__in=department_categories
+        )
+
+    if "category" in request.GET:
+        category = request.GET["category"].split(",")
+        products = products.filter(category__name__in=category)
+        category = Category.objects.filter(name__in=category).values_list(
+            "name", flat=True
+        )
+
+    if "tag" in request.GET:
+        tag = request.GET["tag"].split(",")
+        if tag[0] == "special_offers":
+            tagged_products = products.filter(on_offer=True)
+        else:
+            tagged_products = product_tag_objects.filter(
+                tag__name__in=tag
+            ).values_list("product", flat=True)
+        products = products.filter(id__in=tagged_products)
+
+    if "q" in request.GET:
+        query = request.GET["q"]
+        # If the search was left blank
+        if not query:
+            messages.error(
+                request, "No search criteria entered. Please try again."
             )
+            return redirect(reverse("products"))
 
-        if "category" in request.GET:
-            category = request.GET["category"].split(",")
-            products = products.filter(category__name__in=category)
-            category = Category.objects.filter(name__in=category).values_list(
-                "name", flat=True
-            )
+        all_tags = Tag.objects.all().values_list("name", flat=True)
+        # Check to see if the search term is a Tag
+        if all_tags.filter(friendly_name__iexact=query):
+            tagged_products = product_tag_objects.filter(
+                tag__friendly_name__iexact=query
+            ).values_list("product", flat=True)
+        else:
+            tagged_products = []
 
-        if "tag" in request.GET:
-            tag = request.GET["tag"].split(",")
-            if tag[0] == "special_offers":
-                tagged_products = products.filter(on_offer=True)
-            else:
-                tagged_products = product_tag_objects.filter(
-                    tag__name__in=tag
-                ).values_list("product", flat=True)
-            products = products.filter(id__in=tagged_products)
+        queries = (
+            Q(name__icontains=query) |
+            Q(information__icontains=query) |
+            Q(ingredients__icontains=query) |
+            Q(category__name__icontains=query) |
+            Q(brand__name__icontains=query) |
+            Q(id__in=tagged_products)
+        )
+        products = products.filter(queries)
 
-        if "q" in request.GET:
-            query = request.GET["q"]
-            # If the search was left blank
-            if not query:
-                messages.error(
-                    request, "No search criteria entered. Please try again."
-                )
-                return redirect(reverse("products"))
-
-            all_tags = Tag.objects.all().values_list("name", flat=True)
-            # Check to see if the search term is a Tag
-            if all_tags.filter(friendly_name__iexact=query):
-                tagged_products = product_tag_objects.filter(
-                    tag__friendly_name__iexact=query
-                ).values_list("product", flat=True)
-            else:
-                tagged_products = []
-
-            queries = (
-                Q(name__icontains=query) |
-                Q(information__icontains=query) |
-                Q(ingredients__icontains=query) |
-                Q(category__name__icontains=query) |
-                Q(brand__name__icontains=query) |
-                Q(id__in=tagged_products)
-            )
-            products = products.filter(queries)
-
-        if "limit" in request.GET:
-            # This request comes from the New In Dropdown
-            # Find the limit submitted
-            limit = request.GET["limit"].split(",")
-            cap = limit[0]
-            end_index = int(cap)
-            # Slice the products list at the capped amount
-            products = products[0:end_index]
+    if "limit" in request.GET:
+        # This request comes from the New In Dropdown
+        # Find the limit submitted
+        limit = request.GET["limit"].split(",")
+        cap = limit[0]
+        end_index = int(cap)
+        # Slice the products list at the capped amount
+        products = products[0:end_index]
 
     current_sorting = f"{sort}_{direction}"
 
@@ -149,6 +150,7 @@ def all_products(request):
     return render(request, template, context)
 
 
+@require_GET
 def product_detail(request, product_id):
     """
     A view to show individual product details.
