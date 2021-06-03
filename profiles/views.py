@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods, require_GET
 
 from .models import UserProfile
 from .forms import UserProfileForm
@@ -10,6 +11,7 @@ from products.models import ProductReview
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def profile(request):
     """
     View to display a User's Profile Page
@@ -51,6 +53,7 @@ def profile(request):
 
 
 @login_required
+@require_GET
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
