@@ -2,7 +2,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_http_methods, require_GET
 from django.db.models import Q, Sum, Avg
 from django.db.models.functions import Lower
 
@@ -206,6 +206,7 @@ def product_detail(request, product_id):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def add_product(request):
     """
     View to aid the Super User to add a product to the store.
@@ -260,6 +261,7 @@ def add_product(request):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def edit_product(request, product_id):
     """
     View to enable the Super User to edit existing products
@@ -313,6 +315,7 @@ def edit_product(request, product_id):
 
 
 @login_required
+@require_GET
 def delete_product(request, product_id):
     """
     View to delete a product from the store.
@@ -328,6 +331,7 @@ def delete_product(request, product_id):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def add_review(request, product_id):
     """
     View to allow a logged_in user to add a product review to the site.
@@ -402,6 +406,7 @@ def add_review(request, product_id):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def edit_review(request, review_id):
     """
     View to enable the logged-in User to edit
@@ -471,6 +476,7 @@ def edit_review(request, review_id):
 
 
 @login_required
+@require_GET
 def delete_review(request, review_id):
     """
     View to enable logged-in users to delete their own product reviews.
