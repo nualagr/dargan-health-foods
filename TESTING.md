@@ -1,30 +1,30 @@
-# *Dargan Health Foods* - Testing
+# _Dargan Health Foods_ - Testing
 
 ## **Table of Contents**
 
 - [Code Validation](#code-validation)
-    - [HTML](#html)
-    - [CSS](#css)
-    - [JavaScript](#javascript)
-    - [Python](#python)
+  - [HTML](#html)
+  - [CSS](#css)
+  - [JavaScript](#javascript)
+  - [Python](#python)
 - [Performance](#performance)
 - [Responsiveness](#responsiveness)
-    - [Device Responsiveness](#device-responsiveness)
-    - [Browser Responsiveness](#browser-responsiveness)
+  - [Device Responsiveness](#device-responsiveness)
+  - [Browser Responsiveness](#browser-responsiveness)
 - [Defensive Design Testing](#defensive-design-testing)
 - [Tested User Stories](#tested-user-stories)
-    - [Prospective User](#tested-prospective-user-stories)
-    - [Existing User](#tested-existing-user-stories)
-    - [Site Owner](#tested-site-owner-stories)
+  - [Prospective User](#tested-prospective-user-stories)
+  - [Existing User](#tested-existing-user-stories)
+  - [Site Owner](#tested-site-owner-stories)
 - [Automated Testing](#automated-testing)
-    - [Unittests](#unittests)
-    - [Coverage Installation and Setup](#coverage-installation-and-setup)
-    - [Automated Test Links and Coverage Results](#automated-test-links-and-coverage-results)
+  - [Unittests](#unittests)
+  - [Coverage Installation and Setup](#coverage-installation-and-setup)
+  - [Automated Test Links and Coverage Results](#automated-test-links-and-coverage-results)
 - [Bugs](#bugs)
-    - [Pagination Issue](#pagination-issue)
-    - [Multiple Destination Redirects](#multiple-destination-redirects)
-    - [Product Discount-Price Issue](#product-discount-price-issue)
-    - [Discount Code Issues](#discount-code-issues)
+  - [Pagination Issue](#pagination-issue)
+  - [Multiple Destination Redirects](#multiple-destination-redirects)
+  - [Product Discount-Price Issue](#product-discount-price-issue)
+  - [Discount Code Issues](#discount-code-issues)
 - [Unresolved Issues](#unresolved-issues)
 
 ---
@@ -32,7 +32,8 @@
 ## Code Validation
 
 ### **HTML**
-[W3C HTML Validation Service](https://validator.w3.org/) was used to validate the HTML code. 
+
+[W3C HTML Validation Service](https://validator.w3.org/) was used to validate the HTML code.
 
 Each page was validated by URI or Direct Input.
 ![alt text](documentation/readme-images/html-validator-index-results.png "W3C HTML Validator results for the index page, showing no errors.")
@@ -50,11 +51,11 @@ No errors or warnings remain.
 
 ### **CSS**
 
-[W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS file.  
+[W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS file.
 
 Sixteen warnings remain in total, fifteen of which are in the base.css file and one in the checkout.css file.
 All of these remaining warnings relate to vendor extensions which have been deliberately added to help support
-browser compatibility. 
+browser compatibility.
 
 ![alt text](documentation/readme-images/css-validator-warnings.png "CSS Validator Warnings.")
 
@@ -67,6 +68,7 @@ No errors remain in any of the CSS files.
 <br>
 
 ### **JavaScript**
+
 [JSHint](https://jshint.com/) was used to validate the JavaScript used within the site.
 
 <br>
@@ -78,7 +80,7 @@ No errors remain in any of the CSS files.
 ### **Python**
 
 All \*.py files were formatted with [black](https://pypi.org/project/black/) at the command line
-and then checked for PEP8 compliance using [PEP8 Online](http://pep8online.com/). 
+and then checked for PEP8 compliance using [PEP8 Online](http://pep8online.com/).
 
 ![alt text](documentation/readme-images/python-files-checked-in-pep8-online.png "Table showing the python files that were checked in PEP8 Online.")
 
@@ -95,11 +97,13 @@ No errors remain within these files.
 <br>
 
 ##### back to [top](#table-of-contents)
+
 ---
 
 ## Performance
-[Google Chrome Developer Tools Lighthouse test](https://developers.google.com/web/tools/lighthouse) was used to test the website with regard to Performance, 
-Accessibility, Best Practices and Search Engine Optimization. 
+
+[Google Chrome Developer Tools Lighthouse test](https://developers.google.com/web/tools/lighthouse) was used to test the website with regard to Performance,
+Accessibility, Best Practices and Search Engine Optimization.
 
 <br>
 
@@ -115,7 +119,7 @@ Accessibility, Best Practices and Search Engine Optimization.
 
 <br>
 
-Lighthouse suggestions for improving the site's score include eliminating 3rd party 
+Lighthouse suggestions for improving the site's score include eliminating 3rd party
 render-blocking resources from Bootstrap, Google Fonts, Fontawesome and JQuery.
 It was deemed beyond the scope of the current project to serve these critical resources inline.
 
@@ -134,13 +138,14 @@ The remaining Lighthouse results are contained in the following tables:
 <br>
 
 ##### back to [top](#table-of-contents)
+
 ---
 
 ## Responsiveness
 
-The Dargan Health Foods site was designed using the mobile-first approach, but it was tested for responsiveness on multiple screen dimensions 
-throughout the development process and after project completion using the [Google Chrome Developer Tools Toggle Device](https://developers.google.com/web/updates/2016/03/device-mode-v2) 
-function and [Mozilla Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools).  
+The Dargan Health Foods site was designed using the mobile-first approach, but it was tested for responsiveness on multiple screen dimensions
+throughout the development process and after project completion using the [Google Chrome Developer Tools Toggle Device](https://developers.google.com/web/updates/2016/03/device-mode-v2)
+function and [Mozilla Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools).
 
 ### Device Responsiveness
 
@@ -161,6 +166,7 @@ function and [Mozilla Firefox Developer Tools](https://developer.mozilla.org/en-
 ![alt text](documentation/readme-images/responsiveness-laptop-desktop-dimensions-tested.png "Table of the laptop and desktop dimensions tested for responsiveness.")
 
 ##### back to [top](#table-of-contents)
+
 ---
 
 <br>
@@ -168,6 +174,7 @@ function and [Mozilla Firefox Developer Tools](https://developer.mozilla.org/en-
 ### Browser Responsiveness
 
 Each website feature, including accordions, buttons, modals, external links, hover effects etc. was manually checked within the following web browsers:
+
 - Google Chrome
 - Microsoft Edge
 - Microsoft Opera
@@ -247,9 +254,8 @@ Each website feature, including accordions, buttons, modals, external links, hov
 
 ![alt text](documentation/readme-images/browser-blogpost-functions-tested.png "Grid showing the different BlogPost Page functions tests on each browser.")
 
-
-
 ##### back to [top](#table-of-contents)
+
 ---
 
 <br>
@@ -353,74 +359,74 @@ Each website feature, including accordions, buttons, modals, external links, hov
 <br>
 
 ##### back to [top](#table-of-contents)
+
 ---
 
 ## Defensive Design Testing
 
 As a Logged-Out User it was attempted to access a Dargan Health Food member's account and associated pages as well as the SuperUser's Admin, Blog and Product management pages using the following urls:
 
-* A **Profile** page: http://dargan-health-foods.herokuapp.com/profile/
+- A **Profile** page: http://dargan-health-foods.herokuapp.com/profile/
 
   &#9745; redirects to the Login page.
 
-* A member's **Order History** page: http://dargan-health-foods.herokuapp.com/profile/order_history/D9AC156EA79B4BDD86CA53C3D6DF077C
+- A member's **Order History** page: http://dargan-health-foods.herokuapp.com/profile/order_history/D9AC156EA79B4BDD86CA53C3D6DF077C
 
   &#9745; redirects to the Login page.
 
-* A member's **Add Product Review** page: http://dargan-health-foods.herokuapp.com/products/add_review/11
+- A member's **Add Product Review** page: http://dargan-health-foods.herokuapp.com/products/add_review/11
 
   &#9745; redirects to the Login page.
 
-* A member's **Edit Product Review** page: http://dargan-health-foods.herokuapp.com/products/edit_review/1
+- A member's **Edit Product Review** page: http://dargan-health-foods.herokuapp.com/products/edit_review/1
 
   &#9745; redirects to the Login page.
 
-* A member's **Delete Product Review** link: http://dargan-health-foods.herokuapp.com/products/delete_review/2
+- A member's **Delete Product Review** link: http://dargan-health-foods.herokuapp.com/products/delete_review/2
 
   &#9745; redirects to the Login page.
 
-* A member's **Edit BlogComment** page: http://dargan-health-foods.herokuapp.com/blog/edit_comment/11
+- A member's **Edit BlogComment** page: http://dargan-health-foods.herokuapp.com/blog/edit_comment/11
 
   &#9745; redirects to the Login page.
 
-* A member's **Delete BlogComment** link: http://dargan-health-foods.herokuapp.com/blog/delete_comment/2
+- A member's **Delete BlogComment** link: http://dargan-health-foods.herokuapp.com/blog/delete_comment/2
 
   &#9745; redirects to the Login page.
 
-* A member's **Change Password** page: http://dargan-health-foods.herokuapp.com/accounts/password/change/
+- A member's **Change Password** page: http://dargan-health-foods.herokuapp.com/accounts/password/change/
 
   &#9745; redirects to the Login page.
 
-* The site **Admin** page: http://dargan-health-foods.herokuapp.com/admin
+- The site **Admin** page: http://dargan-health-foods.herokuapp.com/admin
 
-  &#9745; redirects to the Administrative Login page.* 
-  
-* A superuser's **Add Product** page: http://dargan-health-foods.herokuapp.com/products/add/
+  &#9745; redirects to the Administrative Login page.\*
 
-  &#9745; redirects to the Login page.
-
-* A superuser's **Edit Product** page: http://dargan-health-foods.herokuapp.com/products/edit/13
+- A superuser's **Add Product** page: http://dargan-health-foods.herokuapp.com/products/add/
 
   &#9745; redirects to the Login page.
 
-* A superuser's **Delete Product** link: http://dargan-health-foods.herokuapp.com/products/delete/12
+- A superuser's **Edit Product** page: http://dargan-health-foods.herokuapp.com/products/edit/13
 
   &#9745; redirects to the Login page.
 
-* A superuser's **Add Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/add_post/
+- A superuser's **Delete Product** link: http://dargan-health-foods.herokuapp.com/products/delete/12
 
-  &#9745; redirects to the Login page. 
+  &#9745; redirects to the Login page.
 
-* A superuser's **Edit Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/edit_post/3
+- A superuser's **Add Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/add_post/
 
-  &#9745; redirects to the Login page. 
+  &#9745; redirects to the Login page.
 
-* A superuser's **Delete Blogpost** link: http://dargan-health-foods.herokuapp.com/blog/delete_post/1
+- A superuser's **Edit Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/edit_post/3
 
-  &#9745; redirects to the Login page. 
+  &#9745; redirects to the Login page.
+
+- A superuser's **Delete Blogpost** link: http://dargan-health-foods.herokuapp.com/blog/delete_post/1
+
+  &#9745; redirects to the Login page.
 
 <br>
-
 
 ##### back to [top](#table-of-contents)
 
@@ -432,10 +438,10 @@ As a Logged-Out User it was attempted to access a Dargan Health Food member's ac
 
 I am a prospective Dargan Health Foods site member I want to be able to:
 
-&#9745;	Immediately comprehend the purpose behind the Dargan Health Foods site.
+&#9745; Immediately comprehend the purpose behind the Dargan Health Foods site.
 
 Upon opening the homepage the user is presented with the Dargan Health Foods logo and brand heading
-which identifies the site as an e-commerce store which sells health food. 
+which identifies the site as an e-commerce store which sells health food.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-home-page-sale-banner-desktop-device.png "Screenshot of Dargan Health Foods homepage on a desktop device.")
 
@@ -459,7 +465,7 @@ in the top navbar on the desktop, within the toggle dropdown navigation menu on 
 the 'Quick Links' link provided in the Footer.
 
 Beneath the 'About Us' text is a link which brings the user to the 'Our Story' page
- where they can read about the origins of the business and its ethos.
+where they can read about the origins of the business and its ethos.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-our-story-mobile-device.png "Screenshot of the Our Story page as it displays on a mobile device.")
 
@@ -467,8 +473,8 @@ Beneath the 'About Us' text is a link which brings the user to the 'Our Story' p
 
 &#9745; Identify where the physical store is located.
 
-Within the footer on each page the user is presented with the shop's business address 
-which is also a link bringing the user directly to the shop's location on 
+Within the footer on each page the user is presented with the shop's business address
+which is also a link bringing the user directly to the shop's location on
 [Google Maps](https://www.google.com/maps/place/Dargan+Health+Foods/@52.6663666,-8.5551142,17z/data=!3m1!4b1!4m5!3m4!1s0x485b5c109808a3ed:0x872b2c8c38046fe5!8m2!3d52.6663666!4d-8.5529255).
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the Find Us accordion of the Footer on a mobile device.")
@@ -480,7 +486,6 @@ This same information is contained within a dropdown-accordion, entitled 'Find U
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion of the Footer on a mobile device.")
 
 <br>
-
 
 &#9745; Easily see what products are available.
 
@@ -510,7 +515,7 @@ These options are contained within the dropdown menu, accessed using the Hamburg
 
 &#9745; Search for specific products by name or category.
 
-As well as using the aforementioned 'Department' and 'Category' links, users can access specific products 
+As well as using the aforementioned 'Department' and 'Category' links, users can access specific products
 by entering a brand name, product-title, tag or ingredient into the search bar on the navbar.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-navbar-desktop-device.png "Screenshot of the search bar on the navbar on a desktop device.")
@@ -532,7 +537,7 @@ navigational menu or by searching for that category using the search bar.
 
 <br>
 
-The products returned can be sorted by rating, alphabetically or by price, regardless of whether the search was 
+The products returned can be sorted by rating, alphabetically or by price, regardless of whether the search was
 conducted using the search bar or by selecting one of the main navigation department or category options.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sort-dropdown-expanded-desktop-device.png "Screenshot of sort products dropdown expanded on a desktop device.")
@@ -548,8 +553,8 @@ of relevant results which show a small image of the individual products, if an i
 
 <br>
 
-If they viewer chooses to examine a product in more detail they can click on the product image, 
-or the product title to be brought to that specific product page.  If more than one image 
+If they viewer chooses to examine a product in more detail they can click on the product image,
+or the product title to be brought to that specific product page. If more than one image
 exists for that product they are contained within an image carousel.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-image-carousel-tablet-device.png "Screenshot of a product image carousel on a tablet device.")
@@ -566,7 +571,7 @@ A user can read a product description on each product detail page.
 
 &#9745; Be presented with nutritional information or ingredients where applicable.
 
-On the Product Details pages for each product, if an ingredients list is available, it is to be 
+On the Product Details pages for each product, if an ingredients list is available, it is to be
 found within the Details Accordion.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-details-accordion-expanded-mobile-device.png "Screenshot of a product's Details accordion as shown on a mobile device.")
@@ -588,12 +593,12 @@ on each Product Detail page.
 
 <br>
 
-The accordion can be accessed directly or by clicking on the Review Count link next to the product's 
+The accordion can be accessed directly or by clicking on the Review Count link next to the product's
 star rating.
 
 &#9745; Add products to my shopping cart with ease.
 
-Users can use the 'Add to Cart' buttons on any Product Card to add a single unit of that 
+Users can use the 'Add to Cart' buttons on any Product Card to add a single unit of that
 product to their cart, without having to open that product's Details page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-products-add-to-cart-buttons-mobile-device.png "Screenshot of products with Add to Cart buttons as shown on a mobile device.")
@@ -601,13 +606,11 @@ product to their cart, without having to open that product's Details page.
 <br>
 
 A specific quantity of any item can be added to a user's cart using the Quantity Form and 'Add to Cart' button on the
-product's Details page.  
+product's Details page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-quantity-form-product-details-page-desktop-device.png "Screenshot of the Quantity form and Add to Cart buttons as shown on a desktop device.")
 
 <br>
-
-
 
 &#9745; Be presented with a constant visual reminder of my shopping cart total and number of items already added.
 
@@ -623,14 +626,13 @@ This information is displayed within the mini-cart on the desktop navbar.
 
 <br>
 
-The updated cart information is also communicated to the user using Toast messages. 
+The updated cart information is also communicated to the user using Toast messages.
 With each item added to the cart, a Success Toast appears with images of the products in the cart, their titles, and the
 quantity as well as a Cart total.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-success-toast-items-in-cart-mobile-device.png "Screenshot of the Success Toast displaying the number of items and Cart total as shown on a mobile device.")
 
 <br>
-
 
 &#9745; Be able to edit my shopping cart, increasing or decreasing the quantity of a specific item or deleting it altogether, at will.
 
@@ -641,7 +643,7 @@ Alternatively, they can delete any item from the cart in one click using the ind
 at the end of the product row.
 With each adjustment of the cart the user is given feedback, the quantity updates, the line-item subtotal is
 updated, as is the Cart Total and Order Total within the Summary table.
-Further feedback is provided with textual messages, in green for success or in red for errors, 
+Further feedback is provided with textual messages, in green for success or in red for errors,
 which specify which item has been removed etc.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-with-items-desktop-device.png "Screenshot of the Cart with items as shown on a desktop device.")
@@ -684,7 +686,7 @@ A toast message re-affirms that a Confirmation Email is being sent to the email 
 
 A Confirmation Email is sent to the email address provided by the customer.
 This gives the customer a record of their order number and date of purchase as well as
-the price paid and the delivery cost and the address the order will be shipped to. 
+the price paid and the delivery cost and the address the order will be shipped to.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-order-confirmation-email.png "Screenshot of the Order Confirmation email.")
 
@@ -708,7 +710,7 @@ the Blog for a post by keyword(s).
 
 <br>
 
-A snippet of the BlogPost introductory paragraphs provides the user with further insight as to 
+A snippet of the BlogPost introductory paragraphs provides the user with further insight as to
 the contents of each before they make the final decision as to whether they want to read the full post.
 For consistency, these BlogPost card images and titles also operate as links to the individual BlogPost
 pages.
@@ -740,7 +742,7 @@ within the Search Blog accordion on each BlogPost page.
 &#9745; Easily get in contact with the store if I have any questions.
 
 Site visitors can easily contact the Dargan Health Foods team by filling out and submitting the
-Contact Us form, links to which are provided on the desktop topnav, the mobile main dropdown 
+Contact Us form, links to which are provided on the desktop topnav, the mobile main dropdown
 menu and within the Footer Quick Links.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-contact-us-mobile-device.png "Screenshot of the Contact Us page on a mobile device.")
@@ -781,22 +783,22 @@ operates as a direct link to the homepage.
 
 <br>
 
-The site Footer is divided into three separate sections, which are rendered neatly as collapsed accordions on mobile devices. 
-The first section/accordion provides links to the homepage, in the form of the brand header and links to 
-facilitate easy contact with the Dargan's team by email or by phone. 
+The site Footer is divided into three separate sections, which are rendered neatly as collapsed accordions on mobile devices.
+The first section/accordion provides links to the homepage, in the form of the brand header and links to
+facilitate easy contact with the Dargan's team by email or by phone.
 There is also a helpful link, which opens an external tab, showing the shop's physical location on [Google Maps](https://www.google.com/maps/place/Dargan+Health+Foods+%26+Therapy+Centre/@52.6663698,-8.5551142,17z/data=!3m1!4b1!4m5!3m4!1s0x485b5c109808a3ed:0x872b2c8c38046fe5!8m2!3d52.6663666!4d-8.5529255?shorturl=1).
 
-Within the third section/accordion, links to commonly required site pages are 
-rendered for convenience.  This provides the user with easy navigation across the site 
+Within the third section/accordion, links to commonly required site pages are
+rendered for convenience. This provides the user with easy navigation across the site
 both at the top and bottom of the page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the Footer on a desktop device.")
 
 <br>
 
-Breadcrumbs navigation links, within the products pages and the blog pages, 
-operate as a kind of secondary navigation scheme, revealing the user's location within 
-that section of the website and also allowing them to jump directly to related pages along the 
+Breadcrumbs navigation links, within the products pages and the blog pages,
+operate as a kind of secondary navigation scheme, revealing the user's location within
+that section of the website and also allowing them to jump directly to related pages along the
 path.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-breadcrumbs-navigation-links-desktop-device.png "Screenshot of the Breadcrumbs navigation links on a desktop device.")
@@ -830,14 +832,14 @@ This information is reiterated on the registration page itself.
 <br>
 
 Within the Shopping Cart page, non-logged-in users are provided with a link to the 'Sign In' page
-so that they can apply their Promo Code and receive their discount.  This operates as a reminder to
+so that they can apply their Promo Code and receive their discount. This operates as a reminder to
 non-registered users as to the financial benefits of becoming a Dargan's member.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-with-items-sign-in-link-desktop-device.png "Screenshot of the Cart with Sign In link on a desktop device.")
 
 <br>
 
-On the Checkout Page, the Dargan members' smoother checkout experience is emphasised. 
+On the Checkout Page, the Dargan members' smoother checkout experience is emphasised.
 Non-site members are encouraged to Sign In or to Sign Up so that they too can avoid
 the time-consuming form-filling process on subsequent visits.
 
@@ -845,11 +847,10 @@ the time-consuming form-filling process on subsequent visits.
 
 <br>
 
-
 &#9745; Easily register to become a site member.
 
 Site visitors are presented with numerous opportunities to become site members.
-On the desktop top navbar, the 'Join' link is always visible.  It brings the user directly to
+On the desktop top navbar, the 'Join' link is always visible. It brings the user directly to
 the 'Sign Up' page. The 'Register' link can be found on mobile devices when the 'Account' user icon is clicked.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-menu-logged-out-user-expanded-mobile-device.png "Screenshot of the Account dropdown menu with Register link on a mobile device.")
@@ -869,7 +870,7 @@ Another 'Sign Up' link is to be found within the 'Quick Links' section/accordion
 
 <br>
 
-Each of these registration links brings the user to the 'Sign Up' page where they can easily 
+Each of these registration links brings the user to the 'Sign Up' page where they can easily
 become site members by filling in the clearly labelled form and pressing the eye-catching 'Sign Up' button.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sign-up-tablet-device.png "Screenshot of the Sign Up form on a tablet device.")
@@ -897,6 +898,7 @@ The user is then redirected to the 'Login' page with a Success Toast message.
 <br>
 
 ##### back to [top](#table-of-contents)
+
 ---
 
 #### Tested Existing User Stories
@@ -905,7 +907,7 @@ I am an existing Dargan Health Foods site member I want to be able to:
 
 &#9745; Log in to the site.
 
-Links to the 'Login' page are provided at numerous points throughout the site, however, 
+Links to the 'Login' page are provided at numerous points throughout the site, however,
 they are most clearly visible on the topnav on a desktop device or within the
 'Account' dropdown on a mobile device or within the 'Quick Links' section of the footer.
 
@@ -921,8 +923,8 @@ they are most clearly visible on the topnav on a desktop device or within the
 
 <br>
 
-All of these links bring the user directly to the 'Login' page.  Here the user is presented
-with a clearly labelled form.  They can log into the site
+All of these links bring the user directly to the 'Login' page. Here the user is presented
+with a clearly labelled form. They can log into the site
 by entering their username or email address and their password and pressing the 'Sign In' button.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-login-mobile-device.png "Screenshot of the Login page on a mobile device.")
@@ -959,7 +961,7 @@ Users can log out of the site using the 'Logout' links provided in the site navb
 
 <br>
 
-These links bring the user to the 'Sign Out' page, where they can complete the process by pressing the 
+These links bring the user to the 'Sign Out' page, where they can complete the process by pressing the
 'Sign Out' button.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sign-out-mobile-device.png "Screenshot of the Sign Out page on a mobile device.")
@@ -1001,7 +1003,6 @@ and telephone number.
 
 <br>
 
-
 &#9745; Take advantage of my site membership by applying discount codes.
 
 Site members, when logged-in, can see the special Promo Code input within their shopping cart.
@@ -1024,8 +1025,6 @@ The Promo Code and discount being applied are also rendered within the Checkout 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-tablet-device.png "Screenshot of the Checkout Page with Discount Code on a tablet device.")
 
 <br>
-
-
 
 &#9745; Purchase my desired products using a secure online payment system.
 
@@ -1079,7 +1078,7 @@ By clicking on them, the user is brought to the 'Order Confirmation' page for th
 
 &#9745; Search for a product by entering a brand name, product name, allergen or other pertinent keyword into a search box within the site.
 
-A search box is visible on the desktop navbar at all times.  The search input on a mobile appears when the magnifying-glass icon is clicked.
+A search box is visible on the desktop navbar at all times. The search input on a mobile appears when the magnifying-glass icon is clicked.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-search-bar-expanded-logged-in-mobile-device.png "Screenshot of a search bar on a mobile device.")
 
@@ -1101,7 +1100,7 @@ Alternatively users can use the departmental titles within the main nav to searc
 <br>
 
 To return all products within a Department the user can choose the relevant dropdown link,
-for example, the 'All Vitamins & Minerals' option returns all of the products within the 
+for example, the 'All Vitamins & Minerals' option returns all of the products within the
 'Vitamins & Minerals' department.
 
 &#9745; Sort search results, by price, alphabetically or by rating.
@@ -1115,14 +1114,14 @@ This can be done by chosing the desired ordering system from the sorting dropdow
 
 &#9745; Filter products by allergen or other pertinent tags.
 
-Keywords/tags associated with a specific product are 
+Keywords/tags associated with a specific product are
 rendered as links on the Product Details page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-tags-desktop-device.png "Screenshot of product tags on a product details page on a desktop device.")
 
 <br>
 
-The user can choose to find other products associated with the 
+The user can choose to find other products associated with the
 same keyword/tag by clicking on the desired link.
 They will be redirected to a page displaying those products, which
 can then be sorted alphabetically, by rating or by price.
@@ -1135,7 +1134,7 @@ can then be sorted alphabetically, by rating or by price.
 
 Users are presented with an image of each product, where available, on the product cards and within the
 Product Details page.
-If no image is available, the user is made aware of this through the 
+If no image is available, the user is made aware of this through the
 rendering of the 'no-image-placeholder.svg'.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-no-image-placeholder-mobile-device.png "Screenshot of a product image and the no image placeholder on a mobile device.")
@@ -1148,7 +1147,6 @@ within an image carousel on the product details page.
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-image-carousel-desktop-device.png "Screenshot of a product image carousel on a desktop device.")
 
 <br>
-
 
 &#9745; Read detailed descriptions of products.
 
@@ -1167,15 +1165,15 @@ within the 'Details' accordion on the same page.
 
 &#9745; Read reviews of products written by site members.
 
-Products that have been reviewed by Dargan's site members have an average star rating, rendered pictorially in 
-partially or fully filled in yellow stars. Next to the stars, a Review Count shows the total number of 
+Products that have been reviewed by Dargan's site members have an average star rating, rendered pictorially in
+partially or fully filled in yellow stars. Next to the stars, a Review Count shows the total number of
 customer reviews submitted so far.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-with-2-reviews-mobile-device.png "Screenshot of a Product Details page with reviews on a mobile device.")
 
 <br>
 
-This Review Count is a link that brings the user to the 'Customer Reviews' accordion where 
+This Review Count is a link that brings the user to the 'Customer Reviews' accordion where
 they can read the actual reviews.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-with-2-reviews-desktop-device.png "Screenshot of a Product Details page with reviews on a desktop device.")
@@ -1200,7 +1198,6 @@ where they can enter and submit their review.
 
 <br>
 
-
 &#9745; Input my review easily into a user-friendly form that is straightforward to use.
 
 The Product Review Form has a helpful label and placeholder text to instruct the user.
@@ -1209,20 +1206,20 @@ The Product Review Form has a helpful label and placeholder text to instruct the
 
 <br>
 
-The product rating simply requires the user to choose the correct number of stars from 
+The product rating simply requires the user to choose the correct number of stars from
 the dropdown select box.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-star-rating-dropdown-desktop-device.png "Screenshot of the Leave a Review form star rating dropdown on a desktop device.")
 
 <br>
 
-Once all three fields have been filled the form can be posted. 
+Once all three fields have been filled the form can be posted.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leaving-a-review-form-tablet-device.png "Screenshot of the a filled in review form on a tablet device.")
 
 <br>
 
-A Success Toast message provides feedback on the successful submission. 
+A Success Toast message provides feedback on the successful submission.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leaving-a-review-success-toast-desktop-device.png "Screenshot of the success toast when a review is successfully posted on a desktop device.")
 
@@ -1238,7 +1235,7 @@ rendered next to their review on the relevant Product Details page.
 <br>
 
 Site members also have access to these links on their 'My Account' page within the
-'Product Reviews' tabbed pane. 
+'Product Reviews' tabbed pane.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-product-reviews-tablet-device.png "Screenshot of the My Account My Product Reviews tab on a tablet device.")
 
@@ -1255,19 +1252,18 @@ submitting the form and updating their review.
 &#9745; Be secure in the knowledge that no other user can edit or delete my reviews.
 
 Within the 'Customer Reviews' accordion users can see that the 'Edit' and 'Delete' links are
-only visible next to reviews that they themselves have submitted. Customers cannot 
+only visible next to reviews that they themselves have submitted. Customers cannot
 alter content submitted by others.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-delete-review-buttons-2-reviews-mobile-device.png "Screenshot of the Edit and Delete review buttons on a mobile device.")
 
 <br>
 
-
 &#9745; Be secure in the knowledge that measures have been put in place to prevent me from accidentally deleting one of my own reviews.
 
 In order to prevent users from accidentally deleting their reviews, the 'Delete' link
-opens a 'Delete Modal' in which the site member can 'Cancel' the action, or confirm 
-that they wish to proceed by choosing the relevant button. 
+opens a 'Delete Modal' in which the site member can 'Cancel' the action, or confirm
+that they wish to proceed by choosing the relevant button.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-delete-review-modal-mobile-device.png "Screenshot of the Delete Review modal on a mobile device.")
 
@@ -1276,7 +1272,7 @@ that they wish to proceed by choosing the relevant button.
 &#9745; Contact the store owner.
 
 Site members can easily contact the Dargan Health Foods team by filling out and submitting the
-Contact Us form.  Links to this page are provided on the desktop topnav, the mobile main dropdown 
+Contact Us form. Links to this page are provided on the desktop topnav, the mobile main dropdown
 menu and within the Footer Quick Links.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-contact-us-mobile-device.png "Screenshot of the Contact Us page on a mobile device.")
@@ -1363,7 +1359,7 @@ into a simple text field and 'Upload' it.
 
 <br>
 
-When the user uploads their comment successfuly they are given feedback in the form of a 
+When the user uploads their comment successfuly they are given feedback in the form of a
 Success Toast message.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-success-toast-blog-comment-tablet-device.png "Screenshot of success toast when submitting blog comment on a tablet device.")
@@ -1374,7 +1370,7 @@ Success Toast message.
 
 Each site member has the ability to edit or delete their own Blog Comments.
 
-'Edit' and 'Delete' links are to be found next to the individual comments beneath 
+'Edit' and 'Delete' links are to be found next to the individual comments beneath
 the related BlogPost. These are visible solely to the creator of the comment in question.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-comments-mobile-device.png "Screenshot of Blog Comments on a mobile device.")
@@ -1395,28 +1391,27 @@ The 'Edit' link brings the user to the Edit Comment form where they can change t
 <br>
 
 The 'Delete' link opens a Delete Modal asking the user to confirm their decision to delete their
-comment.  If they choose to continue with the action by pressing the 'Delete' button, 
+comment. If they choose to continue with the action by pressing the 'Delete' button,
 the comment is deleted from the database.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-delete-blog-comment-modal-mobile-device.png "Screenshot of Delete Blog Comment modal on a mobile device.")
 
 <br>
 
-
-
 ##### back to [top](#table-of-contents)
+
 ---
 
 #### Tested Site Owner Stories
 
 As the owner of Dargan Health Foods website I would like to:
 
-&#9745;	Provide users with an effective and user-friendly platform where they can see what products Dargan's have to offer.
+&#9745; Provide users with an effective and user-friendly platform where they can see what products Dargan's have to offer.
 
 Site visitors can see images of the products on the site within the product cards displayed
 in the 'New In' section of the homepage and on the different 'Products' pages,
-whether they choose to browse the store by department, category, tag or to search 
-for a keyword or by brand. 
+whether they choose to browse the store by department, category, tag or to search
+for a keyword or by brand.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-organic-products-store-owner-desktop-device.png "Screenshot of a the Organic search results page on a desktop device.")
 
@@ -1426,7 +1421,7 @@ for a keyword or by brand.
 
 The high-quality images provided, where available, allow the user to quickly visually identify the products.
 If they recognise them as the product they require, an 'Add to Cart' button allows
-them to add a single unit of that product to their shopping cart immeditately 
+them to add a single unit of that product to their shopping cart immeditately
 without the need to opening the individual 'Product Details' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-all-products-store-owner-desktop-device.png "Screenshot of a the All Products page on a desktop device.")
@@ -1450,8 +1445,7 @@ allowing the user to see at a glance the value of the potential saving.
 
 <br>
 
-
-&#9745; Provide visitors with information about the products, such as their ingredients/nutritional information 
+&#9745; Provide visitors with information about the products, such as their ingredients/nutritional information
 (where applicable), so that they can make more informed choices when choosing their products.
 
 Each 'Product Details' page provides site visitors with a general description of that product.
@@ -1460,7 +1454,7 @@ Each 'Product Details' page provides site visitors with a general description of
 
 <br>
 
-If they user wishes to access more information, including the product ingredients and 
+If they user wishes to access more information, including the product ingredients and
 directions for consumption they can do so by opening the 'Details' accordion
 on the same page.
 
@@ -1471,14 +1465,14 @@ on the same page.
 &#9745; Provide site users with an easy way to add their desired product to their cart.
 
 The eye-catching 'Add to Cart' buttons on the product cards allow users to add a single
-unit of the desired item to their cart immediately without having to open the 'Product Details' 
+unit of the desired item to their cart immediately without having to open the 'Product Details'
 page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-add-to-cart-buttons-store-owner-mobile-device.png "Screenshot of the 'Add to Cart' buttons on a mobile device.")
 
 <br>
 
-If the user wishes to add more than one unit of the item to their cart they can 
+If the user wishes to add more than one unit of the item to their cart they can
 do so on the 'Product Details' page using the quantity input and the 'Add to Cart' button.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-details-quantity-input-store-owner-tablet-device.png "Screenshot of the quantity input on a tablet device.")
@@ -1492,7 +1486,6 @@ using the quantity controls within the 'Cart' page.
 
 <br>
 
-
 &#9745; Provide users with a visual representation of their cart total and the number of products already added, visible on all screens.
 
 Users can see the number of items currently in their cart and the current cart total
@@ -1502,34 +1495,32 @@ on the site navbar at all times.
 
 <br>
 
-On desktop devices this has been rendered as a 'Mini Cart'.  The cart icon and total allow
-the user to navigate to the 'Cart' page. The 'Checkout' button allows them to skip this 
+On desktop devices this has been rendered as a 'Mini Cart'. The cart icon and total allow
+the user to navigate to the 'Cart' page. The 'Checkout' button allows them to skip this
 step and go directly to the 'Checkout' page if they wish.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-icon-with-items-desktop-device.png "Screenshot of the cart icon with items on a desktop device.")
 
 <br>
 
-
 &#9745; Provide users with an updated total when they add or remove products from their cart.
 
 When users add items to their cart the cart total and number of items within their cart
-are updated on the navbar.  Further confirmation of the addition is provided in the 
+are updated on the navbar. Further confirmation of the addition is provided in the
 form of a Success Toast message.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-success-toast-items-mobile-device.png "Screenshot of the success toast message on a mobile device.")
 
 <br>
 
-If a user removes or updates the quantity of an item from within the 'Cart' page the 
-navbar total and number of items is updated, the lineitem subtotal is changed and 
-the cart 'Summary' table is updated.  A textual message is displayed on screen 
+If a user removes or updates the quantity of an item from within the 'Cart' page the
+navbar total and number of items is updated, the lineitem subtotal is changed and
+the cart 'Summary' table is updated. A textual message is displayed on screen
 providing further visual confirmation of the action performed.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-update-cart-message-mobile-device.png "Screenshot of the cart update message on a mobile device.")
 
 <br>
-
 
 &#9745; Provide users with an easy-to-use and secure online payment process.
 
@@ -1544,7 +1535,7 @@ Users can purchase their desired products by completing the clearly labelled
 &#9745; Provide site users with product reviews written by site members.
 
 Product reviews left by Dargan Health Foods members can be read by any site visitor.
-The average score for a product is displayed pictorially in partially or fully 
+The average score for a product is displayed pictorially in partially or fully
 filled-in stars on the 'Product Details' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-star-rating-desktop-device.png "Screenshot of a product's star rating on a desktop device.")
@@ -1552,7 +1543,7 @@ filled-in stars on the 'Product Details' page.
 <br>
 
 The 'Review Count' not only lets the user know how many reviews the rating is out of, but
-it also operates as a link, opening the 'Customer Reviews' accordion and bringing the 
+it also operates as a link, opening the 'Customer Reviews' accordion and bringing the
 user to that part of the page so that they can read the reviews.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-customer-reviews-accordion-desktop-device.png "Screenshot of the 'Customer Reviews' accordion on a desktop device.")
@@ -1562,7 +1553,7 @@ user to that part of the page so that they can read the reviews.
 &#9745; Provide site members with a user-friendly way to share their own reviews of products, edit those reviews or delete them as they see fit.
 
 Dargan Health Foods site members can leave reviews of products that they have purchased
-by clicking on the 'Leave a Review' button which is visible at the 
+by clicking on the 'Leave a Review' button which is visible at the
 top of the 'Customer Reviews' accordion on the 'Product Detail' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-button-desktop-device.png "Screenshot of the 'Leave a Review' button on a desktop device.")
@@ -1575,10 +1566,9 @@ This brings the user to a well-labelled, easy-to-fill-out form.
 
 <br>
 
-
 &#9745; Present the reviews in a visually appealing format.
 
-Product review titles are prefixed with a pictorial representation of the product 
+Product review titles are prefixed with a pictorial representation of the product
 rating in stars which allow users to see each customer's score at a glance.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-customer-reviews-tablet-device.png "Screenshot of the 'Customer Reviews' accordion on a tablet device.")
@@ -1587,7 +1577,7 @@ rating in stars which allow users to see each customer's score at a glance.
 
 A member's star ratings are also rendered within the
 'My Product Reviews' tabbed navigational pane on their 'My Account' page.
-This table provides users with a quick overview of their reviews and 
+This table provides users with a quick overview of their reviews and
 product ratings as well as providing them with links to those reviews
 and the ability to edit or delete their own content.
 
@@ -1595,12 +1585,11 @@ and the ability to edit or delete their own content.
 
 <br>
 
-
-&#9745; Provide site members with the ability to search the site for a 
+&#9745; Provide site members with the ability to search the site for a
 specific product by entering the name or the brand into a search box within the site.
 
-Users can use the search bar on the navbar to search for a product by 
-title, brand or keyword.  This search bar is visible at all times on the 
+Users can use the search bar on the navbar to search for a product by
+title, brand or keyword. This search bar is visible at all times on the
 desktop navbar.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-search-bar-and-results-tablet-device.png "Screenshot of a search for a product brand on a tablet device.")
@@ -1616,18 +1605,17 @@ navbar has been clicked.
 
 &#9745; Enable sorting of search results.
 
-Search results, whether conducted using the search bar or using the departmental and 
-category links, can be sorted alphabetically or by price or rating using the 
+Search results, whether conducted using the search bar or using the departmental and
+category links, can be sorted alphabetically or by price or rating using the
 'Sort by...' dropdown select box.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sort-dropdown-desktop-device.png "Screenshot of the 'Sort' dropdown on a desktop device.")
 
 <br>
 
+&#9745; Encourage more users to sign up to become members of the Dargan community by creating a professional-looking website that is intuitive to use.
 
-&#9745; Encourage more users to sign up to become members of the Dargan community by creating a professional-looking website that is intuitive to use. 
-
-Site visitors are encouraged to become site members. 
+Site visitors are encouraged to become site members.
 There is a section of the homepage, entitled 'Members Get More'
 which outlines some of the benefits of joining the site.
 
@@ -1635,9 +1623,9 @@ which outlines some of the benefits of joining the site.
 
 <br>
 
-The financial benefits of being a Dargan's member is emphasised 
+The financial benefits of being a Dargan's member is emphasised
 on the 'Cart' page with the inclusion of a 'Sign In' link and
-reminder to visitors that site members can avail of discounts 
+reminder to visitors that site members can avail of discounts
 by applying Promo Codes to their Cart.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-sign-in-link-tablet-device.png "Screenshot of the 'Sign In' link on a tablet device.")
@@ -1646,7 +1634,7 @@ by applying Promo Codes to their Cart.
 
 &#9745; Provide prospective members with the ability to sign-up easily.
 
-Links to the site registration page are found within the navbar and footer on 
+Links to the site registration page are found within the navbar and footer on
 every page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-logged-out-navbar-desktop-device.png "Screenshot of the navbar on a desktop device.")
@@ -1687,25 +1675,22 @@ have to press a button to confirm that their address to complete the sign-up pro
 
 <br>
 
-
 &#9745; Encourage more visitors to follow the site on social media and thereby raise the profile of the store.
 
 Dargan's have an active social media presence on Facebook and on Instagram.
 Visitors to the website are alerted to this presence through the inclusion
 of the aforementioned platform's icons in the footer on every page.
-Clicking on these icons opens a new tab within the user's browser and 
+Clicking on these icons opens a new tab within the user's browser and
 brings them to the Dargan's account page on the selected social media platform.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-tablet-device.png "Screenshot of the footer on a tablet device.")
 
 <br>
 
-
-
 &#9745; Provide visible contact details so that all site visitors can contact the store with ease.
 
 The Dargan Health Foods email address, phone number and postal address are provided
-on every page within the footer. 
+on every page within the footer.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-logged-out-footer-desktop-device.png "Screenshot of the footer on a desktop device.")
 
@@ -1744,7 +1729,7 @@ in the Superuser's footer.
 <br>
 
 These links bring the Superuser to a clearly labelled form
-where they can add in the relevant product details before uploading 
+where they can add in the relevant product details before uploading
 the new product to the site.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-add-product-form-tablet-device.png "Screenshot of the superuser 'Add a Product' form on a tablet device.")
@@ -1776,8 +1761,6 @@ they can edit the current information before saving their alterations.
 
 <br>
 
-
-
 &#9745; Indicate to customers when a product is out of stock.
 
 &#9745; Delete and/or discontinue products that are no longer available, removing their images and information from the website.
@@ -1797,8 +1780,8 @@ decision by choosing the 'Delete' button.
 
 <br>
 
-If a product has been discontinued, rather than deleting if from the 
-database, a 'Discontinued' field has been provided.  This allows the
+If a product has been discontinued, rather than deleting if from the
+database, a 'Discontinued' field has been provided. This allows the
 Superuser to remove a product from view within the site by selecting
 the 'Yes' option in the 'Discontinued' dropdown on the 'Edit Product
 Form'.
@@ -1807,11 +1790,10 @@ Form'.
 
 <br>
 
-
 &#9745; Easily add a new blog post to the site blog.
 
 The link to the Superuser's 'Add Blog Post' form is also to be
-found within the 'Account' dropdown on a mobile device, within the top 
+found within the 'Account' dropdown on a mobile device, within the top
 navbar on a desktop device and within the 'Quick Links' section/accordion
 in the site footer on every page.
 
@@ -1826,8 +1808,8 @@ and pressing the 'Add Blog Post' button.
 
 <br>
 
-
 ##### back to [top](#table-of-contents)
+
 ---
 
 ## Automated testing
@@ -1840,11 +1822,13 @@ A tests directory was added to each app.
 Within these directories individual files were created to test the app's views, models and forms.
 
 In order to run specific tests, the following command can be used:
+
 ```
 python3 manage.py test <app_name>.tests.<test_name>
 ```
 
 To run all the tests use the command:
+
 ```
 python3 manage.py test
 ```
@@ -1855,72 +1839,83 @@ was used to identify the percentage of code covered by the tests.
 <br>
 
 ##### back to [top](#table-of-contents)
+
 ---
 
 ### Coverage Installation and Setup
 
 Install the package using pip.
+
 ```
 pip3 install coverage
 ```
 
 Add this new dependency to your requirements.txt file.
+
 ```
 pip3 freeze > requirements.txt
 ```
 
 Run all the tests within in a specific app using the following command:
+
 ```
 coverage run --source=<'app_name'> manage.py test
 ```
 
 To generate a report of the results in the terminal use:
+
 ```
 coverage report
 ```
 
-Alternatively, a directory containing HTML versions of the report sections 
+Alternatively, a directory containing HTML versions of the report sections
 can be created by typing:
+
 ```
 coverage html
 ```
+
 The report can then be viewed in a web browser using the command:
+
 ```
 python3 -m http.server
 ```
+
 and selecting the 'htmlcov/' directory.
 
 <br>
 
 ##### back to [top](#table-of-contents)
+
 ---
 
 ### Automated Test Links and Coverage Results
 
-|Test Files                                         |   Tests                                                   | Coverage Result |
-|---------------------------------------------------|-----------------------------------------------------------|----------|
-|[Blog Forms](blog/tests/test_forms.py)             |   BlogPostForm and BlogPostCommentForm validation.        |100%|
-|[Blog Models](blog/tests/test_models.py)           |   Topic, BlogPost, BlogPostTag and BlogPostComment Model creation and string methods. That BlogPost titles are slugified.|98%|
-|[Blog Views](blog/tests/test_views.py)             |   All blog posts and individual blogpost views.           |28%|
-|[Cart Forms](cart/tests/test_forms.py)             |   DiscountCodeForm creation.                              |100%|
-|[Cart Models](cart/tests/test_models.py)           |   DiscountCode Model creation and string method.          |100%|
-|[Cart Views](cart/tests/test_views.py)             |   Calculating cart subtotal, testing the cart view, add to cart functionality, and adjusting and removing items from the cart |21%|
-|[Checkout Forms](checkout/tests/test_forms.py)     |   OrderForm creation and required fields                  |100%|
-|[Checkout Models](checkout/tests/test_models.py)   |   Order and OrderLineItem model creation and string methods. Also test the OrderLineItem get_total_lineitem_price method.|94%|
-|[Checkout Views](checkout/tests/test_views.py)     |   Testing checkout and checkout success view              |27%|
-|[Home Forms](home/tests/test_forms.py)             |   NewsletterSubscription and Contact form validation and required fields.|100%|
-|[Home Models](home/tests/test_models.py)           |   NewsletterSubscription model creation and string method.|100%|
-|[Home Views](home/tests/test_views.py)             |   Testing index, our_story and  contact views.            |46%|
-|[Products Forms](products/tests/test_forms.py)     |   ProductForm and ProductReviewForm creation and validation.|100%|
-|[Products Models](products/tests/test_models.py)   |   Brand, Department, Category, Tag, Product, ProductImage, ProductTag and ProductReview model creation and string methods.|100%|
-|[Products Views](products/tests/test_views.py)     |   Testing form fields, products, product detail, add product and edit product view, adding a product, and sort and filter functionality|25%|
-|[Profiles Forms](profiles/tests/test_forms.py)     |   DargansCustomSignupForm and UserProfileForm creation and validation. |81%|
-|[Profiles Models](profiles/tests/test_models.py)   |   UserProfile and DiscountCode2User model creation and string methods.|100%|
-|[Profiles Views](profiles/tests/test_views.py)     |   Profile view when a user is logged in, and not logged in. If successful, check that the correct template was rendered. |68%|
+| Test Files                                       | Tests                                                                                                                                 | Coverage Result |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| [Blog Forms](blog/tests/test_forms.py)           | BlogPostForm and BlogPostCommentForm validation.                                                                                      | 100%            |
+| [Blog Models](blog/tests/test_models.py)         | Topic, BlogPost, BlogPostTag and BlogPostComment Model creation and string methods. That BlogPost titles are slugified.               | 98%             |
+| [Blog Views](blog/tests/test_views.py)           | All blog posts and individual blogpost views.                                                                                         | 28%             |
+| [Cart Forms](cart/tests/test_forms.py)           | DiscountCodeForm creation.                                                                                                            | 100%            |
+| [Cart Models](cart/tests/test_models.py)         | DiscountCode Model creation and string method.                                                                                        | 100%            |
+| [Cart Views](cart/tests/test_views.py)           | Calculating cart subtotal, testing the cart view, add to cart functionality, and adjusting and removing items from the cart           | 21%             |
+| [Checkout Forms](checkout/tests/test_forms.py)   | OrderForm creation and required fields                                                                                                | 100%            |
+| [Checkout Models](checkout/tests/test_models.py) | Order and OrderLineItem model creation and string methods. Also test the OrderLineItem get_total_lineitem_price method.               | 94%             |
+| [Checkout Views](checkout/tests/test_views.py)   | Testing checkout and checkout success view                                                                                            | 27%             |
+| [Home Forms](home/tests/test_forms.py)           | NewsletterSubscription and Contact form validation and required fields.                                                               | 100%            |
+| [Home Models](home/tests/test_models.py)         | NewsletterSubscription model creation and string method.                                                                              | 100%            |
+| [Home Views](home/tests/test_views.py)           | Testing index, our_story and contact views.                                                                                           | 46%             |
+| [Products Forms](products/tests/test_forms.py)   | ProductForm and ProductReviewForm creation and validation.                                                                            | 100%            |
+| [Products Models](products/tests/test_models.py) | Brand, Department, Category, Tag, Product, ProductImage, ProductTag and ProductReview model creation and string methods.              | 100%            |
+| [Products Views](products/tests/test_views.py)   | Testing form fields, products, product detail, add product and edit product view, adding a product, and sort and filter functionality | 25%             |
+| [Profiles Forms](profiles/tests/test_forms.py)   | DargansCustomSignupForm and UserProfileForm creation and validation.                                                                  | 81%             |
+| [Profiles Models](profiles/tests/test_models.py) | UserProfile and DiscountCode2User model creation and string methods.                                                                  | 100%            |
+| [Profiles Views](profiles/tests/test_views.py)   | Profile view when a user is logged in, and not logged in. If successful, check that the correct template was rendered.                | 68%             |
 
 <br>
 
 ##### back to [top](#table-of-contents)
+
 ---
 
 ### Overall Automated Test Coverage
@@ -1928,48 +1923,54 @@ and selecting the 'htmlcov/' directory.
 For the purposes of a MVP at least 55% of each app is covered by automated tests.
 It is hoped to continue to increase the test coverage to as close to 100% as possible.
 
-|App Name           |Percentage of App Code Currently Covered by Tests     |
-|:------------------|:-------------------:|
-|Blog               |67%                |
-|Cart               |55%                |
-|Checkout           |58%                |
-|Home               |81%                |
-|Products           |70%                |
-|Profiles           |89%                |
+| App Name | Percentage of App Code Currently Covered by Tests |
+| :------- | :-----------------------------------------------: |
+| Blog     |                        67%                        |
+| Cart     |                        55%                        |
+| Checkout |                        58%                        |
+| Home     |                        81%                        |
+| Products |                        70%                        |
+| Profiles |                        89%                        |
 
 <br>
 
 ##### back to [top](#table-of-contents)
+
 ---
 
 ## Bugs
 
 ### Pagination Issue
-[Pagination]((https://github.com/nualagr/dargan-health-foods/commit/7b8b1e0fc9afd4d0f8b39b69611bc38c8679ff28)) was applied to the products.html page and initially worked correctly.  However, once filtering of products 
+
+[Pagination](<(https://github.com/nualagr/dargan-health-foods/commit/7b8b1e0fc9afd4d0f8b39b69611bc38c8679ff28)>) was applied to the products.html page and initially worked correctly. However, once filtering of products
 by search criteria was implemented, the pagination 'previous' and 'next' buttons
-brought the user to page one or three of the products.html page, rather than the page associated with the chosen queryset. 
-This problem was put to one side. Filtering of products by category and department was implemented. Then sorting of 
+brought the user to page one or three of the products.html page, rather than the page associated with the chosen queryset.
+This problem was put to one side. Filtering of products by category and department was implemented. Then sorting of
 results was developed. Once filtering by tag had been put in place the issue of pagination was again approached.
-At first 
+At first
+
 ```
 {{ request.get_full_path }}
 ```
-was used to get the url and feed it to the 'next' and 'previous' pagination buttons, however this was unsuccessful since this 
-url contains not only the search criteria etc., but also '?page=1'. Therefore, when navigating from 'page=2' to 'page=1', 
-the former remained within the url, invalidating it. 
+
+was used to get the url and feed it to the 'next' and 'previous' pagination buttons, however this was unsuccessful since this
+url contains not only the search criteria etc., but also '?page=1'. Therefore, when navigating from 'page=2' to 'page=1',
+the former remained within the url, invalidating it.
 
 The application of a [custom template tag](https://github.com/nualagr/dargan-health-foods/commit/dd1d2fddb32e018da0371fd252210762fe3eb062)
-succeeded in rectifying the issue.  In the template the custom template tag `current_query_url` 
+succeeded in rectifying the issue. In the template the custom template tag `current_query_url`
 is called and it is passed three arguments, the 'page' keyword, the current page number and the current url.
+
 ```
 href="{% current_query_url 'page' page_obj.previous_page_number request.GET.urlencode %}" aria-label="Link to Previous Page">
 ```
-Within the template tag the new page-number element of the url is reconstructed from the 'page' 
+
+Within the template tag the new page-number element of the url is reconstructed from the 'page'
 keyword and the new `page_number` value. Then the encoded url is split into its constituent parts at the '&'.
 The page-number element is filtered out and the remaining query element(s) are reattached using an ampersand.
 Finally the query elements of the url are connected with the new page number element and returned to the template.
 
-``` {.python3}
+```{.python3}
 @register.simple_tag
 def current_query_url(key, value, urlencode=None):
     # Isolate the page number in the format ?page=1
@@ -1986,16 +1987,17 @@ def current_query_url(key, value, urlencode=None):
 
 ```
 
-This succeeded in bringing the user to the next/previous page of the results queryset, including 
+This succeeded in bringing the user to the next/previous page of the results queryset, including
 the chosen category, department, tag or search term and sorting choice.
 
-Pagination caused issues [again](https://github.com/nualagr/dargan-health-foods/commit/80532381676ebbe2f619fbffd42b5d5f0add8c97) 
+Pagination caused issues [again](https://github.com/nualagr/dargan-health-foods/commit/80532381676ebbe2f619fbffd42b5d5f0add8c97)
 once the site had been populated with a significant number of products as
 the number of page links resulted in horizontal overflow, particularly when viewed on mobile devices.
 An answer posted on [StackOverflow](https://stackoverflow.com/questions/41131802/django-paginator-page-range-for-not-displaying-all-numbers)
 suggested limiting the number of links being rendered within the template.
-An 'if' 'elif' 'else' block was added to the pagination.html include to limit the number 
+An 'if' 'elif' 'else' block was added to the pagination.html include to limit the number
 of page numbers being rendered to +-3 on either side of the active page number.
+
 ```
  {% for i in page_range %}
     {% if page_obj.number == i %}
@@ -2012,30 +2014,35 @@ of page numbers being rendered to +-3 on either side of the active page number.
     {% endif %}
 {% endfor %}
 ```
+
 This removed the horizontal overflow, but is not an ideal solution as it was not immediately obvious
 to the viewer that the page range does not reflect the total number of pages returned.
 
 <br>
 
 ### Multiple Destination Redirects
-This issue arose in relation to two different pages, the Edit Product Review 
-page and the Edit BlogPost page.  Links to these pages exist in multiple locations within the site.
-Initially the redirects, upon submission of the forms, were hardcoded to a single location. 
-If the user edited their product review they were redirected to the product page, 
+
+This issue arose in relation to two different pages, the Edit Product Review
+page and the Edit BlogPost page. Links to these pages exist in multiple locations within the site.
+Initially the redirects, upon submission of the forms, were hardcoded to a single location.
+If the user edited their product review they were redirected to the product page,
 even if they had clicked the 'Edit' button on their Profile page.
 This was less than satisfactory, from a user-experience point of view.
 [In order to redirect users to the page from which they had initially come](https://github.com/nualagr/dargan-health-foods/commit/0ee02100805b0a999e9a9fac397cd26c41b13bf3),
-it was necessary to capture the referring page url from the HttpRequest.META, 
-which is a dictionary containing all the HTTP headers including the `HTTP_REFERER`. 
+it was necessary to capture the referring page url from the HttpRequest.META,
+which is a dictionary containing all the HTTP headers including the `HTTP_REFERER`.
 As this value changes to the current url upon the submission of the form
 it was necessary to assign the referring url, with the GET request, to a hidden input on the EditReview form.
+
 ```
 <input type="hidden" value="{{ request.META.HTTP_REFERER }}" name="previous_page_url">
 ```
+
 The referring url is now posted along with the review to the `edit_review` view where an 'if' 'else'
-block checks for the existence of the substring "profile" within the url before redirecting to the 
+block checks for the existence of the substring "profile" within the url before redirecting to the
 appropriate page.
-``` {.python3}
+
+```{.python3}
 # If the user got to the edit review page from their profile
 # Redirect them back to their profile page.
 if "profile" in previous_page_url:
@@ -2048,30 +2055,32 @@ else:
 <br>
 
 ### Product Discount Price Issue
+
 When it came to applying a [discount to individual products](https://github.com/nualagr/dargan-health-foods/commit/506f2f19c369db6eba3a474022047e26b5cc1ae2),
-for the purposes of an MVP, a `discount_price` field and a Boolean `on_offer` field were added to the Product model. 
-This allowed SuperUsers to mark individual product prices down from within the admin panel. 
-This new structure was then reflected in the OrderLineItem Model where the subtotal for each lineitem is calculated. 
-An issue arose relating to a User's past orders however.  The Order model accesses the 'product.price' through a Foreign Key to the Product model.
-This points to the price for that product, as it appears, currently, in the database. 
+for the purposes of an MVP, a `discount_price` field and a Boolean `on_offer` field were added to the Product model.
+This allowed SuperUsers to mark individual product prices down from within the admin panel.
+This new structure was then reflected in the OrderLineItem Model where the subtotal for each lineitem is calculated.
+An issue arose relating to a User's past orders however. The Order model accesses the 'product.price' through a Foreign Key to the Product model.
+This points to the price for that product, as it appears, currently, in the database.
 The Order, however, needed to reference the price, as it existed, when the order was originally placed.
 This original price had been, and still is, stored in the Order model within the json string of the `original_cart`.
 To facilitate easier access to this vital piece of information, a new field, `product_price_paid`, was added to the OrderLineItem model.
-This value is now set when the OrderLineItem is saved. 
+This value is now set when the OrderLineItem is saved.
 It is this field that is now accessed and displayed within each order on the profile.html 'My Orders' tab.
 
 <br>
 
 ### Discount Code Issues
+
 The addition of Discount Codes to the project required revision of many elements of the payment process.
 
-At first, a very simple [DiscountCode model](https://github.com/nualagr/dargan-health-foods/commit/c9445ca3d1c48bb004ce65434aaf856e3cfdcad2) 
+At first, a very simple [DiscountCode model](https://github.com/nualagr/dargan-health-foods/commit/c9445ca3d1c48bb004ce65434aaf856e3cfdcad2)
 of only two fields was used. This consisted of the promo code and the associate percentage discount to be applied.
 After reading Kim Salazar's article ["Applying Discounts and Ecommerce Websites"](https://www.nngroup.com/articles/applying-discounts/) it became clear
 that, from a user-experience point-of-view, it would be best to allow site users to apply this code within the Cart rather than making them wait
-until they were on the Checkout page. This approach enables people to check that the discount code is valid before they enter any personal information 
+until they were on the Checkout page. This approach enables people to check that the discount code is valid before they enter any personal information
 and also allows the total to be updated appropriately early in the process.
-A DiscountCodeForm, based on the DiscountCode model was created and rendered on the cart.html page. On submission of this form, the discount code, 
+A DiscountCodeForm, based on the DiscountCode model was created and rendered on the cart.html page. On submission of this form, the discount code,
 if valid, is stored in the Session Cookie.
 
 The `discount_amount` is then calculated and applied to the cart 'total' within the `cart_contents` context.
@@ -2081,39 +2090,41 @@ Within the 'checkout' view the discount code object ID is obtained from the sess
 The corresponding DiscountCode object is attached, as a ForeignKey field, to the Order before it is saved to the database.
 Then when .save() is called on the Order, the `update_total()` method is called and the discount applied.
 
-To be able to provide the user with visible feedback on the financial benefit of the addition of their promo code, 
+To be able to provide the user with visible feedback on the financial benefit of the addition of their promo code,
 a new variable, ['total_before_discount'](https://github.com/nualagr/dargan-health-foods/commit/cdac94bafada5d89e5310a452a4785b2cbb578fe)
-was created within the `cart_contents` context.  'If' 'else' statements were added to the checkout\_success.html page to render the discount code and the amount
-of money discounted, providing the user with confirmation that they received their discount.  
+was created within the `cart_contents` context. 'If' 'else' statements were added to the checkout_success.html page to render the discount code and the amount
+of money discounted, providing the user with confirmation that they received their discount.
 
 Within the `_send_confirmation_email()` function in the `webhook_handler` two new variables were created to store the discount code and amount discounted.
 These are set to empty strings if no discount code was used. Otherwise, the discount code and amount discounted are printed within the email providing
 customers with a confirmation that their promo code had been applied and that they had received the discount they expected.
 
-Logic then had to be applied to [handle the discount when orders are created within the webhook](https://github.com/nualagr/dargan-health-foods/commit/fabfac039b94966cbd99fc3b59e166e2c4d5bd44). 
+Logic then had to be applied to [handle the discount when orders are created within the webhook](https://github.com/nualagr/dargan-health-foods/commit/fabfac039b94966cbd99fc3b59e166e2c4d5bd44).
 This process is triggered when errors occur during the checkout process, such as the browser being closed before the Order has been created in the database.
-In the `cache_checkout_data()` function in the checkout/views.py a json string of the discount code was attached to the Payment Intent metadata. 
-Within the `handle_payment_intent_succeeded()` function this is unpacked and the associated DiscountCode object located in the database. 
+In the `cache_checkout_data()` function in the checkout/views.py a json string of the discount code was attached to the Payment Intent metadata.
+Within the `handle_payment_intent_succeeded()` function this is unpacked and the associated DiscountCode object located in the database.
 This object can then be linked to the `discount_code` ForeignKey field on the newly created Order.
 This ensured that Orders created in this manner, within the webhook, now correctly reflect the discount applied by the user in the Cart.
 
 An issue arose in relation to this however as [exceptions were raised when no discount code had been applied to the Order being created in the webhook](https://github.com/nualagr/dargan-health-foods/commit/0b92b6e7594f0881dc2f2cb0d934ddf8b95511e7).
 Different solutions, suggested by [StackOverflow](https://stackoverflow.com/questions/3090302/how-do-i-get-the-object-if-it-exists-or-none-if-it-does-not-exist) members were attempted.
 In the end an 'if' 'else' statement was inserted before the 'try' 'except' block in which the Order is created.
-This retrieves the DiscountCode object from the database, if one exists, and if not, it sets the variable to 'None'. 
+This retrieves the DiscountCode object from the database, if one exists, and if not, it sets the variable to 'None'.
 Now Orders, with or without discount codes, are successfully created within the Webhook Handler in the event of errors during the checkout process.
 
 ##### back to [top](#table-of-contents)
+
 ---
 
 ## Unresolved Issues
 
-- Choosing the price options, 'Price High to Low' or 'Price Low to High' from the 
-dropdown 'Sort by...' select on the 'Products' page does not take the 
-discount price of a product into account.
+- Choosing the price options, 'Price High to Low' or 'Price Low to High' from the
+  dropdown 'Sort by...' select on the 'Products' page does not take the
+  discount price of a product into account.
 
 - The pagination buttons rendered, especially on page one, do not make it obvious
-to the viewer that the page range displayed does not reflect the total number of pages returned.
+  to the viewer that the page range displayed does not reflect the total number of pages returned.
 
 ##### back to [top](#table-of-contents)
+
 ---
