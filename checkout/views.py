@@ -5,7 +5,11 @@ from django.shortcuts import (
     get_object_or_404,
     HttpResponse,
 )
-from django.views.decorators.http import require_http_methods, require_POST, require_GET
+from django.views.decorators.http import (
+    require_http_methods,
+    require_POST,
+    require_GET,
+)
 from django.contrib import messages
 from django.conf import settings
 
