@@ -120,7 +120,7 @@ Accessibility, Best Practices and Search Engine Optimization.
 
 <br>
 
-Lighthouse suggestions for improving the site's score include eliminating 3rd party
+Lighthouse suggestions for improving the site's score include eliminating third-party
 render-blocking resources from Bootstrap, Google Fonts, Fontawesome and JQuery.
 It was deemed beyond the scope of the current project to serve these critical resources inline.
 
@@ -365,7 +365,7 @@ Each website feature, including accordions, buttons, modals, external links, hov
 
 ## Defensive Design Testing
 
-As a Logged-Out User it was attempted to access a Dargan Health Food member's account and associated pages as well as the SuperUser's Admin, Blog and Product management pages using the following urls:
+As a Logged-Out User it was attempted to access a Dargan Health Food member's account and associated pages as well as the Superuser's Admin, Blog and Product management pages using the following urls:
 
 - A **Profile** page: http://dargan-health-foods.herokuapp.com/profile/
 
@@ -403,27 +403,27 @@ As a Logged-Out User it was attempted to access a Dargan Health Food member's ac
 
   &#9745; redirects to the Administrative Login page.\*
 
-- A superuser's **Add Product** page: http://dargan-health-foods.herokuapp.com/products/add/
+- A Superuser's **Add Product** page: http://dargan-health-foods.herokuapp.com/products/add/
 
   &#9745; redirects to the Login page.
 
-- A superuser's **Edit Product** page: http://dargan-health-foods.herokuapp.com/products/edit/13
+- A Superuser's **Edit Product** page: http://dargan-health-foods.herokuapp.com/products/edit/13
 
   &#9745; redirects to the Login page.
 
-- A superuser's **Delete Product** link: http://dargan-health-foods.herokuapp.com/products/delete/12
+- A Superuser's **Delete Product** link: http://dargan-health-foods.herokuapp.com/products/delete/12
 
   &#9745; redirects to the Login page.
 
-- A superuser's **Add Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/add_post/
+- A Superuser's **Add Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/add_post/
 
   &#9745; redirects to the Login page.
 
-- A superuser's **Edit Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/edit_post/3
+- A Superuser's **Edit Blogpost** page: http://dargan-health-foods.herokuapp.com/blog/edit_post/3
 
   &#9745; redirects to the Login page.
 
-- A superuser's **Delete Blogpost** link: http://dargan-health-foods.herokuapp.com/blog/delete_post/1
+- A Superuser's **Delete Blogpost** link: http://dargan-health-foods.herokuapp.com/blog/delete_post/1
 
   &#9745; redirects to the Login page.
 
@@ -463,7 +463,7 @@ Further down the same page the 'About Us' section further clarifies what the sto
 
 This 'About Us' section can be reached easily from any page on the site through the links provided
 in the top navbar on the desktop, within the toggle dropdown navigation menu on a mobile or from
-the 'Quick Links' link provided in the Footer.
+the 'Quick Links' link provided in the footer.
 
 Beneath the 'About Us' text is a link which brings the user to the 'Our Story' page
 where they can read about the origins of the business and its ethos.
@@ -478,13 +478,13 @@ Within the footer on each page the user is presented with the shop's business ad
 which is also a link bringing the user directly to the shop's location on
 [Google Maps](https://www.google.com/maps/place/Dargan+Health+Foods/@52.6663666,-8.5551142,17z/data=!3m1!4b1!4m5!3m4!1s0x485b5c109808a3ed:0x872b2c8c38046fe5!8m2!3d52.6663666!4d-8.5529255).
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the Find Us accordion of the Footer on a mobile device.")
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the Find Us accordion of the footer on a mobile device.")
 
 <br>
 
 This same information is contained within a dropdown-accordion, entitled 'Find Us', on mobile and portrait tablet devices.
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion of the Footer on a mobile device.")
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion of the footer on a mobile device.")
 
 <br>
 
@@ -572,14 +572,14 @@ A user can read a product description on each product detail page.
 
 &#9745; Be presented with nutritional information or ingredients where applicable.
 
-On the Product Details pages for each product, if an ingredients list is available, it is to be
-found within the Details Accordion.
+On the 'Product Details' pages for each product, if an ingredients list is available, it is to be
+found within the 'Details' Accordion.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-details-accordion-expanded-mobile-device.png "Screenshot of a product's Details accordion as shown on a mobile device.")
 
 <br>
 
-Further information regarding allergens is to be found within the More Information accordion.
+Further information regarding allergens is to be found within the 'More Information' accordion.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-more-information-accordion-expanded-tablet-device.png "Screenshot of a product's More Information accordion as shown on a tablet device.")
 
@@ -587,8 +587,8 @@ Further information regarding allergens is to be found within the More Informati
 
 &#9745; Read site members’ product reviews.
 
-Other customers' reviews of individual products can be found within the Customer Reviews accordion
-on each Product Detail page.
+Other customers' reviews of individual products can be found within the 'Customer Reviews' accordion
+on each 'Product Detail' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-customer-reviews-accordion-expanded-tablet-device.png "Screenshot of a product's Customer Reviews accordion as shown on a tablet device.")
 
@@ -637,13 +637,13 @@ quantity as well as a Cart total.
 
 &#9745; Be able to edit my shopping cart, increasing or decreasing the quantity of a specific item or deleting it altogether, at will.
 
-When the user opens the Cart page they are presented with a table of the items in their cart.
-Each item row has a Quantity form allowing the user to increase or decrease the quantity as needed.
+When the user opens the 'Cart' page they are presented with a table of the items in their cart.
+Each item row has a quantity form allowing the user to increase or decrease the quantity as needed.
 If they decrease the quantity to zero, the item is removed from the cart.
 Alternatively, they can delete any item from the cart in one click using the individual trash-can icons
 at the end of the product row.
 With each adjustment of the cart the user is given feedback, the quantity updates, the line-item subtotal is
-updated, as is the Cart Total and Order Total within the Summary table.
+updated, as is the 'Cart Total' and 'Order Total' within the 'Summary' table.
 Further feedback is provided with textual messages, in green for success or in red for errors,
 which specify which item has been removed etc.
 
@@ -653,7 +653,7 @@ which specify which item has been removed etc.
 
 &#9745; Pay for my items using a secure credit-card payment system.
 
-When a user is ready to pay for their items they can do so on the Checkout page.
+When a user is ready to pay for their items they can do so on the 'Checkout' page.
 An order summary, displaying all the items the user has in their cart, ready to purchase,
 is displayed in a helpful summary table.
 
@@ -661,7 +661,7 @@ is displayed in a helpful summary table.
 
 <br>
 
-Once the Billing Details form and Credit Card input has been filled out the credit card payment is handled securely by [Stripe](www.stripe.com).
+Once the 'Billing Details' form and credit card input has been filled out the credit card payment is handled securely by [Stripe](www.stripe.com).
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-payment-input-tablet-device.png "Screenshot of the Checkout page payment input as shown on a tablet device.")
 
@@ -675,9 +675,9 @@ A loading overlay and spinning icon provide visual assurance to the user that a 
 
 &#9745; Receive immediate visual feedback when my payment has been accepted.
 
-Upon successful processing of the payment the user is brought to the Checkout Success page.
+Upon successful processing of the payment the user is brought to the 'Checkout Success' page.
 This displays the Order details and provides the user with reassurance that their purchase has gone through.
-A toast message re-affirms that a Confirmation Email is being sent to the email address provided.
+A toast message re-affirms that a 'Confirmation Email' is being sent to the email address provided.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-success-tablet-device.png "Screenshot of the Checkout Success page on a tablet device.")
 
@@ -685,7 +685,7 @@ A toast message re-affirms that a Confirmation Email is being sent to the email 
 
 &#9745; Receive an email confirming my purchase, order details and delivery information.
 
-A Confirmation Email is sent to the email address provided by the customer.
+A 'Confirmation Email' is sent to the email address provided by the customer.
 This gives the customer a record of their order number and date of purchase as well as
 the price paid and the delivery cost and the address the order will be shipped to.
 
@@ -695,17 +695,17 @@ the price paid and the delivery cost and the address the order will be shipped t
 
 &#9745; Read Dargan Health Foods' blog posts.
 
-The Dargan Health Foods Blog can be accessed from any page using the link in the top navbar on the
-desktop, the main dropdown menu on a mobile or from within the Quick Links in the Footer.
-Additional links to the latest blog posts are provided on the Home Page.
+The Dargan Health Foods 'Blog' can be accessed from any page using the link in the top navbar on the
+desktop, the main dropdown menu on a mobile or from within the Quick Links in the footer.
+Additional links to the latest blog posts are provided on the 'Home' page.
 The BlogPost card images and the BlogPost titles operate as direct links to the featured posts.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-latest-posts-desktop-device.png "Screenshot of the Latest Posts section of the home page as displayed on a desktop device.")
 
 <br>
 
-The main blog links bring the user to the Blog page where the user can filter posts by topic or search
-the Blog for a post by keyword(s).
+The main blog links bring the user to the 'Blog' page where the user can filter posts by topic or search
+the blog for a post by keyword(s).
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-tablet-device.png "Screenshot of the Blog page on a tablet device.")
 
@@ -726,15 +726,15 @@ Breadcrumbs navigation has been provided at the top of each Post to facilitate n
 
 <br>
 
-Keywords assigned to the BlogPost have been rendered as Tag links below the subheading. The user can
-browse other posts which share the Tag classification by clicking on the tags.
+Keywords assigned to the BlogPost have been rendered as 'Tag' links below the subheading. The user can
+browse other posts which share the tag classification by clicking on the tags.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-gluten-free-posts-tablet-device.png "Screenshot of posts tagged as gluten free on a tablet device.")
 
 <br>
 
-Ease of navigation has been further assisted through the inclusion of the Blog Search Bar
-within the Search Blog accordion on each BlogPost page.
+Ease of navigation has been further assisted through the inclusion of the 'Blog Search Bar'
+within the 'Search Blog' accordion on each BlogPost page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-search-accordion-mobile-device.png "Screenshot of the Blog Search Accordion on a mobile device.")
 
@@ -743,30 +743,30 @@ within the Search Blog accordion on each BlogPost page.
 &#9745; Easily get in contact with the store if I have any questions.
 
 Site visitors can easily contact the Dargan Health Foods team by filling out and submitting the
-Contact Us form, links to which are provided on the desktop topnav, the mobile main dropdown
-menu and within the Footer Quick Links.
+'Contact Us' form, links to which are provided on the desktop topnav, the mobile main dropdown
+menu and within the footer 'Quick Links'.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-contact-us-mobile-device.png "Screenshot of the Contact Us page on a mobile device.")
 
 <br>
 
-Alternatively, the store's address, email address and phone number are to be found within the Footer
+Alternatively, the store's address, email address and phone number are to be found within the footer
 'Find Us' section.
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion in the Footer on a mobile device.")
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion in the footer on a mobile device.")
 
 <br>
  
 Users can see the most appropriate hours to contact the team by phone, or in person, by
-looking at the Opening Hours provided in the Footer on every page.
+looking at the 'Opening Hours' provided in the footer on every page.
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-opening-hours-mobile-device.png "Screenshot of the Opening Hours accordion in the Footer on a mobile device.")
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-opening-hours-mobile-device.png "Screenshot of the Opening Hours accordion in the footer on a mobile device.")
 
 <br>
 
 &#9745; Easily locate any social media accounts connected to the site.
 
-Social links are located in the Footer providing the user with direct access to
+Social links are located in the footer providing the user with direct access to
 the company's Facebook and Instagram account pages.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-mobile-device.png "Screenshot of the social links in the footer as displayed on a mobile device.")
@@ -784,7 +784,7 @@ operates as a direct link to the homepage.
 
 <br>
 
-The site Footer is divided into three separate sections, which are rendered neatly as collapsed accordions on mobile devices.
+The site footer is divided into three separate sections, which are rendered neatly as collapsed accordions on mobile devices.
 The first section/accordion provides links to the homepage, in the form of the brand header and links to
 facilitate easy contact with the Dargan's team by email or by phone.
 There is also a helpful link, which opens an external tab, showing the shop's physical location on [Google Maps](https://www.google.com/maps/place/Dargan+Health+Foods+%26+Therapy+Centre/@52.6663698,-8.5551142,17z/data=!3m1!4b1!4m5!3m4!1s0x485b5c109808a3ed:0x872b2c8c38046fe5!8m2!3d52.6663666!4d-8.5529255?shorturl=1).
@@ -793,11 +793,11 @@ Within the third section/accordion, links to commonly required site pages are
 rendered for convenience. This provides the user with easy navigation across the site
 both at the top and bottom of the page.
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the Footer on a desktop device.")
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the footer on a desktop device.")
 
 <br>
 
-Breadcrumbs navigation links, within the products pages and the blog pages,
+Breadcrumbs navigation links, within the Products pages and the Blog pages,
 operate as a kind of secondary navigation scheme, revealing the user's location within
 that section of the website and also allowing them to jump directly to related pages along the
 path.
@@ -812,12 +812,12 @@ Products and BlogPost pages are paginated for a structured browsing experience.
 
 <br>
 
-A Back-To-Top button has also been provided on these pages to allow the user to quickly return to the top of the screen
+A 'Back-To-Top' button has also been provided on these pages to allow the user to quickly return to the top of the screen
 with minimal effort.
 
 &#9745; Easily find information outlining the features that membership of the site offers to its registered users.
 
-A section of the Home Page is devoted to encouraging new users to become a site member.
+A section of the 'Home' page is devoted to encouraging new users to become a site member.
 This 'Members Get More' section outlines some benefits such as membership discounts and access
 to exclusive events. A call-to-action button brings to the user straight to the registration page
 where they can sign up and use their new member discount code immediately to get 10% off their order.
@@ -832,7 +832,7 @@ This information is reiterated on the registration page itself.
 
 <br>
 
-Within the Shopping Cart page, non-logged-in users are provided with a link to the 'Sign In' page
+Within the 'Cart' page, non-logged-in users are provided with a link to the 'Sign In' page
 so that they can apply their Promo Code and receive their discount. This operates as a reminder to
 non-registered users as to the financial benefits of becoming a Dargan's member.
 
@@ -840,8 +840,8 @@ non-registered users as to the financial benefits of becoming a Dargan's member.
 
 <br>
 
-On the Checkout Page, the Dargan members' smoother checkout experience is emphasised.
-Non-site members are encouraged to Sign In or to Sign Up so that they too can avoid
+On the 'Checkout' page, the Dargan members' smoother checkout experience is emphasised.
+Non-site members are encouraged to 'Sign In' or to 'Sign Up' so that they too can avoid
 the time-consuming form-filling process on subsequent visits.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-sign-up-link-mobile-device.png "Screenshot of the Checkout with Sign Up link on a mobile device.")
@@ -859,15 +859,15 @@ the 'Sign Up' page. The 'Register' link can be found on mobile devices when the 
 <br>
 
 Users can also access the registration page using the call-to-action button in the
-'Members Get More' section of the Home Page.
+'Members Get More' section of the 'Home' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-members-get-more-mobile-device.png "Screenshot of the Member Get More section of the Home Page on a mobile device.")
 
 <br>
 
-Another 'Sign Up' link is to be found within the 'Quick Links' section/accordion in the Footer on each page.
+Another 'Sign Up' link is to be found within the 'Quick Links' section/accordion in the footer on each page.
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-quick-links-accordion-mobile-device.png "Screenshot of the Quick Links accordion in the Footer on a mobile device.")
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-quick-links-accordion-mobile-device.png "Screenshot of the Quick Links accordion in the footer on a mobile device.")
 
 <br>
 
@@ -1029,7 +1029,7 @@ The Promo Code and discount being applied are also rendered within the Checkout 
 
 &#9745; Purchase my desired products using a secure online payment system.
 
-By entering their credit card details within the Card input on the Checkout page
+By entering their credit card details within the card input on the 'Checkout' page
 users can purchase their desired items.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-credit-card-input-tablet-device.png "Screenshot of the credit card input on a tablet device.")
@@ -1054,7 +1054,7 @@ Upon successful processing of the order and payment the user is redirected to th
 
 The redirection to the 'Checkout Success' page and a Success Toast message inform the user that their
 payment has been processed and that their order has been accepted. Text within the page
-and the toast confirm the email address to which the Order Confirmation email is being sent.
+and the toast confirm the email address to which the 'Order Confirmation' email is being sent.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-order-confirmation-mobile-device.png "Screenshot of the Success toast and order confirmation on a mobile device.")
 
@@ -1201,7 +1201,7 @@ where they can enter and submit their review.
 
 &#9745; Input my review easily into a user-friendly form that is straightforward to use.
 
-The Product Review Form has a helpful label and placeholder text to instruct the user.
+The 'Product Review Form' has a helpful label and placeholder text to instruct the user.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-desktop-device.png "Screenshot of the Leave a Review form on a desktop device.")
 
@@ -1229,7 +1229,7 @@ A Success Toast message provides feedback on the successful submission.
 &#9745; Edit or delete my own reviews.
 
 Logged-in users can edit and delete their own product review using the 'Edit' and 'Delete' links
-rendered next to their review on the relevant Product Details page.
+rendered next to their review on the relevant 'Product Details' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-delete-review-buttons-mobile-device.png "Screenshot of the Edit and Delete Review buttons on a mobile device.")
 
@@ -1273,17 +1273,17 @@ that they wish to proceed by choosing the relevant button.
 &#9745; Contact the store owner.
 
 Site members can easily contact the Dargan Health Foods team by filling out and submitting the
-Contact Us form. Links to this page are provided on the desktop topnav, the mobile main dropdown
-menu and within the Footer Quick Links.
+'Contact Us' form. Links to this page are provided on the desktop topnav, the mobile main dropdown
+menu and within the footer 'Quick Links'.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-contact-us-mobile-device.png "Screenshot of the Contact Us page on a mobile device.")
 
 <br>
 
-The Dargan Health Foods shop address, business email address and phone number are to be found within the Footer
+The Dargan Health Foods shop address, business email address and phone number are to be found within the footer
 'Find Us' section/accordion in the footer on each page.
 
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion in the Footer on a mobile device.")
+![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion in the footer on a mobile device.")
 
 <br>
  
@@ -1297,9 +1297,9 @@ Links to the Dargan Health Foods Facebook and Instagram accounts are to be found
 
 &#9745; Navigate with ease to the site's blog.
 
-Links to the Dargan's Blog are provided on the topnav of the desktop navbar,
+Links to the Dargan's 'Blog' are provided on the topnav of the desktop navbar,
 within the main dropdown menu on the mobile navbar and within the 'Quick Links'
-section/accordion of the Footer.
+section/accordion of the footer.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-desktop-device.png "Screenshot of the Blog on a desktop device.")
 
@@ -1308,20 +1308,20 @@ section/accordion of the Footer.
 &#9745; Search for a blog post by title or keyword.
 
 Users can search for a BlogPost by choosing the desired topic from the
-dropdown filter provided near the top of the Blog page.
+dropdown filter provided near the top of the 'Blog' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-filter-dropdown-mobile-device.png "Screenshot of the Blog Filter dropdown on a mobile device.")
 
 <br>
 
-If a user wishes to search the Blog by keyword instead they can do this by entering
-the term into the search bar on the main Blog page.
+If a user wishes to search the blog by keyword instead they can do this by entering
+the term into the search bar on the main 'Blog' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-search-bar-mobile-device.png "Screenshot of the Blog search bar on a mobile device.")
 
 <br>
 
-Ease of navigation within the Blog has been further assisted through the inclusion of the Blog Search Bar
+Ease of navigation within the blog has been further assisted through the inclusion of the 'Blog Search Bar'
 within the 'Search Blog' accordion on each BlogPost page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-search-accordion-mobile-device.png "Screenshot of the Blog Search Accordion on a mobile device.")
@@ -1329,7 +1329,7 @@ within the 'Search Blog' accordion on each BlogPost page.
 <br>
 
 In a similar fashion to the keyword tags on the products pages, users can click on
-the BlogPost tags to find other posts which share that classification
+the BlogPost Tags to find other posts which share that classification
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-post-with-tags-tablet-device.png "Screenshot of a blog post with tags on a tablet device.")
 
@@ -1339,7 +1339,7 @@ the BlogPost tags to find other posts which share that classification
 
 <br>
 
-Breadcrumbs links allow users to jump to the related topic page or the main Blog page directly from a BlogPost.
+Breadcrumbs links allow users to jump to the related topic page or the main 'Blog' page directly from a BlogPost.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-breadcrumbs-navigation-desktop-device.png "Screenshot of the Blog breadcrumbs navigation on a desktop device.")
 
@@ -1353,7 +1353,7 @@ Beneath each blog post, within the 'Comments' accordion, there is a 'Leave a Com
 
 <br>
 
-This brings users to the Blog Comment form, which allows them to input their comment
+This brings users to the 'Blog Comment' form, which allows them to input their comment
 into a simple text field and 'Upload' it.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-blog-comments-form-tablet-device.png "Screenshot of the Add Blog Comment form on a tablet device.")
@@ -1369,7 +1369,7 @@ Success Toast message.
 
 &#9745; Edit or delete my own comments.
 
-Each site member has the ability to edit or delete their own Blog Comments.
+Each site member has the ability to edit or delete their own blog comments.
 
 'Edit' and 'Delete' links are to be found next to the individual comments beneath
 the related BlogPost. These are visible solely to the creator of the comment in question.
@@ -1378,20 +1378,20 @@ the related BlogPost. These are visible solely to the creator of the comment in 
 
 <br>
 
-Alternatively members can access all of their Blog Comments and the associated 'Edit' and 'Delete' links
+Alternatively members can access all of their blog comments and the associated 'Edit' and 'Delete' links
 from within their 'My Account' page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-blog-comments-tablet-device.png "Screenshot of My Blog Comments section of the Account page on a tablet device.")
 
 <br>
 
-The 'Edit' link brings the user to the Edit Comment form where they can change their comment.
+The 'Edit' link brings the user to the 'Edit Comment' form where they can change their comment.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-edit-blog-comment-tablet-device.png "Screenshot of Edit Blog Comment page on a tablet device.")
 
 <br>
 
-The 'Delete' link opens a Delete Modal asking the user to confirm their decision to delete their
+The 'Delete' link opens a 'Delete Modal' asking the user to confirm their decision to delete their
 comment. If they choose to continue with the action by pressing the 'Delete' button,
 the comment is deleted from the database.
 
@@ -1410,7 +1410,7 @@ As the owner of Dargan Health Foods website I would like to:
 &#9745; Provide users with an effective and user-friendly platform where they can see what products Dargan's have to offer.
 
 Site visitors can see images of the products on the site within the product cards displayed
-in the 'New In' section of the homepage and on the different 'Products' pages,
+in the 'New In' section of the 'Home' page and on the different 'Products' pages,
 whether they choose to browse the store by department, category, tag or to search
 for a keyword or by brand.
 
@@ -1489,7 +1489,7 @@ using the quantity controls within the 'Cart' page.
 
 &#9745; Provide users with a visual representation of their cart total and the number of products already added, visible on all screens.
 
-Users can see the number of items currently in their cart and the current cart total
+Users can see the number of items currently in their cart and the current 'Cart Total'
 on the site navbar at all times.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-cart-icon-with-items-mobile-device.png "Screenshot of the cart icon with items on a mobile device.")
@@ -1506,7 +1506,7 @@ step and go directly to the 'Checkout' page if they wish.
 
 &#9745; Provide users with an updated total when they add or remove products from their cart.
 
-When users add items to their cart the cart total and number of items within their cart
+When users add items to their cart the 'Cart Total' and number of items within their cart
 are updated on the navbar. Further confirmation of the addition is provided in the
 form of a Success Toast message.
 
@@ -1655,7 +1655,7 @@ take advantage of a faster checkout process in the future.
 
 <br>
 
-Any 'Sign Up' link brings the user to the clearly labelled 'Sign Up Form'.
+Any 'Sign Up' link brings the user to the clearly labelled 'Sign Up' form.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sign-up-tablet-device.png "Screenshot of the 'Sign Up Form' on a tablet device.")
 
@@ -1700,7 +1700,7 @@ on every page within the footer.
 Store opening times are also displayed here for convenience.
 
 If the user however, wishes to contact the store from within the website they can
-do so using the 'Contact Us Form' which is found by following the links provided in the
+do so using the 'Contact Us' form which is found by following the links provided in the
 footer or within the navbar.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-logged-out-navbar-desktop-device.png "Screenshot of the navbar on a desktop device.")
@@ -1784,8 +1784,8 @@ decision by choosing the 'Delete' button.
 If a product has been discontinued, rather than deleting if from the
 database, a 'Discontinued' field has been provided. This allows the
 Superuser to remove a product from view within the site by selecting
-the 'Yes' option in the 'Discontinued' dropdown on the 'Edit Product
-Form'.
+the 'Yes' option in the 'Discontinued' dropdown on the 'Edit Product'
+form.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-superuser-discontinued-dropdown-desktop-device.png "Screenshot of the superuser 'Edit Product Form' on a desktop device.")
 
@@ -1895,26 +1895,26 @@ and selecting the 'htmlcov/' directory.
 
 ### Automated Test Links and Coverage Results
 
-| Test Files                                       | Tests                                                                                                                                 | Coverage Result |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| [Blog Forms](blog/tests/test_forms.py)           | BlogPostForm and BlogPostCommentForm validation.                                                                                      | 100%            |
-| [Blog Models](blog/tests/test_models.py)         | Topic, BlogPost, BlogPostTag and BlogPostComment Model creation and string methods. That BlogPost titles are slugified.               | 98%             |
-| [Blog Views](blog/tests/test_views.py)           | All blog posts and individual blogpost views.                                                                                         | 28%             |
-| [Cart Forms](cart/tests/test_forms.py)           | DiscountCodeForm creation.                                                                                                            | 100%            |
-| [Cart Models](cart/tests/test_models.py)         | DiscountCode Model creation and string method.                                                                                        | 100%            |
-| [Cart Views](cart/tests/test_views.py)           | Calculating cart subtotal, testing the cart view, add to cart functionality, and adjusting and removing items from the cart           | 21%             |
-| [Checkout Forms](checkout/tests/test_forms.py)   | OrderForm creation and required fields                                                                                                | 100%            |
-| [Checkout Models](checkout/tests/test_models.py) | Order and OrderLineItem model creation and string methods. Also test the OrderLineItem get_total_lineitem_price method.               | 94%             |
-| [Checkout Views](checkout/tests/test_views.py)   | Testing checkout and checkout success view                                                                                            | 27%             |
-| [Home Forms](home/tests/test_forms.py)           | NewsletterSubscription and Contact form validation and required fields.                                                               | 100%            |
-| [Home Models](home/tests/test_models.py)         | NewsletterSubscription model creation and string method.                                                                              | 100%            |
-| [Home Views](home/tests/test_views.py)           | Testing index, our_story and contact views.                                                                                           | 46%             |
-| [Products Forms](products/tests/test_forms.py)   | ProductForm and ProductReviewForm creation and validation.                                                                            | 100%            |
-| [Products Models](products/tests/test_models.py) | Brand, Department, Category, Tag, Product, ProductImage, ProductTag and ProductReview model creation and string methods.              | 100%            |
-| [Products Views](products/tests/test_views.py)   | Testing form fields, products, product detail, add product and edit product view, adding a product, and sort and filter functionality | 25%             |
-| [Profiles Forms](profiles/tests/test_forms.py)   | DargansCustomSignupForm and UserProfileForm creation and validation.                                                                  | 81%             |
-| [Profiles Models](profiles/tests/test_models.py) | UserProfile and DiscountCode2User model creation and string methods.                                                                  | 100%            |
-| [Profiles Views](profiles/tests/test_views.py)   | Profile view when a user is logged in, and not logged in. If successful, check that the correct template was rendered.                | 68%             |
+| Test Files                                       | Tests                                                                                                                         | Coverage Result |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| [Blog Forms](blog/tests/test_forms.py)           | BlogPostForm and BlogPostCommentForm validation.                                                                              | 100%            |
+| [Blog Models](blog/tests/test_models.py)         | Topic, BlogPost, BlogPostTag and BlogPostComment Model creation and string methods. Check that BlogPost titles are slugified. | 98%             |
+| [Blog Views](blog/tests/test_views.py)           | Check all_posts and individual blogpost views.                                                                                | 28%             |
+| [Cart Forms](cart/tests/test_forms.py)           | DiscountCodeForm creation.                                                                                                    | 100%            |
+| [Cart Models](cart/tests/test_models.py)         | DiscountCode Model creation and string method.                                                                                | 100%            |
+| [Cart Views](cart/tests/test_views.py)           | Testing the cart view.                                                                                                        | 21%             |
+| [Checkout Forms](checkout/tests/test_forms.py)   | OrderForm creation and required fields                                                                                        | 100%            |
+| [Checkout Models](checkout/tests/test_models.py) | Order and OrderLineItem model creation and string methods. Also test the OrderLineItem get_total_lineitem_price method.       | 94%             |
+| [Checkout Views](checkout/tests/test_views.py)   | Testing checkout and checkout_success view                                                                                    | 27%             |
+| [Home Forms](home/tests/test_forms.py)           | NewsletterSubscription and ContactForm validation and required fields.                                                        | 100%            |
+| [Home Models](home/tests/test_models.py)         | NewsletterSubscription model creation and string method.                                                                      | 100%            |
+| [Home Views](home/tests/test_views.py)           | Testing index, our_story and contact views.                                                                                   | 46%             |
+| [Products Forms](products/tests/test_forms.py)   | ProductForm and ProductReviewForm creation and validation.                                                                    | 100%            |
+| [Products Models](products/tests/test_models.py) | Brand, Department, Category, Tag, Product, ProductImage, ProductTag and ProductReview model creation and string methods.      | 100%            |
+| [Products Views](products/tests/test_views.py)   | Testing product_detail and all_products views.                                                                                | 25%             |
+| [Profiles Forms](profiles/tests/test_forms.py)   | DargansCustomSignupForm and UserProfileForm creation and validation.                                                          | 81%             |
+| [Profiles Models](profiles/tests/test_models.py) | UserProfile and DiscountCode2User model creation and string methods.                                                          | 100%            |
+| [Profiles Views](profiles/tests/test_views.py)   | Profile view when a user is logged in, and not logged in. If successful, check that the correct template was rendered.        | 68%             |
 
 <br>
 
@@ -2023,8 +2023,8 @@ to the viewer that the page range does not reflect the total number of pages ret
 
 ### Multiple Destination Redirects
 
-This issue arose in relation to two different pages, the Edit Product Review
-page and the Edit BlogPost page. Links to these pages exist in multiple locations within the site.
+This issue arose in relation to two different pages, the 'Edit Product Review'
+page and the 'Edit BlogPost' page. Links to these pages exist in multiple locations within the site.
 Initially the redirects, upon submission of the forms, were hardcoded to a single location.
 If the user edited their product review they were redirected to the product page,
 even if they had clicked the 'Edit' button on their Profile page.
@@ -2033,7 +2033,7 @@ This was less than satisfactory, from a user-experience point of view.
 it was necessary to capture the referring page url from the HttpRequest.META,
 which is a dictionary containing all the HTTP headers including the `HTTP_REFERER`.
 As this value changes to the current url upon the submission of the form
-it was necessary to assign the referring url, with the GET request, to a hidden input on the EditReview form.
+it was necessary to assign the referring url, with the GET request, to a hidden input on the 'Edit Review' form.
 
 ```
 <input type="hidden" value="{{ request.META.HTTP_REFERER }}" name="previous_page_url">
@@ -2059,7 +2059,7 @@ else:
 
 When it came to applying a [discount to individual products](https://github.com/nualagr/dargan-health-foods/commit/506f2f19c369db6eba3a474022047e26b5cc1ae2),
 for the purposes of an MVP, a `discount_price` field and a Boolean `on_offer` field were added to the Product model.
-This allowed SuperUsers to mark individual product prices down from within the admin panel.
+This allowed Superusers to mark individual product prices down from within the admin panel.
 This new structure was then reflected in the OrderLineItem Model where the subtotal for each lineitem is calculated.
 An issue arose relating to a User's past orders however. The Order model accesses the 'product.price' through a Foreign Key to the Product model.
 This points to the price for that product, as it appears, currently, in the database.
@@ -2075,7 +2075,7 @@ It is this field that is now accessed and displayed within each order on the pro
 
 The addition of Discount Codes to the project required revision of many elements of the payment process.
 
-At first, a very simple [DiscountCode model](https://github.com/nualagr/dargan-health-foods/commit/c9445ca3d1c48bb004ce65434aaf856e3cfdcad2)
+For the purposes of the current MVP, a very simple [DiscountCode model](https://github.com/nualagr/dargan-health-foods/commit/c9445ca3d1c48bb004ce65434aaf856e3cfdcad2)
 of only two fields was used. This consisted of the promo code and the associate percentage discount to be applied.
 After reading Kim Salazar's article ["Applying Discounts and Ecommerce Websites"](https://www.nngroup.com/articles/applying-discounts/) it became clear
 that, from a user-experience point-of-view, it would be best to allow site users to apply this code within the Cart rather than making them wait
@@ -2121,7 +2121,7 @@ Towards the end of the project, after deployment, it was discovered that, on occ
 orders were being created twice. Duplicate orders also
 occurred with purchases made on the development site appearing as orders
 created in the webhook on the deployment site endpoint. The development webhook
-endpoint was disabled. This appears to have solved this issue.
+endpoint was disabled. This appears to have resolved this issue.
 
 ##### back to [top](#table-of-contents)
 
