@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods
 from products.models import Product
 from .models import DiscountCode
 from .forms import DiscountCodeForm
 from profiles.models import UserProfile, DiscountCode2User
 
 
+@require_http_methods(["GET", "POST"])
 def view_cart(request):
     """
     A view that renders the shopping cart contents page
@@ -168,7 +170,7 @@ def increase_quantity_by_one(request, item_id):
         return redirect(reverse("view_cart"))
 
     except Exception as e:
-        messages.error(request, f"Error updating item quanity: {e}")
+        messages.error(request, f"Error updating item quantity: {e}")
         return redirect(reverse("view_cart"))
 
 
