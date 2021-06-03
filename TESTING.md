@@ -25,6 +25,7 @@
   - [Multiple Destination Redirects](#multiple-destination-redirects)
   - [Product Discount-Price Issue](#product-discount-price-issue)
   - [Discount Code Issues](#discount-code-issues)
+  - [Multiple Orders with Stripe](#multiple-orders-with-stripe)
 - [Unresolved Issues](#unresolved-issues)
 
 ---
@@ -2111,6 +2112,16 @@ Different solutions, suggested by [StackOverflow](https://stackoverflow.com/ques
 In the end an 'if' 'else' statement was inserted before the 'try' 'except' block in which the Order is created.
 This retrieves the DiscountCode object from the database, if one exists, and if not, it sets the variable to 'None'.
 Now Orders, with or without discount codes, are successfully created within the Webhook Handler in the event of errors during the checkout process.
+
+<br>
+
+### Multiple Orders with Stripe
+
+Towards the end of the project, after deployment, it was discovered that, on occasion,
+orders were being created twice. Duplicate orders also
+occurred with purchases made on the development site appearing as orders
+created in the webhook on the deployment site endpoint. The development webhook
+endpoint was disabled. This appears to have solved this issue.
 
 ##### back to [top](#table-of-contents)
 
