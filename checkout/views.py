@@ -5,7 +5,7 @@ from django.shortcuts import (
     get_object_or_404,
     HttpResponse,
 )
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_GET
 from django.contrib import messages
 from django.conf import settings
 
@@ -194,6 +194,7 @@ def checkout(request):
         return render(request, template, context)
 
 
+@require_GET
 def checkout_success(request, order_number):
     """
     Handle successful checkouts

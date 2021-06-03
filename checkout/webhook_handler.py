@@ -14,7 +14,11 @@ import time
 
 
 class StripeWH_Handler:
-    """Handle Stripe webhooks"""
+    """
+    Handle Stripe webhooks
+    Code taken from the Code Institute Boutique Ado project
+    and then modified.
+    """
 
     # Assign the request as an attribute of the class
     # So attributes of the request coming from Stripe
@@ -204,11 +208,11 @@ class StripeWH_Handler:
             except Exception as e:
                 if order:
                     order.delete()
-                    return HttpResponse(
-                        content=f'Webhook received: {event["type"]} | \
-                            ERROR: {e}',
-                        status=500,
-                    )
+                return HttpResponse(
+                    content=f'Webhook received: {event["type"]} | \
+                        ERROR: {e}',
+                    status=500,
+                )
 
         # If it gets to this point the Order has been created
         # Check to see whether the user was logged in
