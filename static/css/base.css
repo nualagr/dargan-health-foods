@@ -543,7 +543,7 @@ a.disabled {
 }
 
 /* Show the MainNav category dropdown menu on hover */
-.dropdown:hover .dropdown-menu {
+.dropdown:not(#dropdownTopicFilterDiv):hover .dropdown-menu {
     display: block;
 }
 
