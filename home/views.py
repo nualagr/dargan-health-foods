@@ -127,4 +127,10 @@ def subscribe(request):
             messages.success(
                 request, "You are now subscribed to our newsletter."
             )
+        else:
+            messages.error(
+                request,
+                "Failed to submit request. Please ensure \
+                that the form is valid.",
+            )
     return redirect(subscribe_redirect)

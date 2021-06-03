@@ -467,12 +467,12 @@ compromising on fulfilling site users' needs.
 
 ---
 
-#### Consistent features across all pages:
-
 ##### Favicon
 
 A **seedling favicon**, displayed on the web browser's tab
 allows the desktop user to identify the website by sight.
+
+<br>
 
 ##### back to [top](#table-of-contents)
 
@@ -482,6 +482,8 @@ allows the desktop user to identify the website by sight.
 
 The **Title**, displayed on the web browser's tab at all times,
 contains the business' title, the shop's location and the current page title.
+
+<br>
 
 ##### back to [top](#table-of-contents)
 
@@ -526,7 +528,7 @@ Mobile Navbar
   an orange circular **item count indicator** appears on the top
   left of the cart icon and the Cart Total is updated.
 
----
+<br>
 
 Desktop Navbar
 
@@ -654,6 +656,8 @@ Product Cards
 - An eye-catching orange **'Add to Cart'** button allows users to add a single unit
   of that item to their shopping cart immediately, negating the need to open the
   associated 'Product Detail' page.
+
+<br>
 
 BlogPost Cards
 
@@ -1498,6 +1502,8 @@ This also allows the products to appear more vibrant and delivers a light
 and airy freshness. In order to give Dargan’s website a modern and fresh
 look a minimalistic approach was taken with simple fonts and a distinguishable logo.
 
+<br>
+
 #### Colour Scheme
 
 Dargan's product images have white backgrounds. To keep the visual design clean and modern
@@ -1526,6 +1532,10 @@ was used to draw attention to error messages.
 ![alt text](documentation/readme-images/dargans-extended-colour-palette.png "Dargan Health Foods extended colour palette.")
 
 <br>
+
+##### back to [top](#table-of-contents)
+
+---
 
 #### Icons
 

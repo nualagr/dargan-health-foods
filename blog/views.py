@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_http_methods, require_GET
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
 
@@ -141,6 +141,7 @@ def blog_post(request, slug):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def add_post(request):
     """
     A view to render an empty BlogPost Form and BlogPostTags Formset
@@ -208,6 +209,7 @@ def add_post(request):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def edit_post(request, blogpost_id):
     """
     View to enable the Super User to edit existing blog posts
@@ -265,6 +267,7 @@ def edit_post(request, blogpost_id):
 
 
 @login_required
+@require_GET
 def delete_post(request, blogpost_id):
     """
     View to delete a blog post from the database.
@@ -285,6 +288,7 @@ def delete_post(request, blogpost_id):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def add_comment(request, blogpost_id):
     """
     View to allow a logged-in user to add a comment to
@@ -340,6 +344,7 @@ def add_comment(request, blogpost_id):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def edit_comment(request, blogpostcomment_id):
     """
     View to enable the logged-in User to edit
@@ -378,8 +383,9 @@ def edit_comment(request, blogpostcomment_id):
             )
 
     else:
+        # It was a GET request.
         # Populate the BlogPostComment form
-        # with the existing content from the database
+        # with the existing content from the database.
         bpcform = BlogPostCommentForm(instance=blogpostcomment)
         # If the request is a GET request
         messages.info(
@@ -398,6 +404,7 @@ def edit_comment(request, blogpostcomment_id):
 
 
 @login_required
+@require_GET
 def delete_comment(request, blogpostcomment_id):
     """
     View to enable logged-in users to delete their own

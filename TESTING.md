@@ -1761,7 +1761,7 @@ they can edit the current information before saving their alterations.
 
 <br>
 
-&#9745; Indicate to customers when a product is out of stock.
+&#9746; Indicate to customers when a product is out of stock.
 
 &#9745; Delete and/or discontinue products that are no longer available, removing their images and information from the website.
 
@@ -1820,6 +1820,9 @@ Django's testing framework was used to create automated tests for the project.
 
 A tests directory was added to each app.
 Within these directories individual files were created to test the app's views, models and forms.
+
+For the purposes of this MVP at least 55% of each app has been covered by automated tests.
+It is hoped to continue to increase the test coverage to as close to 100% as possible.
 
 In order to run specific tests, the following command can be used:
 
@@ -1919,9 +1922,6 @@ and selecting the 'htmlcov/' directory.
 ---
 
 ### Overall Automated Test Coverage
-
-For the purposes of a MVP at least 55% of each app is covered by automated tests.
-It is hoped to continue to increase the test coverage to as close to 100% as possible.
 
 | App Name | Percentage of App Code Currently Covered by Tests |
 | :------- | :-----------------------------------------------: |
