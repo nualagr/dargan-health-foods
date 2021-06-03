@@ -108,14 +108,14 @@ def all_products(request):
             )
             products = products.filter(queries)
 
-    if "limit" in request.GET:
-        # This request comes from the New In Dropdown
-        # Find the limit submitted
-        limit = request.GET["limit"].split(",")
-        cap = limit[0]
-        end_index = int(cap)
-        # Slice the products list at the capped amount
-        products = products[0:end_index]
+        if "limit" in request.GET:
+            # This request comes from the New In Dropdown
+            # Find the limit submitted
+            limit = request.GET["limit"].split(",")
+            cap = limit[0]
+            end_index = int(cap)
+            # Slice the products list at the capped amount
+            products = products[0:end_index]
 
     current_sorting = f"{sort}_{direction}"
 
@@ -504,7 +504,7 @@ def delete_review(request, review_id):
         messages.error(
             request,
             "We couldn't delete your review because "
-            f" error:{e} occured. Please try again later.",
+            f" error:{e} occurred. Please try again later.",
         )
 
     return redirect(reverse("product_detail", args=(product.id,)))

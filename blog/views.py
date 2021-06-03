@@ -417,7 +417,7 @@ def delete_comment(request, blogpostcomment_id):
         messages.error(
             request,
             "We couldn't delete your comment because "
-            f" error:{e} occured. Please try again later.",
+            f" error:{e} occurred. Please try again later.",
         )
 
     return redirect(reverse("blog_post", args=(blogpost.slug,)))

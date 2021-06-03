@@ -66,15 +66,15 @@
                     <li><a href="{% url 'blog' %}" aria-label="Dargan's Blog link">Blog</a></li>
                     <li><a href="{% url 'contact' %}" aria-label="Contact Us link">Contact Us</a></li>
                     {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                    <li><a href="{% url 'add_product' %}" aria-label="Add Product link">Add Product</a></li>
-                    <li><a href="{% url 'add_post' %}" aria-label="Add BlogPost link">Add BlogPost</a></li>
-                    {% endif %}
-                    <li><a href="{% url 'profile' %}" aria-label="My Account link">My Account</a></li>
-                    <li><a href="{% url 'account_logout' %}" aria-label="Logout link">Logout</a></li>
+                        {% if request.user.is_superuser %}
+                            <li><a href="{% url 'add_product' %}" aria-label="Add Product link">Add Product</a></li>
+                            <li><a href="{% url 'add_post' %}" aria-label="Add BlogPost link">Add BlogPost</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'profile' %}" aria-label="My Account link">My Account</a></li>
+                        <li><a href="{% url 'account_logout' %}" aria-label="Logout link">Logout</a></li>
                     {% else %}
-                    <li><a href="{% url 'account_login' %}" aria-label="Sign In link">Sign In</a></li>
-                    <li><a href="{% url 'account_signup' %}" aria-label="Registration link">Join</a></li>
+                        <li><a href="{% url 'account_login' %}" aria-label="Sign In link">Sign In</a></li>
+                        <li><a href="{% url 'account_signup' %}" aria-label="Registration link">Join</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -121,11 +121,11 @@
                             <a class="{% if grand_total %}text-black{% else %}text-grey disabled{% endif %}"
                                 href="{% url 'view_cart' %}">
                                 {% if grand_total %}
-                                <span class="hide-for-small-laptop">{{ product_count }}
-                                    item{{ product_count|pluralize }} -
-                                </span>€{{ grand_total|floatformat:2 }}
+                                    <span class="hide-for-small-laptop">{{ product_count }}
+                                        item{{ product_count|pluralize }} -
+                                    </span>€{{ grand_total|floatformat:2 }}
                                 {% else %}
-                                <span class="hide-for-small-laptop">0 items - </span>€0.00
+                                    <span class="hide-for-small-laptop">0 items - </span>€0.00
                                 {% endif %}
                             </a>
                         </li>
@@ -153,20 +153,20 @@
                         </a>
                         <div class="dropdown-menu account-dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'add_product' %}" class="dropdown-item" aria-label="Add Product link">Add
-                                Product</a>
-                            <a href="{% url 'add_post' %}" class="dropdown-item" aria-label="Add BlogPost link">Add
-                                BlogPost</a>
-                            {% endif %}
-                            <a href="{% url 'profile' %}" class="dropdown-item" aria-label="My Account link">My
-                                Account</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item"
-                                aria-label="Logout link">Logout</a>
+                                {% if request.user.is_superuser %}
+                                    <a href="{% url 'add_product' %}" class="dropdown-item" aria-label="Add Product link">Add
+                                        Product</a>
+                                    <a href="{% url 'add_post' %}" class="dropdown-item" aria-label="Add BlogPost link">Add
+                                        BlogPost</a>
+                                {% endif %}
+                                <a href="{% url 'profile' %}" class="dropdown-item" aria-label="My Account link">My
+                                    Account</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item"
+                                    aria-label="Logout link">Logout</a>
                             {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item"
-                                aria-label="Registration link">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item" aria-label="Login link">Login</a>
+                                <a href="{% url 'account_signup' %}" class="dropdown-item"
+                                    aria-label="Registration link">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item" aria-label="Login link">Login</a>
                             {% endif %}
                         </div>
                     </div>
@@ -201,14 +201,14 @@
                             <div class="lbl-cart-wrapper">
                                 <i class="fas fa-shopping-cart fa-lg"></i>
                                 {% if product_count > 0 %}
-                                <span>{{ product_count }}</span>
+                                    <span>{{ product_count }}</span>
                                 {% endif %}
                             </div>
                             <p class="my-0">
                                 {% if grand_total %}
-                                €{{ grand_total|floatformat:2 }}
+                                    €{{ grand_total|floatformat:2 }}
                                 {% else %}
-                                €0.00
+                                    €0.00
                                 {% endif %}
                             </p>
                         </div>
@@ -397,28 +397,28 @@
     {% endblock %}
 
     {% block messages %}
-    {% if messages %}
-    <!-- Message Container -->
-    <div class="container-fluid messages-container" id="messages">
-        <div class="row">
-            <div class="col-12 col-lg-9 mx-auto">
-                {% for message in messages %}
-                {% with message.level as level %}
-                {% if level == 40 %}
-                {% include 'includes/toasts/toast_error.html' %}
-                {% elif level == 30 %}
-                {% include 'includes/toasts/toast_warning.html' %}
-                {% elif level == 25 %}
-                {% include 'includes/toasts/toast_success.html' %}
-                {% else %}
-                {% include 'includes/toasts/toast_info.html' %}
-                {% endif %}
-                {% endwith %}
-                {% endfor %}
+        {% if messages %}
+        <!-- Message Container -->
+        <div class="container-fluid messages-container" id="messages">
+            <div class="row">
+                <div class="col-12 col-lg-9 mx-auto">
+                    {% for message in messages %}
+                        {% with message.level as level %}
+                            {% if level == 40 %}
+                                {% include 'includes/toasts/toast_error.html' %}
+                            {% elif level == 30 %}
+                                {% include 'includes/toasts/toast_warning.html' %}
+                            {% elif level == 25 %}
+                                {% include 'includes/toasts/toast_success.html' %}
+                            {% else %}
+                                {% include 'includes/toasts/toast_info.html' %}
+                            {% endif %}
+                        {% endwith %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-    {% endif %}
+        {% endif %}
     {% endblock %}
 
     {% block content %}
@@ -669,15 +669,15 @@
                     </li>
                 </ul>
             </div>
-        <div class="col-12 copyright-row">
-            <p>© 2021 Copyright 
-                <a href="https://dargan-healthfoods.myshopify.com/" target="_blank" rel="noopener">
-                    Dargan Health Foods Ltd.
-                </a>
-                All Rights Reserved.
-            </p>
+            <div class="col-12 copyright-row">
+                <p>© 2021 Copyright 
+                    <a href="https://dargan-healthfoods.myshopify.com/" target="_blank" rel="noopener">
+                        Dargan Health Foods Ltd.
+                    </a>
+                    All Rights Reserved.
+                </p>
+            </div>
         </div>
-    </div>
     </footer>
 
     {% block postloadjs %}
