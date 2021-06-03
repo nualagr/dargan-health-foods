@@ -60,9 +60,7 @@ def all_products(request):
         department_categories = all_categories.filter(
             department__name__in=department
         ).values_list("name", flat=True)
-        products = products.filter(
-            category__name__in=department_categories
-        )
+        products = products.filter(category__name__in=department_categories)
 
     if "category" in request.GET:
         category = request.GET["category"].split(",")
@@ -100,12 +98,12 @@ def all_products(request):
             tagged_products = []
 
         queries = (
-            Q(name__icontains=query) |
-            Q(information__icontains=query) |
-            Q(ingredients__icontains=query) |
-            Q(category__name__icontains=query) |
-            Q(brand__name__icontains=query) |
-            Q(id__in=tagged_products)
+            Q(name__icontains=query)
+            | Q(information__icontains=query)
+            | Q(ingredients__icontains=query)
+            | Q(category__name__icontains=query)
+            | Q(brand__name__icontains=query)
+            | Q(id__in=tagged_products)
         )
         products = products.filter(queries)
 
