@@ -5,7 +5,7 @@ from django.shortcuts import (
     get_object_or_404,
     HttpResponse,
 )
-from django.views.decorators.http import require_POST, require_GET
+from django.views.decorators.http import require_http_methods, require_POST, require_GET
 from django.contrib import messages
 from django.conf import settings
 
@@ -57,6 +57,7 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+@require_http_methods(["GET", "POST"])
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY

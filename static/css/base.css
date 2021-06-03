@@ -337,7 +337,7 @@ a.disabled {
     letter-spacing: 0.03em;
     cursor: pointer;
     text-align: center;
-    color: currentColor;
+    color: inherit;
     text-decoration: none;
     border: 1px solid transparent;
     vertical-align: middle;
