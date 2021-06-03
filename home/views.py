@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
+from django.views.decorators.http import require_http_methods, require_GET, require_POST
 from django.contrib import messages
 
 from products.models import Product
@@ -11,6 +12,7 @@ from .models import NewsletterSubscription
 from .forms import NewsletterSubscriptionForm, ContactForm
 
 
+@require_GET
 def index(request):
     """
     A view to find the four most recently added products
@@ -29,11 +31,13 @@ def index(request):
     return render(request, "home/index.html", context)
 
 
+@require_GET
 def our_story(request):
     """ A view to render Our Story page. """
     return render(request, "home/our_story.html")
 
 
+@require_http_methods(["GET", "POST"])
 def contact(request):
     """
     A view to render the Contact Us page and form.
@@ -94,6 +98,7 @@ def contact(request):
     return render(request, "home/contact.html", context)
 
 
+@require_POST
 def subscribe(request):
     """
     A view to get the email address from the Newsletter
@@ -105,19 +110,19 @@ def subscribe(request):
     """
     newsletter_subscription_form = NewsletterSubscriptionForm()
     subscribe_redirect = request.POST.get("subscribe_redirect")
-    if request.method == "POST":
-        newsletter_subscription_form = NewsletterSubscriptionForm(request.POST)
-        if NewsletterSubscription.objects.filter(
-            email_address=request.POST.get("email_address")
-        ).exists():
-            messages.info(
-                request, "You are already subscribed to our newsletter."
+
+    newsletter_subscription_form = NewsletterSubscriptionForm(request.POST)
+    if NewsletterSubscription.objects.filter(
+        email_address=request.POST.get("email_address")
+    ).exists():
+        messages.info(
+            request, "You are already subscribed to our newsletter."
+        )
+        return redirect(subscribe_redirect)
+    else:
+        if newsletter_subscription_form.is_valid():
+            newsletter_subscription_form.save()
+            messages.success(
+                request, "You are now subscribed to our newsletter."
             )
-            return redirect(subscribe_redirect)
-        else:
-            if newsletter_subscription_form.is_valid():
-                newsletter_subscription_form.save()
-                messages.success(
-                    request, "You are now subscribed to our newsletter."
-                )
     return redirect(subscribe_redirect)
