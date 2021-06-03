@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
-from django.views.decorators.http import require_http_methods, require_GET, require_POST
+from django.views.decorators.http import (
+    require_http_methods,
+    require_GET,
+    require_POST,
+)
 from django.contrib import messages
 
 from products.models import Product
@@ -47,23 +51,6 @@ def contact(request):
     and an email containing the form data is sent to the
     site administrator.
     """
-    # If it was a GET request
-    if request.user.is_authenticated:
-        # If the user is logged in, prepopulate the form
-        try:
-            profile = UserProfile.objects.get(user=request.user)
-            form = ContactForm(
-                initial={
-                    "your_name": profile.user.first_name,
-                    "your_email": profile.user.email,
-                }
-            )
-        except UserProfile.DoesNotExist:
-            form = ContactForm()
-    else:
-        # If the user is not logged in, create a blank form
-        form = ContactForm()
-
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -91,6 +78,23 @@ def contact(request):
                 return HttpResponse("Invalid header found.")
             return redirect("contact")
 
+    # If it was a GET request
+    if request.user.is_authenticated:
+        # If the user is logged in, prepopulate the form
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            form = ContactForm(
+                initial={
+                    "your_name": profile.user.first_name,
+                    "your_email": profile.user.email,
+                }
+            )
+        except UserProfile.DoesNotExist:
+            form = ContactForm()
+    else:
+        # If the user is not logged in, create a blank form
+        form = ContactForm()
+
     context = {
         "cform": form,
     }
@@ -115,9 +119,7 @@ def subscribe(request):
     if NewsletterSubscription.objects.filter(
         email_address=request.POST.get("email_address")
     ).exists():
-        messages.info(
-            request, "You are already subscribed to our newsletter."
-        )
+        messages.info(request, "You are already subscribed to our newsletter.")
         return redirect(subscribe_redirect)
     else:
         if newsletter_subscription_form.is_valid():
