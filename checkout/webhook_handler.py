@@ -11,6 +11,7 @@ from profiles.models import UserProfile, DiscountCode2User
 
 import json
 import time
+import logging
 
 
 class StripeWH_Handler:
@@ -135,11 +136,24 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 order_exists = True
+                logging.warning(
+                    f"handle_payment_intent_succeeded webhook_hander \
+                    recognises that the order {pid} \
+                    already exists in the database"
+                )
                 break
             except Order.DoesNotExist:
                 attempt += 1
+                logging.warning(
+                    f"This is attempt number {attempt} \
+                    to find the order in {pid} in the database"
+                )
                 time.sleep(1)
         if order_exists:
+            logging.warning(
+                f"Order {pid} has been found in the database \
+                and the confirmation email is being sent."
+            )
             # Check if the customer was a logged in site member
             if username != "AnonymousUser":
                 profile = UserProfile.objects.get(user__username=username)
@@ -157,14 +171,18 @@ class StripeWH_Handler:
             # Send the confirmation email
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | \
-                    SUCCESS: Verified order already in database',
+                content=f"Webhook received: {event['type']} | \
+                    SUCCESS: Verified order already in database",
                 status=200,
             )
         else:
             # If the Order does not exist
             # Create an Order using the data from the paymentIntent
             order = None
+            logging.warning(
+                f"The handle_payment_intent_succeeded view \
+                does not recognise that the order {pid} exists."
+            )
             discount = json.loads(discount)
             # If there was no discount code in the metadata
             # Set the discount_code_object variable to None
@@ -194,6 +212,9 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_pid=pid,
                 )
+                logging.warning(
+                    f"The order {pid} has been created in the webhook_handler"
+                )
                 # Iterate through the cart items in the JSON version
                 # in the paymentIntent
                 for item_id, quantity in json.loads(cart).items():
@@ -209,13 +230,17 @@ class StripeWH_Handler:
                 if order:
                     order.delete()
                 return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | \
-                        ERROR: {e}',
+                    content=f"Webhook received: {event['type']} | \
+                        ERROR: {e}",
                     status=500,
                 )
 
         # If it gets to this point the Order has been created
         # Check to see whether the user was logged in
+        logging.warning(
+            f"Order {pid} has been created in the webhook_handler \
+            and the confirmation email is being sent."
+        )
         if username != "AnonymousUser":
             profile = UserProfile.objects.get(user__username=username)
             # If a discount code was used, deactivate it
@@ -232,8 +257,8 @@ class StripeWH_Handler:
         # Send the confirmation email and send a response to Stripe.
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | \
-                SUCCESS: Created the order in the webhook',
+            content=f"Webhook received: {event['type']} | \
+                SUCCESS: Created the order in the webhook",
             status=200,
         )
 

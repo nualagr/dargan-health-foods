@@ -24,6 +24,7 @@ from cart.contexts import cart_contents
 
 import stripe
 import json
+import logging
 
 
 # Before calling the confirmCardPayment() method in Stripe JS
@@ -99,6 +100,9 @@ def checkout(request):
                 )
             # Now save the Order to the database
             order.save()
+            logging.warning(
+                f"Order {pid} has been saved to the database in Checkout view"
+            )
             # Iterate through the cart to create each OrderLineItem
             for item_id, quantity in cart.items():
                 try:
@@ -212,6 +216,11 @@ def checkout_success(request, order_number):
         # Attach the user's profile to the Order
         order.user_profile = profile
         order.save()
+        pid = order.stripe_pid
+        logging.warning(
+            f"The users profile has just been attached \
+                to the order {pid} in Checkout Success"
+        )
 
         # If a discount code was used, deactivate it
         if order.discount_code:
