@@ -101,7 +101,7 @@ class StripeWH_Handler:
                 f"search for a connected user profile, {username}"
             )
             profile = UserProfile.objects.get(user__username=username)
-            if save_info:
+            if save_info == True:
                 profile.default_phone_number = shipping_details.phone
                 profile.default_street_address1 = (
                     shipping_details.address.line1
@@ -114,6 +114,7 @@ class StripeWH_Handler:
                 profile.default_country = shipping_details.address.country
                 profile.default_postcode = shipping_details.address.postal_code
                 profile.save()
+                logging.warning(f"{username}s profile default info has been updated")
 
         # Assume the order does not exist
         order_exists = False

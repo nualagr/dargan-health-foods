@@ -38,6 +38,8 @@ def cache_checkout_data(request):
         # Split the client_secret at the word 'secret'.
         # The first part will be the paymentIntent ID
         pid = request.POST.get("client_secret").split("_secret")[0]
+        save_data = request.POST.get("save_info")
+        logging.warning(f"The user has chosen to save their data {save_data}")
         # Set up Stripe with the secret key so the
         # paymentIntent can be modified.
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -45,7 +47,7 @@ def cache_checkout_data(request):
             pid,
             metadata={
                 "cart": json.dumps(request.session.get("cart", {})),
-                "save_info": request.POST.get("save_info"),
+                "save_info": save_data,
                 "username": request.user,
                 "discount": json.dumps(request.session.get("discount", {})),
             },
@@ -213,6 +215,7 @@ def checkout_success(request, order_number):
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
+        username = profile.user.username
         # Attach the user's profile to the Order
         order.user_profile = profile
         order.save()
@@ -234,8 +237,10 @@ def checkout_success(request, order_number):
             discount_code_2_user.active = False
             discount_code_2_user.save()
 
+        logging.warning("In checkout_success view the " \
+        f"user has chosen to save their data: {save_info}")
         # Save the user's info if the box was checked
-        if save_info:
+        if save_info == True:
             profile_data = {
                 # These dict keys match the fields on the user profile model
                 "default_phone_number": order.phone_number,
@@ -251,6 +256,7 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
+            logging.warning(f"{username}s profile default info has been updated")
 
     messages.success(
         request,
