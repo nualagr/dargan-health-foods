@@ -137,22 +137,22 @@ class StripeWH_Handler:
                 )
                 order_exists = True
                 logging.warning(
-                    f"handle_payment_intent_succeeded webhook_hander \
-                    recognises that the order {pid} \
-                    already exists in the database"
+                    f"handle_payment_intent_succeeded webhook_hander " \
+                    f"recognises that the order {pid} " \
+                    "already exists in the database"
                 )
                 break
             except Order.DoesNotExist:
                 attempt += 1
                 logging.warning(
-                    f"This is attempt number {attempt} \
-                    to find the order in {pid} in the database"
+                    f"This is attempt number {attempt} " \
+                    f"to find the order in {pid} in the database"
                 )
                 time.sleep(1)
         if order_exists:
             logging.warning(
-                f"Order {pid} has been found in the database \
-                and the confirmation email is being sent."
+                f"Order {pid} has been found in the database " \
+                "and the confirmation email is being sent."
             )
             # Check if the customer was a logged in site member
             if username != "AnonymousUser":
@@ -180,8 +180,8 @@ class StripeWH_Handler:
             # Create an Order using the data from the paymentIntent
             order = None
             logging.warning(
-                f"The handle_payment_intent_succeeded view \
-                does not recognise that the order {pid} exists."
+                f"The handle_payment_intent_succeeded view " \
+                "does not recognise that the order {pid} exists."
             )
             discount = json.loads(discount)
             # If there was no discount code in the metadata
@@ -238,8 +238,8 @@ class StripeWH_Handler:
         # If it gets to this point the Order has been created
         # Check to see whether the user was logged in
         logging.warning(
-            f"Order {pid} has been created in the webhook_handler \
-            and the confirmation email is being sent."
+            f"Order {pid} has been created in the webhook_handler " \
+            "and the confirmation email is being sent."
         )
         if username != "AnonymousUser":
             profile = UserProfile.objects.get(user__username=username)
