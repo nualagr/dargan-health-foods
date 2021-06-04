@@ -96,6 +96,10 @@ class StripeWH_Handler:
         username = intent.metadata.username
         # If the user is logged in
         if username != "AnonymousUser":
+            logging.warning(
+                "This is the username that prompts the database "
+                f"search for a connected user profile, {username}"
+            )
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
                 profile.default_phone_number = shipping_details.phone
@@ -120,38 +124,25 @@ class StripeWH_Handler:
         while attempt <= 5:
             try:
                 order = Order.objects.get(
-                    # Use the iexact look-up field to make it an exact
-                    # but case-insensitive match
-                    full_name__iexact=shipping_details.name,
-                    email__iexact=billing_details.email,
-                    phone_number__iexact=shipping_details.phone,
-                    street_address1__iexact=shipping_details.address.line1,
-                    street_address2__iexact=shipping_details.address.line2,
-                    town_or_city__iexact=shipping_details.address.city,
-                    county__iexact=shipping_details.address.state,
-                    country__iexact=shipping_details.address.country,
-                    postcode__iexact=shipping_details.address.postal_code,
-                    grand_total=grand_total,
-                    original_cart=cart,
                     stripe_pid=pid,
                 )
                 order_exists = True
                 logging.warning(
-                    f"handle_payment_intent_succeeded webhook_hander " \
-                    f"recognises that the order {pid} " \
+                    "handle_payment_intent_succeeded webhook_hander "
+                    f"recognises that the order {pid} "
                     "already exists in the database"
                 )
                 break
             except Order.DoesNotExist:
                 attempt += 1
                 logging.warning(
-                    f"This is attempt number {attempt} " \
+                    f"This is attempt number {attempt} "
                     f"to find the order in {pid} in the database"
                 )
                 time.sleep(1)
         if order_exists:
             logging.warning(
-                f"Order {pid} has been found in the database " \
+                f"Order {pid} has been found in the database "
                 "and the confirmation email is being sent."
             )
             # Check if the customer was a logged in site member
@@ -180,8 +171,8 @@ class StripeWH_Handler:
             # Create an Order using the data from the paymentIntent
             order = None
             logging.warning(
-                f"The handle_payment_intent_succeeded view " \
-                "does not recognise that the order {pid} exists."
+                "The handle_payment_intent_succeeded view "
+                f"does not recognise that the order {pid} exists."
             )
             discount = json.loads(discount)
             # If there was no discount code in the metadata
@@ -238,7 +229,7 @@ class StripeWH_Handler:
         # If it gets to this point the Order has been created
         # Check to see whether the user was logged in
         logging.warning(
-            f"Order {pid} has been created in the webhook_handler " \
+            f"Order {pid} has been created in the webhook_handler "
             "and the confirmation email is being sent."
         )
         if username != "AnonymousUser":

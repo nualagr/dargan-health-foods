@@ -218,8 +218,8 @@ def checkout_success(request, order_number):
         order.save()
         pid = order.stripe_pid
         logging.warning(
-            f"The users profile has just been attached \
-                to the order {pid} in Checkout Success"
+            "The users profile has just been attached "
+            f"to the order {pid} in Checkout Success"
         )
 
         # If a discount code was used, deactivate it
