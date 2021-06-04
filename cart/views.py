@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_http_methods
+from django.views.decorators.http import (
+    require_http_methods,
+    require_POST,
+    require_GET,
+)
 from products.models import Product
 from .models import DiscountCode
 from .forms import DiscountCodeForm
@@ -85,6 +89,7 @@ def view_cart(request):
     return render(request, template, context)
 
 
+@require_POST
 def add_to_cart(request, item_id):
     """
     Add a quantity of the specified product to the shopping cart.
@@ -118,6 +123,7 @@ def add_to_cart(request, item_id):
     return redirect(redirect_url)
 
 
+@require_POST
 def remove_from_cart(request, item_id):
     """
     View to remove the specified item from the shopping cart
@@ -151,6 +157,7 @@ def remove_from_cart(request, item_id):
         return redirect(reverse("view_cart"))
 
 
+@require_POST
 def increase_quantity_by_one(request, item_id):
     """
     View to increase the quantity of the
@@ -174,6 +181,7 @@ def increase_quantity_by_one(request, item_id):
         return redirect(reverse("view_cart"))
 
 
+@require_POST
 def decrease_quantity_by_one(request, item_id):
     """
     View to decrease the quantity of the
@@ -211,6 +219,7 @@ def decrease_quantity_by_one(request, item_id):
 
 
 @login_required
+@require_GET
 def remove_discount_code(request):
     """
     View to remove the discount code that had been applied
