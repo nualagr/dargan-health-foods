@@ -69,7 +69,7 @@ form.addEventListener("submit", function (ev) {
     $("#payment-form").fadeToggle(100);
     // Fade in the overlay to indicate that the payment is being processed.
     $("#loading-overlay").fadeToggle(100);
-    var saveInfo = document.getElementById("id-save-info").checked;
+    var saveInfo = Boolean($("#id-save-info").attr("checked"));
     // From using {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     // Create an object to pass this information to the cache_checkout_data view
