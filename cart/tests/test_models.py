@@ -29,4 +29,4 @@ class TestDiscountCodeModel(TestCase):
         Test that DiscountCodes return the correct string.
         """
         dc = self.create_discount_code()
-        self.assertEqual(str(dc), "PromoCode: TESTCODE, 25% Discount")
+        self.assertEqual(str(dc), "PromoCode: TESTCODE")

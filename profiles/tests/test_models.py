@@ -12,7 +12,7 @@ class TestProfilesModels(TestCase):
         testing purposes.
         """
         self.dc = DiscountCode.objects.create(
-            discount_code="NEW10", percentage_discount=10
+            discount_code="NEW10", percentage_discount=0.1
         )
         self.client = Client()
         self.user = User.objects.create_user(
@@ -57,5 +57,5 @@ class TestProfilesModels(TestCase):
         )
         self.assertEqual(
             str(dc2u),
-            "TestyTest's PromoCode: NEW10, 10% Discount, Valid: True",
+            "TestyTest's PromoCode: NEW10, Valid: True",
         )

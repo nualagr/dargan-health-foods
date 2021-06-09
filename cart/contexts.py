@@ -57,7 +57,7 @@ def cart_contents(request):
                 total_before_discount = total
                 # Calculate the discount to be applied
                 percentage_discount = discount_code_object.percentage_discount
-                discount_amount = total * Decimal(percentage_discount / 100)
+                discount_amount = total * Decimal(percentage_discount)
                 total -= discount_amount
             else:
                 del request.session["discount"]

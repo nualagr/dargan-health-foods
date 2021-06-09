@@ -10,7 +10,7 @@ class TestProfileViews(TestCase):
         # Create the DiscountCode that is automatically assigned to new users
         discount_code = DiscountCode.objects.create(
             discount_code="NEW10",
-            percentage_discount=10,
+            percentage_discount=0.1,
         )
 
         # Create a User for the tests

@@ -128,7 +128,6 @@ def checkout(request):
                     order.delete()
                     # Return the user to the Shopping Cart page
                     return redirect(reverse("view_cart"))
-
             # Save the info to the user's profile if all is well
             request.session["save_info"] = "save-info" in request.POST
             return redirect(

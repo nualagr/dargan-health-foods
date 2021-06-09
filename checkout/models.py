@@ -82,7 +82,7 @@ class Order(models.Model):
         if self.discount_code:
             self.discount_amount = (
                 self.order_total * self.discount_code.percentage_discount
-            ) / 100
+            )
             self.order_total -= self.discount_amount
 
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
