@@ -100,11 +100,9 @@ class StripeWH_Handler:
         username = intent.metadata.username
         # If the user is logged in
         if username != "AnonymousUser":
-            logger.info(
-                f"Searching the database for {username}s profile."
-            )
+            logger.info(f"Searching the database for {username}s profile.")
             profile = UserProfile.objects.get(user__username=username)
-            if save_info == True:
+            if save_info is True:
                 profile.default_phone_number = shipping_details.phone
                 profile.default_street_address1 = (
                     shipping_details.address.line1
@@ -131,9 +129,7 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 order_exists = True
-                logger.info(
-                    f"Order {pid} found in the database."
-                )
+                logger.info(f"Order {pid} found in the database.")
                 break
             except Order.DoesNotExist:
                 attempt += 1
@@ -158,9 +154,7 @@ class StripeWH_Handler:
                     discount_code_2_user.save()
             # Send the confirmation email
             self._send_confirmation_email(order)
-            logger.info(
-                f"Confirmation email sent for database Order {pid}."
-            )
+            logger.info(f"Confirmation email sent for database Order {pid}.")
             return HttpResponse(
                 content=f"Webhook received: {event['type']} | \
                     SUCCESS: Verified order already in database",
@@ -170,9 +164,7 @@ class StripeWH_Handler:
             # If the Order does not exist
             # Create an Order using the data from the paymentIntent
             order = None
-            logger.info(
-                f"Order {pid} not found in database."
-            )
+            logger.info(f"Order {pid} not found in database.")
             discount = json.loads(discount)
             # If there was no discount code in the metadata
             # Set the discount_code_object variable to None
@@ -202,9 +194,7 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_pid=pid,
                 )
-                logger.info(
-                    f"Order {pid} created in the webhook_handler."
-                )
+                logger.info(f"Order {pid} created in the webhook_handler.")
                 # Iterate through the cart items in the JSON version
                 # in the paymentIntent
                 for item_id, quantity in json.loads(cart).items():
@@ -242,9 +232,7 @@ class StripeWH_Handler:
                 discount_code_2_user.save()
         # Send the confirmation email and send a response to Stripe.
         self._send_confirmation_email(order)
-        logger.info(
-            f"Confirmation email sent for webhook Order {pid}."
-        )
+        logger.info(f"Confirmation email sent for webhook Order {pid}.")
         return HttpResponse(
             content=f"Webhook received: {event['type']} | \
                 SUCCESS: Created the order in the webhook",

@@ -105,9 +105,7 @@ def checkout(request):
                 )
             # Now save the Order to the database
             order.save()
-            logger.info(
-                f"Order {pid} saved to the database."
-            )
+            logger.info(f"Order {pid} saved to the database.")
             # Iterate through the cart to create each OrderLineItem
             for item_id, quantity in cart.items():
                 try:
@@ -222,9 +220,7 @@ def checkout_success(request, order_number):
         order.user_profile = profile
         order.save()
         pid = order.stripe_pid
-        logger.info(
-            f"{username}s profile attached to Order {pid}."
-        )
+        logger.info(f"{username}s profile attached to Order {pid}.")
 
         # If a discount code was used, deactivate it
         if order.discount_code:
@@ -239,7 +235,7 @@ def checkout_success(request, order_number):
             discount_code_2_user.save()
 
         # Save the user's info if the box was checked
-        if save_info == True:
+        if save_info is True:
             profile_data = {
                 # These dict keys match the fields on the user profile model
                 "default_phone_number": order.phone_number,

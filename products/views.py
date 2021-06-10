@@ -17,6 +17,12 @@ from .models import (
 from .forms import ProductForm, ProductAndTagsInlineFormSet, ProductReviewForm
 from profiles.models import UserProfile
 
+import logging
+
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
 
 @require_GET
 def all_products(request):
@@ -236,6 +242,7 @@ def add_product(request):
                         if ptform.cleaned_data != {}:
                             ptform.save()
                 messages.success(request, "Successfully added product!")
+                logger.info(f"New Product {product_id} added to the database.")
                 return redirect(
                     reverse("product_detail", args=[new_product.id])
                 )
@@ -287,6 +294,7 @@ def edit_product(request, product_id):
             product = pform.save()
             ptformset.save()
             messages.success(request, "Successfully updated product!")
+            logger.info(f"Product: {product.friendly_name}, updated.")
             # Redirect to the Product's Details Page
             return redirect(reverse("product_detail", args=[product.id]))
         else:
@@ -295,6 +303,7 @@ def edit_product(request, product_id):
                 "Failed to update product. \
                     Please ensure that the form is valid.",
             )
+            logger.info(f"Failed to update Product: {product_name}.")
 
     else:
         # If the request is a GET request
@@ -326,6 +335,7 @@ def delete_product(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
+    logger.info(f"Product {product.friendly_name}: deleted.")
     messages.success(request, "Product deleted!")
     return redirect(reverse("products"))
 
@@ -358,6 +368,7 @@ def add_review(request, product_id):
             new_review.user = user
             # Save the review to the database
             new_review.save()
+            logger.info(f"{user}s review of {product.friendly_name} uploaded.")
             # Get the New Review Rating
             new_review_rating = new_review.review_rating
             # Work out the overall product rating
@@ -374,6 +385,7 @@ def add_review(request, product_id):
 
             product.avg_rating = avg_rating
             product.save(update_fields=["avg_rating"])
+            logger.info(f"{product.friendly_name}s average rating updated.")
 
             prform = ProductReviewForm()
             messages.success(request, "Successfully posted your review.")
@@ -425,6 +437,9 @@ def edit_review(request, review_id):
         if prform.is_valid():
 
             prform.save()
+            logger.info(
+                f"{review.user}s review of {product.friendly_name} updated."
+            )
             # Get the previous page url from the hidden form input
             previous_page_url = request.POST.get("previous_page_url")
             # Update average rating for the product
@@ -440,6 +455,7 @@ def edit_review(request, review_id):
                 product.avg_rating = 0
 
             product.save(update_fields=["avg_rating"])
+            logger.info(f"{product.friendly_name}s average rating updated.")
 
             messages.success(request, "Successfully updated your review!")
             # If the user got to the edit review page from their profile
@@ -488,6 +504,9 @@ def delete_review(request, review_id):
     # Delete the review and return a success message
     try:
         review.delete()
+        logger.info(
+            f"{review.user} deleted their review of {product.friendly_name}."
+        )
 
         # Update average rating for the product
         reviews = ProductReview.objects.filter(product=product)
@@ -502,6 +521,7 @@ def delete_review(request, review_id):
             product.avg_rating = 0
 
         product.save()
+        logger.info(f"{product.friendly_name}s average rating updated.")
 
         messages.success(request, "Your review was deleted")
 

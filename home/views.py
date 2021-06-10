@@ -80,9 +80,7 @@ def contact(request):
                         A member of the Dargan Health Foods \
                             team will be in touch within 48 hours.",
                 )
-                logger.info(
-                    f"Customer Query from {from_email} sent."
-                )
+                logger.info(f"Customer Query from {from_email} sent.")
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
             return redirect("contact")

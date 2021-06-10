@@ -30,9 +30,7 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            logger.info(
-                f"{user}s profile info updated."
-            )
+            logger.info(f"{user}s profile info updated.")
             messages.success(request, "Profile updated successfully.")
         else:
             messages.error(

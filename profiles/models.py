@@ -58,9 +58,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         DiscountCode2User.objects.create(
             user=new_user, discount_code=new_user_discount_code
         )
-        logger.info(
-                f"{new_user}s profile created."
-            )
+        logger.info(f"{new_user}s profile created.")
     # Existing user - so save the profile to update it
     instance.userprofile.save()
     logger.info("Profile updated.")
