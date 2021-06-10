@@ -67,7 +67,7 @@
     <p id="t13" class="pln"><span class="n"><a href="#t13">13</a></span><span class="t"><span class="str">        """</span>&nbsp;</span><span class="r"></span></p>
     <p id="t14" class="run"><span class="n"><a href="#t14">14</a></span><span class="t">        <span class="key">return</span> <span class="nam">DiscountCode</span><span class="op">.</span><span class="nam">objects</span><span class="op">.</span><span class="nam">create</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
     <p id="t15" class="pln"><span class="n"><a href="#t15">15</a></span><span class="t">            <span class="nam">discount_code</span><span class="op">=</span><span class="nam">discount_code</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t16" class="pln"><span class="n"><a href="#t16">16</a></span><span class="t">            <span class="nam">percentage_discount</span><span class="op">=</span><span class="nam">percentage_discount</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t16" class="pln"><span class="n"><a href="#t16">16</a></span><span class="t">            <span class="nam">percentage_discount</span><span class="op">=</span><span class="nam">percentage_discount</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t17" class="pln"><span class="n"><a href="#t17">17</a></span><span class="t">        <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t18" class="pln"><span class="n"><a href="#t18">18</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t19" class="run"><span class="n"><a href="#t19">19</a></span><span class="t">    <span class="key">def</span> <span class="nam">test_discount_code_creation</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -83,13 +83,13 @@
     <p id="t29" class="pln"><span class="n"><a href="#t29">29</a></span><span class="t"><span class="str">        Test that DiscountCodes return the correct string.</span>&nbsp;</span><span class="r"></span></p>
     <p id="t30" class="pln"><span class="n"><a href="#t30">30</a></span><span class="t"><span class="str">        """</span>&nbsp;</span><span class="r"></span></p>
     <p id="t31" class="run"><span class="n"><a href="#t31">31</a></span><span class="t">        <span class="nam">dc</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">create_discount_code</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t32" class="run"><span class="n"><a href="#t32">32</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">str</span><span class="op">(</span><span class="nam">dc</span><span class="op">)</span><span class="op">,</span> <span class="str">"PromoCode: TESTCODE, 25% Discount"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t32" class="run"><span class="n"><a href="#t32">32</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">str</span><span class="op">(</span><span class="nam">dc</span><span class="op">)</span><span class="op">,</span> <span class="str">"PromoCode: TESTCODE"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.5</a>,
-            created at 2021-05-22 13:27 +0000
+            created at 2021-06-10 12:10 +0000
         </p>
     </div>
 </div>

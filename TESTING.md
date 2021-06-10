@@ -1899,22 +1899,22 @@ and selecting the 'htmlcov/' directory.
 | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | [Blog Forms](blog/tests/test_forms.py)           | BlogPostForm and BlogPostCommentForm validation.                                                                              | 100%            |
 | [Blog Models](blog/tests/test_models.py)         | Topic, BlogPost, BlogPostTag and BlogPostComment Model creation and string methods. Check that BlogPost titles are slugified. | 98%             |
-| [Blog Views](blog/tests/test_views.py)           | Check all_posts and individual blogpost views.                                                                                | 28%             |
+| [Blog Views](blog/tests/test_views.py)           | Check all_posts and individual blogpost views.                                                                                | 33%             |
 | [Cart Forms](cart/tests/test_forms.py)           | DiscountCodeForm creation.                                                                                                    | 100%            |
 | [Cart Models](cart/tests/test_models.py)         | DiscountCode Model creation and string method.                                                                                | 100%            |
-| [Cart Views](cart/tests/test_views.py)           | Testing the cart view.                                                                                                        | 21%             |
+| [Cart Views](cart/tests/test_views.py)           | Testing the cart view.                                                                                                        | 26%             |
 | [Checkout Forms](checkout/tests/test_forms.py)   | OrderForm creation and required fields                                                                                        | 100%            |
-| [Checkout Models](checkout/tests/test_models.py) | Order and OrderLineItem model creation and string methods. Also test the OrderLineItem get_total_lineitem_price method.       | 94%             |
-| [Checkout Views](checkout/tests/test_views.py)   | Testing checkout and checkout_success view                                                                                    | 27%             |
+| [Checkout Models](checkout/tests/test_models.py) | Order and OrderLineItem model creation and string methods. Also test the OrderLineItem get_total_lineitem_price method.       | 86%             |
+| [Checkout Views](checkout/tests/test_views.py)   | Testing checkout and checkout_success view                                                                                    | 28%             |
 | [Home Forms](home/tests/test_forms.py)           | NewsletterSubscription and ContactForm validation and required fields.                                                        | 100%            |
 | [Home Models](home/tests/test_models.py)         | NewsletterSubscription model creation and string method.                                                                      | 100%            |
-| [Home Views](home/tests/test_views.py)           | Testing index, our_story and contact views.                                                                                   | 46%             |
+| [Home Views](home/tests/test_views.py)           | Testing index, our_story and contact views.                                                                                   | 50%             |
 | [Products Forms](products/tests/test_forms.py)   | ProductForm and ProductReviewForm creation and validation.                                                                    | 100%            |
 | [Products Models](products/tests/test_models.py) | Brand, Department, Category, Tag, Product, ProductImage, ProductTag and ProductReview model creation and string methods.      | 100%            |
-| [Products Views](products/tests/test_views.py)   | Testing product_detail and all_products views.                                                                                | 25%             |
+| [Products Views](products/tests/test_views.py)   | Testing product_detail and all_products views.                                                                                | 29%             |
 | [Profiles Forms](profiles/tests/test_forms.py)   | DargansCustomSignupForm and UserProfileForm creation and validation.                                                          | 81%             |
 | [Profiles Models](profiles/tests/test_models.py) | UserProfile and DiscountCode2User model creation and string methods.                                                          | 100%            |
-| [Profiles Views](profiles/tests/test_views.py)   | Profile view when a user is logged in, and not logged in. If successful, check that the correct template was rendered.        | 68%             |
+| [Profiles Views](profiles/tests/test_views.py)   | Profile view when a user is logged in, and not logged in. If successful, check that the correct template was rendered.        | 70%             |
 
 <br>
 
@@ -1926,8 +1926,8 @@ and selecting the 'htmlcov/' directory.
 
 | App Name | Percentage of App Code Currently Covered by Tests |
 | :------- | :-----------------------------------------------: |
-| Blog     |                        67%                        |
-| Cart     |                        55%                        |
+| Blog     |                        68%                        |
+| Cart     |                        56%                        |
 | Checkout |                        58%                        |
 | Home     |                        81%                        |
 | Products |                        70%                        |
