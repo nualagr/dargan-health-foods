@@ -15,6 +15,12 @@ from blog.models import BlogPost
 from .models import NewsletterSubscription
 from .forms import NewsletterSubscriptionForm, ContactForm
 
+import logging
+
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
 
 @require_GET
 def index(request):
@@ -74,6 +80,9 @@ def contact(request):
                         A member of the Dargan Health Foods \
                             team will be in touch within 48 hours.",
                 )
+                logger.info(
+                    f"Customer Query from {from_email} sent."
+                )
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
             return redirect("contact")
@@ -123,10 +132,12 @@ def subscribe(request):
         return redirect(subscribe_redirect)
     else:
         if newsletter_subscription_form.is_valid():
+            email_address = request.POST.get("email_address")
             newsletter_subscription_form.save()
             messages.success(
                 request, "You are now subscribed to our newsletter."
             )
+            logger.info(f"{email_address} subscribed to Newsletter.")
         else:
             messages.error(
                 request,

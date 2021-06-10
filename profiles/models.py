@@ -2,9 +2,15 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
 from django_countries.fields import CountryField
+
 from cart.models import DiscountCode
+
+import logging
+
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 
 class UserProfile(models.Model):
@@ -52,8 +58,12 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         DiscountCode2User.objects.create(
             user=new_user, discount_code=new_user_discount_code
         )
+        logger.info(
+                f"{new_user}s profile created."
+            )
     # Existing user - so save the profile to update it
     instance.userprofile.save()
+    logger.info("Profile updated.")
 
 
 class DiscountCode2User(models.Model):

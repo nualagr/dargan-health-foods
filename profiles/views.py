@@ -9,6 +9,12 @@ from blog.models import BlogPostComment
 from checkout.models import Order
 from products.models import ProductReview
 
+import logging
+
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
 
 @login_required
 @require_http_methods(["GET", "POST"])
@@ -24,6 +30,9 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
+            logger.info(
+                f"{user}s profile info updated."
+            )
             messages.success(request, "Profile updated successfully.")
         else:
             messages.error(
