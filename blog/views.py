@@ -14,6 +14,12 @@ from .forms import (
 )
 from profiles.models import UserProfile
 
+import logging
+
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
 
 @require_GET
 def all_posts(request):
@@ -66,11 +72,11 @@ def all_posts(request):
         # blogpost fields for the search term
         else:
             queries = (
-                Q(title__icontains=blogquery)
-                | Q(subtitle__icontains=blogquery)
-                | Q(intro__icontains=blogquery)
-                | Q(content__icontains=blogquery)
-                | Q(topic__name__icontains=blogquery)
+                Q(title__icontains=blogquery) |
+                Q(subtitle__icontains=blogquery) |
+                Q(intro__icontains=blogquery) |
+                Q(content__icontains=blogquery) |
+                Q(topic__name__icontains=blogquery)
             )
             blogs_list = blogs_list.filter(queries)
 
@@ -185,6 +191,7 @@ def add_post(request):
             messages.success(
                 request, "Successfully uploaded your new blog post."
             )
+            logger.info(f"New blog post {new_post.id} uploaded.")
             return redirect(reverse("blog_post", args=[slug]))
         else:
             messages.error(
@@ -237,6 +244,7 @@ def edit_post(request, blogpost_id):
             blogpost = bpform.save()
             bptformset.save()
             messages.success(request, "Successfully updated blog post!")
+            logger.info(f"Blog Post: {blogpost.title}, updated.")
             # Redirect to the BlogPost's Page using the Slug
             return redirect(reverse("blog_post", args=[blogpost.slug]))
         else:
@@ -284,6 +292,7 @@ def delete_post(request, blogpost_id):
     blogpost.main_image.delete()
     blogpost.delete()
     messages.success(request, "BlogPost successfully deleted!")
+    logger.info("Blog Post deleted.")
     return redirect(reverse("blog"))
 
 
@@ -312,6 +321,9 @@ def add_comment(request, blogpost_id):
             new_comment.user = user
             # Save the review to the database
             new_comment.save()
+            logger.info(
+                f"{user} added a comment to Blog Post: {blogpost.title}."
+            )
 
             bpcform = BlogPostCommentForm()
             messages.success(request, "Successfully posted your comment.")
@@ -368,6 +380,10 @@ def edit_comment(request, blogpostcomment_id):
             # Get the previous page url from the hidden form input
             previous_page_url = request.POST.get("previous_page_url")
             messages.success(request, "Successfully updated your comment!")
+            logger.info(
+                f"{blogpostcomment.user} edited their comment on "
+                f"Blog Post: {blogpost.title}."
+            )
             # If the user got to the edit comment page from their profile
             # Redirect them back to their profile page.
             if "profile" in previous_page_url:
@@ -417,7 +433,7 @@ def delete_comment(request, blogpostcomment_id):
     # Delete the comment and return a success message
     try:
         blogpostcomment.delete()
-
+        logger.info(f"Comment deleted on Blog Post: {blogpost.title}.")
         messages.success(request, "Your comment was deleted")
 
     # If the comment was not deleted return an error message
