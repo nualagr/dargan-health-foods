@@ -1427,6 +1427,7 @@ implemented using [Django allauth](https://django-allauth.readthedocs.io/en/late
   attach the postal code to the customer's order using JavaScript.
 - Add more payment options, including 'Paypal' to improve
   the user experience.
+- Add an expiration-date field to the DiscountCode model.
 - Add an Order History template rather than reusing the Checkout Success page.
 - Add the ability for users to filter blogpost search results.
 
@@ -2742,14 +2743,14 @@ The following [Bootstrap](https://getbootstrap.com/) components were used and mo
 - Thank you to my family and my friends who were so willing and helpful when it came to testing the site.
 - I received inspiration for this project from:
   - The [Code Institute](https://codeinstitute.net/) 'Boutique Ado' project.
+  - [Down to Earth](https://downtoearth.ie/),
+  - [EverGreen](https://www.evergreen.ie/),
   - [Full Of Beans](https://www.fullofbeans.ie/),
   - [Health Matters](https://healthmatters.ie/),
   - [Holland & Barrett](https://www.hollandandbarrett.ie/),
-  - [Down to Earth](https://downtoearth.ie/),
-  - [Nourish](https://www.nourish.ie/),
-  - [The Health Store](https://www.thehealthstore.ie/),
-  - [iHerb](http://www.iherb.com) and
-  - [EverGreen](https://www.evergreen.ie/),
+  - [iHerb](http://www.iherb.com),
+  - [Nourish](https://www.nourish.ie/) and
+  - [The Health Store](https://www.thehealthstore.ie/).
 
 <br>
 

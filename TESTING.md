@@ -2118,10 +2118,40 @@ Now Orders, with or without discount codes, are successfully created within the 
 ### Multiple Orders with Stripe
 
 Towards the end of the project, after deployment, it was discovered that, on occasion,
-orders were being created twice. Duplicate orders also
-occurred with purchases made on the development site appearing as orders
+orders were being created twice.
+
+Duplicate Orders occurred with purchases made on the development site appearing as orders
 created in the webhook on the deployment site endpoint. The development webhook
-endpoint was disabled. This appears to have resolved this issue.
+endpoint was disabled. Ideally there will be a separate Stripe account for the deployed site endpoint.
+
+Multiple Orders also occurred occasionally within the development and deployed environments.
+Logging was used to track payment events to isolate the issue.
+Multiple Orders were being created with `grand_total`s of, for example,
+`16.005`. When using `round()` to convert the `grand_total` from a
+Decimal to an integer for Stripe, this was
+evaluated as `1601`, however, when saving the `grand_total` to the database field,
+which had been set to two decimal places, this was saved as `16.00`.
+This resulted in the `webhook_handler`, being unable to find the Order in
+the database, as the `grand_total` differed from that which was being sent by Stripe.
+The `webhook_handler` then created a second Order with the `grand_total` of
+`16.01`.
+
+Rounding the `delivery_cost` within the `update_total()` method on
+the Order model, before the `grand_total` is calculated produces
+`grand_total`s that match.
+
+```{.python3}
+    if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
+        self.delivery_cost = round(
+            (
+                self.order_total *
+                settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            ), 2,
+        )
+    else:
+        self.delivery_cost = 0
+    self.grand_total = self.order_total + self.delivery_cost
+```
 
 ##### back to [top](#table-of-contents)
 
@@ -2137,6 +2167,8 @@ endpoint was disabled. This appears to have resolved this issue.
   to the viewer that the page range displayed does not reflect the total number of pages returned.
 
 - The Order timestamp does not take Daylight Savings Time into account.
+
+- Rounding errors could conceivably occur during the `delivery_cost` rounding.
 
 ##### back to [top](#table-of-contents)
 
