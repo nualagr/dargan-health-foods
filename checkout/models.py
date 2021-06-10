@@ -86,9 +86,9 @@ class Order(models.Model):
             self.order_total -= self.discount_amount
 
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = (
+            self.delivery_cost = round((
                 self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
-            )
+            ), 2)
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
