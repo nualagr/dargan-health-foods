@@ -105,6 +105,44 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
+# Django Logging Information
+LOGGING = {
+    # Define the logging version
+    "version": 1,
+    # Enable the existing loggers
+    "disable_existing_loggers": False,
+    # Define the formats
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "{levelname} {asctime} {module} {message}",
+            "style": "{",
+        },
+    },
+    # Define the handlers
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose"
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "INFO",
+    },
+    # Define the loggers
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+            "propagate": False,
+        },
+    },
+}
+
 # Use Dargan's Custom Signup Form
 ACCOUNT_FORMS = {'signup': 'profiles.forms.DargansCustomSignupForm'}
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"

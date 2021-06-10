@@ -1,9 +1,11 @@
-from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
+
 from products.models import Product
 from profiles.models import UserProfile, DiscountCode2User
 from cart.models import DiscountCode
+
+from decimal import Decimal
 
 
 def cart_contents(request):

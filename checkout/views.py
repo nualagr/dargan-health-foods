@@ -27,6 +27,10 @@ import json
 import logging
 
 
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
+
 # Before calling the confirmCardPayment() method in Stripe JS
 # Make a POST request to this view and pass it the
 # client_secret from the paymentIntent.
@@ -39,7 +43,6 @@ def cache_checkout_data(request):
         # The first part will be the paymentIntent ID
         pid = request.POST.get("client_secret").split("_secret")[0]
         save_data = request.POST.get("save_info")
-        logging.warning(f"The user has chosen to save their data {save_data}")
         # Set up Stripe with the secret key so the
         # paymentIntent can be modified.
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -102,8 +105,8 @@ def checkout(request):
                 )
             # Now save the Order to the database
             order.save()
-            logging.warning(
-                f"Order {pid} has been saved to the database in Checkout view"
+            logger.info(
+                f"Order {pid} saved to the database."
             )
             # Iterate through the cart to create each OrderLineItem
             for item_id, quantity in cart.items():
@@ -219,9 +222,8 @@ def checkout_success(request, order_number):
         order.user_profile = profile
         order.save()
         pid = order.stripe_pid
-        logging.warning(
-            "The users profile has just been attached "
-            f"to the order {pid} in Checkout Success"
+        logger.info(
+            f"{username}s profile attached to Order {pid}."
         )
 
         # If a discount code was used, deactivate it
@@ -236,8 +238,6 @@ def checkout_success(request, order_number):
             discount_code_2_user.active = False
             discount_code_2_user.save()
 
-        logging.warning("In checkout_success view the " \
-        f"user has chosen to save their data: {save_info}")
         # Save the user's info if the box was checked
         if save_info == True:
             profile_data = {
@@ -255,7 +255,7 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-            logging.warning(f"{username}s profile default info has been updated")
+            logger.info(f"{username}s default profile info has been updated")
 
     messages.success(
         request,
