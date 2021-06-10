@@ -2059,6 +2059,7 @@ $ pip3 install -r requirements.txt
 | STRIPE_PUBLIC_KEY | <YOUR_STRIPE_PUBLIC_KEY>     |
 | STRIPE_SECRET_KEY | <YOUR_STRIPE_SECRET_KEY>     |
 | STRIPE_WH_SECRET  | <YOUR_STRIPE_WEBHOOK_SECRET> |
+| DJANGO_LOG_LEVEL  | <DESIRED_LOGGING_LEVEL>      |
 
 If using env.py, add it to your .gitignore file to ensure this file is never pushed to GitHub.
 
@@ -2342,6 +2343,7 @@ git push heroku master
 | STRIPE_SECRET_KEY | <YOUR_STRIPE_SECRET_KEY>                     |
 | STRIPE_WH_SECRET  | <YOUR_STRIPE_WH_SECRET>                      |
 | SECRET_KEY        | <YOUR_SECRET_KEY>                            |
+| DJANGO_LOG_LEVEL  | <DESIRED_LOGGING_LEVEL>                      |
 
 <br>
 
