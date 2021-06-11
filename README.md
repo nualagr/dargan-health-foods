@@ -18,7 +18,7 @@ payment system and control of a centrally-owned dataset, was constructed using
 [HTML5](http://en.wikipedia.org/wiki/HTML5), [CSS3](http://en.wikipedia.org/wiki/CSS),
 [JavaScript](https://en.wikipedia.org/wiki/JavaScript), the JavaScript library
 [jQuery](https://jquery.com/) , [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>),
-[Django](https://www.djangoproject.com/), [Heroku Postgre](https://www.heroku.com/postgres) database
+[Django](https://www.djangoproject.com/), [Heroku Postgres](https://www.heroku.com/postgres) database
 and the [Stripe](https://stripe.com/) payment platform.
 
 The website products are currently restricted to Viridian brand
@@ -2719,14 +2719,23 @@ The following [Bootstrap](https://getbootstrap.com/) components were used and mo
 #### Images
 
 - Ecology Nature Element from [Vecteezy](https://www.vecteezy.com/vector-art/632493-ecology-logo-nature-element-vector) was used for the site logo.
-- Fresh Spring Background with Illustrated Flowers from [Vecteezy](https://www.vecteezy.com/vector-art/143782-free-spring-flower-wreath-background) was used for the offer banner image.
+- Fresh Spring Background with Illustrated Flowers from [Vecteezy](https://www.vecteezy.com/vector-art/143782-free-spring-flower-wreath-background)
+  was used for the offer banner image.
 - Come In We're Open Sign from Tim Mossholder on [Unsplash](https://unsplash.com/photos/jEOAOVq39Z4) was used for the 'Our Story' page.
 - Sliced Kiwi Fruit Photo from Lesly Juarez on [Unsplash](https://unsplash.com/photos/1rafrfyrsZw) was used for the 'Heart Health' BlogPost image.
 - Vegan Salad Bowl by Anna Pelzer on [Unsplash](https://unsplash.com/photos/IGfIGP5ONV0) was used for the 'Easy Vegan Swaps' BlogPost image.
 - Hot Cross Buns by Jasmine Waheed on [Unsplash](https://unsplash.com/photos/dRJGQAu6x8U) was used for the 'Cinnamon Hot Cross Buns' BlogPost image.
 - Christmas Cake by Brett Jordan on [Unsplash](https://unsplash.com/@brett_jordan) was used for the 'Gluten Free Christmas Cake' BlogPost image.
-- Shopping Cart Trolley Icon by icon0.com on [Unsplash](https://www.vecteezy.com/vector-art/575187-shopping-cart-trolley-icon) was used on the Shopping 'Cart' page when no items were to be found in the user's cart.
-- Magnifying Glass on White by Graphics RF on [Vecteezy](https://www.vecteezy.com/vector-art/299418-magnifying-glass-on-white) was used for the 'Products' page when no items were returned.
+- Shopping Cart Trolley Icon by icon0.com on [Unsplash](https://www.vecteezy.com/vector-art/575187-shopping-cart-trolley-icon)
+  was used on the Shopping 'Cart' page when no items were to be found in the user's cart.
+- Magnifying Glass on White by Graphics RF on [Vecteezy](https://www.vecteezy.com/vector-art/299418-magnifying-glass-on-white)
+  was used for the 'Products' page when no items were returned.
+- Abstract Minimal Scene by Napong Rattanaraktiya on
+  [Vecteezy](https://www.vecteezy.com/vector-art/2160722-abstract-minimal-scene-with-geometric-forms-cylinder-podium-in-blue-background-with-leaves-product-presentation-mock-up-show-cosmetic-product-podium-stage-pedestal-or-platform-3d-vector)
+  was used for the custom 404 page background.
+- Realistic 3D Stone Pedestal by Юлия Гапеенко on
+  [Vecteezy](https://www.vecteezy.com/vector-art/2607620-realistic-3d-stone-pedestal-on-cloudy-background-trendy-empty-podium-display-for-cosmetic-product-presentation-fashion-magazine-copy-space-vector-illustration)
+  was used for the custom 500 page background.
 - Product images were provided by [Viridian Nutrition](https://www.viridian-nutrition.com/).
   <br>
 
@@ -2734,7 +2743,7 @@ The following [Bootstrap](https://getbootstrap.com/) components were used and mo
 
 - [Code Institute](https://codeinstitute.net/) and their helpful tutors.
 - Many thanks to my project mentor [Reuben Ferrante](https://uk.linkedin.com/in/reuben-ferrante) for his help and guidance.
-- The [Code Institute](https://codeinstitute.net/) community on [Slack](code-institute-room.slack.com) for their support.
+- The [Code Institute](https://codeinstitute.net/) community on [Slack](https://slack.com/intl/en-ie/) for their support.
 - A very special thank you to my partner Kevin for his unfailing patience and support throughout this project.
 - Thank you to my family and my friends who were so willing and helpful when it came to testing the site.
 - I received inspiration for this project from:
