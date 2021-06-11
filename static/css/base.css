@@ -1132,7 +1132,7 @@ p.card-text.brand-name {
 }
 
 .contact-form p:not(.invalid-feedback),
-.allauth-form-inner-content p {
+.allauth-form-inner-content p:not(.invalid-feedback) {
     margin: 1.5rem 0 2.5rem 0;
     color: #6c757d;
     text-align: center;
