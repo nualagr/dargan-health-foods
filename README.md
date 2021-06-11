@@ -72,12 +72,12 @@ Click <a href="https://dargan-health-foods.herokuapp.com/">here</a> to visit the
        - [Edit Product Review Page Features](#edit-product-review-page-features)
        - [Cart Page Features](#cart-page-features)
        - [Checkout Page Features](#checkout-page-features)
-       - [Checkout Success Page Features](#checkout-page-features)
+       - [Checkout Success Page Features](#checkout-success-page-features)
        - [My Account Page Features](#my-account-page-features)
        - [Blog Page Features](#blog-page-features)
        - [BlogPost Page Features](#blogpost-page-features)
        - [Add BlogPost Page Features](#add-blogpost-page-features)
-       - [Edit BLogPost Page Features](#edit-blogpost-page-features)
+       - [Edit BlogPost Page Features](#edit-blogpost-page-features)
        - [Add BlogComment Page Features](#add-blogpost-comment-page-features)
        - [Edit BlogComment Page Features](#edit-blogpost-comment-page-features)
        - [Custom 404 and 500 Page Features](#custom-404-and-500-page-features)
@@ -99,6 +99,10 @@ Click <a href="https://dargan-health-foods.herokuapp.com/">here</a> to visit the
 6. [**Deployment**](#deployment)
    - [Local Deployment](#local-deployment)
    - [Heroku Deployment](#heroku-deployment)
+     - [AWS](#set-up-an-amazon-web-services-account)
+     - [S3](#set-up-the-simple-storage-service-bucket)
+     - [Stripe](#link-stripe-to-heroku)
+     - [Gmail](#set-up-django-emails-using-gmail)
 7. [**Credits**](#credits)
    - [Content](#content)
    - [Media](#media)
@@ -156,7 +160,7 @@ The goals of this project are to:
 - Enable site visitors to select the products they wish to buy, alter the quantity if desired and pay for their items with ease.
 - Allow site visitors to easily contact the store with any questions.
 - Encourage new members to sign up to the website community.
-- Create an interactive website where a community of engaged consumers can share their product reviews and blog comments on the site.
+- Create an interactive website where a community of engaged consumers can share their product reviews and blog comments.
 - Provide users with the functionality so that they can create, read, update and delete their own content.
 - Store the users’ data, if they permit, so that it is can be accessed when required.
 
@@ -234,7 +238,7 @@ As the owner of Dargan Health Foods website I would like to:
 - Provide users with an effective and user-friendly platform where they can see what products Dargan's have to offer.
 - Provide site users with a straight-forward online shopping experience.
 - Provide visitors with visually appealing images of the products on offer.
-- Provide visitors with information about the products, such as their ingredients/nutritional information
+- Provide visitors with information about the products, such as their ingredients and/or nutritional information
   (where applicable), so that they can make more informed choices when choosing their products.
 - Provide site users with an easy way to add their desired product to their cart.
 - Provide users with a visual representation of their cart total and the number of products already added, visible on all screens.
@@ -295,9 +299,9 @@ Consumers who have €35 worth of products in their shopping cart will be
 encouraged to spend an extra €15 to get free shipping at €50.
 
 Visitors are encouraged to become site members in order to take advantage of
-an introductory offer of 10% off their first purchase and to be able to access a  
+an introductory offer of 10% off their first purchase and to be able to access a
 faster and more convenient checkout process. The inclusion of the site blog, with
-regular posts on food and health-related content, of interest to our target audience,
+regular posts on food and health-related content, of interest to the target audience,
 has been designed with a view to encourage visitors to return to the site regularly
 and ultimately drive more sales. Dargan’s blog posts will also provide value to their
 customers. The blog will be a repository of high-quality information about current
@@ -307,9 +311,8 @@ detailed information about the item and making it easier for them to purchase
 the product if they so wish.
 
 Dargan's website aims to provide the company with a robust ordering system that
-can be updated in real time. Dargan's website
-superusers can easily add or remove products so that their website accurately
-reflects the products available.
+can be updated in real time. Dargan's website superusers can easily add, remove or
+discontinue products so that their website accurately reflects the products available.
 
 Social networking sites are a great place for spreading the word about deals,
 events and other promotions. Dargan Health Food website allows the business to increase
@@ -445,7 +448,7 @@ A common **footer** was laid out with
 **store location**,
 **opening hours** and
 **contact details** as well as
-**commonly-used links**: About Us, Contact Us, Blog, My Account and Search.
+**commonly-used links**: 'About Us', 'Contact Us', 'Blog', 'My Account' and 'Search'.
 
 ![alt text](documentation/readme-images/mobile-footer.png "Mobile Footer.")
 
@@ -479,7 +482,7 @@ compromising on fulfilling site users' needs.
 
 ##### Favicon
 
-A **seedling favicon**, displayed on the web browser's tab
+A **seedling favicon**, displayed on the web browser's tab,
 allows the desktop user to identify the website by sight.
 
 <br>
@@ -521,12 +524,14 @@ Mobile Navbar
   to site membership. This list differs depending on whether the site
   visitor is logged out, logged in or a superuser.
 
-      | Logged-Out User   |Logged-In User |Superuser      |
-      | :------------     |:------------  | :------------ |
-      | Register          | My Account    | Add Product   |
-      | Login             | Logout        | Add BlogPost  |
-      |                   |               | My Account    |
-      |                   |               | Logout        |
+<br>
+
+| Logged-Out User | Logged-In User | Superuser    |
+| :-------------- | :------------- | :----------- |
+| Register        | My Account     | Add Product  |
+| Login           | Logout         | Add BlogPost |
+|                 |                | My Account   |
+|                 |                | Logout       |
 
 - The **Search magnifying-glass icon** opens the **search bar**
   below the navbar, ensuring that it does not impede navigational functionality.
@@ -548,15 +553,17 @@ Desktop Navbar
 - Small navigational links, to frequently needed pages, are rendered on the
   desktop **topnav**. These differ depending on the status of the user.
 
-      | Logged-Out User   |Logged-In User |Superuser      |
-      | :------------     |:------------  | :------------ |
-      | Our Story         | Our Story     | Our Story     |
-      | Blog              | Blog          | Blog          |
-      | Contact Us        | Contact Us    | Contact Us    |
-      | Sign In           | My Account    | Add Product   |
-      | Join              | Logout        | Add BlogPost  |
-      |                   |               | My Account    |
-      |                   |               | Logout        |
+<br>
+
+| Logged-Out User | Logged-In User | Superuser    |
+| :-------------- | :------------- | :----------- |
+| Our Story       | Our Story      | Our Story    |
+| Blog            | Blog           | Blog         |
+| Contact Us      | Contact Us     | Contact Us   |
+| Sign In         | My Account     | Add Product  |
+| Join            | Logout         | Add BlogPost |
+|                 |                | My Account   |
+|                 |                | Logout       |
 
 - The website **brand logo**, on the left of the middle nav,
   fulfils user expectations as it operates as a **homepage link**.
@@ -571,7 +578,7 @@ Desktop Navbar
   when the cart is empty.
 
 - The vibrant orange **Checkout button** operates as a link to the 'Checkout' page
-  when there are items within the user's cart. Otherwise it is disabled
+  when there are items in the user's cart. Otherwise it is disabled
   and rendered in a muted cream colour.
 
 - The **main navbar** contains the **departmental dropdown menu links**.
@@ -591,7 +598,7 @@ achieving their aims. These messages are colour coded for ease of
 understanding with **toast cappers** in red for error messages, blue for
 informative messages, yellow for warnings and green for success messages.
 The **times icon button** in the top-right-hand-corner of the box
-allows the user to close the toast.
+allows the user to close a toast.
 
 <br>
 
@@ -651,7 +658,7 @@ The content on each card has been kept to a minimum.
 Product Cards
 
 - Each Product card displays a **high-quality image of the product itself**.
-  A 'no-image-placeholder.svg' is used when no product image is available.
+  A `no-image-placeholder.svg` is used when no product image is available.
 
 - The **brand name** and **abbreviated product title** are
   printed below the image.
@@ -693,7 +700,7 @@ BlogPost Cards
 ##### Free Delivery Banner
 
 This bright apple-green banner appears directly underneath the navbar on all screen sizes.
-It informs and reminds customers of the site's free delivery policy.
+It informs and reminds customers of the site's free-delivery policy.
 It has been included on all site pages relating to products or site membership.
 
 <br>
@@ -727,8 +734,8 @@ The mobile footer consists of three **accordion elements** which appear automati
 in their collapsed state. The **down chevron icon**
 signals that there is hidden content.
 Each accordion title operates as a button to
-reveal and hide that accordion section's contents. The accordion button's
-font colour and background colour change when the accordion is active.
+reveal and hide that accordion section's contents. An accordion button's
+font colour and background colour change when it is active.
 Once open, the **up chevron icon** is used to indicate that the button
 now functions to close the accordion.
 
@@ -746,15 +753,17 @@ now functions to close the accordion.
   **links to frequently needed site pages**.
   These links differ depending on the status of the site visitor.
 
-        | Logged-Out User   |Logged-In User |Superuser      |
-        | :------------     |:------------  | :------------ |
-        | Our Story         | Our Story     | Our Story     |
-        | Blog              | Blog          | Blog          |
-        | Contact Us        | Contact Us    | Contact Us    |
-        | Sign In           | My Account    | Add Product   |
-        | Join              | Logout        | Add BlogPost  |
-        |                   |               | My Account    |
-        |                   |               | Logout        |
+<br>
+
+| Logged-Out User | Logged-In User | Superuser    |
+| :-------------- | :------------- | :----------- |
+| Our Story       | Our Story      | Our Story    |
+| Blog            | Blog           | Blog         |
+| Contact Us      | Contact Us     | Contact Us   |
+| Sign In         | My Account     | Add Product  |
+| Join            | Logout         | Add BlogPost |
+|                 |                | My Account   |
+|                 |                | Logout       |
 
 - Beneath the footer accordion is a row containing **social media icons**
   which, when clicked, open the Dargan Health Foods page on the related
@@ -768,9 +777,9 @@ now functions to close the accordion.
 Desktop Footer
 
 The desktop footer is identical to the mobile footer in that it consists
-of three sections, 'Find Us', 'Opening Hours' and 'Quick Links',
-displayed horizontally in a row rather than in an
-accordion, with the same links and functionality outlined above.
+of the three sections, 'Find Us', 'Opening Hours' and 'Quick Links',
+displayed horizontally in a row rather than in accordions, with the same
+links and functionality outlined above.
 
 <br>
 
@@ -785,22 +794,28 @@ accordion, with the same links and functionality outlined above.
   expectations as, when clicked, it brings them to the items on offer. Presently
   this is also the 'Special Offers' page.
 
-- The **New Arrivals** section displays the four latest products to be added to
+- The **'New Arrivals'** section displays the four latest products to be added to
   the website. Each product is displayed in a **product card**.
   The **'View All New Products' text link and animated right-angle character**
   bring users to a page displaying the latest products in each department.
 
-- The **About Us** section provides a quick overview of the what the shop sells,
+- The **'About Us'** section provides a quick overview of the what the shop sells,
   its location and its ethos. The **'Our Story' text link and animated icon**
   bring interested users to the 'Our Story' page where they can read about the
   business' history, owner and staff in more detail.
 
-- The **Latest Posts** section displays two **blogpost cards**
+- The **'Members Get More'** section, visible to non-logged-in site visitors,
+  outlines the benefits of becoming a site member and provides the user with a
+  **call-to-action 'Sign Up to Claim Your Discount' button**, which links to the
+  'Sign Up' page.
+
+- The **'Latest Posts'** section displays two **blogpost cards**
   containing the two latest blog post images, topics, dates and titles.
   The **'View Our Blog' text and animated icon**
   link to the main 'Blog' page.
 
-<br>
+- **Newsletter Subscription Form**.
+  <br>
 
 ##### back to [top](#table-of-contents)
 
@@ -829,8 +844,8 @@ accordion, with the same links and functionality outlined above.
 - The **Contact Us Form** has an informative subheading which outlines the
   purpose of the form. The form itself consists of three fields, with helpful
   placeholder text, which are all required for successful submission.
-  The **Your name** and **Your email** inputs are prefilled for logged-in users.
-  When the users submits a valid form using the **Send button**
+  The **'Your name'** and **'Your email'** inputs are prefilled for logged-in users.
+  When the users submits a valid form using the **'Send' button**
   an email communicating the user's message is sent to the site administrator.
   A **toast message** lets the user know that the message has been sent
   and when to expect a reply.
@@ -875,23 +890,21 @@ accordion, with the same links and functionality outlined above.
   Superuser is asked to confirm their decision by selecting
   the **'Delete' button**. Alternatively they can choose to
   cancel the action by clicking on the **'Retain' button** or by
-  dismissing the modal with the **close button**.
-  This modal has been included in order to
-  prevent accidental deletion of products.
+  dismissing the modal with the **'times icon' close button**.
+  This modal has been included in order to prevent accidental deletion of products.
 
 - A high-quality **product image**, where available, is displayed on each 'Product Detail'
-  page. Where more than one image exists for a given
-  product, they are rendered in an **image carousel**. **Previous and Next controls**
-  allow users to browse between the images.
+  page. Where more than one image exists for a given product, they are rendered
+  in an **image carousel**. **Previous and Next controls** allow users to browse between the images.
 
 - The **product name** is displayed in a green heading font.
 
-- The **product's average rating** out of five is displayed pictorially in partially,
+- The **product's average rating**, out of five, is displayed pictorially in partially,
   or fully filled-in yellow stars.
 
 - The **review rating count** is displayed beside the current star rating.
   This text is a **jump-link**. When clicked, it opens the 'Customer Reviews' accordion
-  and brings the user to that part of the page where they can read the reviews left so far.
+  and brings the user to that part of the page where they can read the reviews.
 
 - Product **tags**, where they exist, are rendered beneath the **product price**.
   Each tag, if clicked, brings the user to a page of similarly tagged products.
@@ -901,7 +914,7 @@ accordion, with the same links and functionality outlined above.
 
 - A general **product description** is visible by default. **Ingredients**,
   **directions for usage**, **product weight** and **allergen information**
-  are contained within the **'Details' and 'More Information accordions** further
+  are contained within the **'Details' and 'More Information' accordions** further
   down the page.
 
 - Within the **'Disclaimer' accordion** users are reminded
@@ -1019,44 +1032,34 @@ accordion, with the same links and functionality outlined above.
 
 ##### Cart Page Features
 
-- The 'Cart' presents the user with a table
-  containing the **product image**,
-  **product name**, **SKU**, **price** and **quantity** of
-  each item within the cart.
+- The 'Cart' page presents the user with a table containing the **product image**,
+  **product name**, **SKU**, **price** and **quantity** of each item within the cart.
 
-- Discounted items display both the full and discounted
-  price. The former is presented in strikethrough font to
-  remind the user of their saving and to reassure them
-  that they are receiving the discounted price.
+- Discounted items display both the full and discounted product price.
+  The former is presented in strikethrough font to remind the user of their saving
+  and to reassure them that they are receiving the discounted price.
 
 - **Minus and Plus symbols**,
-  either side of the quantity displayed, allow the user to
-  increase or decrease the quantity of that item.
-  The **lineitem subtotal** is adjusted accordingly.
-  If the quantity is decreased to zero the item is
-  removed from the cart.
+  either side of the quantity displayed, allow the user to increase or decrease
+  the quantity of that item. The **lineitem subtotal** is adjusted accordingly.
+  If the quantity is decreased to zero the item is removed from the cart.
 
-- Alternatively users can click on
-  the **trash can icon** at the end of each product row
-  to delete that product from their cart.
+- Alternatively users can click on the **trash can icon** at the end of each
+  product row to delete that product from their cart.
 
-- Logged-in users can see the **Promo Code input** and
-  **'Apply'** button. When a valid code is submitted
-  the promo code is rendered as a
+- Logged-in users can see the **Promo Code input** and **'Apply'** button.
+  When a valid code is submitted the promo code is rendered as a
   **[Bootstrap badge](https://getbootstrap.com/docs/5.0/components/badge/)**
-  within the cart 'Summary' table. Hover effects and the
-  'times' symbol indicate to the user that the code badge,
-  and associated discount, can be removed.
+  within the cart 'Summary' table. Hover effects and the 'times' symbol
+  indicate to the user that the code badge, and associated discount, can be removed.
 
-- The **'Continue Shopping'** button takes the user to
-  'Products' page.
+- The **'Continue Shopping'** button takes the user to the 'Products' page.
 
-- The cart 'Summary' table displays the **Cart Total**,
-  any **discount code and associated value** that has been applied,
-  and the **'Shipping' cost**. The **'Order Total'** appears
-  in bold text for emphasis. Text, in same blue hue as that used for
-  informative toast message cappers, informs the user
-  of the current **delivery delta**.
+- The cart 'Summary' table displays the **Cart Total**, any
+  **discount code and associated value** that has been applied, and the
+  **'Shipping' cost**. The **'Order Total'** appears in bold text for emphasis.
+  Text, in same blue hue as that used for informative toast message cappers,
+  informs the user of the current **delivery delta**.
 
 - The **'Secure Checkout' button** brings the user to
   the next step in the checkout process by opening the 'Checkout' page.
@@ -1069,37 +1072,30 @@ accordion, with the same links and functionality outlined above.
 
 ##### Checkout Page Features
 
-- An **order summary** displays a table of the items the user
-  has in their cart ready to purchase. The **product image**,
-  **name**, **quantity** and **lineitem subtotal** show
-  the user exactly what they are purchasing.
-  The **'Order Total'**, **discount code and discount amount**
-  if applied, the **'Delivery' cost** and the **'Grand Total'**
-  provide the user with an overview of their entire order.
+- An **order summary** displays a table of the items the user has in their cart ready
+  to purchase. The **product image**, **name**, **quantity** and **lineitem subtotal**
+  show the user exactly what they are purchasing. The **'Order Total'**,
+  **discount code and discount amount** if applied, the **'Delivery' cost** and the
+  **'Grand Total'** provide the user with an overview of their entire order.
 
-- Links to the **Log in** and **Sign Up** pages
-  have been provided to encourage the user to sign in or sign up
-  to take advantage of a faster checkout process.
+- Links to the **'Log in'** and **'Sign Up'** pages have been provided to encourage
+  the user to sign in or sign up to take advantage of a faster checkout process.
 
-- The **Checkout Form** is clearly labelled with placeholder
-  text to guide the user.
+- The **Checkout Form** is clearly labelled with placeholder text to guide the user.
 
-- Logged-in users can save the
-  delivery information to their profile by selecting the
-  **checkbox** provided. If information already exists in their
-  profile the associated form fields will have been prefilled.
+- Logged-in users can save the delivery information to their profile by selecting the
+  **checkbox** provided. If information already exists in their profile the
+  associated form fields will have been prefilled.
 
-- The **'Adjust Cart'** button directs the user back
-  to their 'Cart'.
+- The **'Adjust Cart'** button directs the user back to their 'Cart' page.
 
 - The **'Confirm and Pay Now'** button submits the form.
 
-- **[Stripe payments](www.stripe.com)** has been implemented to
-  securely manage the credit card transaction.
+- **[Stripe payments](www.stripe.com)** has been implemented to securely manage the
+  credit card transaction.
 
-- A **loading overlay** and **animated spinning icon**
-  provide the user with visual feedback that a process is taking
-  place.
+- A **loading overlay** and **animated spinning icon** provide the user with visual
+  feedback that a process is taking place.
 
 <br>
 
@@ -1109,18 +1105,17 @@ accordion, with the same links and functionality outlined above.
 
 ##### Checkout Success Page Features
 
-The Checkout Success page provides reassurance to the user that their
-purchase has been processed.
+The 'Checkout Success' page provides reassurance to the user that their Order
+has been processed.
 
-- A **toast message** informs the user that
-  an 'Order Confirmation Email' has been sent to the email address provided.
-  and displays all their order details.
+- A **toast message** informs the user that an 'Order Confirmation Email' has been
+  sent to the email address provided and displays all their order details.
 
 - A **summary of the order, delivery and billing information** is displayed
   on the page.
 
-- The **'Now check out the latest products!'** button links to the
-  'All New In' products page.
+- The **'Now check out the latest products!'** button links to the 'All New In'
+  products page.
 
 <br>
 
@@ -1141,34 +1136,27 @@ purchase has been processed.
   their **username** and **email address**. The **'Change Password'**
   button brings them to the 'Change Password' page.
 
-- The 'My Address Book' pane contains the
-  **'Default Delivey Information' table/form**,
-  prefilled for users who have previously chosen to save this
-  information during the checkout process.
-  Users can add this information to their account by
-  filling out this form and using the **'Update Information' button.**
+- The 'My Address Book' pane contains the **'Default Delivery Information' form**,
+  prefilled for users who have previously chosen to save this information during
+  the checkout process. Users can add to, or edit, this information by
+  filling out the form fields and using the **'Update Information' button.**
 
 - The 'My Order History' pane displays a table of the user's previous
-  orders, if any exist. The truncated **order number**, **date**,
-  **items purchased** and **Order Total** are displayed in rows.
-  The blue **Order Number** is a link that brings the user to the
-  'Checkout Success' page for that order.
+  orders, if any exist. The truncated **order number**, **date**, **items purchased**
+  and **Order Total** are displayed in rows. The blue **Order Number** is a link
+  that brings the user to the 'Checkout Success' page for that order.
 
-- The 'My Product Reviews' pane contains a table displaying
-  each **product reviewed**, the **review date**,
-  a pictorial representation of the
-  **review rating** in stars out of five and the **review title**.  
-  **'Edit'** and **'Delete'** links next to each review provide the
-  user with easy access to that functionality (outlined previously).
-  The **product name**, presented in green text, is a link to the
-  associated 'Product Detail' page.
+- The 'My Product Reviews' pane contains a table displaying each **product reviewed**
+  , the **review date**, a pictorial representation of the **review rating** in stars
+  out of five and the **review title**. **'Edit'** and **'Delete'** links next to each
+  review provide the user with easy access to that functionality (outlined previously).
+  The **product name**, presented in green text, is a link to the associated
+  'Product Detail' page.
 
-- The 'My Blog Comments' pane contains a table displaying
-  the **blogpost title**, **comment date**,
-  a truncated **opening sentence**.  
-  **'Edit'** and **'Delete'** links on each table row provide the
-  user with easy access to that functionality (outlined above).
-  The **blog title**, displayed in green, is a link to the
+- The 'My Blog Comments' pane contains a table displaying the **blogpost title**,
+  **comment date** and a truncated **opening sentence**. **'Edit'** and **'Delete'**
+  links on each table row provide the user with easy access to that functionality
+  (outlined above). The **blog title**, displayed in green, is a link to the
   associated 'BlogPost' page.
 
 <br>
@@ -1428,8 +1416,12 @@ implemented using [Django allauth](https://django-allauth.readthedocs.io/en/late
 - Add more payment options, including 'Paypal' to improve
   the user experience.
 - Add an expiration-date field to the DiscountCode model.
-- Add an Order History template rather than reusing the Checkout Success page.
 - Add the ability for users to filter blogpost search results.
+- Implement filtering of search results, particularly with respect to allergens.
+- Add an Order History template rather than reusing the Checkout Success page.
+- Create links to the relevant Product Details page for any product which is
+  referenced within a blog posts. Allowing the consumer to access more detailed information about the item and
+  making it easier for them to purchase the product if they so wish.
 
 <br>
 
@@ -1444,10 +1436,9 @@ for each page as they will appear on mobile, tablet and desktop devices.
 Main content areas on each page were designed for functionality and consistency.
 
 To cater for the increasing number of consumers shopping from mobile devices, the site
-uses responsive web design.
-Dargan Health Foods was designed with a mobile-first design philosophy,
-beginning with the product design from the mobile end, which has more restrictions and
-then expanding its features to create a tablet and desktop version.
+uses responsive web design. Dargan Health Foods was designed with a mobile-first design
+philosophy, beginning with the product design from the mobile end, which has more
+restrictions, and then expanding its features to create a tablet and desktop version.
 
 <br>
 
@@ -1506,21 +1497,24 @@ then expanding its features to create a tablet and desktop version.
 
 #### Design
 
-The perceived audience for the Dargan Health Food site are young,
-health-conscious and environmentally-conscious consumers.
+The perceived audience for the Dargan Health Foods site are young, health-conscious and
+environmentally-conscious consumers.
 
 Design choices were chosen to complement the business strategies and goals.
-The colour palette is bright and modern.
-As Dargan’s is a Health Food store a mixture of green hues were chosen to reflect the
-link between the products sold and nature. Green is also seen as energetic
-and a symbol of renewal. This ties in with Dargan’s branding, they are
-energetic and passionate about the Health Food business.
-White was chosen as a background colour to keep the look fresh and clean.
-This also allows the products to appear more vibrant and delivers a light
-and airy freshness. In order to give Dargan’s website a modern and fresh
-look a minimalistic approach was taken with simple fonts and a distinguishable logo.
+The colour palette is bright and modern. As Dargan’s is a Health Food store a mixture of
+green hues were chosen to reflect the link between the products sold and nature.
+Green is also seen as energetic and a symbol of renewal. This ties in with Dargan’s
+branding, they are energetic and passionate about the Health Food business.
+White was chosen as a background colour to keep the look fresh and clean. This also allows
+the products to appear more vibrant and delivers a light and airy freshness. In order to
+give Dargan’s website a modern and fresh look a minimalistic approach was taken with
+simple fonts and a distinguishable logo.
 
 <br>
+
+##### back to [top](#table-of-contents)
+
+---
 
 #### Colour Scheme
 
@@ -1755,16 +1749,16 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 
 #### ProductReview Model
 
-| Title            | Key in db      | Data Type     | Type Validation                                          |
-| :--------------- | :------------- | :------------ | :------------------------------------------------------- |
-| ProductReview ID | id             | AutoField     | primary_key=True                                         |
-| Product          | product        | ForeignKey    | [ref: > Product.id] // inline relationship (many-to-one) |
-| User             | user           | ForeignKey    | [ref: > UserProfile.id]                                  |
-| Review Rating    | review_rating  | IntegerField  | choices=Star_RATING_CHOICES                              |
-| Review Title     | review_title   | CharField     | max_length=255                                           |
-| Review Content   | review_content | TextField     |                                                          |
-| Created          | created        | DateTimeField | auto_now_add=True                                        |
-| Updated          | updated        | DateTimeField | [default: `now()`]                                       |
+| Title            | Key in db      | Data Type     | Type Validation             |
+| :--------------- | :------------- | :------------ | :-------------------------- |
+| ProductReview ID | id             | AutoField     | primary_key=True            |
+| Product          | product        | ForeignKey    | [ref: > Product.id]         |
+| User             | user           | ForeignKey    | [ref: > UserProfile.id]     |
+| Review Rating    | review_rating  | IntegerField  | choices=STAR_RATING_CHOICES |
+| Review Title     | review_title   | CharField     | max_length=255              |
+| Review Content   | review_content | TextField     |                             |
+| Created          | created        | DateTimeField | auto_now_add=True           |
+| Updated          | updated        | DateTimeField | [default: `now()`]          |
 
 <br>
 
@@ -1820,7 +1814,7 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 
 | Title              | Key in db          | Data Type    | Type Validation                                                                     |
 | :----------------- | :----------------- | :----------- | :---------------------------------------------------------------------------------- |
-| Order ID           | order_id           | ForeignKey   | [ref: > Order.id] // inline relationship (many-to-one)                              |
+| Order ID           | order_id           | ForeignKey   | [ref: > Order.id]                                                                   |
 | Product ID         | product_id         | ForeignKey   | [ref: > Product.id]                                                                 |
 | Product Price Paid | product_price_paid | DecimalField | max_digits=6, decimal_places=2, null=False, blank=False, editable=False, default=0, |
 | Quantity           | quantity           | IntegerField | default=1                                                                           |
@@ -1857,11 +1851,11 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 
 #### BlogPostTag Model
 
-| Title          | Key in db | Data Type  | Type Validation    |
-| :------------- | :-------- | :--------- | :----------------- |
-| BlogPostTag ID | id        | AutoField  | primary_key=True   |
-| BlogPost ID    | blogpost  | ForeignKey | [ref: BlogPost.id] |
-| Tag ID         | tag       | ForeignKey | [ref: Tag.id]      |
+| Title          | Key in db | Data Type  | Type Validation      |
+| :------------- | :-------- | :--------- | :------------------- |
+| BlogPostTag ID | id        | AutoField  | primary_key=True     |
+| BlogPost ID    | blogpost  | ForeignKey | [ref: > BlogPost.id] |
+| Tag ID         | tag       | ForeignKey | [ref: > Tag.id]      |
 
 <br>
 
@@ -1887,7 +1881,7 @@ located [here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 
 <br>
 
-Fixtures were made for
+Fixtures were created for
 
 - Product
 - Brand
@@ -1931,17 +1925,17 @@ They were then converted to json using [custom scripts](general_scripts/convert_
   - [Gitpod](https://www.gitpod.io/). An online IDE used to build and develop the website.
   - [Heroku](https://www.heroku.com/). The cloud platform used to host the deployed site.
   - [jQuery](https://jquery.com/). This JavaScript library was used to traverse the DOM and used for dynamic event handling.
-  - [Pep8online](http://pep8online.com/). Used to check the python files for PEP8 compliance.
+  - [PEP8online](http://pep8online.com/). Used to check the python files for PEP8 compliance.
   - [RandomKeyGen](https://randomkeygen.com/). Used to generate the Secret Keys.
-  - [Slack](code-institute-room.slack.com). Used during development and testing to find the solutions to problems enountered.
+  - [Slack](https://slack.com/intl/en-ie/). Used during development and testing to find the solutions to problems enountered.
   - [Stack Overflow](https://stackoverflow.com/). Used to search for the answers to problems encountered during the development and testing of the website.
-  - [Stripe](www.stripe.com). Payment processing platform used to validate and authenticate payments and, potentially, to receive payments made over the internet.
+  - [Stripe](http://www.stripe.com). Payment processing platform used to validate and authenticate payments and, potentially, to receive payments made over the internet.
   - [Subtle Tools](https://subtitletools.com/convert-text-files-to-utf8-online). Used to convert the products csv file to utf-8 so that it could be read by dictReader() before being converted to json.
   - [TinyPNG](https://tinypng.com/). Used to compress the site logos and background-images to improve performance results.
   - [Unsplash](https://www.unsplash.com). Used to source the non-product site images.
   - [Vecteezy](https://www.vecteezy.com). Used to source the site logo, banner offer image and the custom 404 and 500 page backgrounds.
   - [WebFormatter](https://webformatter.com/). Used to format the CSS, JavaScript and HTML files before submission.
-  - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator). Used to validate the CSS files.
+  - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). Used to validate the CSS files.
   - [W3C HTML Validation Service](https://validator.w3.org/). Used to validate the HTML files.
 
 - Frameworks
@@ -1962,7 +1956,7 @@ They were then converted to json using [custom scripts](general_scripts/convert_
 
 - Other Tools and Libraries:
   - [Black](https://pypi.org/project/black/). Used to format the python code.
-  - [Boto3](https://boto3.amazonaws.com/). A Python Software Development Kit (SDK) for AWS.
+  - [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html). A Python Software Development Kit (SDK) for AWS.
     Used to provide direct CRUD functionality of AWS resources from the Python scripts.
   - [Coverage](https://pypi.org/project/coverage/). Used to measure code coverage during automated-test execution.
   - [Dj_database_url](https://pypi.org/project/dj-database-url/) used to configure the Django application, swapping
@@ -2002,7 +1996,7 @@ following are installed on your machine:
 
 Accounts with the following services are also used within this project:
 
-- [Stripe](www.stripe.com)
+- [Stripe](https://www.stripe.com)
 - [AWS](https://aws.amazon.com/)
 - [Gmail](https://mail.google.com/)
 
@@ -2020,7 +2014,7 @@ Accounts with the following services are also used within this project:
 
 <br>
 
-4. Under the heading Clone select 'HTTPS'
+4. Under the heading Clone select 'HTTPS'.
 
 5. Click the image of a clipboard to the right of the URL in order to copy the address.
 
@@ -2153,7 +2147,7 @@ git push
 
 1. Navigated to the [Heroku](https://www.heroku.com/) site.
 2. Logged in to the site.
-3. Created a new app on the Heroku website by clicking the "New" button on the dashboard.
+3. Created a new app on the Heroku website by clicking the 'New' button on the dashboard.
    ![alt text](documentation/readme-images/heroku-new-app-button.png "New App button on Heroku.")
 
 <br>
@@ -2164,7 +2158,7 @@ git push
 <br>
 
 5. A new Postgres database was provisioned for the app.  
-   This was located by searching for Postgres in the Add ons search bar on the Resources tab on Heroku,
+   This was located by searching for Postgres in the 'Add-ons' search bar on the 'Resources' tab on Heroku,
    ![alt text](documentation/readme-images/heroku-resources-tab.png "Heroku Resources tab.")
 
 <br>
@@ -2183,7 +2177,7 @@ The 'Hobby Dev - Free' plan was chosen for this project.
 pip3 install psycopg2-binary
 ```
 
-- The Django utility [Dj_database_url](https://pypi.org/project/dj-database-url/) was installed.
+- The Django utility [dj_database_url](https://pypi.org/project/dj-database-url/) was installed.
   This utilizes the DATABASE_URL environment variable to configure the Django application, swapping
   the local database with one managed by a third party (such as Amazon) without changing the app’s code.
 
@@ -2202,7 +2196,7 @@ DATABASES = {
     }
 ```
 
-- This url can be located under the Config Variables heading on the Settings tab on Heroku.
+- This url can be located under the 'Config Variables' heading on the 'Settings' tab on Heroku.
 
 ![alt text](documentation/readme-images/heroku-settings-tab.png "Heroku Settings tab.")
 
@@ -2328,10 +2322,10 @@ git push heroku master
 
 <br>
 
-18. The configuration variables were set in Heroku and within the local environment.
+18. The configuration variables were set in Heroku within the local environment.
 
 - Within the 'Settings' tab for the app the button 'Reveal Config Vars' was clicked.
-- The following config vars were added (some information has been redacted for security purposes):
+- The following configuration variables were added (some information has been redacted for security purposes).
   [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
   was used to generate the secret keys.
   <br>
@@ -2354,7 +2348,7 @@ git push heroku master
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
 ```
 
-- Also within settings.py DEBUG was set to TRUE if a variable, 'DEVELOPMENT',
+- Also within settings.py DEBUG is set to TRUE if a variable, 'DEVELOPMENT',
   is to be found within the environment variables.
 
 ```{.python3}
@@ -2365,9 +2359,9 @@ DEBUG = "DEVELOPMENT" in os.environ
 
 ---
 
-#### Set Up an Amazon Web Services (AWS) Account.
+#### Set Up an Amazon Web Services Account
 
-- Amazon Web Services Simple Storage Service (S3) was used to store all of the static
+- Amazon Web Services (AWS) Simple Storage Service (S3) was used to store all of the static
   files, JavaScript files, CSS files and product images for the site.
 
 19. An account was created on [AWS](aws.amazon.com).
@@ -2383,7 +2377,7 @@ DEBUG = "DEVELOPMENT" in os.environ
 
 ---
 
-#### Set Up the Simple Storage Service (S3) Bucket
+#### Set Up the Simple Storage Service Bucket
 
 21. A new Bucket was created to store the files.
     ![alt text](documentation/readme-images/aws-create-bucket.png "AWS S3 Create Bucket.")
@@ -2430,8 +2424,8 @@ DEBUG = "DEVELOPMENT" in os.environ
   ![alt text](documentation/readme-images/aws-bucket-policy-generator.png "AWS S3 Bucket Policy Generator.")
 
 <br>
-- The Access Control List permission was set for Everyone, under the Public Access 
-Section.
+- The Access Control List permission was set for 'Everyone', under the 'Public Access 
+Section'.
 
 ![alt text](documentation/readme-images/aws-bucket-access-control-list.png "AWS S3 Bucket Access Control List.")
 
@@ -2656,7 +2650,7 @@ STRIPE_WH_SECRET => YOUR_STRIPE_WH_SECRET
 
 #### Set up Django emails using Gmail
 
-29. Automatic emails were set up using [Gmail](mail.google.com).
+29. Automatic emails were set up using [Gmail](https://www.google.com/gmail/about/#).
 
 - Within Gmail's 'Account Settings',
   the 'Other Google Account Settings' link was selected.
@@ -2726,13 +2720,13 @@ The following [Bootstrap](https://getbootstrap.com/) components were used and mo
 
 - Ecology Nature Element from [Vecteezy](https://www.vecteezy.com/vector-art/632493-ecology-logo-nature-element-vector) was used for the site logo.
 - Fresh Spring Background with Illustrated Flowers from [Vecteezy](https://www.vecteezy.com/vector-art/143782-free-spring-flower-wreath-background) was used for the offer banner image.
-- Come In We're Open Sign from Tim Mossholder on [Unsplash](https://unsplash.com/photos/jEOAOVq39Z4) was used for the Our Story page.
-- Herbs and Spices on Board from Chinh Le Duc on [Unsplash](https://unsplash.com/photos/vuDXJ60mJOA) was used for the Blog banner image.
-- Sliced Kiwi Fruit Photo from Lesly Juarez on [Unsplash](https://unsplash.com/photos/1rafrfyrsZw) was used for the Heart Health Blog Post image.
-- Vegan Salad Bowl by Anna Pelzer on [Unsplash](https://unsplash.com/photos/IGfIGP5ONV0) was used for the Easy Vegan Swaps Blog Post image.
-- Hot Cross Buns by Jasmine Waheed on [Unsplash](https://unsplash.com/photos/dRJGQAu6x8U) was used for the Cinnamon Hot Cross Buns Blog Post image.
-- Christmas Cake by Brett Jordan on [Unsplash](https://unsplash.com/@brett_jordan) was used for the Gluten Free Christmas Cake Blog Post image.
-- Shopping Cart Trolley Icon by icon0.com on [Unsplash](https://www.vecteezy.com/vector-art/575187-shopping-cart-trolley-icon) was used on the Shopping Cart page when no items were to be found in the user's cart.
+- Come In We're Open Sign from Tim Mossholder on [Unsplash](https://unsplash.com/photos/jEOAOVq39Z4) was used for the 'Our Story' page.
+- Sliced Kiwi Fruit Photo from Lesly Juarez on [Unsplash](https://unsplash.com/photos/1rafrfyrsZw) was used for the 'Heart Health' BlogPost image.
+- Vegan Salad Bowl by Anna Pelzer on [Unsplash](https://unsplash.com/photos/IGfIGP5ONV0) was used for the 'Easy Vegan Swaps' BlogPost image.
+- Hot Cross Buns by Jasmine Waheed on [Unsplash](https://unsplash.com/photos/dRJGQAu6x8U) was used for the 'Cinnamon Hot Cross Buns' BlogPost image.
+- Christmas Cake by Brett Jordan on [Unsplash](https://unsplash.com/@brett_jordan) was used for the 'Gluten Free Christmas Cake' BlogPost image.
+- Shopping Cart Trolley Icon by icon0.com on [Unsplash](https://www.vecteezy.com/vector-art/575187-shopping-cart-trolley-icon) was used on the Shopping 'Cart' page when no items were to be found in the user's cart.
+- Magnifying Glass on White by Graphics RF on [Vecteezy](https://www.vecteezy.com/vector-art/299418-magnifying-glass-on-white) was used for the 'Products' page when no items were returned.
 - Product images were provided by [Viridian Nutrition](https://www.viridian-nutrition.com/).
   <br>
 
