@@ -11,6 +11,8 @@
 - [Responsiveness](#responsiveness)
   - [Device Responsiveness](#device-responsiveness)
   - [Browser Responsiveness](#browser-responsiveness)
+    - [Functions Tested as a Logged-In User](#functions-tested-as-a-logged-in-user)
+    - [Functions Tested as a Logged-Out User](#functions-tested-as-a-logged-out-user)
 - [Defensive Design Testing](#defensive-design-testing)
 - [Tested User Stories](#tested-user-stories)
   - [Prospective User](#tested-prospective-user-stories)
@@ -20,6 +22,7 @@
   - [Unittests](#unittests)
   - [Coverage Installation and Setup](#coverage-installation-and-setup)
   - [Automated Test Links and Coverage Results](#automated-test-links-and-coverage-results)
+  - [Overall Automated Test Coverage](#overall-automated-test-coverage)
 - [Bugs](#bugs)
   - [Pagination Issue](#pagination-issue)
   - [Multiple Destination Redirects](#multiple-destination-redirects)
@@ -108,13 +111,13 @@ Accessibility, Best Practices and Search Engine Optimization.
 
 <br>
 
-**Lighhouse Mobile Test Results for index.html**
+**Lighthouse Mobile Test Results for index.html**
 
 ![alt text](documentation/readme-images/lighthouse-home-mobile-results.png "Lighthouse home page mobile results.")
 
 <br>
 
-**Lighhouse Desktop Test Results for index.html**
+**Lighthouse Desktop Test Results for index.html**
 
 ![alt text](documentation/readme-images/lighthouse-home-desktop-results.png "Lighthouse home page desktop results.")
 
@@ -448,7 +451,7 @@ which identifies the site as an e-commerce store which sells health food.
 
 <br>
 
-Beneath the Sale banner the user is presented with images and links to the Latest Products,
+Beneath the sale banner the user is presented with images and links to the Latest Products,
 showing them a selection of the items on offer in the store.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-home-page-mobile-device.png "Screenshot of the Home Page on a mobile device.")
@@ -490,25 +493,25 @@ This same information is contained within a dropdown-accordion, entitled 'Find U
 
 &#9745; Easily see what products are available.
 
-On the Home Page, site visitors, are presented with the four latest products to be added to the site.
+On the 'Home' page, site visitors, are presented with the four latest products to be added to the site.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-latest-products-desktop-device.png "Screenshot of the New Arrivals section of the Home Page on a desktop device.")
 
 <br>
 
-Beneath these products there is a link which takes the user to a page of All New Products added to the site.
+Beneath these products there is a link which takes the user to a page of 'All New Products' added to the site.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-latest-products-mobile-device.png "Screenshot of the New Arrivals section of the Home Page on a mobile device.")
 
 <br>
 
-Alternatively, visitors can access site products by choosing one of the departmental titles, and their desired 'Category' choice from those displayed on the main Navbar.
+Alternatively, visitors can access site products by choosing one of the departmental titles, and their desired category choice from those displayed on the main navbar.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-latest-products-desktop-device.png "Screenshot of the main navbar on a desktop device.")
 
 <br>
 
-These options are contained within the dropdown menu, accessed using the Hamburger icon, on mobile devices.
+These options are contained within the dropdown menu, accessed using the hamburger icon, on mobile devices.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-main-menu-submenu-expanded-mobile-device.png "Screenshot of the hamburger icon menu when expanded on a mobile device.")
 
@@ -661,7 +664,7 @@ is displayed in a helpful summary table.
 
 <br>
 
-Once the 'Billing Details' form and credit card input has been filled out the credit card payment is handled securely by [Stripe](www.stripe.com).
+Once the 'Billing Details' form and credit card input has been filled out the credit card payment is handled securely by [Stripe](https://www.stripe.com).
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-checkout-payment-input-tablet-device.png "Screenshot of the Checkout page payment input as shown on a tablet device.")
 
@@ -910,17 +913,13 @@ I am an existing Dargan Health Foods site member I want to be able to:
 
 Links to the 'Login' page are provided at numerous points throughout the site, however,
 they are most clearly visible on the topnav on a desktop device or within the
-'Account' dropdown on a mobile device or within the 'Quick Links' section of the footer.
+'Account' dropdown on a mobile device.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-navbar-desktop-device.png "Screenshot of the Sign In link on the desktop topnav.")
 
 <br>
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-menu-logged-out-user-expanded-mobile-device.png "Screenshot of the Account dropdown menu with Register link on a mobile device.")
-
-<br>
-
-![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-footer-desktop-device.png "Screenshot of the footer on a desktop device.")
 
 <br>
 
@@ -1036,7 +1035,7 @@ users can purchase their desired items.
 
 <br>
 
-The payment is handled securely by [Stripe](www.stripe.com).
+The payment is handled securely by [Stripe](https://www.stripe.com).
 
 A loading overlay and spinning icon provide visual feedback that their payment is being processed.
 
@@ -1070,7 +1069,7 @@ on their 'My Account' page.
 <br>
 
 The order numbers on each row have been rendered in the same blue hue as other text links
-within the site. This alerts the user to the fact that these numbers operate a links.
+within the site. This alerts the user to the fact that these numbers operate as links.
 By clicking on them, the user is brought to the 'Order Confirmation' page for that order.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-past-order-confirmation-toast-mobile-device.png "Screenshot of the Past Order Confirmation toast on a mobile device.")
@@ -1085,7 +1084,7 @@ A search box is visible on the desktop navbar at all times. The search input on 
 
 <br>
 
-Users can search the for a product by entering a specific brand or product title into the input, or
+Users can search for a product by entering a specific brand or product title into the input, or
 by searching for an ingredient, tag or keyword instead.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-search-results-tablet-device.png "Screenshot of a search results on a desktop device.")
@@ -1107,7 +1106,7 @@ for example, the 'All Vitamins & Minerals' option returns all of the products wi
 &#9745; Sort search results, by price, alphabetically or by rating.
 
 Users are able to sort the search results returned by rating, price or alphabetically.
-This can be done by chosing the desired ordering system from the sorting dropdown select box.
+This can be done by choosing the desired ordering system from the sorting dropdown select box.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-sorting-search-results-desktop-device.png "Screenshot of the sorting dropdown select on a desktop device.")
 
@@ -1115,17 +1114,15 @@ This can be done by chosing the desired ordering system from the sorting dropdow
 
 &#9745; Filter products by allergen or other pertinent tags.
 
-Keywords/tags associated with a specific product are
-rendered as links on the Product Details page.
+Keywords/tags associated with a specific product are rendered as links on the Product Details page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-tags-desktop-device.png "Screenshot of product tags on a product details page on a desktop device.")
 
 <br>
 
-The user can choose to find other products associated with the
-same keyword/tag by clicking on the desired link.
-They will be redirected to a page displaying those products, which
-can then be sorted alphabetically, by rating or by price.
+The user can choose to find other products associated with the same keyword/tag by clicking
+on the desired link. They will be redirected to a page displaying those products, which can
+then be sorted alphabetically, by rating or by price.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-kosher-products-tablet-device.png "Screenshot of products returned as being tagged as kosher on a desktop device.")
 
@@ -1134,9 +1131,8 @@ can then be sorted alphabetically, by rating or by price.
 &#9745; See images of the product packaging.
 
 Users are presented with an image of each product, where available, on the product cards and within the
-Product Details page.
-If no image is available, the user is made aware of this through the
-rendering of the 'no-image-placeholder.svg'.
+Product Details page. If no image is available, the user is made aware of this through the
+rendering of the `no-image-placeholder.svg`.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-no-image-placeholder-mobile-device.png "Screenshot of a product image and the no image placeholder on a mobile device.")
 
@@ -1157,8 +1153,8 @@ Descriptions of the products can be found on the Product Details page for each p
 
 <br>
 
-Further information, product ingredients and directions for usage are to be found
-within the 'Details' accordion on the same page.
+Further information, product ingredients and directions for usage are to be found within the
+'Details' accordion on the same page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-ingredients-tablet-device.png "Screenshot of the Details accordion on a Product Details page on a tablet device.")
 
@@ -1174,8 +1170,7 @@ customer reviews submitted so far.
 
 <br>
 
-This Review Count is a link that brings the user to the 'Customer Reviews' accordion where
-they can read the actual reviews.
+This Review Count is a link that brings the user to the 'Customer Reviews' accordion where they can read the actual reviews.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-product-with-2-reviews-desktop-device.png "Screenshot of a Product Details page with reviews on a desktop device.")
 
@@ -1183,17 +1178,15 @@ they can read the actual reviews.
 
 &#9745; Leave a review of a product that I have previously purchased through the site.
 
-Customers who have purchased a product through the site can leave a review
-by navigating to the product details page for that product.
-Within the 'Customer Reviews' accordion they can select the 'Leave a Review' button.
-This button is only displayed if they current user has previously purchased this item.
+Customers who have purchased a product through the site can leave a review by navigating to the
+'Product Details' page for that product. Within the 'Customer Reviews' accordion they can select
+the 'Leave a Review' button. This button is only displayed if they current user has previously purchased this item.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-button-mobile-device.png "Screenshot of the Leave a Review button on a mobile device.")
 
 <br>
 
-The customer is brought to a page with a clearly labelled form
-where they can enter and submit their review.
+The customer is brought to a page with a clearly labelled form where they can enter and submit their review.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-tablet-device.png "Screenshot of the Leave a Review form on a tablet device.")
 
@@ -1201,7 +1194,7 @@ where they can enter and submit their review.
 
 &#9745; Input my review easily into a user-friendly form that is straightforward to use.
 
-The 'Product Review Form' has a helpful label and placeholder text to instruct the user.
+The 'Product Review Form' has a label and helpful placeholder text to instruct the user.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-leave-a-review-form-desktop-device.png "Screenshot of the Leave a Review form on a desktop device.")
 
@@ -1235,8 +1228,7 @@ rendered next to their review on the relevant 'Product Details' page.
 
 <br>
 
-Site members also have access to these links on their 'My Account' page within the
-'Product Reviews' tabbed pane.
+These site members also have access to the links on their 'My Account' page within the 'Product Reviews' tabbed pane.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-account-my-product-reviews-tablet-device.png "Screenshot of the My Account My Product Reviews tab on a tablet device.")
 
@@ -1280,7 +1272,7 @@ menu and within the footer 'Quick Links'.
 
 <br>
 
-The Dargan Health Foods shop address, business email address and phone number are to be found within the footer
+The Dargan Health Foods shop address, business email address and phone number are to be found within the
 'Find Us' section/accordion in the footer on each page.
 
 ![alt text](documentation/readme-images/tested-user-stories-screenshots/screenshot-find-us-footer-accordion-mobile-device.png "Screenshot of the Find Us accordion in the footer on a mobile device.")
@@ -1764,6 +1756,8 @@ they can edit the current information before saving their alterations.
 
 &#9746; Indicate to customers when a product is out of stock.
 
+This functionality has not yet been implemented.
+
 &#9745; Delete and/or discontinue products that are no longer available, removing their images and information from the website.
 
 Delete functionality is provided to Superusers through the provision
@@ -1819,7 +1813,7 @@ and pressing the 'Add Blog Post' button.
 
 Django's testing framework was used to create automated tests for the project.
 
-A tests directory was added to each app.
+A `tests` directory was added to each app.
 Within these directories individual files were created to test the app's views, models and forms.
 
 For the purposes of this MVP at least 55% of each app has been covered by automated tests.
@@ -1885,7 +1879,7 @@ The report can then be viewed in a web browser using the command:
 python3 -m http.server
 ```
 
-and selecting the 'htmlcov/' directory.
+and selecting the `htmlcov/` directory.
 
 <br>
 
@@ -1943,9 +1937,10 @@ and selecting the 'htmlcov/' directory.
 
 ### Pagination Issue
 
-[Pagination](<(https://github.com/nualagr/dargan-health-foods/commit/7b8b1e0fc9afd4d0f8b39b69611bc38c8679ff28)>) was applied to the products.html page and initially worked correctly. However, once filtering of products
+[Pagination](<(https://github.com/nualagr/dargan-health-foods/commit/7b8b1e0fc9afd4d0f8b39b69611bc38c8679ff28)>)
+was applied to the `products.html` page and initially worked correctly. However, once filtering of products
 by search criteria was implemented, the pagination 'previous' and 'next' buttons
-brought the user to page one or three of the products.html page, rather than the page associated with the chosen queryset.
+brought the user to page one or three of the `products.html` page, rather than the page associated with the chosen queryset.
 This problem was put to one side. Filtering of products by category and department was implemented. Then sorting of
 results was developed. Once filtering by tag had been put in place the issue of pagination was again approached.
 At first
@@ -1955,19 +1950,19 @@ At first
 ```
 
 was used to get the url and feed it to the 'next' and 'previous' pagination buttons, however this was unsuccessful since this
-url contains not only the search criteria etc., but also '?page=1'. Therefore, when navigating from 'page=2' to 'page=1',
+url contains not only the search criteria etc., but also `?page=1`. Therefore, when navigating from `page=2` to `page=1`,
 the former remained within the url, invalidating it.
 
 The application of a [custom template tag](https://github.com/nualagr/dargan-health-foods/commit/dd1d2fddb32e018da0371fd252210762fe3eb062)
 succeeded in rectifying the issue. In the template the custom template tag `current_query_url`
-is called and it is passed three arguments, the 'page' keyword, the current page number and the current url.
+is called and it is passed three arguments, the `page` keyword, the current page number and the current url.
 
 ```
 href="{% current_query_url 'page' page_obj.previous_page_number request.GET.urlencode %}" aria-label="Link to Previous Page">
 ```
 
-Within the template tag the new page-number element of the url is reconstructed from the 'page'
-keyword and the new `page_number` value. Then the encoded url is split into its constituent parts at the '&'.
+Within the template tag the new page-number element of the url is reconstructed from the `page`
+keyword and the new `page_number` value. Then the encoded url is split into its constituent parts at the `&`.
 The page-number element is filtered out and the remaining query element(s) are reattached using an ampersand.
 Finally the query elements of the url are connected with the new page number element and returned to the template.
 
@@ -1996,7 +1991,7 @@ once the site had been populated with a significant number of products as
 the number of page links resulted in horizontal overflow, particularly when viewed on mobile devices.
 An answer posted on [StackOverflow](https://stackoverflow.com/questions/41131802/django-paginator-page-range-for-not-displaying-all-numbers)
 suggested limiting the number of links being rendered within the template.
-An 'if' 'elif' 'else' block was added to the pagination.html include to limit the number
+An 'if' 'elif' 'else' block was added to the `pagination.html` include to limit the number
 of page numbers being rendered to +-3 on either side of the active page number.
 
 ```
@@ -2026,11 +2021,11 @@ to the viewer that the page range does not reflect the total number of pages ret
 This issue arose in relation to two different pages, the 'Edit Product Review'
 page and the 'Edit BlogPost' page. Links to these pages exist in multiple locations within the site.
 Initially the redirects, upon submission of the forms, were hardcoded to a single location.
-If the user edited their product review they were redirected to the product page,
-even if they had clicked the 'Edit' button on their Profile page.
+If the user edited their product review they were redirected to that 'Product Details' page,
+even if they had clicked the 'Edit' button on their 'Profile' page.
 This was less than satisfactory, from a user-experience point of view.
 [In order to redirect users to the page from which they had initially come](https://github.com/nualagr/dargan-health-foods/commit/0ee02100805b0a999e9a9fac397cd26c41b13bf3),
-it was necessary to capture the referring page url from the HttpRequest.META,
+it was necessary to capture the referring page url from the `HttpRequest.META`,
 which is a dictionary containing all the HTTP headers including the `HTTP_REFERER`.
 As this value changes to the current url upon the submission of the form
 it was necessary to assign the referring url, with the GET request, to a hidden input on the 'Edit Review' form.
@@ -2063,11 +2058,11 @@ This allowed Superusers to mark individual product prices down from within the a
 This new structure was then reflected in the OrderLineItem Model where the subtotal for each lineitem is calculated.
 An issue arose relating to a User's past orders however. The Order model accesses the 'product.price' through a Foreign Key to the Product model.
 This points to the price for that product, as it appears, currently, in the database.
-The Order, however, needed to reference the price, as it existed, when the order was originally placed.
+The Order, however, needed to reference the price, as it existed, when the Order was originally placed.
 This original price had been, and still is, stored in the Order model within the json string of the `original_cart`.
 To facilitate easier access to this vital piece of information, a new field, `product_price_paid`, was added to the OrderLineItem model.
 This value is now set when the OrderLineItem is saved.
-It is this field that is now accessed and displayed within each order on the profile.html 'My Orders' tab.
+It is this field that is now accessed and displayed within each Order on the `profile.html` 'My Orders' tab.
 
 <br>
 
@@ -2078,22 +2073,22 @@ The addition of Discount Codes to the project required revision of many elements
 For the purposes of the current MVP, a very simple [DiscountCode model](https://github.com/nualagr/dargan-health-foods/commit/c9445ca3d1c48bb004ce65434aaf856e3cfdcad2)
 of only two fields was used. This consisted of the promo code and the associate percentage discount to be applied.
 After reading Kim Salazar's article ["Applying Discounts and Ecommerce Websites"](https://www.nngroup.com/articles/applying-discounts/) it became clear
-that, from a user-experience point-of-view, it would be best to allow site users to apply this code within the Cart rather than making them wait
-until they were on the Checkout page. This approach enables people to check that the discount code is valid before they enter any personal information
+that, from a user-experience point-of-view, it would be best to allow site users to apply this code within the 'Cart' rather than making them wait
+until they were on the 'Checkout' page. This approach enables people to check that the discount code is valid before they enter any personal information
 and also allows the total to be updated appropriately early in the process.
-A DiscountCodeForm, based on the DiscountCode model was created and rendered on the cart.html page. On submission of this form, the discount code,
+A DiscountCodeForm, based on the DiscountCode model was created and rendered on the `cart.html` page. On submission of this form, the discount code,
 if valid, is stored in the Session Cookie.
 
 The `discount_amount` is then calculated and applied to the cart 'total' within the `cart_contents` context.
 The discount code object is saved in a variable, `discount_code`, and added to the context dictionary so that it is globally available within the different templates.
 
-Within the 'checkout' view the discount code object ID is obtained from the session cookie.
+Within the `checkout` view the discount code object ID is obtained from the session cookie.
 The corresponding DiscountCode object is attached, as a ForeignKey field, to the Order before it is saved to the database.
-Then when .save() is called on the Order, the `update_total()` method is called and the discount applied.
+Then when `.save()` is called on the Order, the `update_total()` method is called and the discount applied.
 
 To be able to provide the user with visible feedback on the financial benefit of the addition of their promo code,
 a new variable, ['total_before_discount'](https://github.com/nualagr/dargan-health-foods/commit/cdac94bafada5d89e5310a452a4785b2cbb578fe)
-was created within the `cart_contents` context. 'If' 'else' statements were added to the checkout_success.html page to render the discount code and the amount
+was created within the `cart_contents` context. 'If' 'else' statements were added to the `checkout_success.html` page to render the discount code and the amount
 of money discounted, providing the user with confirmation that they received their discount.
 
 Within the `_send_confirmation_email()` function in the `webhook_handler` two new variables were created to store the discount code and amount discounted.
@@ -2102,14 +2097,14 @@ customers with a confirmation that their promo code had been applied and that th
 
 Logic then had to be applied to [handle the discount when orders are created within the webhook](https://github.com/nualagr/dargan-health-foods/commit/fabfac039b94966cbd99fc3b59e166e2c4d5bd44).
 This process is triggered when errors occur during the checkout process, such as the browser being closed before the Order has been created in the database.
-In the `cache_checkout_data()` function in the checkout/views.py a json string of the discount code was attached to the Payment Intent metadata.
+In the `cache_checkout_data()` function in `checkout/views.py` a json string of the discount code was attached to the Payment Intent metadata.
 Within the `handle_payment_intent_succeeded()` function this is unpacked and the associated DiscountCode object located in the database.
 This object can then be linked to the `discount_code` ForeignKey field on the newly created Order.
 This ensured that Orders created in this manner, within the webhook, now correctly reflect the discount applied by the user in the Cart.
 
 An issue arose in relation to this however as [exceptions were raised when no discount code had been applied to the Order being created in the webhook](https://github.com/nualagr/dargan-health-foods/commit/0b92b6e7594f0881dc2f2cb0d934ddf8b95511e7).
-Different solutions, suggested by [StackOverflow](https://stackoverflow.com/questions/3090302/how-do-i-get-the-object-if-it-exists-or-none-if-it-does-not-exist) members were attempted.
-In the end an 'if' 'else' statement was inserted before the 'try' 'except' block in which the Order is created.
+Different solutions, suggested by [StackOverflow](https://stackoverflow.com/questions/3090302/how-do-i-get-the-object-if-it-exists-or-none-if-it-does-not-exist)
+members were attempted. In the end an 'if' 'else' statement was inserted before the 'try' 'except' block in which the Order is created.
 This retrieves the DiscountCode object from the database, if one exists, and if not, it sets the variable to 'None'.
 Now Orders, with or without discount codes, are successfully created within the Webhook Handler in the event of errors during the checkout process.
 
@@ -2128,13 +2123,12 @@ Multiple Orders also occurred occasionally within the development and deployed e
 Logging was used to track payment events to isolate the issue.
 Multiple Orders were being created with `grand_total`s of, for example,
 `16.005`. When using `round()` to convert the `grand_total` from a
-Decimal to an integer for Stripe, this was
-evaluated as `1601`, however, when saving the `grand_total` to the database field,
-which had been set to two decimal places, this was saved as `16.00`.
-This resulted in the `webhook_handler`, being unable to find the Order in
-the database, as the `grand_total` differed from that which was being sent by Stripe.
-The `webhook_handler` then created a second Order with the `grand_total` of
-`16.01`.
+Decimal to an integer for Stripe, this was evaluated as `1601`, however, when saving the
+`grand_total` to the database field, which had been set to two decimal places,
+this was saved as `16.00`. This resulted in the `webhook_handler`, being unable to
+find the Order in the database, as the `grand_total` differed from that which was
+being sent by Stripe. The `webhook_handler` then created a second Order with the
+`grand_total` of `16.01`.
 
 Rounding the `delivery_cost` within the `update_total()` method on
 the Order model, before the `grand_total` is calculated produces
@@ -2159,7 +2153,7 @@ the Order model, before the `grand_total` is calculated produces
 
 ## Unresolved Issues
 
-- Choosing the price options, 'Price High to Low' or 'Price Low to High' from the
+- Choosing the price sorting options, 'Price High to Low' or 'Price Low to High' from the
   dropdown 'Sort by...' select on the 'Products' page does not take the
   discount price of a product into account.
 
